@@ -547,8 +547,8 @@ ALTER TABLE MY_SCHEMA.D15_Detail
 
 /* 품종 */
 CREATE TABLE MY_SCHEMA.D15_kind (
- k_code NUMBER NOT NULL, /* 견종코드 */
- k_kind VARCHAR2(20) NOT NULL /* 견종 */
+ k_code VARCHAR2(20) NOT NULL, /* 견종코드 */
+ k_kind VARCHAR2(100) NOT NULL /* 견종 */
 );
 
 COMMENT ON TABLE MY_SCHEMA.D15_kind IS '품종';
