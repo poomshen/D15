@@ -25,8 +25,7 @@ public class MissingInsertService implements Action {
 		petdto.setP_image(request.getParameter("p_weight"));	
 		
 		Kind_DTO kinddto=new Kind_DTO();
-		kinddto.setK_code(request.getParameter("select"));
-		kinddto.setK_kind("골든 리트리버");
+		kinddto.setK_code(request.getParameter("k_code"));
 		
 		Pet_DAO petdao = new Pet_DAO();
 		int n=petdao.insertPet(petdto, kinddto);

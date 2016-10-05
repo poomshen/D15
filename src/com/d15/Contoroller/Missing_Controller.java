@@ -52,7 +52,7 @@ public class Missing_Controller extends HttpServlet {
 			//신고폼 보여주기
 			forward=new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("include/boardwrite.jsp");
+			forward.setPath("D15/Missing/petwrite.jsp");
 			try{
 				forward=action.execute(request, response);
 				System.out.println(request.getAttribute("result"));
