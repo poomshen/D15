@@ -26,13 +26,9 @@
 					console.log(item.k_code + "/" + item.k_kind);
 					var k_code = item.k_code;
 					var k_kind = item.k_kind;
-					$("#k_code").append("<option value =" + k_code + ">" + k_kind + "</option>");
+					$("#k_code").append("<option value =" + k_kind + ">" + k_kind + "</option>");
 				});
 			}
-		});
-
-		$("#k_code").change(function() {
-			
 		});
 	});
 	
@@ -43,7 +39,7 @@
 	<form action ="" name = "form" method = "post">
 		견종 선택 : 
 		<select name = "k_code" id = "k_code">
-			<option>선택</option>			
+			<option>선택</option>		
 		</select><br>
 		성  별 : <input type = "radio" value = "m" name = "p_gender">수컷
 			  <input type = "radio" value = "f" name = "p_gender">암컷 <br>
