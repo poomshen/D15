@@ -18,8 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
+import com.d15.DAO.Pet_DAO;
+import com.d15.Service.MissingInsertService;
 
-@WebServlet("/*.missing")
+@WebServlet("*.missing")
 public class Missing_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -59,12 +61,13 @@ public class Missing_Controller extends HttpServlet {
 			}
 		} else if(url_command.equals("/BoardWriteOk.missing")){
 			//글쓰기
-			//BoardDto dto=new BoardDto();
-			//dto.setTitle(request.getParameter("title"));
-			//dto.setTitle(request.getParameter("writer"));
-			//BoardDao dao=new BoardDao();
-			//dao.writeok();
-			//action=new BoardWriteOk();
+			action = new MissingInsertService(); // 다형성 (BoardListAction 이 action 구현)
+			try {
+				forward = action.execute(request, response);
+				// BoardListActon.java 설정한 (request)정보 :
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		//3.결과저장
