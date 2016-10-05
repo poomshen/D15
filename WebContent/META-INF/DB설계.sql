@@ -739,5 +739,59 @@ ALTER TABLE MY_SCHEMA.D15_Detail
    m_no
   );
   
-  
+  create sequence m_no_seq -- 회원
+start with 1
+increment by 1
+nocache;
+
+create sequence notice_no_seq -- 공지사항
+start with 1
+increment by 1
+nocache;
+
+create sequence p_no_seq -- 펫
+start with 1
+increment by 1
+nocache;
+
+create sequence mis_no_seq -- 실종신고 게시판
+start with 1
+increment by 1
+nocache;
+
+create sequence mes_no_seq -- 쪽지
+start with 1
+increment by 1
+nocache;
+
+create sequence st_no_seq -- 보호소
+start with 1
+increment by 1
+nocache;
+
+create sequence org_no_seq -- 유기동물
+start with 1
+increment by 1
+nocache;
+
+create sequence pc_no_seq -- 분양
+start with 1
+increment by 1
+nocache;
+
+create sequence pr_no_seq -- 임시보호
+start with 1
+increment by 1
+nocache;
+
+
+create sequence b_no_seq -- 게시판
+start with 1
+increment by 1
+nocache;
+
+create sequence re_no_seq -- 댓글
+start with 1
+increment by 1
+nocache;
   
