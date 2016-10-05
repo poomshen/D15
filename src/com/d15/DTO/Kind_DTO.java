@@ -9,12 +9,12 @@
 package com.d15.DTO;
 
 public class Kind_DTO {
-	private int k_code; // 견종코드
+	private String k_code; // 견종코드
 	private String k_kind; // 견종
-	public int getK_code() {
+	public String getK_code() {
 		return k_code;
 	}
-	public void setK_code(int k_code) {
+	public void setK_code(String k_code) {
 		this.k_code = k_code;
 	}
 	public String getK_kind() {
