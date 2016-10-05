@@ -36,7 +36,7 @@
 </script>
 </head>
 <body>
-	<form action ="" name = "form" method = "post">
+	<form action ="BoardWriteOk.missing" name = "form" method = "post">
 		견종 선택 : 
 		<select name = "k_code" id = "k_code">
 			<option>선택</option>		
