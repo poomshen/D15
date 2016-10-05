@@ -30,7 +30,7 @@ public class Encoding_Filter implements Filter {
 		//1.request(들어올때)
     	if(request.getCharacterEncoding() == null){
     		System.out.println("Before : " + request.getCharacterEncoding());
-    		request.setCharacterEncoding(this.encoding);
+    		request.setCharacterEncoding("UTF-8");
     		System.out.println("After : " + request.getCharacterEncoding());
     	}
     	chain.doFilter(request, response);
