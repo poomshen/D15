@@ -4,3 +4,11 @@
 		   com.d15.Contoroller - servlet
 		   com.d15.utils
 		   com.d15.Action - Action interface 구현
+		   com.d15.Filter - 필터
+		   
+각 변수 명 : 예시) m_no , memo_id .. 언더바
+각 함수 명 : 예시) getWrite , chickenPizza .. 첫단어는 소문자 그 뒤로 붙는 단어는 대문자 시작
+각 클래스 명 : 예시 ) Action , Pizza , Chicken_Pizza... 의미있는 단어의 앞 단어는 대문자 ,언더바
+-----------> Member_DAO 같이
+
+jsp,html 명 : 예시 ) action.jsp , pizza.jsp ,... 다 소문자
