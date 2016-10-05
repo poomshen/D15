@@ -1,0 +1,70 @@
+* Model2기반의 MVC 적용 회원가입
+
+1. 회원가입 테이블 설계
+create table memo(
+id varchar2(15) not null,
+email varchar2(20) not null,
+content varchar2(100)
+);
+
+create table memo_test
+as select * from memo where 1=2;
+
+
+2.Model2 base MVC (Application) 
+	패키지명 : com.d15.DAO - dao
+		   com.d15.DTO - dto
+		   com.d15.Service - servlet 에서 사용 할 자원
+		   com.d15.Contoroller - servlet
+		   com.d15.utils
+		   com.d15.Action - Action interface 구현
+
+	
+인터페이스
+	Action.java		
+	
+
+	
+
+
+  Model : DAO , DTO(VO)
+       -DTO > MemoDTO > 테이블 컬럼을 기준으로 > 멤버변수 , getter , setter , toString() 
+       -DAO > MemoDAO > memo_test 테이블 CRUD 작업 함수 > DB연결
+  
+  
+  View  : JSP(EL & JSTL)
+       -처음 UI (디자인 : HTML , Script 코드만)	
+  
+  Controller : Servlet , Service
+  
+	Sevice : MemoWriteService.java
+		 MemoListService.java
+		 Action Interface 구현
+		 파일명 뒤에 Service 붙이기		
+
+	Sevlet : MemoServlet.java
+		 *.memo 패턴 사용
+		 doGet, doPost - doProcess로 묶어서 하나로 처리
+		 파일명뒤에 Servlet 붙이기
+		 
+     
+2.1 DB연결 (DBCP(Tomcat : context.xml , context 객체)
+
+                    
+순서 :1. DBCP 테스트 ( WIN-INF > lib > ojdbc6.jar )
+                   ( META-INF > context.xml )
+                   ( 별도의 페이지 생성 : UsingConnectionPoon.jsp)
+               
+     2. DB 테이블 생성하기 
+     3. DTO, DAO 생성
+     4. view 단 생성
+     5. Action 인터페이스 생성
+     6. Service 생성
+     7. Servlet 생성
+
+
+ Sevlet > Service > DTO,DAO > Service > Servlet
+     
+     
+             
+     
