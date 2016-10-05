@@ -12,3 +12,14 @@
 -----------> Member_DAO 같이
 
 jsp,html 명 : 예시 ) action.jsp , pizza.jsp ,... 다 소문자
+
+
+주석
+
+/*
+ * @Class : Pet_DTO
+ * @Date : 2016.10.5
+ * @Author : 박문수
+ * @Desc : 실종신고 게시판에 사용할 펫에 대한  DTO 정의
+ * 
+ * */
