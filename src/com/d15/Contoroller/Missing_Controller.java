@@ -42,24 +42,24 @@ public class Missing_Controller extends HttpServlet {
 		String request_uri=request.getRequestURI();
 		String context_path=request.getContextPath();
 		String url_command=request_uri.substring(context_path.length());
-							
+		System.out.println(url_command);
 		//인터페이스 추가
 		ActionForward forward=null;
 		Action action=null;
 				
 		//2.판단
-		if(url_command.equals("/BoardWrite.missing")){
+		if(url_command.equals("/D15/Missing/BoardWrite.missing")){
 			//신고폼 보여주기
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("D15/Missing/petwrite.jsp");
 			try{
-				forward=action.execute(request, response);
+				forward= action.execute(request, response);
 				System.out.println(request.getAttribute("result"));
 			}catch(Exception e){
 				e.getMessage();
 			}
-		} else if(url_command.equals("/BoardWriteOk.missing")){
+		} else if(url_command.equals("/D15/Missing/BoardWriteOk.missing")){
 			//글쓰기
 			action = new MissingInsertService(); // 다형성 (BoardListAction 이 action 구현)
 			try {

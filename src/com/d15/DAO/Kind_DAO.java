@@ -56,7 +56,7 @@ public class Kind_DAO {
 				Kind_DTO dto = new Kind_DTO();
 				dto.setK_code(rs.getString(1));
 				dto.setK_kind(rs.getString(2));
-				System.out.println("삽입성공" + rs.getString(1) + "/" + rs.getString(2));
+				//System.out.println("삽입성공" + rs.getString(1) + "/" + rs.getString(2));
 				list.add(dto);
 			}
 			

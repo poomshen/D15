@@ -44,25 +44,29 @@ public class Pet_DAO {
 		}
 	}
 	
-	public int insertPet(Pet_DTO pet , Kind_DTO kind){
+	public int insertPet(Pet_DTO pet , String kind){
 		
 		try{
+			
 			conn = ds.getConnection();
+			
 			// 견종 테이블의 견종코드 뽑기 
-			String sql = "select k_code from D15_kind where k_kind = ?";
+			/*String sql = "select k_code from D15_kind where k_kind like %?%";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, kind.getK_kind());
+	
 			rs = pstmt.executeQuery();
-			rs.next();
-			
+			System.out.println("?");
+			rs.next();*/
+					
 			String sql_2 = "insert into D15_pet(p_no,p_image,k_code,p_gender,p_color,p_feature,p_age,p_weight) "
 					+ "values(p_no_seq.nextval,?,?,?,?,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql_2);
 			
 			pstmt.setString(1, pet.getP_image());
-			pstmt.setString(2, rs.getString(1));
+			pstmt.setString(2, kind);
 			pstmt.setString(3, pet.getP_gender());
 			pstmt.setString(4, pet.getP_color());
 			pstmt.setString(5, pet.getP_feature());

@@ -10,11 +10,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script   src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<%-- <%
-	Kind_DAO dao = new Kind_DAO();
-	List<Kind_DTO> list = dao.selectKind();
-	JSONArray jsonmember =  JSONArray.fromObject(list);
-%> --%>
 <script type="text/javascript">
 	$(function(){
 		$.ajax({
@@ -26,7 +21,7 @@
 					console.log(item.k_code + "/" + item.k_kind);
 					var k_code = item.k_code;
 					var k_kind = item.k_kind;
-					$("#k_code").append("<option value =" + k_kind + ">" + k_kind + "</option>");
+					$("#k_kind").append("<option value =" + k_code + ">" + k_kind + "</option>");
 				});
 			}
 		});
@@ -38,7 +33,7 @@
 <body>
 	<form action ="BoardWriteOk.missing" name = "form" method = "post">
 		견종 선택 : 
-		<select name = "k_code" id = "k_code">
+		<select name = "k_kind" id = "k_kind">
 			<option>선택</option>		
 		</select><br>
 		성  별 : <input type = "radio" value = "m" name = "p_gender">수컷

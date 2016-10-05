@@ -16,7 +16,7 @@ public class MissingInsertService implements Action {
 		
 		//
 		Pet_DTO petdto=new Pet_DTO();
-		petdto.setP_no(Integer.parseInt(request.getParameter("p_no")));
+		
 		petdto.setP_image(request.getParameter("p_image"));
 		petdto.setP_color(request.getParameter("p_gender"));
 		petdto.setP_color(request.getParameter("p_color"));
@@ -24,14 +24,16 @@ public class MissingInsertService implements Action {
 		petdto.setP_image(request.getParameter("p_age"));
 		petdto.setP_image(request.getParameter("p_weight"));	
 		
-		Kind_DTO kinddto=new Kind_DTO();
-		kinddto.setK_code(request.getParameter("k_code"));
+		//Kind_DTO kinddto=new Kind_DTO();
+		//kinddto.setK_kind(request.getParameter("k_kind"));
 		
 		Pet_DAO petdao = new Pet_DAO();
-		int n=petdao.insertPet(petdto, kinddto);
+		int n = petdao.insertPet(petdto, request.getParameter("k_kind"));
+		
 		System.out.println(petdto);
-		System.out.println(kinddto);
+		//System.out.println(kinddto);
 		System.out.println(n);
+		
 		return null;
 	}
 }
