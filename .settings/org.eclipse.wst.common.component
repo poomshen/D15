@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="aa">
+    <wb-module deploy-name="TeamProject3_D15">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="java-output-path" value="/aa/build/classes"/>
+        <property name="java-output-path" value="/TeamProject3_D15/build/classes"/>
         <property name="context-root" value="TeamProject3_D15"/>
     </wb-module>
 </project-modules>
