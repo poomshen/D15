@@ -27,7 +27,7 @@ public class MissingInsertService implements Action {
 		
 		//
 		Pet_DTO petdto=new Pet_DTO();
-		
+		 
 		petdto.setP_image(request.getParameter("p_image"));
 		petdto.setP_gender(request.getParameter("p_gender"));
 		petdto.setP_color(request.getParameter("p_color"));

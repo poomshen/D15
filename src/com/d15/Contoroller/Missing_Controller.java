@@ -68,6 +68,7 @@ public class Missing_Controller extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}
 		
 		//3.결과저장

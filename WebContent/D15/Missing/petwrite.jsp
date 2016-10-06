@@ -66,6 +66,7 @@
 		내 용 : <textarea rows="5" cols="20" name = "mis_content"></textarea>
 		<input type ="submit" value = "작성완료">
 		<input type = "reset" value = "다시작성">
+		 
 	</form>
 </body>
 </html>
