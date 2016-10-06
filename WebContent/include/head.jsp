@@ -25,15 +25,15 @@
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="https://freehtml5.co/demos/elate/css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="https://freehtml5.co/demos/elate/css/icomoon.css">
 	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="css/simple-line-icons.css">
+	<link rel="stylesheet" href="https://freehtml5.co/demos/elate/css/simple-line-icons.css">
 	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="https://freehtml5.co/demos/elate/css/magnific-popup.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="https://freehtml5.co/demos/elate/css/bootstrap.css">
 
 	<!-- 
 	Default Theme Style 
@@ -48,9 +48,9 @@
 	7. green.css
 
 	-->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" id="theme-switch" href="css/style.css">
-	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="https://freehtml5.co/demos/elate/css/style.css">
+	<link rel="stylesheet" id="theme-switch" href="https://freehtml5.co/demos/elate/css/style.css">
+	<link rel="stylesheet" href="css/demo.css"><!-- 없는듯 -->
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/modernizr-2.6.2.min.js"></script><!-- 없는듯 -->
