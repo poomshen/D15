@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Missing_DAO;
+import com.d15.DTO.MissingJoin_DTO;
 import com.d15.DTO.Missing_DTO;
 
 public class MissingList_Service implements Action {
@@ -28,7 +29,7 @@ public class MissingList_Service implements Action {
 
 		    Missing_DAO missdao = new Missing_DAO();
 		      
-		    List<join되는 테이블 형태의 dto> list=missdao.select???();
+		    List<MissingJoin_DTO> list=missdao.selectMissingPet();
 		    request.setAttribute("list", list);
 				
 			forward.setRedirect(false);
