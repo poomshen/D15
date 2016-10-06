@@ -20,6 +20,7 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Pet_DAO;
 import com.d15.Service.MissingInsertService;
+import com.d15.Service.PetInsert_Service;
 
 @WebServlet("*.missing")
 public class Missing_Controller extends HttpServlet {
@@ -59,13 +60,21 @@ public class Missing_Controller extends HttpServlet {
 			}catch(Exception e){
 				e.getMessage();
 			}
-		} else if(url_command.equals("/D15/Missing/BoardWriteOk.missing")){
+		}else if(url_command.equals("/D15/Missing/BoardWriteOk1.missing")){
 			//글쓰기
-			action = new MissingInsertService(); // 다형성 (BoardListAction 이 action 구현)
+			
+			action = new PetInsert_Service(); 
 			try {
 				forward = action.execute(request, response);
-				// BoardListActon.java 설정한 (request)정보 :
+				
 			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(url_command.equals("/D15/Missing/BoardWriteOk2.missing")){
+			action = new MissingInsertService();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
 				e.printStackTrace();
 			}
 			

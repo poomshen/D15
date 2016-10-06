@@ -48,11 +48,22 @@ public class Missing_DAO {
 		
 		public int insertMissingBoard(Missing_DTO dto){
 			try{
+				
+				
 				conn = ds.getConnection();
-				String sql = "insert into D15_missing(mis_no,m_no,p_no,mis_date,mis_loc,mis_count,mis_content,mis_pro) values"
-						+ "(mis_no_seq.nextval,3,?,?,?,0,?,'N')";
+				
+				String sql = "select max(p_no) from D15_pet";
+				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, dto.getP_no());
+				rs = pstmt.executeQuery();
+				rs.next();
+				
+				
+				String sql2 = "insert into D15_missing(mis_no,m_no,p_no,mis_date,mis_loc,mis_count,mis_content,mis_pro) values"
+						+ "(mis_no_seq.nextval,3,?,?,?,0,?,'N')";
+				pstmt = conn.prepareStatement(sql2);
+				
+				pstmt.setInt(1, rs.getInt(1));
 				pstmt.setDate(2, dto.getMis_date());
 				pstmt.setString(3,dto.getMis_loc());
 				pstmt.setString(4, dto.getMis_content());
@@ -64,8 +75,10 @@ public class Missing_DAO {
 				}else{
 					System.out.println("행 삽입 실패");
 				}
+				
 			}catch(Exception e){
 				System.out.println("Missing_DAO error" + e.getMessage());
+				e.printStackTrace();
 			}
 			
 			return 0;

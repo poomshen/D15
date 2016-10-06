@@ -44,12 +44,12 @@
 		});
 		
 	});
-	
+
 
 </script>
 </head>
 <body>
-	<form action ="BoardWriteOk.missing" name = "form" method = "post">
+	<form action ="BoardWriteOk1.missing" name = "form" id = "form" method = "post">
 		견종 선택 : 
 		<select name = "k_kind" id = "k_kind">
 			<option>선택</option>		
@@ -64,9 +64,9 @@
 		실종 날짜 : <input type = "text" name = "mis_date" id ="mis_date"><br>
 		실종 위치 : <input type = "text" name = "mis_loc"><br>
 		내 용 : <textarea rows="5" cols="20" name = "mis_content"></textarea>
-		<input type ="submit" value = "작성완료">
+		<input type ="submit" value = "작성완료" >
 		<input type = "reset" value = "다시작성">
-		 
 	</form>
+	
 </body>
 </html>
