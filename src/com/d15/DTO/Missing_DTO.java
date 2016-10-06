@@ -8,12 +8,26 @@
 
 package com.d15.DTO;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Missing_DTO {
 	private int mis_no; // 게시물 번호
+	private int m_no; // 회원번호
+	private int p_no; // 펫 번호
 	private Date mis_date; // 실종 날짜
 	private String mis_loc; // 실종 위치
+	public int getM_no() {
+		return m_no;
+	}
+	public void setM_no(int m_no) {
+		this.m_no = m_no;
+	}
+	public int getP_no() {
+		return p_no;
+	}
+	public void setP_no(int p_no) {
+		this.p_no = p_no;
+	}
 	private int mis_count; // 조회수
 	private String mis_content; // 내용
 	private String mis_pro; // 처리 상태
@@ -55,9 +69,11 @@ public class Missing_DTO {
 	}
 	@Override
 	public String toString() {
-		return "Missing_DTO [mis_no=" + mis_no + ", mis_date=" + mis_date + ", mis_loc=" + mis_loc + ", mis_count="
-				+ mis_count + ", mis_content=" + mis_content + ", mis_pro=" + mis_pro + "]";
+		return "Missing_DTO [mis_no=" + mis_no + ", m_no=" + m_no + ", p_no=" + p_no + ", mis_date=" + mis_date
+				+ ", mis_loc=" + mis_loc + ", mis_count=" + mis_count + ", mis_content=" + mis_content + ", mis_pro="
+				+ mis_pro + "]";
 	}
+
 	
 	
 }
