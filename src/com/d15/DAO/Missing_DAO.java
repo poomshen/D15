@@ -83,4 +83,16 @@ public class Missing_DAO {
 			
 			return 0;
 		}
+		
+		public void selectMissingPet(){
+			try{
+				conn = ds.getConnection();
+				String sql = "select mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro"
+						+ "from D15_pet p join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no"
+						+ "order by mis_no desc"; 
+				
+			}catch(Exception e){
+				
+			}
+		}
 }
