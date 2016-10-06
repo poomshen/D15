@@ -1,3 +1,9 @@
+<%-- 
+	@JSP : petwrite.jsp
+	@Date : 2016-10-05
+	@Author : 박문수
+	@Desc : 실종 신고 게시판의 글쓰기를 위한 jsp 페이지
+--%>
 <%@page import="com.d15.DTO.Kind_DTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.d15.DAO.Kind_DAO"%>
