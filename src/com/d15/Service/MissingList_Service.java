@@ -7,8 +7,6 @@
 
 package com.d15.Service;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,11 +16,9 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Missing_DAO;
 import com.d15.DTO.MissingJoin_DTO;
-import com.d15.DTO.Missing_DTO;
 
 public class MissingList_Service implements Action {
-	//서블릿에 list 요청 추가해야 함
-	
+		
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		ActionForward forward = new ActionForward();

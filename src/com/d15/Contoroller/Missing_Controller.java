@@ -20,6 +20,7 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Pet_DAO;
 import com.d15.Service.MissingInsertService;
+import com.d15.Service.MissingList_Service;
 import com.d15.Service.PetInsert_Service;
 
 @WebServlet("*.missing")
@@ -78,6 +79,13 @@ public class Missing_Controller extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		}else if(url_command.equals("/D15/Missing/BoardList.missing")){
+			action = new MissingList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 		
 		//3.결과저장

@@ -92,8 +92,8 @@ public class Missing_DAO {
 			try{
 				list = new ArrayList<MissingJoin_DTO>();
 				conn = ds.getConnection();
-				String sql = "select mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro"
-						+ "from D15_pet p join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no"
+				String sql = "select mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro "
+						+ "from D15_pet p join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no "
 						+ "order by mis_no desc"; 
 				
 				pstmt = conn.prepareStatement(sql);
