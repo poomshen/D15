@@ -13,12 +13,15 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.d15.DTO.MissingJoin_DTO;
 import com.d15.DTO.Missing_DTO;
  
 public class Missing_DAO {
@@ -84,15 +87,36 @@ public class Missing_DAO {
 			return 0;
 		}
 		
-		public void selectMissingPet(){
+		public List<MissingJoin_DTO> selectMissingPet(){
+			List<MissingJoin_DTO> list = null;
 			try{
+				list = new ArrayList<MissingJoin_DTO>();
 				conn = ds.getConnection();
 				String sql = "select mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro"
 						+ "from D15_pet p join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no"
 						+ "order by mis_no desc"; 
 				
-			}catch(Exception e){
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
 				
+				while(rs.next()){
+					MissingJoin_DTO dto = new MissingJoin_DTO();
+					dto.setMis_no(rs.getInt("mis_no"));
+					dto.setP_image(rs.getString("p_image"));
+					dto.setM_id(rs.getString("m_id"));
+					dto.setMis_date(rs.getDate("mis_date"));
+					dto.setMis_loc(rs.getString("mis_loc"));
+					dto.setMis_content(rs.getString("mis_content"));
+					dto.setMis_pro(rs.getString("mis_pro"));
+					
+					list.add(dto);
+				}
+				
+			}catch(Exception e){
+				System.out.println("selectMissingPet error");
+				e.printStackTrace();
 			}
+			return list;
 		}
+	
 }
