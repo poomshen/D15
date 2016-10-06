@@ -21,15 +21,49 @@ public class MissingList_Service implements Action {
 		
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		ActionForward forward = new ActionForward();
-
+		
+			ActionForward forward = new ActionForward();
 		    Missing_DAO missdao = new Missing_DAO();
-		      
-		    List<MissingJoin_DTO> list=missdao.selectMissingPet();
+		    
+		    int totalcount = missdao.totalListCount();
+		    
+		    String psStr = request.getParameter("ps");    //pagesize
+	        String cpStr = request.getParameter("cp");    //currentpage
+	        
+	        if(psStr == null || psStr.trim().equals("")){
+	            //default 값
+	            psStr = "5"; // default 5건씩 
+	        }
+	        
+	        if(cpStr == null || cpStr.trim().equals("")){
+	            cpStr= "1";        //default 1 page
+	        }
+	        
+	        int pagesize = Integer.parseInt(psStr);  //5
+	        int cpage = Integer.parseInt(cpStr);     //1
+	        int pagecount = 0;                       
+	        
+	        if(totalcount % pagesize==0){        //전체 건수 , pagesize > 
+	            pagecount = totalcount/pagesize;
+	        }else{
+	            pagecount = (totalcount/pagesize) + 1;
+	        }
+	        //페이지 갯수 : 102 건 , pagesize :5   pagecount: 21
+	        
+
+		    
+		    List<MissingJoin_DTO> list=missdao.selectMissingPet(cpage , pagesize);
+		    
+		    request.setAttribute("cpage", cpage);
+	        request.setAttribute("pagesize", pagesize);
+	        request.setAttribute("pagecount", pagecount);
 		    request.setAttribute("list", list);
-				
+			request.setAttribute("totalcount", totalcount);	
+		    
+		    
 			forward.setRedirect(false);
 			forward.setPath("petlist.jsp"); //view단 jsp파일 지정
+			
 			return forward;
 	}
 }

@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,7 @@ public class Missing_DAO {
 		static {
 			InitialContext ctx;
 			try {
+				
 				/*
 				 * Context context = new InitialContext(); DataSource datasource =
 				 * (DataSource)context.lookup("java:comp/env/jdbc/oracle"); conn =
@@ -43,15 +45,17 @@ public class Missing_DAO {
 				Context envCtx = (Context) ctx.lookup("java:comp/env");
 				ds = (DataSource) envCtx.lookup("/jdbc/oracle");
 				System.out.println("DataSource 객체 생성 성공 !");
+			
 			} catch (NamingException e) {
+				
 				System.out.println("lookup Fail : " + e.getMessage());
+			
 			}
 		}
 		
-		
+		// 최근에 삽입된 펫 테이블의 상위 컬럼 뽑기
 		public int insertMissingBoard(Missing_DTO dto){
 			try{
-				
 				
 				conn = ds.getConnection();
 				
@@ -73,13 +77,18 @@ public class Missing_DAO {
 				
 				int row = pstmt.executeUpdate();
 				if(row > 0){
+					
 					System.out.println("행 삽입 성공" + row);
 					return row;
+				
 				}else{
+					
 					System.out.println("행 삽입 실패");
+				
 				}
 				
 			}catch(Exception e){
+				
 				System.out.println("Missing_DAO error" + e.getMessage());
 				e.printStackTrace();
 			}
@@ -87,19 +96,31 @@ public class Missing_DAO {
 			return 0;
 		}
 		
-		public List<MissingJoin_DTO> selectMissingPet(){
+		// 실종 게시판 목록 가져오기(페이징 처리)
+		public List<MissingJoin_DTO> selectMissingPet(int cpage , int pagesize){
 			List<MissingJoin_DTO> list = null;
 			try{
+				
 				list = new ArrayList<MissingJoin_DTO>();
+				
 				conn = ds.getConnection();
-				String sql = "select mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro "
+				String sql = "select * from ("
+						+ "select ROWNUM rn , mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro " 
 						+ "from D15_pet p join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no "
-						+ "order by mis_no desc"; 
+						+ "order by mis_no desc"
+						+ ") where rn between ? and ?";
+				
+				int start = cpage * pagesize - (pagesize - 1);
+				int end = cpage * pagesize;
 				
 				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, start);
+				pstmt.setInt(2, end);
+				
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()){
+					
 					MissingJoin_DTO dto = new MissingJoin_DTO();
 					dto.setMis_no(rs.getInt("mis_no"));
 					dto.setP_image(rs.getString("p_image"));
@@ -110,13 +131,41 @@ public class Missing_DAO {
 					dto.setMis_pro(rs.getString("mis_pro"));
 					
 					list.add(dto);
+				
 				}
 				
 			}catch(Exception e){
+				
 				System.out.println("selectMissingPet error");
 				e.printStackTrace();
+			
 			}
 			return list;
 		}
-	
+		
+		
+		// 게시물의 총 개수 구하기
+		public int totalListCount(){
+			
+			try{
+				
+				conn = ds.getConnection();
+				String sql = "select count(*) cnt from D15_pet p join D15_missing i on p.p_no = "
+						+ "i.p_no join D15_member m on i.m_no = m.m_no";
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				int totalcount = 0;
+				if(rs.next()){
+					totalcount = rs.getInt("cnt");
+				}
+				return totalcount;
+			}catch(Exception e){
+				
+				System.out.println("totallistCount error");
+				e.printStackTrace();
+			}
+			return 0;
+		}
+		
 }
