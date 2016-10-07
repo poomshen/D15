@@ -52,15 +52,16 @@ public class Missing_Controller extends HttpServlet {
 		//2.판단
 		if(url_command.equals("/D15/Missing/BoardWrite.missing")){
 			//신고폼 보여주기
-			forward=new ActionForward();
+			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("D15/Missing/petwrite.jsp");
-			try{
+			forward.setPath("petwrite.jsp");
+			/*try{
 				forward= action.execute(request, response);
 				System.out.println(request.getAttribute("result"));
 			}catch(Exception e){
 				e.getMessage();
-			}
+			}*/
+			
 		}else if(url_command.equals("/D15/Missing/BoardWriteOk1.missing")){
 			//글쓰기
 			

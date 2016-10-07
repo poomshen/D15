@@ -104,11 +104,16 @@ public class Missing_DAO {
 				list = new ArrayList<MissingJoin_DTO>();
 				
 				conn = ds.getConnection();
-				String sql = "select * from ("
-						+ "select ROWNUM rn , mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro " 
-						+ "from D15_pet p join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no "
-						+ "order by mis_no desc"
-						+ ") where rn between ? and ?";
+				String sql = "select * " 
+						+ "from("
+						+    "select ROWNUM rn , mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro "
+						+		  "from("
+						+		    "select   mis_no , p_image , m_id , mis_date , mis_loc , mis_content , mis_pro " 
+						+		    "from D15_pet p join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no "
+						+		    "order by mis_no desc"
+						+		  ")"  
+						+		")"
+						+	"where rn between ? and ?";
 				
 				int start = cpage * pagesize - (pagesize - 1);
 				int end = cpage * pagesize;
