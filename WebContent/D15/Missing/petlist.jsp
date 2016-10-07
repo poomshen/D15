@@ -130,9 +130,6 @@
 	</script>
 	<!-- End demo purposes only -->
 
-	<!-- Main JS (Do not remove) -->
-	<script src="js/main.js"></script>
-
 	</body>
 </html>
 
