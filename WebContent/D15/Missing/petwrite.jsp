@@ -53,7 +53,7 @@
 </script>
 </head>
 <body>
-	<form action ="BoardWriteOk1.missing" name = "form" id = "form" method = "post">
+	<form action ="BoardWriteOk1.missing" name = "form" id = "form" method = "post" enctype = "multipart/form-data">
 		견종 선택 : 
 		<select name = "k_kind" id = "k_kind">
 			<option>선택</option>		
@@ -69,10 +69,14 @@
 		실종 위치 : <input type = "text" name = "mis_loc"><br>
 		내 용 : <textarea rows="5" cols="20" name = "mis_content"></textarea>
 		<br>
+		
 		<input type ="submit" value = "작성완료" >
 		<input type = "reset" value = "다시작성">
 		<input type = "button" value = "목록으로" id = "button">
 	</form>
+	
+	
+	
 	
 </body>
 </html>

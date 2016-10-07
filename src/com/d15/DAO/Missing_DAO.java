@@ -20,8 +20,10 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.RequestDispatcher;
 import javax.sql.DataSource;
 
+import com.d15.DTO.MissingDetail_DTO;
 import com.d15.DTO.MissingJoin_DTO;
 import com.d15.DTO.Missing_DTO;
  
@@ -171,6 +173,49 @@ public class Missing_DAO {
 				e.printStackTrace();
 			}
 			return 0;
+		}
+		
+		public MissingDetail_DTO detailMissingPet(int mis_no){
+			MissingDetail_DTO mdto = null;
+			try{
+				
+				conn = ds.getConnection();
+				String sql = "select mis_no , p_image , m_id , k_kind , p_gender , p_color , p_feature , "
+					+ "p_age , p_weight , mis_date , mis_loc , mis_content "
+					+ "from D15_kind k join D15_pet p on k.k_code = p.k_code "
+					+ "join D15_missing i on p.p_no = i.p_no join D15_member m on i.m_no = m.m_no "
+					+ "where mis_no = ?";
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1,mis_no);
+				
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					mdto = new MissingDetail_DTO();
+					
+					mdto.setMis_no(rs.getInt(1));
+					mdto.setP_image(rs.getString(2));
+					mdto.setM_id(rs.getString(3));
+					mdto.setK_kind(rs.getString(4));
+					mdto.setP_gender(rs.getString(5));
+					mdto.setP_color(rs.getString(6));
+					mdto.setP_feature(rs.getString(7));
+					mdto.setP_age(rs.getInt(8));
+					mdto.setP_weight(rs.getInt(9));
+					mdto.setMis_date(rs.getDate(10));
+					mdto.setMis_loc(rs.getString(11));
+					mdto.setMis_content(rs.getString(12));
+					
+				}else{
+					System.out.println("없는 게시물-_-");
+				}
+				
+			}catch(Exception e){
+				System.out.println("detailMissingPet error");
+				e.printStackTrace();
+			}
+			
+			return mdto;
 		}
 		
 }
