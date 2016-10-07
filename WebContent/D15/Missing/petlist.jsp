@@ -5,6 +5,15 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#button").click(function(){
+				location.href = "BoardWrite.missing";
+			});
+		});
+	</script>
 	<head>
 	<%
 		pageContext.include("../../include/head.jsp");
@@ -43,16 +52,18 @@
 							<img src="${list.p_image}" alt="Image" class="img-responsive">
 						</a>
 						<div class="fh5co-text">
-							<span>게시물 번호 : ${list.mis_no} </span>
+							<span>게시물 번호 : ${list.mis_no} <input type = "button" id = "detail" value = "상세보기" class = "btn btn-info"
+							style = "position: absolute; right: 10px"></span>
 							<h2>회원 ID : ${list.m_id}</h2>
-							<span>실종 날짜 : ${list.mis_date} &nbsp;&nbsp;실종 위치 : ${list.mis_loc}</span><br>
+							<span>실종 날짜 : ${list.mis_date} <br>
+								    실종 위치 : ${list.mis_loc}</span><br>
 							<span>내용 : ${list.mis_content}</span>&nbsp;&nbsp;
 							<c:choose>
 								<c:when test = "${list.mis_pro == 'N'}">
-									<font color = "red">실종</font>
+									<font color = "red" style = "position: absolute; right: 10px">실종</font>
 								</c:when>
 								<c:otherwise>
-									<font color = "green">찾음</font>
+									<font color = "green" style = "position: absolute; right: 10px">찾음</font>
 								</c:otherwise>
 							</c:choose> 
 						</div>
@@ -63,12 +74,12 @@
 				
 			</div>
 			<div>
-			<table>
+			<table align = "center">
 			<tr>
 					<td colspan="3" align="center">
 						<!--이전 링크 --> 
 						<c:if test="${cpage>1}">
-							<a href="D15/Missing/BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a>
+							<a href="BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a>
 							<!--페이지 리스트 구현  -->
 						</c:if> 
 						<c:forEach var="i" begin="1" end="${pagecount}" step="1">
@@ -77,25 +88,25 @@
 									<font color='red'>[${i}]</font>
 								</c:when>
 								<c:otherwise>
-									<a href="D15/Missing/BoardList.missing?cp=${i}&ps=${pagesize}">[${i}]</a>
+									<a href="BoardList.missing?cp=${i}&ps=${pagesize}">[${i}]</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach> 
 						<!--다음 링크 --> 
 						<c:if test="${cpage<pagecount}">
-							<a href="D15/Missing/BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a>
+							<a href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a>
 						</c:if>
 					</td>
-					<td colspan="2" align="center">총 게시물 수 : ${totalcount}
+					<td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;총 게시물 수 : ${totalcount}
+				
+					</td>
+					<td>
+					<input type = "button" value = "실종신고" id = "button" 
+					style = "position: absolute; right: 100px" class = "btn btn-danger">
 					</td>
 				</tr>
 			</table>
 			
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center to-animate">
-					<p>* Demo images from <a href="http://plmd.me/" target="_blank">plmd.me</a></p>
-				</div>
 			</div>
 		</div>
 	</section>

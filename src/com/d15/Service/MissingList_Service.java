@@ -32,7 +32,7 @@ public class MissingList_Service implements Action {
 	        
 	        if(psStr == null || psStr.trim().equals("")){
 	            //default 값
-	            psStr = "3"; // default 5건씩 
+	            psStr = "9"; // default 5건씩 
 	        }
 	        
 	        if(cpStr == null || cpStr.trim().equals("")){

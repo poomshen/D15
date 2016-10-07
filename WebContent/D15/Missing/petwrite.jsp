@@ -43,6 +43,10 @@
 		      dateFormat: "yy-mm-dd"
 		});
 		
+		$("#button").click(function(){
+			location.href = "BoardList.missing";
+		});
+		
 	});
 
 
@@ -64,8 +68,10 @@
 		실종 날짜 : <input type = "text" name = "mis_date" id ="mis_date"><br>
 		실종 위치 : <input type = "text" name = "mis_loc"><br>
 		내 용 : <textarea rows="5" cols="20" name = "mis_content"></textarea>
+		<br>
 		<input type ="submit" value = "작성완료" >
 		<input type = "reset" value = "다시작성">
+		<input type = "button" value = "목록으로" id = "button">
 	</form>
 	
 </body>
