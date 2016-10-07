@@ -16,6 +16,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.d15.DTO.Detail_DTO;
 import com.d15.DTO.Member_DTO;
 import com.d15.DTO.Pet_DTO;
 
@@ -45,7 +46,7 @@ public class Member_DAO {
 		}
 	}
 	
-	public int insertMember(Member_DTO dto){
+	public int insertMember(Member_DTO dto, Detail_DTO dto2){
 		
 		try{
 			
@@ -67,7 +68,22 @@ public class Member_DAO {
 			}else{
 				System.out.println("행 삽입 실패");
 			}
-		
+			
+			String sql2="insert into D15_Detail(m_no, m_name, m_phone, m_birth, m_email, m_addr, m_petok, m_update, m_regdate, m_file) "
+					+ "values(m_no_seq.currval,?,?,?,?,?,?,sysdate,sysdate,?)";
+			
+			pstmt = conn.prepareStatement(sql2);
+			
+			pstmt.setString(1, dto2.getM_name());
+			pstmt.setString(2, dto2.getM_phone());
+			pstmt.setInt(3, dto2.getM_birth());
+			pstmt.setString(4, dto2.getM_email());
+			pstmt.setString(5, dto2.getM_addr());
+			pstmt.setString(6, dto2.getM_addr());
+			pstmt.setString(7, dto2.getM_file());
+				
+			row = pstmt.executeUpdate();
+			System.out.println(row);
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
 		}
@@ -75,13 +91,14 @@ public class Member_DAO {
 		return 0;
 	}
 	
-	public int checkMember(String m_id, String m_pwd){
-		int n=0;
+	public Member_DTO checkMember(String m_id, String m_pwd){
+
+		
 		try{
 			
 			conn = ds.getConnection();
 					
-			String sql = "select m_no, m_id from D15_Member "
+			String sql = "select m_no, m_id, m_pwd, m_lastdate, c_code from D15_Member "
 					+ "where m_id=? and m_pwd=?";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -93,17 +110,22 @@ public class Member_DAO {
 		
 			if (rs.next()) {
 				System.out.println("로그인 성공");
-				n=1;
+
+				Member_DTO memberdto=new Member_DTO();
+				memberdto.setM_no(rs.getInt(1));
+				memberdto.setM_id(rs.getString(2));
+				memberdto.setM_pwd(rs.getString(3));
+				memberdto.setM_lastdate(rs.getDate(4));
+				memberdto.setC_code(rs.getString(5));
+				return memberdto;
+			} else {
 			}
 		
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
+		return null;
 		
-		return n;
 	}
-	
-	
-	
 	
 }
