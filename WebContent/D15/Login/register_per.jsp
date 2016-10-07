@@ -1,3 +1,10 @@
+<%--
+ * @Class : register_per.jsp
+ * @Date : 2016.10.7
+ * @Author : 길한종
+ * @Desc : 회원가입 폼
+ --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -29,7 +36,7 @@
 						</div>
 					</div>
 					<div>
-						<form action="D15/Login/RegisterPerOk.login">
+						<form action="RegisterPerOk.login">
 							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
 							아이디 <input type="text" name="m_id"><br>
 							패스워드 <input type="password" name="m_pwd" id="m_pwd"><br>
