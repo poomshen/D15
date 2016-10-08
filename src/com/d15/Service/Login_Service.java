@@ -31,18 +31,15 @@ public class Login_Service implements Action {
 		Member_DTO memberdto=memberdao.checkMember(m_id, m_pwd);
 		
 		if (memberdto!=null){
-			forward.setRedirect(false);
-			forward.setPath("testpage.jsp"); //view단 jsp파일 지정
-
 			HttpSession session=request.getSession();
 			session.setAttribute("memberdto", memberdto);
-		} else {
-			forward.setRedirect(false);
-			forward.setPath("testpage.jsp"); //view단 jsp파일 지정
-			
+		} else {		
 			HttpSession session=request.getSession();
 			session.invalidate();
 		}
+		
+		forward.setRedirect(false);
+		forward.setPath("../../index.jsp");
 		
 		return forward;
 	}

@@ -12,15 +12,19 @@
 	String str="";
 	Member_DTO memberdto = (Member_DTO)session.getAttribute("memberdto");
 	if (memberdto!=null){
-		str+=memberdto.getM_id()+"님 로그인";
+		str+=memberdto.getM_id()+"님 로그인 ";
+		out.print(str);
+		out.print("<input type='button' value='로그아웃'>");
 	} else {
-		str="";
+		out.print("<form action='RegisterPer.login' method='post'>");
+		out.print("<input type='submit' value='로그인'>");
+		out.print("</form>");
 	}
 %>
-<%= str %>
-<form action="RegisterPer.login" method="post">
-<input type="submit" value="동작">
 
-</form>
+<!-- <form action="RegisterPer.login" method="post">
+<input type="submit" value="로그인">
+</form> -->
+
 </body>
 </html>

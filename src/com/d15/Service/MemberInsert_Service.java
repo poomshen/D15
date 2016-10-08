@@ -59,7 +59,7 @@ public class MemberInsert_Service implements Action {
 		memeberdao.insertMember(memberdto, detaildto);
 
 		forward.setRedirect(false);
-		forward.setPath("index.jsp");
+		forward.setPath("../../index.jsp");
 
 		return forward;
 	}

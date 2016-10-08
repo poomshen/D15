@@ -1,3 +1,4 @@
+<%@page import="com.d15.DTO.Member_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -9,14 +10,25 @@
 		       		<div class="navbar-header" style="float:left">
 		       			<!-- Mobile Toggle Menu Button -->
 						<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
-		       			<a class="navbar-brand" href="index.jsp"><img style="margin-top:-20px" src="images/logo.gif"></a>
+		       			<a class="navbar-brand" href="/TeamProject3_D15/index.jsp"><img style="margin-top:-20px" src="/TeamProject3_D15/images/logo.gif"></a>
 		       		</div>
-		       		<!-- 추가시작 -->
-		       		<div id="login area" style="float:right;margin-right:10%;margin-top:13px">
-		       			이렇게 여기에
+		       		<div id="loginarea" style="float:right;margin-right:10%;margin-top:13px">
+		       		<%
+						String str="";
+						Member_DTO memberdto = (Member_DTO)session.getAttribute("memberdto");
+						if (memberdto!=null){
+							str+=memberdto.getM_id()+"님 로그인 ";
+							out.print("<form action='/TeamProject3_D15/D15/Login/Logout.login' method='post'>");
+							out.print(str+"<input type='submit' value='로그아웃'>");
+							out.print("</form>");
+						} else {
+							out.print("<form action='/TeamProject3_D15/D15/Login/Login.login' method='post'>");
+							out.print("<input type='submit' value='로그인'>");
+							out.print("</form>");
+						}
+					%>
 		       		</div>
 		       	</div>
-		        <!-- 추가 끝 -->
 		        <div id="navbar" class="navbar-collapse collapse">
 		        	<ul class="nav navbar-nav navbar-right">
 		           		<li class="active"><a href="#" data-nav-section="home"><span>홈으로</span></a></li>

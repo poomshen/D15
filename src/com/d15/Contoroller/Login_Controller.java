@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
@@ -92,8 +93,15 @@ public class Login_Controller extends HttpServlet {
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
+		}else if(url_command.equals("/D15/Login/Logout.login")){
+			//로그아웃 처리		
+			HttpSession session=request.getSession();
+			session.invalidate();
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("../../index.jsp");
 		}
-		
+				
 		//3.결과저장
 		//4.뷰 정의
 				
