@@ -7,12 +7,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+    <c:set var = "mdto" value = "${sessionScope.memberdto}"/>
+   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#nomiss").click(function(){
+				location.href = "update.missing?cp=${param.cp}&ps=${param.ps}&mis_no=${param.mis_no}";
+			});
+		});
+	</script>
 </head>
+<%
+		pageContext.include("../../include/head.jsp");
+%>
 <body>
 	게시물 번호  : ${requestScope.dto.mis_no}<br>
 	<img src = "../../upload/${requestScope.dto.p_image}"><br>
@@ -32,6 +46,13 @@
 	실종 날짜 : ${requestScope.dto.mis_date}<br>
 	실종 위치 : ${requestScope.dto.mis_loc}<br>
 	내 용 : ${requestScope.dto.mis_content}<br>
-	
+
+	<c:choose>
+		<c:when test = "${mdto.m_id == dto.m_id }">
+		<span style = "position: absolute; right: 200px">실종 된 애완견을 찾으셨나요 ?</span>
+			<input type = "button" value = "찾음" id = "nomiss"
+			style = "position: absolute; right: 100px" class = "btn btn-success">
+		</c:when>
+	</c:choose>
 </body>
 </html>

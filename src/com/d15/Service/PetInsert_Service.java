@@ -11,11 +11,13 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Missing_DAO;
 import com.d15.DAO.Pet_DAO;
+import com.d15.DTO.Member_DTO;
 import com.d15.DTO.Missing_DTO;
 import com.d15.DTO.Pet_DTO;
 import com.oreilly.servlet.MultipartRequest;
@@ -29,6 +31,8 @@ public class PetInsert_Service implements Action{
 		ActionForward forward = new ActionForward();
 		
 		String uploadpath = request.getRealPath("upload");
+		HttpSession session = request.getSession();
+		Member_DTO dto =  (Member_DTO)session.getAttribute("memberdto");
 		
 		int size = 10*1024*1024;
 		
@@ -84,7 +88,7 @@ public class PetInsert_Service implements Action{
 	      missingdto.setMis_content(multi.getParameter("mis_content")); //폼의 신고내용을 text area로 입력받음
 	      //조회수는 db저장시 자동 입력
 	      
-	      int n2 = missdao.insertMissingBoard(missingdto);
+	      int n2 = missdao.insertMissingBoard(missingdto , dto.getM_no());
 	      
 	      if(n2 > 0){
 	    	  forward.setRedirect(false);
