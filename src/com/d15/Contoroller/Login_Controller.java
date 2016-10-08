@@ -18,9 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
+
 import com.d15.DAO.Pet_DAO;
+import com.d15.Service.Login_Service;
+import com.d15.Service.MemberInsert_Service;
 import com.d15.Service.MissingList_Service;
 import com.d15.Service.PetInsert_Service;
+
 
 @WebServlet("*.login")
 public class Login_Controller extends HttpServlet {
@@ -53,7 +57,7 @@ public class Login_Controller extends HttpServlet {
 			//일반회원 가입폼 보여주기
 			forward=new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("register_per.jsp");
+			forward.setPath("/D15/Login/register_per.jsp");
 			try{
 				forward= action.execute(request, response);
 				System.out.println(request.getAttribute("result"));
@@ -62,11 +66,29 @@ public class Login_Controller extends HttpServlet {
 			}
 		}else if(url_command.equals("/D15/Login/RegisterPerOk.login")){
 			//일반회원 가입폼 처리
-			System.out.println("여길 탔으요");
-			action = new PetInsert_Service(); //서비스 
+			action = new MemberInsert_Service("03"); //서비스 
 			try {
 				forward = action.execute(request, response);
 				
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}else if(url_command.equals("/D15/Login/Login.login")){
+			//로그인화면
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/D15/Login/login.jsp");
+			try{
+				forward= action.execute(request, response);
+				System.out.println(request.getAttribute("result"));
+			}catch(Exception e){
+				e.getMessage();
+			}
+		}else if(url_command.equals("/D15/Login/LoginOk.login")){
+			//로그인 처리
+			action = new Login_Service(); //서비스 
+			try {
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
