@@ -19,7 +19,7 @@
 						if (memberdto!=null){
 							str+=memberdto.getM_id()+"님 로그인 ";
 							out.print("<form action='/TeamProject3_D15/D15/Login/Logout.login' method='post'>");
-							out.print(str+"<input type='submit' value='로그아웃'>&nbsp&nbsp<a href='/TeamProject3_D15/D15/mypage.jsp'>[마이페이지]</a>");
+							out.print(str+"<input type='submit' value='로그아웃'>&nbsp&nbsp<a href='/TeamProject3_D15/D15/Login/Mypage.login'>[마이페이지]</a>");
 							out.print("</form>");
 						} else {
 							out.print("<form action='/TeamProject3_D15/D15/Login/Login.login' method='post'>");

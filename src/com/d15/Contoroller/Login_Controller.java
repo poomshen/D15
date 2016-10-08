@@ -24,6 +24,7 @@ import com.d15.DAO.Pet_DAO;
 import com.d15.Service.Login_Service;
 import com.d15.Service.MemberInsert_Service;
 import com.d15.Service.MissingList_Service;
+import com.d15.Service.Mypage_Service;
 import com.d15.Service.PetInsert_Service;
 
 
@@ -49,10 +50,10 @@ public class Login_Controller extends HttpServlet {
 		String context_path=request.getContextPath();
 		String url_command=request_uri.substring(context_path.length());
 		System.out.println(url_command);
+		System.out.println("asd12314s");
 		//인터페이스 추가
 		ActionForward forward=null;
 		Action action=null;
-				
 		//2.판단
 		if(url_command.equals("/D15/Login/RegisterPer.login")){
 			//일반회원 가입폼 보여주기
@@ -100,8 +101,20 @@ public class Login_Controller extends HttpServlet {
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("../../index.jsp");
+		}else if(url_command.equals("/D15/Login/Mypage.login")){
+			//마이페이지
+			System.out.println("여기까진 오나??");
+			
+			action = new Mypage_Service(); 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}else{
+
 		}
-				
+
 		//3.결과저장
 		//4.뷰 정의
 				

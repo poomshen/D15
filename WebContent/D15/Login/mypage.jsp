@@ -5,8 +5,10 @@
  * @Desc : 회원정보 보기 폼
  --%>
 
+<%@page import="com.d15.DTO.MemberJoin_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
@@ -23,7 +25,7 @@
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
-	
+		
 	<section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
 		<div class="gradient"></div>
 		<div class="container">
@@ -36,7 +38,9 @@
 						</div>
 					</div>
 					<div>
-						내용내용여기내용코코커커코코커커콬커ㅗ커코콬커커ㅓ컼ㅋ텐츠
+						<c:set var="dto" value="${requestScope.memberjoindto}" />
+						ID: ${dto.m_id}<br>
+						pwd: ${dto.m_pwd}<br>
 					</div>
 				</div>
 			</div>

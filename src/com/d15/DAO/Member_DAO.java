@@ -17,6 +17,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.d15.DTO.Detail_DTO;
+import com.d15.DTO.MemberJoin_DTO;
 import com.d15.DTO.Member_DTO;
 import com.d15.DTO.Pet_DTO;
 
@@ -46,6 +47,7 @@ public class Member_DAO {
 		}
 	}
 	
+	//회원가입 처리 함수
 	public int insertMember(Member_DTO dto, Detail_DTO dto2){
 		
 		try{
@@ -91,9 +93,9 @@ public class Member_DAO {
 		return 0;
 	}
 	
+	//로그인 처리 함수
 	public Member_DTO checkMember(String m_id, String m_pwd){
-
-		
+	
 		try{
 			
 			conn = ds.getConnection();
@@ -124,8 +126,52 @@ public class Member_DAO {
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		return null;
-		
+		return null;		
 	}
 	
+	//상세정보 보기 처리 함수
+	public MemberJoin_DTO selectMember(int m_no){
+		MemberJoin_DTO memberjoindto=new MemberJoin_DTO();
+		
+		try{
+			
+			conn = ds.getConnection();
+					
+			String sql = "select M.m_no, M.m_id, M.m_pwd, M.m_lastdate, M.c_code, D.m_name, D.m_phone, D.m_birth, D.m_email, D.m_addr, D.m_petok,D. m_update, D.m_regdate, D.m_file "
+					+"from D15_Member M join D15_Detail D on M.M_NO=D.M_NO where M.m_no=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, m_no);
+		
+			rs = pstmt.executeQuery();
+			System.out.println(rs);
+			
+			
+			if (rs.next()) {
+				
+				memberjoindto.setM_no(rs.getInt(1));
+				memberjoindto.setM_id(rs.getString(2));
+				memberjoindto.setM_pwd(rs.getString(3));
+				memberjoindto.setM_lastdate(rs.getDate(4));
+				memberjoindto.setC_code(rs.getString(5));
+				memberjoindto.setM_name(rs.getString(6));
+				memberjoindto.setM_phone(rs.getString(7));
+				memberjoindto.setM_birth(rs.getInt(8));
+				memberjoindto.setM_email(rs.getString(9));
+				memberjoindto.setM_addr(rs.getString(10));
+				memberjoindto.setM_petok(rs.getString(11));
+				memberjoindto.setM_update(rs.getDate(12));
+				memberjoindto.setM_regdate(rs.getDate(13));
+				memberjoindto.setM_file(rs.getString(14));
+				
+			} else {
+			}
+
+		}catch(Exception e){
+			System.out.println("insertPet error : " + e.getMessage());
+		}
+
+		return memberjoindto;
+	}	
 }
