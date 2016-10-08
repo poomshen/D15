@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Pet_DAO;
-import com.d15.Service.MissingInsertService;
+import com.d15.Service.MissingDetail_Service;
 import com.d15.Service.MissingList_Service;
 import com.d15.Service.PetInsert_Service;
 
@@ -63,7 +63,6 @@ public class Missing_Controller extends HttpServlet {
 			}*/
 			
 		}else if(url_command.equals("/D15/Missing/BoardWriteOk1.missing")){
-			//글쓰기
 			
 			action = new PetInsert_Service(); 
 			try {
@@ -72,7 +71,14 @@ public class Missing_Controller extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(url_command.equals("/D15/Missing/BoardWriteOk2.missing")){
+			
+		}/*else if(url_command.equals("/D15/Missing/BoardWriteOk2.missing")){
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("petwrite.jsp");
+			
+		
+		}else if(url_command.equals("/D15/Missing/BoardWriteOk3.missing")){
 			action = new MissingInsertService();
 			try{
 				forward = action.execute(request, response);
@@ -80,8 +86,16 @@ public class Missing_Controller extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}else if(url_command.equals("/D15/Missing/BoardList.missing")){
+		}*/else if(url_command.equals("/D15/Missing/BoardList.missing")){
 			action = new MissingList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else if(url_command.equals("/D15/Missing/ListDetail.missing")){
+			action = new MissingDetail_Service();
+			
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){

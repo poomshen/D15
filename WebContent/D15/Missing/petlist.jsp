@@ -1,3 +1,9 @@
+<%-- 
+	@JSP : petlist.jsp
+	@Date : 2016-10-07
+	@Author : 박문수
+	@Desc : 실종 신고 게시판의 이미지 목록을 보여주는 jsp 페이지
+--%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,6 +19,9 @@
 				location.href = "BoardWrite.missing";
 			});
 		});
+		function detail(list){
+			location.href = "ListDetail.missing?cp=${cpage}&ps=${pagesize}&mis_no="+list;
+		};
 	</script>
 	<head>
 	<%
@@ -28,6 +37,10 @@
 	<c:set var="pagecount" value = "${requestScope.pagecount}" />
 	<c:set var="totalcount" value = "${requestScope.totalcount}" />
 	<c:set var="list" value="${requestScope.list}" />
+	<%
+		int i = 1;
+		String uploadpath = request.getRealPath("upload");
+	%>
 	
 	<section id="fh5co-work" data-section="work">
 		<div class="container">
@@ -44,16 +57,16 @@
 			
 			<div class="row row-bottom-padded-sm">
 				<c:forEach var="list" items="${list}">
+				
 				<div class="col-md-4 col-sm-6 col-xxs-12">
 					<div class="fh5co-project-item to-animate">
 					
-					
-						<a href="http://cfile4.uf.tistory.com/image/264A1334556EC4570F6828" class="image-popup">
-							<img src="${list.p_image}" alt="Image" class="img-responsive">
+						<a href="../../upload/${list.p_image}" class="image-popup">
+							<img src= "../../upload/${list.p_image}" alt="Image" class="img-responsive">
 						</a>
 						<div class="fh5co-text">
-							<span>게시물 번호 : ${list.mis_no} <input type = "button" id = "detail" value = "상세보기" class = "btn btn-info"
-							style = "position: absolute; right: 10px"></span>
+							<span>게시물 번호 : ${list.mis_no} <input type = "button" id = "detail<%=i++%>"  value = "상세보기" class = "btn btn-info"
+							style = "position: absolute; right: 10px" onclick ="detail(${list.mis_no})"></span>
 							<h2>회원 ID : ${list.m_id}</h2>
 							<span>실종 날짜 : ${list.mis_date} <br>
 								    실종 위치 : ${list.mis_loc}</span><br>
