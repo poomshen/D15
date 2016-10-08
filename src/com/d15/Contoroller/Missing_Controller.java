@@ -21,6 +21,7 @@ import com.d15.Action.ActionForward;
 import com.d15.DAO.Pet_DAO;
 import com.d15.Service.MissingDetail_Service;
 import com.d15.Service.MissingList_Service;
+import com.d15.Service.MissingUpdate_Service;
 import com.d15.Service.PetInsert_Service;
 
 @WebServlet("*.missing")
@@ -95,6 +96,14 @@ public class Missing_Controller extends HttpServlet {
 			}
 		}else if(url_command.equals("/D15/Missing/ListDetail.missing")){
 			action = new MissingDetail_Service();
+			
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else if(url_command.equals("/D15/Missing/update.missing")){
+			action = new MissingUpdate_Service();
 			
 			try{
 				forward = action.execute(request, response);

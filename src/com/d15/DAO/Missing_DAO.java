@@ -56,7 +56,7 @@ public class Missing_DAO {
 		}
 		
 		// 최근에 삽입된 펫 테이블의 상위 컬럼 뽑기
-		public int insertMissingBoard(Missing_DTO dto){
+		public int insertMissingBoard(Missing_DTO dto , int m_no){
 			try{
 				
 				conn = ds.getConnection();
@@ -69,13 +69,14 @@ public class Missing_DAO {
 				
 				
 				String sql2 = "insert into D15_missing(mis_no,m_no,p_no,mis_date,mis_loc,mis_count,mis_content,mis_pro) values"
-						+ "(mis_no_seq.nextval,3,?,?,?,0,?,'N')";
+						+ "(mis_no_seq.nextval,?,?,?,?,0,?,'N')";
 				pstmt = conn.prepareStatement(sql2);
 				
-				pstmt.setInt(1, rs.getInt(1));
-				pstmt.setDate(2, dto.getMis_date());
-				pstmt.setString(3,dto.getMis_loc());
-				pstmt.setString(4, dto.getMis_content());
+				pstmt.setInt(1, m_no );
+				pstmt.setInt(2, rs.getInt(1));
+				pstmt.setDate(3, dto.getMis_date());
+				pstmt.setString(4,dto.getMis_loc());
+				pstmt.setString(5, dto.getMis_content());
 				
 				int row = pstmt.executeUpdate();
 				if(row > 0){
@@ -216,6 +217,29 @@ public class Missing_DAO {
 			}
 			
 			return mdto;
+		}
+		
+		//회원이 실종견을 찾았을시 버튼 처리
+		public int updateMissData(int mis_no){
+			try{
+				conn = ds.getConnection();
+				String sql = "update D15_missing set mis_pro = 'Y' "
+						+ "where mis_no = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1 , mis_no);
+				
+				int row = pstmt.executeUpdate();
+				if(row > 0){
+					System.out.println("업데이트  완료");
+					return row;
+				}else{
+					System.out.println("업데이트 실패");
+				}
+			}catch(Exception e){
+				System.out.println("updateMissdata error");
+				e.printStackTrace();
+			}
+			return 0;
 		}
 		
 }

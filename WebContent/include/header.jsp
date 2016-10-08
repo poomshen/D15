@@ -29,7 +29,7 @@
 					%>
 		       		</div>
 		       	</div>
-		        <div class="navbar-collapse collapse">
+		        <div class="navbar-collapse collapse"> <!-- id = navbar 삭제함 -->
 		        	<ul class="nav navbar-nav navbar-right">
 		           		<li class="active"><a href="#" data-nav-section="home"><span>홈으로</span></a></li>
 			           	<li><a href="#" data-nav-section="work"><span>소개</span></a></li>
