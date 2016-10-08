@@ -14,7 +14,7 @@
 		pageContext.include("../../include/head.jsp");
 	%>
 	<style>
-		form > input {
+		form > input, option, select {
 			color: black;
 		}
 	</style>
@@ -48,10 +48,13 @@
 							이름 <input type="text" name="m_name"><br>
 							연락처 <input type="text" name="m_phone"><br>
 							생년월일 <input type="text" name="m_birth"><br>
-							Email <input type="text" name="m_birth"><br>
-							거주정보 <input type="text" name="m_birth"><br>
-							입양 경험 여부 <input type="text" name="m_birth"><br>
-							생년월일 <input type="text" name="m_birth"><br>
+							Email <input type="text" name="m_email"><br>
+							거주정보 <input type="text" name="m_addr"><br>
+							입양 경험 여부 <select name="m_petok">
+								<option value="N">없음</option>
+								<option value="Y">있음</option>
+							</select>
+							<!-- 파일 업로드 <input type="text" name="m_birth"><br> 개인은 필요없음-->
 							<!-- 정보수정일 update 실행시에 자동 입력 -->
 							<!-- 회원가입일 insert 실행시에 자동 입력 -->
 							

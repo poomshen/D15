@@ -64,7 +64,6 @@ public class Member_DAO {
 			int row = pstmt.executeUpdate();
 			if(row > 0){
 				System.out.println("행 삽입  : " + row + "개");
-				return row;
 			}else{
 				System.out.println("행 삽입 실패");
 			}
@@ -81,9 +80,10 @@ public class Member_DAO {
 			pstmt.setString(5, dto2.getM_addr());
 			pstmt.setString(6, dto2.getM_addr());
 			pstmt.setString(7, dto2.getM_file());
-				
+
+			System.out.println(dto2);	
 			row = pstmt.executeUpdate();
-			System.out.println(row);
+
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
 		}
