@@ -43,8 +43,41 @@
 		      dateFormat: "yy-mm-dd"
 		});
 		
-		$("#button").click(function(){
-			location.href = "BoardList.missing";
+		$("#button1").click(function(){
+			if( $.trim($("#k_kind").val()) == '선택' ){
+		        alert("견종을 알려주세요.");
+		        $("#k_kind").focus();
+		        return false;
+		        
+			 }else if( $.trim($("#p_color").val()) == '' ){
+			        alert("강아지의 색은요.");
+			        $("#p_color").focus();
+			        return false;
+			        
+			 }else if( $.trim($("#p_image").val()) == '' ){
+			        alert("강아지의 사진좀 보여줘");
+			        $("#p_image").focus();
+			        return false;
+			        
+			 }else if( $.trim($("#mis_date").val()) == '' ){
+		        alert("실종 날짜를 알려주세요.");
+		        $("#mis_date").focus();
+		        return false;
+		        
+			 }else if( $.trim($("#mis_loc").val()) == '' ){
+				alert("실종 위치를 알려주세요.");
+			    $("#mis_loc").focus();
+			    return false;
+			 
+			 }else{
+				 alert("실종 신고가 완료 되었습니다.");
+				 return true;
+			 }
+			
+		});
+		$("#button2").click(function(){
+			 
+			 location.href = "BoardList.missing";
 		});
 		
 	});
@@ -58,21 +91,21 @@
 		<select name = "k_kind" id = "k_kind">
 			<option>선택</option>		
 		</select><br>
-		성  별 : <input type = "radio" value = "m" name = "p_gender">수컷
+		성  별 : <input type = "radio" value = "m" name = "p_gender" checked>수컷
 			  <input type = "radio" value = "f" name = "p_gender">암컷 <br>
-		색  상  : <input type = "text" name = "p_color"><br>
+		색  상  : <input type = "text" name = "p_color" id = "p_color"><br>
 		특  징  : <textarea rows="5" cols="20" name = "p_feature"></textarea><br>	  
-		나  이  : <input type = "text" name = "p_age"><br>
-		체  중  : <input type = "text" name = "p_weight"><br>
-		사진 첨부  : <input type = "file" name = "p_image"><br>
+		나  이  : <input type = "text" name = "p_age" id = "p_age"><br>
+		체  중  : <input type = "text" name = "p_weight" id = "p_weight"><br>
+		사진 첨부  : <input type = "file" name = "p_image" id = "p_image"><br>
 		실종 날짜 : <input type = "text" name = "mis_date" id ="mis_date"><br>
-		실종 위치 : <input type = "text" name = "mis_loc"><br>
+		실종 위치 : <input type = "text" name = "mis_loc" id = "mis_loc"><br>
 		내 용 : <textarea rows="5" cols="20" name = "mis_content"></textarea>
 		<br>
 		
-		<input type ="submit" value = "작성완료" >
+		<input type ="submit" value = "작성완료" id = "button1">
 		<input type = "reset" value = "다시작성">
-		<input type = "button" value = "목록으로" id = "button">
+		<input type = "button" value = "목록으로" id = "button2">
 	</form>
 	
 	
