@@ -1,11 +1,3 @@
-/*
- * @Class : Pet_DAO
- * @Date : 2016.10.5
- * @Author : 박문수
- * @Desc : 펫 테이블에 대한 DAO(db연결,CRUD 작업)
- * 
- * */
-
 package com.d15.DAO;
 
 import java.sql.Connection;
@@ -17,9 +9,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.d15.DTO.Pet_DTO;
+import com.d15.DTO.Shelter_DTO;
 
-public class Pet_DAO {
+public class Shelter_DAO {
 	//db연결 초기작업
 	static DataSource ds;
 	Connection conn;
@@ -42,36 +34,24 @@ public class Pet_DAO {
 			System.out.println("lookup Fail : " + e.getMessage());
 		}
 	}
-	
-	public int insertPet(Pet_DTO pet , String kind){
 		
+	public int insertShelter(Shelter_DTO shelter){
+			
 		try{
-			
+				
 			conn = ds.getConnection();
-			
-			// 견종 테이블의 견종코드 뽑기 
-			/*String sql = "select k_code from D15_kind where k_kind like %?%";
-
+						
+			String sql = "insert into D15_Shelter(st_no, st_phone, st_loc, st_name, st_mgr, st_mgrphone) "
+					+"values(시퀀스, ?, ?, ?, ?, ?)";
+				
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, kind.getK_kind());
-	
-			rs = pstmt.executeQuery();
-			System.out.println("?");
-			rs.next();*/
-					
-			String sql_2 = "insert into D15_pet(p_no,p_image,k_code,p_gender,p_color,p_feature,p_age,p_weight) "
-					+ "values(p_no_seq.nextval,?,?,?,?,?,?,?)";
-			
-			pstmt = conn.prepareStatement(sql_2);
-			
-			pstmt.setString(1, pet.getP_image());
-			pstmt.setString(2, kind);
-			pstmt.setString(3, pet.getP_gender());
-			pstmt.setString(4, pet.getP_color());
-			pstmt.setString(5, pet.getP_feature());
-			pstmt.setInt(6, pet.getP_age());
-			pstmt.setInt(7, pet.getP_weight());
-			
+				
+			pstmt.setString(1, shelter.getSt_phone());
+			pstmt.setString(2, shelter.getSt_loc());
+			pstmt.setString(3, shelter.getSt_name());
+			pstmt.setString(4, shelter.getSt_mgr());
+			pstmt.setString(5, shelter.getSt_mgrphone());
+
 			int row = pstmt.executeUpdate();
 			if(row > 0){
 				System.out.println("행 삽입  : " + row + "개");
@@ -79,11 +59,11 @@ public class Pet_DAO {
 			}else{
 				System.out.println("행 삽입 실패");
 			}
-		
+			
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
 		}
-		
+			
 		return 0;
 	}
 }

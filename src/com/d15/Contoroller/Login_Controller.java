@@ -103,7 +103,7 @@ public class Login_Controller extends HttpServlet {
 			forward.setPath("../../index.jsp");
 		}else if(url_command.equals("/D15/Login/Mypage.login")){
 			//마이페이지
-			System.out.println("여기까진 오나??");
+			System.out.println("마이페이지 보기");
 			
 			action = new Mypage_Service(); 
 			try {
@@ -111,7 +111,21 @@ public class Login_Controller extends HttpServlet {
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
-		}else{
+		}else if(url_command.equals("/D15/Login/RegisterGrpOk.login")){
+			//보호소 회원가입 페이지
+			System.out.println("보호소 회원가입");
+			/*action = new Mypage_Service(); 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}*/
+		}
+		
+		
+		
+		
+		else{
 
 		}
 
