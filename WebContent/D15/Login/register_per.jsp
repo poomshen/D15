@@ -7,18 +7,56 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
 	<%
 		pageContext.include("../../include/head.jsp");
 	%>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<style>
 		form > input, option, select {
 			color: black;
 		}
 	</style>
+	<script type="text/javascript">
+		$(function(){
+			$("#register").click(function() {
+				if( $.trim($("#m_id").val()) == '' ){
+			        alert("아이디를 입력하세요.");
+			        $("#m_id").focus();
+			        return false;
+			        
+				 }else if( $.trim($("#p_color").val()) == '' ){
+				        alert("강아지의 색은요.");
+				        $("#p_color").focus();
+				        return false;
+				        
+				 }else if( $.trim($("#p_image").val()) == '' ){
+				        alert("강아지의 사진좀 보여줘");
+				        $("#p_image").focus();
+				        return false;
+				        
+				 }else if( $.trim($("#mis_date").val()) == '' ){
+			        alert("실종 날짜를 알려주세요.");
+			        $("#mis_date").focus();
+			        return false;
+			        
+				 }else if( $.trim($("#mis_loc").val()) == '' ){
+					alert("실종 위치를 알려주세요.");
+				    $("#mis_loc").focus();
+				    return false;
+				 
+				 }else{
+					 alert("실종 신고가 완료 되었습니다.");
+					 return true;
+				 }
+			});
+		});
+	</script>
 	</head>
+	
 	
 	<%
 		pageContext.include("../../include/header.jsp");
@@ -36,23 +74,18 @@
 						</div>
 					</div>
 					 -->
-					
-					<h1 class="to-animate">회원 가입</h1>
+				
 					<div>
-						가입 유형 <input name="radio" id="p" type="radio" value="person">개인 <input name="radio" id="g" type="radio" value="group">보호소<br>
-					</div>
-					
-					<div id="person">
 						<form action="RegisterPerOk.login" method="post">
-							<table>
-								<tr>
-									<td>
+								
+							<h1>회원 가입</h1>
+							
 							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
 							<div class="form-group" style="width:250px;">
      							 <label for="m_id" style="float:left;" >아이디</label>
       							 <input type="text" class="form-control" name="m_id" id = "m_id" placeholder="아이디 입력">
     						</div>
-    								</td>
+    							
 							<div class="form-group" style="width:250px;">
      							 <label for="m_pwd" style="float:left;" >비밀번호</label>
       							 <input type="password" class="form-control" name="m_pwd" id = "m_pwd" placeholder="비밀번호 입력">
@@ -96,23 +129,10 @@
 							<!-- 파일 업로드 <input type="text" name="m_birth"><br> 개인은 필요없음-->
 							<!-- 정보수정일 update 실행시에 자동 입력 -->
 							<!-- 회원가입일 insert 실행시에 자동 입력 -->
-							<input type ="submit" value="가입하기" class = "btn btn-primary">
+							<input type ="button" value="가입하기" id = "register" class = "btn btn-primary">
 							<input type ="reset" value = "다시입력" class = "btn btn-default">
 						</form>
 					</div>
-					
-					<div id="group">
-						<form action="RegisterGrpOk.login" method="post">
-							<!-- 보호소번호 자동입력-->
-							보호소명 <input type="text" name="st_name"><br>
-							전화번호 <input type="text" name="st_phone"><br>
-							위치 <input type="text" name="st_loc"><br>
-							담당자명 <input type="text" name="st_mgr"><br>
-							담당자 연락처 <input type="text" name="mgrphone"><br>
-							<input type="submit" value="가입하기">
-						</form>
-					</div>	
-					
 					
 		<!-- 			
 				</div>

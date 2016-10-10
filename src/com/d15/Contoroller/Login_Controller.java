@@ -68,7 +68,7 @@ public class Login_Controller extends HttpServlet {
 			}
 		}else if(url_command.equals("/D15/Login/RegisterPerOk.login")){
 			//일반회원 가입폼 처리
-			action = new MemberInsert_Service("03"); //서비스 
+			action = new MemberInsert_Service("02"); //서비스 
 			try {
 				forward = action.execute(request, response);
 				
