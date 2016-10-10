@@ -35,15 +35,19 @@
 							<h2 class="to-animate">좀 도와주십쇼</h2>
 						</div>
 					</div>
+					
 					<div>
-						<form action="RegisterPerOk.login">
+						가입 유형 <input name="radio" id="p" type="radio" value="person">개인 <input name="radio" id="g" type="radio" value="group">보호소<br>
+					</div>
+					
+					<div id="person">
+						<form action="RegisterPerOk.login" method="post">
 							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
 							아이디 <input type="text" name="m_id"><br>
 							패스워드 <input type="password" name="m_pwd" id="m_pwd"><br>
 							패스워드 다시 입력 <input type="password" id="re_pwd"><br><!-- js로 유효성 검사 해야됨 -->
 							<!-- 최종방문일 <input type="text" name="m_lastdate"><br> 자동입력 -->	
 							<!-- 권한코드 <input type="text" name="c_code"><br> 자동입력 -->
-							
 							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
 							이름 <input type="text" name="m_name"><br>
 							연락처 <input type="text" name="m_phone"><br>
@@ -57,10 +61,22 @@
 							<!-- 파일 업로드 <input type="text" name="m_birth"><br> 개인은 필요없음-->
 							<!-- 정보수정일 update 실행시에 자동 입력 -->
 							<!-- 회원가입일 insert 실행시에 자동 입력 -->
-							
 							<input type="submit" value="가입하기">
 						</form>
 					</div>
+					
+					<div id="group">
+						<form action="RegisterGrpOk.login" method="post">
+							<!-- 보호소번호 자동입력-->
+							보호소명 <input type="text" name="st_name"><br>
+							전화번호 <input type="text" name="st_phone"><br>
+							위치 <input type="text" name="st_loc"><br>
+							담당자명 <input type="text" name="st_mgr"><br>
+							담당자 연락처 <input type="text" name="mgrphone"><br>
+							<input type="submit" value="가입하기">
+						</form>
+					</div>	
+					
 				</div>
 			</div>
 		</div>
@@ -93,9 +109,21 @@
 			$('.option-toggle').click(function() {
 				$('#colour-variations').toggleClass('sleep');
 			});
+			
+			$('#group').hide();
+			$('#person').hide();
+			
+			//회원가입 유형선택
+			$('#p').click(function(){
+				$('#group').hide();
+				$('#person').show();
+			});
+			$('#g').click(function(){
+				$('#person').hide();
+				$('#group').show();
+			});
 		});
 	</script>
-	<!-- End demo purposes only -->
 
 	</body>
 </html>
