@@ -182,7 +182,7 @@
    
    //페이지 처리
    function page(index){
-	   location.href="dskjfk.LoginManager?pageNo="+index+"&numOfRows=${numOfRows}&key="+key
+	   location.href="/TeamProject3_D15/D15/ProtectOut/dskjfk.LoginManager?pageNo="+index+"&numOfRows=${numOfRows}&key="+key
 	  /*  $.get("dskjfk.LoginManager", {"pageNo":index}, function(data, textStatus, req) {
 	   	console.log(${pageNo});
 	   }) */
