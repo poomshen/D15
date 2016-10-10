@@ -28,7 +28,7 @@
 		pageContext.include("../../include/head.jsp");
 	%>
 	</head>
-	<body>
+	
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>

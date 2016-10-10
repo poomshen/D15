@@ -9,6 +9,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js">
+	
 	<head>
 	<%
 		pageContext.include("../../include/head.jsp");
@@ -19,7 +20,7 @@
 		}
 	</style>
 	</head>
-	<body>
+	
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
@@ -37,8 +38,16 @@
 					</div>
 					<div>
 						<form action="LoginOk.login" method="post">
-							아이디 <input type="text" name="m_id"><br>
-							패스워드 <input type="password" name="m_pwd" id="m_pwd"><br>
+							<center>
+							<div class="form-group" style="width:250px;">
+      							<label for="m_id" style="float:left;">ID</label>
+      							<input type="text" class="form-control" name="m_id" id = "m_id" placeholder="아이디 입력" >   
+    						</div>
+    						<div class="form-group" style="width:250px;">
+     							 <label for="m_pwd" style="float:left;" >비밀번호</label>
+      							 <input type="password" class="form-control" name="m_pwd" id = "m_pwd" placeholder="비밀번호 입력">
+    						</div>
+    						</center>
 							<input type="submit" value="로그인">
 						</form>
 					</div>
