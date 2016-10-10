@@ -162,10 +162,7 @@
      							 <label for="m_addr" style="float:left;" >우편주소</label>
       							 <input type="text" class="form-control" name="m_addr" id = "m_addr" placeholder="주소 입력">
       						</div>	
-      						<div class="form-group" style="width:250px;">
-     							 <label for="m_daddr" style="float:left;" >상세주소</label>
-      							 <input type="text" class="form-control" name="m_daddr" id = "m_daddr" placeholder="주소 입력">
-      						</div>	
+      						
       						 
 <!-- 다음 우편번호 -->   							 
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -226,7 +223,11 @@
     }
 </script>
 <!-- 다음 우편번호 -->					 
-    						
+    						<div class="form-group" style="width:250px;">
+     							 <label for="m_daddr" style="float:left;" >상세주소</label>
+      							 <input type="text" class="form-control" name="m_daddr" id = "m_daddr" placeholder="주소 입력">
+      						</div>	
+      						
     						<div class="form-group" style="width:250px;">
     						<label for="m_petok" style="float:left;" >입양 경험 여부</label>
     						<select name="m_petok">
