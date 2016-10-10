@@ -30,14 +30,14 @@
  }
   .d15_bodyEvt2{
  	background-color:black ;
- 	z-index: 99999;
+ 	z-index: 1000;
  	height:100%; 
  	width: 100%;
  	position:fixed;
  	opacity:0.7;
  }
  .d15_bodyEvt3{
- 	z-index: 99999;
+ 	z-index: 1000;
  	margin-left:25%;
  	margin-right:25%;
  	margin-top:8%;
