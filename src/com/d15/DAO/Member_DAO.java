@@ -80,7 +80,7 @@ public class Member_DAO {
 			pstmt.setInt(3, dto2.getM_birth());
 			pstmt.setString(4, dto2.getM_email());
 			pstmt.setString(5, dto2.getM_addr());
-			pstmt.setString(6, dto2.getM_addr());
+			pstmt.setString(6, dto2.getM_petok());
 			pstmt.setString(7, dto2.getM_file());
 
 			System.out.println(dto2);	
