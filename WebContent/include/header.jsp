@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="com.d15.DTO.Member_DTO"%>
-
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>   
+	<script>
+		$(function(){
+			$("#reg").click(function(){
+				location.href = "/TeamProject3_D15/D15/Login/register_per.jsp";
+			});
+		});
+	</script>
 <body id = "page-top">
  <!-- Navigation -->
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -47,10 +55,12 @@
                      str+=memberdto.getM_id()+"님 로그인 ";
                      out.print("<form action='/TeamProject3_D15/D15/Login/Logout.login' method='post'>");
                      out.print(str+"<input type='submit' value='로그아웃'>&nbsp&nbsp<a href='/TeamProject3_D15/D15/Login/Mypage.login'>[마이페이지]</a>");
+                     
                      out.print("</form>");
                   } else {
                      out.print("<form action='/TeamProject3_D15/D15/Login/Login.login' method='post'>");
                      out.print("<input type='submit' value='로그인'>");
+                     out.print("<input type='button' value='회원가입' id = 'reg'>");
                      out.print("</form>");
                   }
                   %>
