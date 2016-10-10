@@ -119,12 +119,16 @@
    		
  		$("#close").click(function() {
 				$("#d15_body").hide();
+				$("#detailView").show();
+				$("#protectView").hide();
+				$("#parcelView").hide();
 			})
 		//상세 보기
 		$("#detailSelect").click(function() {
 				$("#protectView").hide();
 				$("#parcelView").hide();
 				$("#detailView").show();
+				
 		})
 		//임시보호
 		$("#parcelSelect").click(function() {
