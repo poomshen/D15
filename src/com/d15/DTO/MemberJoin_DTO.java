@@ -22,10 +22,11 @@ public class MemberJoin_DTO {
 	private int m_birth;
 	private String m_email;
 	private String m_addr;
+	private String m_daddr;
 	private String m_petok;
 	private Date m_update;
 	private Date m_regdate;
-	private String m_file;
+	
 	
 	public int getM_no() {
 		return m_no;
@@ -105,18 +106,18 @@ public class MemberJoin_DTO {
 	public void setM_regdate(Date m_regdate) {
 		this.m_regdate = m_regdate;
 	}
-	public String getM_file() {
-		return m_file;
+	public String getM_daddr() {
+		return m_daddr;
 	}
-	public void setM_file(String m_file) {
-		this.m_file = m_file;
+	public void setM_daddr(String m_daddr) {
+		this.m_daddr = m_daddr;
 	}
 	@Override
 	public String toString() {
 		return "MemberJoin_DTO [m_no=" + m_no + ", m_id=" + m_id + ", m_pwd=" + m_pwd + ", m_lastdate=" + m_lastdate
 				+ ", c_code=" + c_code + ", m_name=" + m_name + ", m_phone=" + m_phone + ", m_birth=" + m_birth
 				+ ", m_email=" + m_email + ", m_addr=" + m_addr + ", m_petok=" + m_petok + ", m_update=" + m_update
-				+ ", m_regdate=" + m_regdate + ", m_file=" + m_file + "]";
+				+ ", m_regdate=" + m_regdate + ", m_file=" + m_daddr + "]";
 	}
 	
 }

@@ -102,7 +102,7 @@
 		pageContext.include("../../include/header.jsp");
 	%>
 	
-	<section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
+	<!-- <section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
 		<div class="gradient"></div>
 		<div class="container">
 			<div class="text-wrap">
@@ -112,7 +112,7 @@
 							<h1 class="to-animate">회원 가입</h1>
 							<h2 class="to-animate">좀 도와주십쇼</h2>
 						</div>
-					</div>
+					</div> -->
 					
 					
 					
@@ -159,9 +159,14 @@
       							 <input type="text" class="form-control" name="m_email" id = "m_email" placeholder="이메일 입력">
     						</div>
 							<div class="form-group" style="width:250px;">
-     							 <label for="m_addr" style="float:left;" >거주정보</label>
+     							 <label for="m_addr" style="float:left;" >우편주소</label>
       							 <input type="text" class="form-control" name="m_addr" id = "m_addr" placeholder="주소 입력">
-      							 
+      						</div>	
+      						<div class="form-group" style="width:250px;">
+     							 <label for="m_daddr" style="float:left;" >상세주소</label>
+      							 <input type="text" class="form-control" name="m_daddr" id = "m_daddr" placeholder="주소 입력">
+      						</div>	
+      						 
 <!-- 다음 우편번호 -->   							 
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 <span id="guide" style="color:#999"></span>
@@ -221,7 +226,7 @@
     }
 </script>
 <!-- 다음 우편번호 -->					 
-    						</div>
+    						
     						<div class="form-group" style="width:250px;">
     						<label for="m_petok" style="float:left;" >입양 경험 여부</label>
     						<select name="m_petok">
@@ -325,6 +330,7 @@
 					alert("이메일을 알려주세요.");
 				    $("#mis_loc").focus();
 				    return false;
+
 				}else if( $.trim($("#m_addr").val()) == '' ){
 					alert("주소를 알려주세요.");
 					$("#m_addr").focus();
@@ -336,6 +342,7 @@
 					alert("실종 신고가 완료 되었습니다.");
 					return true;
 				}
+
 			});
 			
 		});

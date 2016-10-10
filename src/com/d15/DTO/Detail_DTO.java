@@ -19,7 +19,7 @@ public class Detail_DTO {
 	private String m_petok;
 	private Date m_update;
 	private Date m_regdate;
-	private String m_file;
+	private String m_daddr;
 	
 	
 	public int getM_no() {
@@ -112,21 +112,16 @@ public class Detail_DTO {
 	}
 
 
-	public String getM_file() {
-		return m_file;
+	public String getM_daddr() {
+		return m_daddr;
 	}
 
 
-	public void setM_file(String m_file) {
-		this.m_file = m_file;
+	public void setM_daddr(String m_daddr) {
+		this.m_daddr = m_daddr;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Detail [m_no=" + m_no + ", m_name=" + m_name + ", m_phone=" + m_phone + ", m_birth=" + m_birth
-				+ ", m_email=" + m_email + ", m_addr=" + m_addr + ", m_petok=" + m_petok + ", m_update=" + m_update
-				+ ", m_regdate=" + m_regdate + ", m_file=" + m_file + "]";
-	}
+	
 	
 }
