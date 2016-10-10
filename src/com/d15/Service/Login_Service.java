@@ -7,6 +7,9 @@
 
 package com.d15.Service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -24,6 +27,7 @@ public class Login_Service implements Action {
 		String m_pwd=request.getParameter("m_pwd");
 		ActionForward forward = new ActionForward();
 		
+		
 		//select 함수를 돌리는 Member_DAO
 		Member_DAO memberdao=new Member_DAO();
 		
@@ -33,13 +37,18 @@ public class Login_Service implements Action {
 		if (memberdto!=null){
 			HttpSession session=request.getSession();
 			session.setAttribute("memberdto", memberdto);
+			forward.setRedirect(false);
+			forward.setPath("loginsuccess.jsp");
+			
 		} else {		
 			HttpSession session=request.getSession();
 			session.invalidate();
+			forward.setRedirect(false);
+			forward.setPath("loginfail.jsp");
+			
 		}
 		
-		forward.setRedirect(false);
-		forward.setPath("../../index.jsp");
+		
 		
 		return forward;
 	}

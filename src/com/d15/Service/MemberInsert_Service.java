@@ -53,7 +53,7 @@ public class MemberInsert_Service implements Action {
 		detaildto.setM_petok(request.getParameter("m_petok"));
 		//정보수정일은 sql에서 자동으로
 		//회원가입일은 sql에서 자동
-		detaildto.setM_file(request.getParameter("m_file"));
+		detaildto.setM_daddr(request.getParameter("m_daddr"));
 		
 		
 		memeberdao.insertMember(memberdto, detaildto);
