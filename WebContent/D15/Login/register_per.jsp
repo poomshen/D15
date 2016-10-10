@@ -293,7 +293,7 @@
 				});
 			});
 
-			//유효성 검사
+			//유효성 검사1
 			$("#submit").click(function(){
 				
 				if($.trim($("#m_id").val()) == ''){
@@ -336,9 +336,22 @@
 					alert("실종 신고가 완료 되었습니다.");
 					return true;
 				}
+				chk(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/, $('#m_id'), "형식에 맞지 않습니다. 다시 입력해 주세요.");
 			});
-			
+						
 		});
+		
+		//정규식 체크함수
+		function chk(re, e, msg) {
+			if (re.test(e.val())) {
+		    	return true;
+		    }
+		 
+			alert(msg);
+		    e.value = "";
+		    e.focus();
+		    return false;
+		}
 	</script>
 
 	</body>
