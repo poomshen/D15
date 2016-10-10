@@ -306,17 +306,17 @@
 			        $("#m_name").focus();
 			        return false;
 			        
-				 }else if( $.trim($("#m_pwd").val()) == '' ){
-				        alert("비밀번호를 입력하세요.");
-				        $("#m_pwd").focus();
-				        return false;
+				}else if( $.trim($("#m_pwd").val()) == '' ){
+				    alert("비밀번호를 입력하세요.");
+				    $("#m_pwd").focus();
+				    return false;
 				        
-				 }else if( $.trim($("#m_pwd").val()) != $.trim($("#re_pwd").val()) ){
-				        alert("비밀번호가 일치하지 않습니다.");
-				        $("#re_pwd").focus();
-				        return false;
+				}else if( $.trim($("#m_pwd").val()) != $.trim($("#re_pwd").val()) ){
+				    alert("비밀번호가 일치하지 않습니다.");
+				    $("#re_pwd").focus();
+				    return false;
 				        
-				 }else if( $.trim($("#m_phone").val()) == '' ){
+				}else if( $.trim($("#m_phone").val()) == '' ){
 			        alert("연락처를 알려주세요.");
 			        $("#mis_date").focus();
 			        return false;
@@ -325,19 +325,17 @@
 					alert("이메일을 알려주세요.");
 				    $("#mis_loc").focus();
 				    return false;
-				 }else if( $.trim($("#m_addr").val()) == '' ){
-						alert("주소를 알려주세요.");
-					    $("#m_addr").focus();
-					    return false;			 
-				 }else if( $.trim($("#checkid").html()) == "이미 있는 ID 입니다!" ){
-					
-					    $("#m_id").focus();
-					    return false;			 
-				 }else{
-					 alert("실종 신고가 완료 되었습니다.");
-					 return true;
-				 }
-				
+				}else if( $.trim($("#m_addr").val()) == '' ){
+					alert("주소를 알려주세요.");
+					$("#m_addr").focus();
+					return false;			 
+				}else if( $.trim($("#checkid").html()) == "이미 있는 ID 입니다!" ){
+					$("#m_id").focus();
+					return false;			 
+				}else{
+					alert("실종 신고가 완료 되었습니다.");
+					return true;
+				}
 			});
 			
 		});
