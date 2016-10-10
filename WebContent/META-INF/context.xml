@@ -15,7 +15,7 @@
 	          maxIdle="20" 
 	          maxActive="10" 
 	          password="1004"
-		      username="MY_SCHEMA" 
+		      username="kosta2" 
 		      url="jdbc:oracle:thin:@localhost:1521:XE"
 			  driverClassName="oracle.jdbc.OracleDriver" 
 			  type="javax.sql.DataSource"
