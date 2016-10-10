@@ -1,7 +1,7 @@
 ;(function () {
 	
 	'use strict';
-
+	ajaxLoading();
 
 
 	// iPad and iPod detection	

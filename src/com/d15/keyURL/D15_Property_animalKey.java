@@ -2,15 +2,15 @@ package com.d15.keyURL;
 
 import java.util.Properties;
 
-public class WePet_property_animalKey {
-	static WePet_property_animalKey key;
+public class D15_Property_animalKey {
+	static D15_Property_animalKey key;
 	public static Properties ptAnimalKey =null;
 	
 	
-	public static WePet_property_animalKey init(){
+	public static D15_Property_animalKey init(){
 		if(ptAnimalKey == null){
 		ptAnimalKey = new Properties();
-		key = new WePet_property_animalKey();
+		key = new D15_Property_animalKey();
 		
 		//공공데이터 인증 키 값 
 		ptAnimalKey.setProperty("Key", "IKwk30HjaqKfkwD9wb%2BEhqEnjKZqdoWTAE9HDdX93yiDxn0COn1RfvCM9rtoHlkOmt061JjZyZXGTM73vtB%2B%2FA%3D%3D");

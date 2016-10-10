@@ -9,13 +9,13 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 
 
-public class WePet_PublicURL_Service implements Action{
+public class D15_PublicURL_Service implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		WePet_property_animalKey searchkey = WePet_property_animalKey.init();
+		D15_Property_animalKey searchkey = D15_Property_animalKey.init();
 		HashMap<String,String> list = new HashMap<>();
-		WePet_key key = new WePet_key();
+		D15_key key = new D15_key();
 		
 
 		String bgnde=request.getParameter("bgnde");//유기날짜_시작";
