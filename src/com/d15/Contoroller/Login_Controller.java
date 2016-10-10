@@ -50,25 +50,23 @@ public class Login_Controller extends HttpServlet {
 		String context_path=request.getContextPath();
 		String url_command=request_uri.substring(context_path.length());
 		System.out.println(url_command);
-		System.out.println("asd12314s");
 		//인터페이스 추가
 		ActionForward forward=null;
 		Action action=null;
 		//2.판단
 		if(url_command.equals("/D15/Login/RegisterPer.login")){
-			//일반회원 가입폼 보여주기
+			System.out.println("일반회원 가입폼 보여주기");
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/D15/Login/register_per.jsp");
 			try{
 				forward= action.execute(request, response);
-				System.out.println(request.getAttribute("result"));
 			}catch(Exception e){
 				e.getMessage();
 			}
 		}else if(url_command.equals("/D15/Login/RegisterPerOk.login")){
-			//일반회원 가입폼 처리
-			action = new MemberInsert_Service("02"); //서비스 
+			System.out.println("일반회원 가입폼 처리");
+			action = new MemberInsert_Service("02");
 			try {
 				forward = action.execute(request, response);
 				
@@ -76,7 +74,7 @@ public class Login_Controller extends HttpServlet {
 				System.out.println(e.getMessage());
 			}
 		}else if(url_command.equals("/D15/Login/Login.login")){
-			//로그인화면
+			System.out.println("로그인화면 보여주기");
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/D15/Login/login.jsp");
@@ -87,44 +85,31 @@ public class Login_Controller extends HttpServlet {
 				e.getMessage();
 			}
 		}else if(url_command.equals("/D15/Login/LoginOk.login")){
-			//로그인 처리
-			action = new Login_Service(); //서비스 
+			System.out.println("로그인 처리");
+			action = new Login_Service();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
 		}else if(url_command.equals("/D15/Login/Logout.login")){
-			//로그아웃 처리		
+			System.out.println("로그아웃 처리");		
 			HttpSession session=request.getSession();
 			session.invalidate();
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("../../index.jsp");
 		}else if(url_command.equals("/D15/Login/Mypage.login")){
-			//마이페이지
 			System.out.println("마이페이지 보기");
-			
 			action = new Mypage_Service(); 
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
-		}else if(url_command.equals("/D15/Login/RegisterGrpOk.login")){
-			//보호소 회원가입 페이지
-			System.out.println("보호소 회원가입");
-			/*action = new Mypage_Service(); 
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}*/
+		
 		}
-		
-		
-		
-		
+
 		else{
 
 		}

@@ -28,7 +28,7 @@ public class Mypage_Service implements Action {
 		Member_DTO memberdto = (Member_DTO)session.getAttribute("memberdto");
 		
 		MemberJoin_DTO memberjoindto=memberdao.selectMember(memberdto.getM_no());
-		System.out.println("dto?" + memberjoindto);
+		System.out.println("dto? " + memberjoindto);
 		
 		request.setAttribute("memberjoindto", memberjoindto);
 		

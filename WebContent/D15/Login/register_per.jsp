@@ -116,19 +116,18 @@
 					 -->
 					
 					<h1 class="to-animate">회원 가입</h1>
-					<div>
-						가입 유형 <input name="radio" id="p" type="radio" value="person">개인 <input name="radio" id="g" type="radio" value="group">보호소<br>
-					</div>
-					
+										
 					<div id="person">
 						<form action="RegisterPerOk.login" method="post">
-							<table>
-								<tr>
-									<td>
 							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
 							<div class="form-group" style="width:250px;">
      							 <label for="m_id" style="float:left;" >아이디</label>
-      							 <input type="text" class="form-control" name="m_id" id = "m_id" placeholder="아이디 입력">
+
+      							 	<input type="text" class="form-control" name="m_id" id = "m_id" placeholder="아이디 입력">
+      							 	<input type="button" id="idcheck"  class = "btn btn-default" value="ID중복확인">
+
+      							 <span id="checkid"></span>
+      							 
     						</div>
     								</td>
 							<div class="form-group" style="width:250px;">
@@ -163,7 +162,7 @@
      							 <label for="m_addr" style="float:left;" >거주정보</label>
       							 <input type="text" class="form-control" name="m_addr" id = "m_addr" placeholder="주소 입력">
       							 
-      							 <!-- 다음 우편번호 -->   							 
+<!-- 다음 우편번호 -->   							 
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 <span id="guide" style="color:#999"></span>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -230,27 +229,15 @@
 								<option value="Y">있음</option>
 							</select>
      						</div>
-     						</table>
+
 							<!-- 파일 업로드 <input type="text" name="m_birth"><br> 개인은 필요없음-->
 							<!-- 정보수정일 update 실행시에 자동 입력 -->
 							<!-- 회원가입일 insert 실행시에 자동 입력 -->
-							<input type ="submit" value="가입하기" class = "btn btn-primary">
+							<input id="submit" type ="submit" value="가입하기" class = "btn btn-primary">
 							<input type ="reset" value = "다시입력" class = "btn btn-default">
 						</form>
 					</div>
-					
-					<div id="group">
-						<form action="RegisterGrpOk.login" method="post">
-							<!-- 보호소번호 자동입력-->
-							보호소명 <input type="text" name="st_name"><br>
-							전화번호 <input type="text" name="st_phone"><br>
-							위치 <input type="text" name="st_loc"><br>
-							담당자명 <input type="text" name="st_mgr"><br>
-							담당자 연락처 <input type="text" name="mgrphone"><br>
-							<input type="submit" value="가입하기">
-						</form>
-					</div>	
-					
+	
 					
 		<!-- 			
 				</div>
@@ -286,18 +273,73 @@
 				$('#colour-variations').toggleClass('sleep');
 			});
 			
-			$('#group').hide();
-			$('#person').hide();
+			$('#idcheck').click(function(){
+				$('#checkid').empty();	
 			
-			//회원가입 유형선택
-			$('#p').click(function(){
-				$('#group').hide();
-				$('#person').show();
+				$.ajax({
+					type:"post",
+					dataType:"html",
+					url:"checkid.jsp",
+					data:{id:$('#m_id').val().trim()},
+					success:function(receiveddata){
+						
+						if($.trim(receiveddata)=="y"){
+							$('#checkid').append("이미 있는 ID 입니다!");
+							$('#m_id').focus();
+						}else{
+							$('#checkid').append("사용 가능한 ID 입니다!");
+						}
+					}
+				});
 			});
-			$('#g').click(function(){
-				$('#person').hide();
-				$('#group').show();
+
+			//유효성 검사
+			$("#submit").click(function(){
+				
+				if($.trim($("#m_id").val()) == ''){
+					alert("아이디를 입력하세요.");
+			        $("#m_id").focus();
+			        return false;
+			        
+				}else if($.trim($("#m_name").val()) == '' ){
+			        alert("이름을 입력하세요.");
+			        $("#m_name").focus();
+			        return false;
+			        
+				 }else if( $.trim($("#m_pwd").val()) == '' ){
+				        alert("비밀번호를 입력하세요.");
+				        $("#m_pwd").focus();
+				        return false;
+				        
+				 }else if( $.trim($("#m_pwd").val()) != $.trim($("#re_pwd").val()) ){
+				        alert("비밀번호가 일치하지 않습니다.");
+				        $("#re_pwd").focus();
+				        return false;
+				        
+				 }else if( $.trim($("#m_phone").val()) == '' ){
+			        alert("연락처를 알려주세요.");
+			        $("#mis_date").focus();
+			        return false;
+			        
+				 }else if( $.trim($("#m_email").val()) == '' ){
+					alert("이메일을 알려주세요.");
+				    $("#mis_loc").focus();
+				    return false;
+				 }else if( $.trim($("#m_addr").val()) == '' ){
+						alert("주소를 알려주세요.");
+					    $("#m_addr").focus();
+					    return false;			 
+				 }else if( $.trim($("#checkid").html()) == "이미 있는 ID 입니다!" ){
+					
+					    $("#m_id").focus();
+					    return false;			 
+				 }else{
+					 alert("실종 신고가 완료 되었습니다.");
+					 return true;
+				 }
+				
 			});
+			
 		});
 	</script>
 
