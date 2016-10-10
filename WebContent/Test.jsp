@@ -1,10 +1,10 @@
-<%@page import="com.d15.DTO.Member_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
+		<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>살아나개 사랑할개</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,6 +71,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
    
+   
+</head>
 <style>
    .navbar-custom{
        background: #ffffff;
@@ -78,15 +80,17 @@
    
    .navbar-custom .navbar-nav li a, header {
     color: #3f95ea;
-   }
+   
 </style>   
-</head>
+<body>
 
 	<header>
 		<% 
-			pageContext.include("include/header.jsp");
+		pageContext.include("include/header.jsp");
 		%>
-	</header>     
+   </header>
+
+	
 
    <section id="fh5co-home"  data-stellar-background-ratio="0.5">
       <div class="gradient"></div>
@@ -115,5 +119,5 @@
    
    
 
-   </body>
+</body>
 </html>
