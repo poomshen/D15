@@ -41,7 +41,15 @@
 					<div>
 						<c:set var="dto" value="${requestScope.memberjoindto}" />
 						ID: ${dto.m_id}<br>
-						pwd: ${dto.m_pwd}<br>
+						최종방문일: ${dto.m_lastdate}<br>
+						이름: ${dto.m_name}<br>
+						연락처: ${dto.m_phone}<br>
+						생년월일: ${dto.m_birth}<br>
+						Email: ${dto.m_email}<br>
+						거주정보: ${dto.m_addr}<br>
+						입양경험: ${dto.m_petok}<br>
+						정보수정일: ${dto.m_update}<br>
+						회원가입일: ${dto.m_regdate}
 					</div>
 				</div>
 			</div>
