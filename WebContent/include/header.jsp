@@ -44,7 +44,7 @@
 			           	<li><a href="#" data-nav-section="work"><span>소개</span></a></li>
 		           		<li><a href="#" data-nav-section="testimonials"><span>공지사항</span></a></li>
 		           		<li><a href="#" data-nav-section="services"><span>현황</span></a></li>
-		           		<li><a href="#" data-nav-section="about"><span>분양/임시보호</span></a></li>
+		           		<li><a href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.keyurl" data-nav-section="about"><span>분양/임시보호</span></a></li>
 		           		<li><a href="/TeamProject3_D15/D15/Missing/BoardList.missing" data-nav-section="contact"><span>실종신고</span></a></li>
 		           		<li><a href="#" data-nav-section="contact"><span>게시판</span></a></li>
 		        	</ul>
