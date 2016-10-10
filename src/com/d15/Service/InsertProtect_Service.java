@@ -63,7 +63,7 @@ public class InsertProtect_Service implements Action{
 			  
 			 try {
 				 //상태 변경 
-				 if(orgDao.updateSituation(no, "[등록중]임시")){
+				 if(orgDao.updateSituation(Integer.parseInt(no), "[등록중]임시")){
 					 System.out.println("임시 보호 등록 성공");
 					 forward.setPath("ProtectSuccess.jsp");
 					 forward.setRedirect(false);
@@ -78,9 +78,6 @@ public class InsertProtect_Service implements Action{
 			}
 				 
 		 }else{
-			 System.out.println("임시 보호 등록 실패");
-			 forward.setPath("ProtectFail.jsp");
-			 forward.setRedirect(false);
 		 }
 		 return forward;
 		

@@ -36,6 +36,7 @@ public class Parcel_DAO {
 	//분양 등록
 	public boolean insertParcel(Parcel_DTO parcel){
 		boolean ck = false;
+		System.out.println("분양 하자 ");
 		try {
 			conn = ds.getConnection();
 			String sql = "insert into D15_parcel(pc_no, m_no, org_no, pc_reqdate, pc_begdate) values(PC_NO_SEQ.nextval,? ,? ,sysdate,?)";

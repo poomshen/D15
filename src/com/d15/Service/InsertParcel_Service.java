@@ -53,9 +53,9 @@ public class InsertParcel_Service implements Action{
 			   //등록이 성공 되었다면
 			   Organic_DAO organic_DAO = new Organic_DAO();
 			   try {
-				if(organic_DAO.updateSituation(no, "[등록중]분양")){
-					forward.setPath("ProtectSuccess.jsp");
-					forward.setRedirect(false);
+				if(organic_DAO.updateSituation(Integer.parseInt(no), "[등록중]분양")){
+						forward.setPath("ProtectSuccess.jsp");
+						forward.setRedirect(false);
 				   }else{
 						forward.setPath("ProtectFail.jsp");
 						forward.setRedirect(false);
@@ -66,8 +66,6 @@ public class InsertParcel_Service implements Action{
 			   }
 		   }else{
 			   //등록이 실패 했다면
-			   forward.setPath("ProtectFail.jsp");
-			   forward.setRedirect(false);
 		   }
 		
 	

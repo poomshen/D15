@@ -3,6 +3,7 @@ package com.d15.Service;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +22,10 @@ public class PublicDB_Service implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		try {
 		//한글 처리
 		response.setContentType("text/html;charset=UTF-8");
-	     try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		}
+		request.setCharacterEncoding("UTF-8");
 		/*
 		  "desertionNo":desertionNo[index],: 동물번호
 	   		"popfile":popfile[index], : 이미지
@@ -42,15 +40,17 @@ public class PublicDB_Service implements Action{
 		
 		String org_animal = request.getParameter("desertionNo");
 		String org_img = request.getParameter("popfile");
+		//여기에 품종 가져오자
+		String kindCd = URLDecoder.decode(request.getParameter("kindCd"));
 		String org_gender = request.getParameter("sexCd");
-		String org_situation = request.getParameter("processState");
+		String org_situation = URLDecoder.decode(request.getParameter("processState"));
 		int org_date = (Integer.parseInt(request.getParameter("noticeEdt")) - Integer.parseInt(request.getParameter("noticeSdt")));
 		
-		Organic_DTO org =new Organic_DTO(org_animal, org_img, org_gender, org_situation, org_date);
+		Organic_DTO org =new Organic_DTO(org_animal, org_img, org_gender, org_situation, org_date,kindCd);
 		Organic_DTO orgck = new Organic_DTO();
 		Organic_DAO orgDao = new Organic_DAO();
 		
-		try {
+		
 			orgck = orgDao.selectOrganic(org_animal);
 			
 			if(orgck.getOrg_no() == 0 ){
@@ -61,9 +61,9 @@ public class PublicDB_Service implements Action{
 				orgDao.insertCount(org_animal);
 				
 				org = orgDao.selectOrganic(org_animal);
-				jobj.put("Org_no", org.getOrg_no());
-				jobj.put("Org_count", org.getOrg_count());
-				jobj.put("Org_situation", org.getOrg_situation());
+				jobj.put("Org_no", org.getOrg_no());//시퀀스 번호
+				jobj.put("Org_count", org.getOrg_count());//조회수
+				jobj.put("Org_situation", org.getOrg_situation());//상태
 				response.getWriter().print(jobj);
 			}else{
 				System.out.println("있는 아이디");

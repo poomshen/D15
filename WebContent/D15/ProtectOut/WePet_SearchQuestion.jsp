@@ -30,14 +30,14 @@
  }
   .d15_bodyEvt2{
  	background-color:black ;
- 	z-index: 1000;
+ 	z-index: 9000;
  	height:100%; 
  	width: 100%;
  	position:fixed;
  	opacity:0.7;
  }
  .d15_bodyEvt3{
- 	z-index: 1000;
+ 	z-index: 9000;
  	margin-left:25%;
  	margin-right:25%;
  	margin-top:8%;
@@ -77,8 +77,8 @@
 	<br><br>
 	<div style="margin-left: 25%; margin-top: 0px;" >임시보호 받을 날을 입력해주세요</div>
 	<form id="protectform" method="post" >
-	<input id="protectDSt" class="protectDSt" type="text" style="margin-left: 10%; margin-top: 5%; width:420px; cursor : pointer ;" value="보호시작 날짜" >
-	<input id="protectDEd" class="protectDEd" type="text" style="margin-left: 10%; margin-top: 2%; width:420px; cursor : pointer ;" value="보호종료 날짜" >
+	<input name="protectDSt" id="protectDSt" class="protectDSt" type="text" style="margin-left: 10%; margin-top: 5%; width:420px; cursor : pointer ;" value="보호시작 날짜" >
+	<input name="protectDEd" id="protectDEd" class="protectDEd" type="text" style="margin-left: 10%; margin-top: 2%; width:420px; cursor : pointer ;" value="보호종료 날짜" >
 	<input type="submit" value="임시보호신청" style="margin-left: 35%; margin-top: 5%;">
 	</form>
 </div>
@@ -87,7 +87,7 @@
 	<br><br>
 	<div style="margin-left: 25%; margin-top: 0px;" >분양 받을 날을 입력해주세요</div>
 	<form id="parceform" method="post" >
-	<input id="parcelD" class="parcelD" type="text" style="margin-left: 10%; margin-top: 10%; width:420px; cursor : pointer ;" value="날짜입력">
+	<input name="parcelD" id="parcelD" class="parcelD" type="text" style="margin-left: 10%; margin-top: 10%; width:420px; cursor : pointer ;" value="날짜입력">
 	<input type="submit" value="임시보호신청" style="margin-left: 35%; margin-top: 5%;">
 	</form>
 </div>
@@ -132,6 +132,7 @@
 	            formatSubmit: 'yy/mm/dd',
 	            container: '#container',
 	            min: true,
+	            hiddenName: true,
 	            // editable: true,
 	            closeOnSelect: false,
 	            closeOnClear: false,
@@ -150,6 +151,7 @@
 	            formatSubmit: 'yy/mm/dd',
 	            container: '#container',
 	            min: true,
+	            hiddenName: true,
 	            // editable: true,
 	            closeOnSelect: false,
 	            closeOnClear: false,
@@ -167,6 +169,7 @@
 	            formatSubmit: 'yy/mm/dd',
 	            container: '#container',
 	            min: true,
+	            hiddenName: true,
 	            // editable: true,
 	            closeOnSelect: false,
 	            closeOnClear: false,

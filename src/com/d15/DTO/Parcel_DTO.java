@@ -10,7 +10,6 @@ public class Parcel_DTO {
 	int org_no;
 	Date fc_reqdate;
 	Date fc_begdate;
-	int pc_petc;
 	Date pc_argdate;
 	
 	public Parcel_DTO() {
@@ -58,12 +57,6 @@ public class Parcel_DTO {
 	}
 	public void setFc_begdate(Date fc_begdate) {
 		this.fc_begdate = fc_begdate;
-	}
-	public int getPc_petc() {
-		return pc_petc;
-	}
-	public void setPc_petc(int pc_petc) {
-		this.pc_petc = pc_petc;
 	}
 	public Date getPc_argdate() {
 		return pc_argdate;

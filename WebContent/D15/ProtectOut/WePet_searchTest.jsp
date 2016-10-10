@@ -189,10 +189,11 @@
 	   "desertionNo":desertionNo[index],
 	   "popfile":popfile[index],
 	   "sexCd":sexCd[index],
-	   "processState":processState[index],
+	   "processState": encodeURIComponent(processState[index]),
 	   "happenDt":happenDt[index],
 	   "noticeEdt":noticeEdt[index],
-	   "noticeSdt":noticeSdt[index]
+	   "noticeSdt":noticeSdt[index],
+	   "kindCd":encodeURIComponent(kindCd[index])
 	   }, function(data, textStatus, req) {
 		   //조회수 가지고 오기
 		   //console.log(data.Org_situation);
