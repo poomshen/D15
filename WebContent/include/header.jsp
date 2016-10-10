@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="com.d15.DTO.Member_DTO"%>
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>   
 	<script>
@@ -10,7 +12,9 @@
 			});
 		});
 	</script>
+	
 <body id = "page-top">
+<header>
  <!-- Navigation -->
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
@@ -72,3 +76,4 @@
         </div>
         <!-- /.container-fluid -->
     </nav>   
+</header> 

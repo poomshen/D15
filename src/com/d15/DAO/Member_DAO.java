@@ -132,7 +132,7 @@ public class Member_DAO {
 	//상세정보 보기 처리 함수
 	public MemberJoin_DTO selectMember(int m_no){
 		MemberJoin_DTO memberjoindto=new MemberJoin_DTO();
-		
+		System.out.println(m_no);
 		try{
 			
 			conn = ds.getConnection();
