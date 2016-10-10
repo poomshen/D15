@@ -148,11 +148,11 @@
     						</div>
 							<div class="form-group" style="width:250px;">
      							 <label for="m_phone" style="float:left;" >연락처</label>
-      							 <input type="text" class="form-control" name="m_phone" id = "m_phone" placeholder="연락처 입력">
+      							 <input type="text" class="form-control" name="m_phone" id = "m_phone" placeholder="- 없이 입력하세요.">
     						</div>
 							<div class="form-group" style="width:250px;">
      							 <label for="m_birth" style="float:left;" >생년월일</label>
-      							 <input type="text" class="form-control" name="m_birth" id = "m_birth" placeholder="생년월일 입력">
+      							 <input type="text" class="form-control" name="m_birth" id = "m_birth" placeholder="ex)890213">
     						</div>
 							<div class="form-group" style="width:250px;">
      							 <label for="m_email" style="float:left;" >email</label>
