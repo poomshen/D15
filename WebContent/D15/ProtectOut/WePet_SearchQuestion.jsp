@@ -8,11 +8,10 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 <meta charset="UTF-8">
-<%@include file="WePet_searchTest.jsp" %>
+
 <title>임시보호/분양</title>
 
-<%@include file="../../include/head.jsp" %>
-<%@include file="../../include/script.jsp" %>
+<%@include file="WePet_searchTest.jsp" %>
 <style type="text/css">
  #search img{
  	width: 100%; 
@@ -31,14 +30,14 @@
  }
   .d15_bodyEvt2{
  	background-color:black ;
- 	z-index: 99999;
+ 	z-index: 1000;
  	height:100%; 
  	width: 100%;
  	position:fixed;
  	opacity:0.7;
  }
  .d15_bodyEvt3{
- 	z-index: 99999;
+ 	z-index: 1000;
  	margin-left:25%;
  	margin-right:25%;
  	margin-top:8%;
@@ -53,12 +52,6 @@
  }
 </style>  
 </head>
-<script type="text/javascript">
-$(function(){
-	
-})
-
-</script>
 <body>
 <div id="d15_body">
 <!-- 화면이벤트   -->
@@ -96,11 +89,9 @@ $(function(){
 </div>
 </div>
 </div>
+<%@include file="../../include/head.jsp" %>
 
-
-<div>
 <%@ include file="../../include/header.jsp" %>
-</div>
 <div class="d15_bodyEvt1">
 <section id="fh5co-work" data-section="work">
 <div class="container">
@@ -181,9 +172,10 @@ $(function(){
 	        
 	        var picker = $input.pickadate('picker');
 		</script>
-<script src="js/main.js"></script>
+<script src="../../js/main.js"></script>
 <br>
 <br><br>
 <%@ include file="../../include/footer.jsp" %>
+<%@include file="../../include/script.jsp" %>
 </body>
 </html>

@@ -47,7 +47,7 @@ public class LoginManager extends HttpServlet {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/WePet_SearchQuestion.jsp");
+		forward.setPath("WePet_SearchQuestion.jsp");
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 		dispatcher.forward(request, response);
 	}
