@@ -52,7 +52,7 @@
  }
 </style>  
 </head>
-<body>
+
 <div id="d15_body">
 <!-- 화면이벤트   -->
 <div id="d15_body1"></div>

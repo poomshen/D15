@@ -54,3 +54,27 @@
 
 	<!-- Modernizr JS -->
 	<script src="http://kosta129.esy.es/elate/js/modernizr-2.6.2.min.js"></script><!-- 없는듯 -->
+	
+	 <!-- 10월 5일 지율 추가 시작  -->
+   <!-- Bootstrap Core CSS -->
+    <link href="boot2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="boot2/css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="boot2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+   
+   
+   <style>
+   .navbar-custom{
+       background: #ffffff;
+   }
+   
+   .navbar-custom .navbar-nav li a, header {
+    color: #3f95ea;
+   
+   </style>   
+   <!-- 10.05 지율 추가  끝 -->
