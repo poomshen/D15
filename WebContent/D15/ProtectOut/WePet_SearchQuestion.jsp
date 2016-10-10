@@ -62,7 +62,7 @@
 <button title="Close (Esc)" type="button" class="mfp-close" style="z-index:11;" id="close">×</button>
 <div style="z-index:11; margin-bottom: -2px;">
 &nbsp;
-<span style="background-color: white; border-radius:5px 5px 0px 0px; cursor : pointer ;" id="detailSelect ">&nbsp; 상세보기&nbsp; </span>
+<span style="background-color: white; border-radius:5px 5px 0px 0px; cursor : pointer ;" id="detailSelect">&nbsp; 상세보기&nbsp; </span>
 <span style="background-color: red; border-radius:5px 5px 0px 0px; cursor : pointer ;" id="protectSelect">&nbsp; 임시보호&nbsp; </span>
 <span style="background-color: blue; border-radius:5px 5px 0px 0px; cursor : pointer ;" id="parcelSelect">&nbsp;&nbsp;분양받기&nbsp;&nbsp;</span>
 </div>
