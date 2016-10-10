@@ -7,56 +7,96 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
-	<%
-		pageContext.include("../../include/head.jsp");
-	%>
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>살아나개 사랑할개</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/icomoon.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/simple-line-icons.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/magnific-popup.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/bootstrap.css">
+
+	<!-- 
+	Default Theme Style 
+	You can change the style.css (default color purple) to one of these styles
+	
+	1. pink.css
+	2. blue.css
+	3. turquoise.css
+	4. orange.css
+	5. lightblue.css
+	6. brown.css
+	7. green.css
+
+	-->
+	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/style.css">
+	<link rel="stylesheet" id="theme-switch" href="http://kosta129.esy.es/elate/css/style.css">
+	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/demo.css"><!-- 없는듯 -->
+
+	<!-- Modernizr JS -->
+	<script src="http://kosta129.esy.es/elate/js/modernizr-2.6.2.min.js"></script><!-- 없는듯 -->
+	
+	 <!-- 10월 5일 지율 추가 시작  -->
+   <!-- Bootstrap Core CSS -->
+    <link href="boot2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="boot2/css/freelancer.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="boot2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+   
+   
+   <style>
+   .navbar-custom{
+       background: #ffffff;
+   }
+   
+   .navbar-custom .navbar-nav li a, header {
+    color: #3f95ea;
+   
+   </style>   
+   <!-- 10.05 지율 추가  끝 -->
+	
+	
 	<style>
 		form > input, option, select {
 			color: black;
 		}
 	</style>
-	<script type="text/javascript">
-		$(function(){
-			$("#register").click(function() {
-				if( $.trim($("#m_id").val()) == '' ){
-			        alert("아이디를 입력하세요.");
-			        $("#m_id").focus();
-			        return false;
-			        
-				 }else if( $.trim($("#p_color").val()) == '' ){
-				        alert("강아지의 색은요.");
-				        $("#p_color").focus();
-				        return false;
-				        
-				 }else if( $.trim($("#p_image").val()) == '' ){
-				        alert("강아지의 사진좀 보여줘");
-				        $("#p_image").focus();
-				        return false;
-				        
-				 }else if( $.trim($("#mis_date").val()) == '' ){
-			        alert("실종 날짜를 알려주세요.");
-			        $("#mis_date").focus();
-			        return false;
-			        
-				 }else if( $.trim($("#mis_loc").val()) == '' ){
-					alert("실종 위치를 알려주세요.");
-				    $("#mis_loc").focus();
-				    return false;
-				 
-				 }else{
-					 alert("실종 신고가 완료 되었습니다.");
-					 return true;
-				 }
-			});
-		});
-	</script>
 	</head>
-	
 	
 	<%
 		pageContext.include("../../include/header.jsp");
@@ -74,18 +114,23 @@
 						</div>
 					</div>
 					 -->
-				
+					
+					<h1 class="to-animate">회원 가입</h1>
 					<div>
+						가입 유형 <input name="radio" id="p" type="radio" value="person">개인 <input name="radio" id="g" type="radio" value="group">보호소<br>
+					</div>
+					
+					<div id="person">
 						<form action="RegisterPerOk.login" method="post">
-								
-							<h1>회원 가입</h1>
-							
+							<table>
+								<tr>
+									<td>
 							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
 							<div class="form-group" style="width:250px;">
      							 <label for="m_id" style="float:left;" >아이디</label>
       							 <input type="text" class="form-control" name="m_id" id = "m_id" placeholder="아이디 입력">
     						</div>
-    							
+    								</td>
 							<div class="form-group" style="width:250px;">
      							 <label for="m_pwd" style="float:left;" >비밀번호</label>
       							 <input type="password" class="form-control" name="m_pwd" id = "m_pwd" placeholder="비밀번호 입력">
@@ -129,10 +174,23 @@
 							<!-- 파일 업로드 <input type="text" name="m_birth"><br> 개인은 필요없음-->
 							<!-- 정보수정일 update 실행시에 자동 입력 -->
 							<!-- 회원가입일 insert 실행시에 자동 입력 -->
-							<input type ="button" value="가입하기" id = "register" class = "btn btn-primary">
+							<input type ="submit" value="가입하기" class = "btn btn-primary">
 							<input type ="reset" value = "다시입력" class = "btn btn-default">
 						</form>
 					</div>
+					
+					<div id="group">
+						<form action="RegisterGrpOk.login" method="post">
+							<!-- 보호소번호 자동입력-->
+							보호소명 <input type="text" name="st_name"><br>
+							전화번호 <input type="text" name="st_phone"><br>
+							위치 <input type="text" name="st_loc"><br>
+							담당자명 <input type="text" name="st_mgr"><br>
+							담당자 연락처 <input type="text" name="mgrphone"><br>
+							<input type="submit" value="가입하기">
+						</form>
+					</div>	
+					
 					
 		<!-- 			
 				</div>

@@ -1,4 +1,4 @@
-package com.d15.keyURL;
+package com.d15.Service;
 
 
 import java.io.UnsupportedEncodingException;
@@ -16,7 +16,7 @@ import com.d15.DTO.Organic_DTO;
 
 
 /// 데이터베이스에 유기견 데이터을 집어 넣는 서비스
-public class WePet_PublicSeqSelect_Service implements Action{
+public class PublicSeqSelect_Service implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		//한글 처리

@@ -30,6 +30,19 @@
        var yqlURL;
        var ck=0;
    $(function(){
+	   ajaxLoading();
+	   function ajaxLoading(){
+			console.log("로딩중")
+		    var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="http://blog.teamtreehouse.com/wp-content/uploads/2015/05/InternetSlowdown_Day.gif" />').appendTo(document.body).hide();
+
+		    $(window)   
+		    .ajaxStart(function(){
+		       loading.show();
+		    })
+		    .ajaxStop(function(){
+		       loading.hide();
+		    });
+		}
 	   $("#d15_body").hide();
 		
 		$("#protectView").hide();
@@ -48,6 +61,7 @@
            "&format=xml&callback=?"
        ].join("");
        $.getJSON(yqlURL, function(data){
+    	   ajaxLoading();
     	    var xmlContent = $(data.results[0]);
     	    //item 태그마다 필요한 값 뽑아내기 
     	    //굳이  xml을 json으로 바꿀 필요는 없음
@@ -154,13 +168,24 @@
 		
 	}
 	
-   
+	function ajaxLoading(){
+
+	    var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="http://blog.teamtreehouse.com/wp-content/uploads/2015/05/InternetSlowdown_Day.gif" />').appendTo(document.body).hide();
+
+	    $(window)   
+	    .ajaxStart(function(){
+	       loading.show();
+	    })
+	    .ajaxStop(function(){
+	       loading.hide();
+	    });
+	}
    //게시판 이미지 클릭 시 이벤트
    function searchclick(index){
 	   //$("#list"+index).append(kindCd[index])
 	   var count;
 	   //컨트롤러를 통해 DB저장
-	   $.getJSON("insertPublic.keyurl", {
+	   $.getJSON("/TeamProject3_D15/D15/ProtectOut/insertPublic.ProtectOut", {
 	   "desertionNo":desertionNo[index],
 	   "popfile":popfile[index],
 	   "sexCd":sexCd[index],
@@ -176,8 +201,8 @@
 	   $("#d15_body").show();
 	   $("#d15_body1").addClass("d15_bodyEvt2");
 	   $("#d15_body2").addClass("d15_bodyEvt3");
-	   $("#protectform").attr("action", "insertProtect.keyurl?no="+no);
-	   $("#parceform").attr("action", "insertParceform.keyurl?no="+no);
+	   $("#protectform").attr("action", "insertProtect.ProtectOut?no="+no);
+	   $("#parceform").attr("action", "insertParceform.ProtectOut?no="+no);
 	   $("#detailView").html("<div><img alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></div>");
 	   $("#detailView").append("<div>"+count+"<br>"+careNm[index]+"<br>"+careAddr[index]+"<br>"+processState[index]+"</div>")
 	   })
@@ -186,13 +211,13 @@
    
    //페이지 처리
    function page(index){
-	   location.href="/TeamProject3_D15/D15/ProtectOut/dskjfk.LoginManager?pageNo="+index+"&numOfRows=${numOfRows}&key="+key
+	   location.href="/TeamProject3_D15/D15/ProtectOut/page.ProtectOut?pageNo="+index+"&numOfRows=${numOfRows}&key="+key
 	  /*  $.get("dskjfk.LoginManager", {"pageNo":index}, function(data, textStatus, req) {
 	   	console.log(${pageNo});
 	   }) */
 	   
    }
-   
+   <%@ include file="../../js/main.js" %>
   </script>
 
 

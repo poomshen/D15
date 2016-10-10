@@ -11,11 +11,11 @@
 <table style="width: 600">
 <tr>
 <td>시작 날짜:</td>
-<td><input type="text" name="bgnde" value="20140601"><br></td><!--켈렌더 로 바꾸고  -->
+<td><input type="text" name="bgnde" value="20161001"><br></td><!--켈렌더 로 바꾸고  -->
 </tr>
 <tr>
 <td>끝 날짜:</td>
-<td><input type="text" name="endde" value="20140630"><br>
+<td><input type="text" name="endde" value="20161010"><br>
 </td></tr>
 <tr>
 <td>축종코드:</td>

@@ -29,14 +29,11 @@ public class Encoding_Filter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		//1.request(들어올때)
     	if(request.getCharacterEncoding() == null){
-    		System.out.println("Before : " + request.getCharacterEncoding());
     		request.setCharacterEncoding("UTF-8");
-    		System.out.println("After : " + request.getCharacterEncoding());
     	}
     	chain.doFilter(request, response);
     	
     	//2.response(나갈때)
-    	System.out.println("response 응답 처리");
 		
 	}
 
