@@ -88,15 +88,55 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
    
    
-   <style>
-   .navbar-custom{
-       background: #ffffff;
-   }
-   
-   .navbar-custom .navbar-nav li a, header {
-    color: #3f95ea;
-   
-   </style>   
+  <style>
+.navbar-custom {
+	background: #ffffff;
+}
+
+.navbar-custom .navbar-nav li a, header {
+	color: #000000;
+}
+
+header .container {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#fh5co-home .text-inner h1, #fh5co-home .text-inner h2, #fh5co-home .text-inner h3,
+	#fh5co-home .text-inner h2 a {
+	/* font-size: 50px; */
+	color: #000000;
+	margin: 0 0 20px 0;
+}
+
+
+#fh5co-home .text-inner #lgform {
+	/* font-size: 50px; */
+	color: #3f95ea;
+	margin: 0 0 20px 0;
+}
+
+#fh5co-home {
+	background-color: transparent;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	width: 100%;
+	background-color: #fff;
+	color: #000000;
+	overflow: hidden;
+}
+
+.form-group {
+    margin: 30px 0;
+}
+
+.form-control {   
+    width: 250px;
+    align:center;
+    }
+
+</style>  
   <!--  10.05 지율 추가  끝
  -->
 
@@ -166,28 +206,111 @@
 
 </script>
 </head>
-<body>
-	<form action ="BoardWriteOk1.missing" name = "form" id = "form" method = "post" enctype = "multipart/form-data">
-		견종 선택 : 
-		<select name = "k_kind" id = "k_kind">
-			<option>선택</option>		
-		</select><br>
-		성  별 : <input type = "radio" value = "m" name = "p_gender" checked>수컷
-			  <input type = "radio" value = "f" name = "p_gender">암컷 <br>
-		색  상  : <input type = "text" name = "p_color" id = "p_color"><br>
-		특  징  : <textarea rows="5" cols="20" name = "p_feature"></textarea><br>	  
-		나  이  : <input type = "text" name = "p_age" id = "p_age"><br>
-		체  중  : <input type = "text" name = "p_weight" id = "p_weight"><br>
-		사진 첨부  : <input type = "file" name = "p_image" id = "p_image"><br>
-		실종 날짜 : <input type = "text" name = "mis_date" id ="mis_date"><br>
-		실종 위치 : <input type = "text" name = "mis_loc" id = "mis_loc"><br>
-		내 용 : <textarea rows="5" cols="20" name = "mis_content"></textarea>
-		<br>
-		
-		<input type ="submit" value = "작성완료" id = "button1">
-		<input type = "reset" value = "다시작성">
-		<input type = "button" value = "목록으로" id = "button2">
-	</form>
+
+	<%
+		pageContext.include("../../include/header.jsp");
+	%>
+	<!-- <section id="fh5co-home" data-stellar-background-ratio="0.5">
+	<div class="container">
+		<div class="text-wrap">
+			<div class="text-inner">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 class="to-animate">실종신고</h1>
+						<h2 class="to-animate">작성</h2>
+					</div> -->
+					<!-- <div class="col-md-8 col-md-offset-2"> -->
+							<center>
+							<form action="BoardWriteOk1.missing" name="form" id="form"
+								method="post" enctype="multipart/form-data">
+								
+								<br><br><br><br><br><br><br>
+								<label for ="k_kind">견 종</label>
+								<select name="k_kind" id="k_kind">
+								<option>선택</option>
+								</select><br><br>
+								
+								<label for = "p_gender">성 별</label>&nbsp;
+								<input type="radio" value="m" name="p_gender" checked>수컷
+								<input type="radio" value="f" name="p_gender">암컷 <br>
+								
+								<div class="form-group" style="width:250px;">
+     								 <label for="p_color" style="float:left;" >색 상</label>
+      								 <input type="text" class="form-control" name="p_color" id = "p_color" placeholder="색상을 적어주세요.">
+       							</div>
+       							
+       							
+								<div class="form-group" style="width:250px;">
+     								 <label for="p_feature" style="float:left;" >특 징</label>
+									<textarea rows="5" cols="20" name="p_feature" class="form-control"></textarea>
+       							</div>
+								
+								<div class="form-group" style="width:250px;">
+     								 <label for="p_age" style="float:left;" >나 이</label>
+      								 <input type="text" class="form-control" name="p_age" id = "p_age" placeholder="나이를 적어주세요.">
+       							</div>
+       							
+       							<div class="form-group" style="width:250px;">
+     								 <label for="p_weight" style="float:left;" >체 중</label>
+      								 <input type="text" class="form-control" name="p_weight" id = "p_weight" placeholder="체중을 적어주세요.">
+       							</div>
+       							
+       							<label for = "p_image">사진 첨부</label>
+								<input type="file" name="p_image" id="p_image"><br>
+								
+								<div class="form-group" style="width:250px;">
+     								 <label for="mis_date" style="float:left;" >실종 날짜</label>
+      								 <input type="text" class="form-control" name="mis_date" id = "mis_date" placeholder="실종 날짜 선택.">
+       							</div>
+       							
+       							<div class="form-group" style="width:250px;">
+     								 <label for="mis_loc" style="float:left;" >실종 위치</label>
+      								 <input type="text" class="form-control" name="mis_loc" id = "mis_loc" placeholder="위치를 적어주세요.">
+       							</div>
+       							
+       							<div class="form-group" style="width:250px;">
+     								 <label for="mis_content" style="float:left;" >내 용</label>
+									<textarea rows="5" cols="20" name="mis_content" class="form-control"></textarea>
+       							</div>
+								
+								<br> <input type="submit" value="작성완료" id="button1" class = "btn btn-primary">
+								<input type="reset" value="다시작성" class = "btn btn-default"> 
+								<input type="button"
+									value="목록으로" id="button2" class = "btn btn-default">
+							</form>
+						</center>
+						<!-- </div> -->
+	<!-- 			</div>			
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<%
+	pageContext.include("../../include/footer.jsp");
+%>
+
+
+<%
+	pageContext.include("../../include/script.jsp");
+%>
+
+<script>
+	$(function() {
+		//fadeinout();
+		$('#colour-variations ul').styleSwitcher({
+			defaultThemeId : 'theme-switch',
+			hasPreview : false,
+			cookie : {
+				expires : 30,
+				isManagingLoad : true
+			}
+		});
+		$('.option-toggle').click(function() {
+			$('#colour-variations').toggleClass('sleep');
+		});
+	});
+</script>
 	
 	
 	
