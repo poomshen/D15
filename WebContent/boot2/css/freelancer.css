@@ -72,10 +72,11 @@ header {
   background: #18BC9C;
   color: white;
 }
-header .container {
+/* 인덱스때문에 수정 */
+/* header .container {
   padding-top: 100px;
   padding-bottom: 50px;
-}
+} */
 header img {
   display: block;
   margin: 0 auto 20px;
