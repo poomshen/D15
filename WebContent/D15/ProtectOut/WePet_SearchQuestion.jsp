@@ -53,6 +53,10 @@
 </style>  
 </head>
 
+
+<%@include file="../../include/head.jsp" %>
+
+<%@ include file="../../include/header.jsp" %>
 <div id="d15_body">
 <!-- 화면이벤트   -->
 <div id="d15_body1"></div>
@@ -89,9 +93,6 @@
 </div>
 </div>
 </div>
-<%@include file="../../include/head.jsp" %>
-
-<%@ include file="../../include/header.jsp" %>
 <div class="d15_bodyEvt1">
 <section id="fh5co-work" data-section="work">
 <div class="container">
@@ -107,6 +108,7 @@
 			</div>
 <div class='row row-bottom-padded-sm' id="search">
 </div>
+<div class="clearfix visible-sm-block"></div>
 </div>
 </section>
 <div align="center"> 
@@ -172,7 +174,8 @@
 	        
 	        var picker = $input.pickadate('picker');
 		</script>
-<script src="../../js/main.js"></script>
+
+<!-- <script src="../../js/main.js"></script> -->
 <br>
 <br><br>
 <%@ include file="../../include/footer.jsp" %>
