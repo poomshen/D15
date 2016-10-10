@@ -46,7 +46,9 @@
 	실종 날짜 : ${requestScope.dto.mis_date}<br>
 	실종 위치 : ${requestScope.dto.mis_loc}<br>
 	내 용 : ${requestScope.dto.mis_content}<br>
-
+	
+	<input type = "button" id = "list" value = "목록으로" class = "btn btn-primary"
+	style = "position: absolute; right: 500px">
 	<c:choose>
 		<c:when test = "${mdto.m_id == dto.m_id }">
 		<span style = "position: absolute; right: 200px">실종 된 애완견을 찾으셨나요 ?</span>

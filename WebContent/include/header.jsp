@@ -1,7 +1,15 @@
 <%@page import="com.d15.DTO.Member_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+ 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>   
+	<script>
+		$(function(){
+			$("#reg").click(function(){
+				location.href = "/TeamProject3_D15/D15/Login/register_per.jsp";
+			});
+		});
+	</script>
 	<header role="banner" id="fh5co-header">
 		<div class="container">
 		    <nav class="navbar navbar-default">
@@ -24,6 +32,7 @@
 						} else {
 							out.print("<form action='/TeamProject3_D15/D15/Login/Login.login' method='post'>");
 							out.print("<input type='submit' value='로그인'>");
+							out.print("<input type='button' value='회원가입' id = 'reg'>");
 							out.print("</form>");
 						}
 					%>
@@ -31,7 +40,7 @@
 		       	</div>
 		        <div class="navbar-collapse collapse"> <!-- id = navbar 삭제함 -->
 		        	<ul class="nav navbar-nav navbar-right">
-		           		<li class="active"><a href="#" data-nav-section="home"><span>홈으로</span></a></li>
+		           		<li class="active"><a href="/TeamProject3_D15/index.jsp" data-nav-section="home"><span>홈으로</span></a></li>
 			           	<li><a href="#" data-nav-section="work"><span>소개</span></a></li>
 		           		<li><a href="#" data-nav-section="testimonials"><span>공지사항</span></a></li>
 		           		<li><a href="#" data-nav-section="services"><span>현황</span></a></li>
