@@ -4,13 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.d15.DTO.MangerProtect_DTO;
 import com.d15.DTO.Protect_DTO;
+import com.sun.org.apache.regexp.internal.recompile;
 
 import oracle.net.aso.b;
 
@@ -79,7 +83,46 @@ public class Protect_DAO {
 	}
 	
 	//관리자 영역 승인안된list (관리자가 승인여부하기위해 찾기 위한 list 구문)
-	//public 
+	public  ArrayList<MangerProtect_DTO> mangerlist(){
+		ArrayList<MangerProtect_DTO> list = new  ArrayList<MangerProtect_DTO>();
+		try {
+			conn = ds.getConnection();
+			String sql ="select  m_id , m_name ,	m_phone, m_email,	m_addr,"
+					+ " m_petok,pr_reqdate,pr_begdate,pr_enddate,org_img,org_code,"
+					+ "org_gender,org_count,org_date, pr_no from "
+					+ " (select * from (select * from D15_PROTECT pr join D15_DETAIL mb on pr.M_NO = mb.M_NO) c join D15_MEMBER e "
+					+ " on m_no = e.m_no where PR_ARGDATE is null) c join D15_ORGANIC e on e.ORG_NO = c.Org_no;";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()){
+				MangerProtect_DTO  mangerDTO  = new MangerProtect_DTO();
+				mangerDTO.setId(rs.getString(1));
+				mangerDTO.setName(rs.getString(2));
+				mangerDTO.setPhone(rs.getString(3));
+				mangerDTO.setEmail(rs.getString(4));
+				mangerDTO.setPetOk(rs.getString(5));
+				mangerDTO.setReqdate(rs.getDate("pr_reqdate"));
+				mangerDTO.setBegdate(rs.getDate("pr_begdate"));
+				mangerDTO.setEnddate(rs.getDate("pr_enddate"));
+				mangerDTO.setImg(rs.getString(9));
+				mangerDTO.setGender(rs.getString(10));
+				mangerDTO.setCode(rs.getString(11));
+				mangerDTO.setCount(rs.getInt(12));
+				mangerDTO.setDate(rs.getInt(13));
+				mangerDTO.setPr_no(rs.getInt(14));
+				list.add(mangerDTO);
+			}
+			return list;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+			
+		return list;
+		
+	}
 	
 	
 	//관리자가 승인한 날짜 업데이트 구문 (승인 허락)
