@@ -21,6 +21,10 @@
 			$("#nomiss").click(function(){
 				location.href = "update.missing?cp=${param.cp}&ps=${param.ps}&mis_no=${param.mis_no}";
 			});
+			
+			$("#list").click(function(){
+				location.href = "BoardList.missing?cp=${param.cp}&ps=${param.ps}"
+			});
 		});
 	</script>
 </head>
