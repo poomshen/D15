@@ -70,8 +70,8 @@ public class Member_DAO {
 				System.out.println("행 삽입 실패");
 			}
 			
-			String sql2="insert into D15_Detail(m_no, m_name, m_phone, m_birth, m_email, m_addr, m_petok, m_update, m_regdate, m_file) "
-					+ "values(m_no_seq.currval,?,?,?,?,?,?,sysdate,sysdate,?)";
+			String sql2="insert into D15_Detail(m_no, m_name, m_phone, m_birth, m_email, m_addr,m_daddr, m_petok, m_update, m_regdate) "
+					+ "values(m_no_seq.currval,?,?,?,?,?,?,?,sysdate,sysdate)";
 			
 			pstmt = conn.prepareStatement(sql2);
 			
@@ -80,8 +80,9 @@ public class Member_DAO {
 			pstmt.setInt(3, dto2.getM_birth());
 			pstmt.setString(4, dto2.getM_email());
 			pstmt.setString(5, dto2.getM_addr());
-			pstmt.setString(6, dto2.getM_petok());
-			pstmt.setString(7, dto2.getM_file());
+			pstmt.setString(6, dto2.getM_daddr());
+			pstmt.setString(7, dto2.getM_petok());
+			
 
 			System.out.println(dto2);	
 			row = pstmt.executeUpdate();
@@ -121,6 +122,7 @@ public class Member_DAO {
 				memberdto.setC_code(rs.getString(5));
 				return memberdto;
 			} else {
+				System.out.println("로그인 실패");
 			}
 		
 		}catch(Exception e){
@@ -137,7 +139,7 @@ public class Member_DAO {
 			
 			conn = ds.getConnection();
 					
-			String sql = "select M.m_no, M.m_id, M.m_pwd, M.m_lastdate, M.c_code, D.m_name, D.m_phone, D.m_birth, D.m_email, D.m_addr, D.m_petok,D. m_update, D.m_regdate, D.m_file "
+			String sql = "select M.m_no, M.m_id, M.m_pwd, M.m_lastdate, M.c_code, D.m_name, D.m_phone, D.m_birth, D.m_email, D.m_addr,D.m_daddr, D.m_petok,D. m_update, D.m_regdate "
 					+"from D15_Member M join D15_Detail D on M.M_NO=D.M_NO where M.m_no=?";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -160,10 +162,11 @@ public class Member_DAO {
 				memberjoindto.setM_birth(rs.getInt(8));
 				memberjoindto.setM_email(rs.getString(9));
 				memberjoindto.setM_addr(rs.getString(10));
-				memberjoindto.setM_petok(rs.getString(11));
-				memberjoindto.setM_update(rs.getDate(12));
-				memberjoindto.setM_regdate(rs.getDate(13));
-				memberjoindto.setM_file(rs.getString(14));
+				memberjoindto.setM_daddr(rs.getString(11));
+				memberjoindto.setM_petok(rs.getString(12));
+				memberjoindto.setM_update(rs.getDate(13));
+				memberjoindto.setM_regdate(rs.getDate(14));
+				
 				
 			} else {
 			}

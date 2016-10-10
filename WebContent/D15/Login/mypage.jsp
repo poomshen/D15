@@ -103,36 +103,62 @@
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
-		
-	<section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
-		<div class="gradient"></div>
-		<div class="container">
-			<div class="text-wrap">
-				<div class="text-inner">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
-							<h1 class="to-animate">회원 정보</h1>
-							<h2 class="to-animate">내가 바로...!</h2>
+	<c:set var = "memberdto" value = "${sessionScope.memberdto}"/>
+	
+	<c:choose>
+	<c:when test="${memberdto.m_id == 'admin' }">
+			<section id="fh5co-home" data-section="home"
+			style="background-image: url(images/full_image_2.jpg);"
+			data-stellar-background-ratio="0.5">
+			<div class="gradient"></div>
+			<div class="container">
+				<div class="text-wrap">
+					<div class="text-inner">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h1 class="to-animate">관리자 페이지</h1>
+								<h2 class="to-animate">내가 관리자다</h2>
+							</div>
 						</div>
-					</div>
-					<div>
-						<c:set var="dto" value="${requestScope.memberjoindto}" />
-						ID: ${dto.m_id}<br>
-						최종방문일: ${dto.m_lastdate}<br>
-						이름: ${dto.m_name}<br>
-						연락처: ${dto.m_phone}<br>
-						생년월일: ${dto.m_birth}<br>
-						Email: ${dto.m_email}<br>
-						거주정보: ${dto.m_addr}<br>
-						입양경험: ${dto.m_petok}<br>
-						정보수정일: ${dto.m_update}<br>
-						회원가입일: ${dto.m_regdate}
+						<div>
+							
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="slant"></div>
-	</section>
+			<div class="slant"></div>
+		</section>
+		</c:when>
+	<c:otherwise>
+		<section id="fh5co-home" data-section="home"
+			style="background-image: url(images/full_image_2.jpg);"
+			data-stellar-background-ratio="0.5">
+			<div class="gradient"></div>
+			<div class="container">
+				<div class="text-wrap">
+					<div class="text-inner">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h1 class="to-animate">회원 정보</h1>
+								<h2 class="to-animate">내가 바로...!</h2>
+							</div>
+						</div>
+						<div>
+							<c:set var="dto" value="${requestScope.memberjoindto}" />
+							ID: ${dto.m_id}<br> 최종방문일: ${dto.m_lastdate}<br> 이름:
+							${dto.m_name}<br> 연락처: ${dto.m_phone}<br> 생년월일:
+							${dto.m_birth}<br> Email: ${dto.m_email}<br> 거주정보:
+							${dto.m_addr}<br> 입양경험: ${dto.m_petok}<br> 정보수정일:
+							${dto.m_update}<br> 회원가입일: ${dto.m_regdate}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="slant"></div>
+		</section>
+	</c:otherwise>
+</c:choose>
+	
 	
 	
 	

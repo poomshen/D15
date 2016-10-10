@@ -94,10 +94,10 @@ header .container {
 	overflow: hidden;
 }
 </style>
-
+</head>
 <% 
-			pageContext.include("include/header.jsp");
-		%>
+	pageContext.include("include/header.jsp");
+%>
 
 
 <section id="fh5co-home" data-stellar-background-ratio="0.5">
