@@ -102,7 +102,7 @@
 		pageContext.include("../../include/header.jsp");
 	%>
 	
-	<!-- <section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
+	<section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
 		<div class="gradient"></div>
 		<div class="container">
 			<div class="text-wrap">
@@ -113,9 +113,9 @@
 							<h2 class="to-animate">좀 도와주십쇼</h2>
 						</div>
 					</div>
-					 -->
 					
-					<h1 class="to-animate">회원 가입</h1>
+					
+					
 										
 					<div id="person">
 						<form action="RegisterPerOk.login" method="post">
@@ -148,11 +148,11 @@
     						</div>
 							<div class="form-group" style="width:250px;">
      							 <label for="m_phone" style="float:left;" >연락처</label>
-      							 <input type="text" class="form-control" name="m_phone" id = "m_phone" placeholder="연락처 입력">
+      							 <input type="text" class="form-control" name="m_phone" id = "m_phone" placeholder="- 없이 입력하세요.">
     						</div>
 							<div class="form-group" style="width:250px;">
      							 <label for="m_birth" style="float:left;" >생년월일</label>
-      							 <input type="text" class="form-control" name="m_birth" id = "m_birth" placeholder="생년월일 입력">
+      							 <input type="text" class="form-control" name="m_birth" id = "m_birth" placeholder="ex)890213">
     						</div>
 							<div class="form-group" style="width:250px;">
      							 <label for="m_email" style="float:left;" >email</label>
