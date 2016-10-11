@@ -1,3 +1,11 @@
+/*
+ * @Class : Protect_DAO
+ * @Date : 2016.10.5
+ * @Author : 이성준
+ * @Desc : 임시보호 테이블에 대한 DAO(db연결,CRUD 작업)
+ * 
+ * */
+
 package com.d15.DAO;
 
 import java.sql.Connection;
@@ -59,7 +67,7 @@ public class Protect_DAO {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return ck;
 	}
 	
 	//임시보호 삭제 - 회원 임시보호 취소 -> ( 트리거 사용 구문???)

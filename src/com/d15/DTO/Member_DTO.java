@@ -1,3 +1,10 @@
+/*
+ * @Class : Member_DTO
+ * @Date : 2016.10.7
+ * @Author : 길한종
+ * @Desc : 회원 테이블 DTO
+ */
+
 package com.d15.DTO;
 
 import java.sql.Date;

@@ -47,22 +47,22 @@
 					<div class="col-sm-4">
 						
 						  <img src="/TeamProject3_D15/images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
-						    <h2>Thumbnail</h2>
-						 	 <p>The .img-thumbnail class creates a thumbnail of the image:</p>
+						    <h2>멍멍</h2>
+						 	 <p>크르르릉크르르르릉</p>
 						  	<input type="button" class="btn btn-default" value="보러가기">
 					</div>
 				
 					<div class="col-sm-4">
 							  <img src="/TeamProject3_D15/images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
-								  <h2>Thumbnail</h2>
-								  <p>The .img-thumbnail class creates a thumbnail of the image:</p>
+								  <h2>왈왈</h2>
+								  <p>끼잉끼이이끼이잉</p>
 						    	<input type="button" class="btn btn-default" value="보러가기">
 					</div>
 			
 					<div class="col-sm-4">
 						  <img src="/TeamProject3_D15/images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
-						  <h2>Thumbnail</h2>
-						  <p>The .img-thumbnail class creates a thumbnail of the image:</p>
+						  <h2>컹컹</h2>
+						  <p>꺄륵꺄르르르르륵꺄륵</p>
 						  <input type="button" class="btn btn-default" value="보러가기">
 					</div>
 					

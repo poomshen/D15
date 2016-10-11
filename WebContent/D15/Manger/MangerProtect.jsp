@@ -23,16 +23,16 @@
  <div>
  	<table>
   <tr>
-    <th>동물이미지</th><th>아이디</th><th>이름</th><th>핸드폰</th><th>이메일</th><th>주소</th><th>분양경험</th><th>신청날짜</th><th>희망날짜</th><th>종료날짜</th><th>동물 품종</th><th>유기견 성별</th><th>조회수</th>
+    <th>동물이미지</th><th>아이디</th><th>이름</th><th>핸드폰</th><th>이메일</th><th>주소</th><th>분양경험</th><th>신청날짜</th><th>희망날짜</th><th>종료날짜</th><th>동물 품종</th><th>유기견 성별</th><th>조회수</th><th>남은 날짜</th><th>신청</th>
   </tr>
  <c:forEach var="list" items="${list}">
   <tr>
     <td><img alt="" src="${list.img }" style="width: 200px; height: 100px;"></td><td>${list.id}</td><td>${list.name }</td><td>${list.phone }</td><td>${list.email }</td>
     <td>${list.addr }</td><td>${list.petOk }</td><td>${list.reqdate }</td><td>${list.begdate }</td><td>${list.enddate }</td>
-    <td>${list.code }</td><td>${list.gender }</td><td>${list.count }</td><td>${list.date }</td>
+    <td>${list.code }</td><td>${list.gender }</td><td>${list.count }</td><td>${list.date }</td><td><input type="button" value="거절"><input type="button" value="승낙"></td>
   </tr>
  </c:forEach>
 </table>
-내일 모양  내요~
+<br><br><br>
 </body>
 </html>

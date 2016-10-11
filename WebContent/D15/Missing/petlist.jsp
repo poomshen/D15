@@ -67,6 +67,10 @@
 			pageContext.include("../../include/header.jsp");
 		%> --%>
 <body>
+<header>
+	<jsp:include page="../../include/header.jsp"/>
+</header>
+
    <c:set var="cpage" value = "${requestScope.cpage}" />
    <c:set var="pagesize" value = "${requestScope.pagesize}" />
    <c:set var="pagecount" value = "${requestScope.pagecount}" />
@@ -78,7 +82,7 @@
    %>
 
 
-		
+	<h1 style = "text-align:center">실종신고 게시판</h1>
 	<c:forEach var="list" items="${list}">
 		<div class = "col-sm-4">
 		<span>게시물 번호 : ${list.mis_no}</span><br>
@@ -108,6 +112,7 @@
 					<font color="green">찾음</font>
 				</c:otherwise>
 			</c:choose>
+			<br>
 		</div>
 	</c:forEach>
 
@@ -147,10 +152,10 @@
 		</table>
 	</div>
 
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 
-<%
-      pageContext.include("../../include/footer.jsp");
-%>
    
 
    </body>
