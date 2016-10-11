@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../pickadate/lib/themes/default.css">
 <link rel="stylesheet" href="../../pickadate/lib/themes/default.date.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -57,8 +60,11 @@
 
 
 
+<body>
+<header>
+	<jsp:include page = "../../include/header.jsp" />
+</header>
 
-<%@ include file="../../include/header.jsp" %>
 <div id="d15_body">
 <!-- 화면이벤트   -->
 <div id="d15_body1"></div>
@@ -183,7 +189,9 @@
 
 <br>
 <br><br>
-<%@ include file="../../include/footer.jsp" %>
 
+<footer>
+	<jsp:include page = "../../include/footer.jsp" />
+</footer>
 </body>
 </html>
