@@ -97,7 +97,7 @@ public class Parcel_DAO {
 					+ "(Select ORG_NO, Pc_No,S.M_No,Pc_Reqdate,Pc_Begdate,M_Id ,M_Name ,   M_Phone, M_Email,   M_Addr,M_Petok From "
 					+ "(Select ORG_NO,pc_no,Pc.M_No,Pc_Reqdate,Pc_Begdate,m_id From "
 					+ "(Select * From D15_Parcel Where pc_Argdate Is Null) Pc Join D15_Member Mb On Pc.M_No = Mb.M_No) S "
-					+ "Join D15_Detail  E On S.M_No = E.M_No ) Sw join D15_ORGANIC org on sw.ORG_NO = org.Org_no;";
+					+ "Join D15_Detail  E On S.M_No = E.M_No ) Sw join D15_ORGANIC org on sw.ORG_NO = org.Org_no";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {

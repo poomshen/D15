@@ -48,7 +48,7 @@
                       				
                       					<div class="col-sm-1"></div>
                       					<div class="col-sm-4">
-                      						<span class="glyphicon glyphicon-user logo">${memberdto.id}</span>
+                      						<span class="glyphicon glyphicon-user logo">${memberdto.m_id}</span>
                       					</div>
                       					<div class="col-sm-3">
                       						<a href = "/TeamProject3_D15/D15/Login/Logout.login">

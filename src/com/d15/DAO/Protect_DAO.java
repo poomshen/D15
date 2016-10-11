@@ -92,7 +92,7 @@ public class Protect_DAO {
 					+ "(Select ORG_NO, Pr_No,S.M_No,Pr_Reqdate,Pr_Begdate,Pr_Enddate,M_Id ,M_Name , M_Phone, M_Email,M_Addr,M_Petok From "
 					+ "(Select ORG_NO,pr_no,Pr.M_No,Pr_Reqdate,Pr_Begdate,Pr_Enddate,m_id From "
 					+ "(Select * From D15_Protect Where Pr_Argdate Is Null) Pr Join D15_Member Mb On Pr.M_No = Mb.M_No)  S Join D15_Detail  E On s.M_No = e.M_No ) Sw "
-					+ "join D15_ORGANIC org on sw.ORG_NO = org.Org_no;";
+					+ "join D15_ORGANIC org on sw.ORG_NO = org.Org_no";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()){
