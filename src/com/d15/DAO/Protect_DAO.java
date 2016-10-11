@@ -87,7 +87,12 @@ public class Protect_DAO {
 		ArrayList<MangerProtect_DTO> list = new  ArrayList<MangerProtect_DTO>();
 		try {
 			conn = ds.getConnection();
-			String sql ="Select  M_Id , M_Name ,M_Phone, M_Email,	M_Addr,M_Petok,Pr_Reqdate,Pr_Begdate,pr_enddate,Org_Img,Org_Code,Org_Gender,Org_Count,Org_Date ,Pr_No from (select * from (Select * From (select * from D15_PROTECT where Pr_ARGDATE is null) pr join D15_MEMBER mb on pr.m_no = mb.m_no) s join D15_Detail e on m_no = e.m_no ) sw join D15_ORGANIC org on sw.ORG_NO = org.Org_no";
+			String sql ="Select  M_Id , M_Name ,M_Phone, M_Email,M_Addr,M_Petok,Pr_Reqdate,Pr_Begdate,Pr_Enddate,"
+					+ "Org_Img,Org_Code,Org_Gender,Org_Count,Org_Date ,Pr_No From "
+					+ "(Select ORG_NO, Pr_No,S.M_No,Pr_Reqdate,Pr_Begdate,Pr_Enddate,M_Id ,M_Name , M_Phone, M_Email,M_Addr,M_Petok From "
+					+ "(Select ORG_NO,pr_no,Pr.M_No,Pr_Reqdate,Pr_Begdate,Pr_Enddate,m_id From "
+					+ "(Select * From D15_Protect Where Pr_Argdate Is Null) Pr Join D15_Member Mb On Pr.M_No = Mb.M_No)  S Join D15_Detail  E On s.M_No = e.M_No ) Sw "
+					+ "join D15_ORGANIC org on sw.ORG_NO = org.Org_no;";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()){

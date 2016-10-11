@@ -92,11 +92,13 @@ public class Parcel_DAO {
 	public ArrayList<MangerParcel_DTO> mangerlist(){
 		ArrayList<MangerParcel_DTO> list = new ArrayList<MangerParcel_DTO>();
 		try {
-			System.out.println("????a");
 			conn = ds.getConnection();
-			String sql = "Select  M_Id , M_Name ,M_Phone, M_Email,	M_Addr,M_Petok,Pc_Reqdate,Pc_Begdate,Org_Img,Org_Code,Org_Gender,Org_Count,Org_Date ,Pc_No from (select * from (Select * From (select * from D15_Parcel where Pc_ARGDATE is null) pr join D15_MEMBER mb on pr.m_no = mb.m_no) s join D15_Detail e on m_no = e.m_no ) sw join D15_ORGANIC org on sw.ORG_NO = org.Org_no";
+			String sql = "Select  M_Id , M_Name , M_Phone, M_Email, M_Addr,M_Petok,Pc_Reqdate,Pc_Begdate,Org_Img,Org_Code,Org_Gender,Org_Count,Org_Date ,Pc_No From "
+					+ "(Select ORG_NO, Pc_No,S.M_No,Pc_Reqdate,Pc_Begdate,M_Id ,M_Name ,   M_Phone, M_Email,   M_Addr,M_Petok From "
+					+ "(Select ORG_NO,pc_no,Pc.M_No,Pc_Reqdate,Pc_Begdate,m_id From "
+					+ "(Select * From D15_Parcel Where pc_Argdate Is Null) Pc Join D15_Member Mb On Pc.M_No = Mb.M_No) S "
+					+ "Join D15_Detail  E On S.M_No = E.M_No ) Sw join D15_ORGANIC org on sw.ORG_NO = org.Org_no;";
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("요요요요요");
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				MangerParcel_DTO mangerDTO = new MangerParcel_DTO();
