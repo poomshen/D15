@@ -46,21 +46,21 @@
 					
 					<div class="col-sm-4">
 						
-						  <img src="/images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+						  <img src="images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 						    <h2>Thumbnail</h2>
 						 	 <p>The .img-thumbnail class creates a thumbnail of the image:</p>
 						  	<input type="button" class="btn btn-default" value="보러가기">
 					</div>
 				
 					<div class="col-sm-4">
-							  <img src="/images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+							  <img src="images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 								  <h2>Thumbnail</h2>
 								  <p>The .img-thumbnail class creates a thumbnail of the image:</p>
 						    	<input type="button" class="btn btn-default" value="보러가기">
 					</div>
 			
 					<div class="col-sm-4">
-						  <img src="/images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+						  <img src="images/Koala.jpg" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 						  <h2>Thumbnail</h2>
 						  <p>The .img-thumbnail class creates a thumbnail of the image:</p>
 						  <input type="button" class="btn btn-default" value="보러가기">
@@ -71,7 +71,9 @@
 					
 		    </div> <!-- /container -->
 	</section>
+
 	<br><br><br>    
+
 	<footer>    
 		<jsp:include page="include/footer.jsp"/>
 	</footer>

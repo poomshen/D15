@@ -142,68 +142,72 @@ header .container {
 </script>
 </head>
 
-	<%
+	<%-- <%
 		pageContext.include("../../include/header.jsp");
-	%>
+	%> --%>
 	
-							
-							<form action="BoardWriteOk1.missing" name="form" id="form"
+<body>						
+	<form action="BoardWriteOk1.missing" name="form" id="form"
 								method="post" enctype="multipart/form-data">
+												
+		<div class = "col-sm-3"></div>
+		<div class = "col-sm-3">					
+			<label for ="k_kind">견 종</label>
+			<select name="k_kind" id="k_kind">
+				<option>선택</option>
+			</select><br><br>
 								
-								<br><br><br><br><br><br><br>
-								<label for ="k_kind">견 종</label>
-								<select name="k_kind" id="k_kind">
-								<option>선택</option>
-								</select><br><br>
+			<label for = "p_gender">성 별</label>&nbsp;
+			<input type="radio" value="m" name="p_gender" checked>수컷
+			<input type="radio" value="f" name="p_gender">암컷 <br>
 								
-								<label for = "p_gender">성 별</label>&nbsp;
-								<input type="radio" value="m" name="p_gender" checked>수컷
-								<input type="radio" value="f" name="p_gender">암컷 <br>
+			<div class="form-group" style="width:250px;">
+     			 <label for="p_color" style="float:left;" >색 상</label>
+      			 <input type="text" class="form-control" name="p_color" id = "p_color" placeholder="색상을 적어주세요.">
+       		</div>
+       												
+			<div class="form-group" style="width:250px;">
+    			<label for="p_feature" style="float:left;" >특 징</label>
+	     		<textarea rows="5" cols="20" name="p_feature" class="form-control"></textarea>
+       		</div>
 								
-								<div class="form-group" style="width:250px;">
-     								 <label for="p_color" style="float:left;" >색 상</label>
-      								 <input type="text" class="form-control" name="p_color" id = "p_color" placeholder="색상을 적어주세요.">
-       							</div>
+			<div class="form-group" style="width:250px;">
+     			<label for="p_age" style="float:left;" >나 이</label>
+      			<input type="text" class="form-control" name="p_age" id = "p_age" placeholder="나이를 적어주세요.">
+       		</div>
        							
-       							
-								<div class="form-group" style="width:250px;">
-     								 <label for="p_feature" style="float:left;" >특 징</label>
-									<textarea rows="5" cols="20" name="p_feature" class="form-control"></textarea>
-       							</div>
+       		<div class="form-group" style="width:250px;">
+     			<label for="p_weight" style="float:left;" >체 중</label>
+      			<input type="text" class="form-control" name="p_weight" id = "p_weight" placeholder="체중을 적어주세요.">
+       		</div>
+       	</div>
+       	<div class = "col-sm-4">
+       		<label for = "p_image">사진 첨부</label>
+			<input type="file" name="p_image" id="p_image"><br>
 								
-								<div class="form-group" style="width:250px;">
-     								 <label for="p_age" style="float:left;" >나 이</label>
-      								 <input type="text" class="form-control" name="p_age" id = "p_age" placeholder="나이를 적어주세요.">
-       							</div>
+			<div class="form-group" style="width:250px;">
+     			 <label for="mis_date" style="float:left;" >실종 날짜</label>
+      			 <input type="text" class="form-control" name="mis_date" id = "mis_date" placeholder="실종 날짜 선택.">
+       		</div>
        							
-       							<div class="form-group" style="width:250px;">
-     								 <label for="p_weight" style="float:left;" >체 중</label>
-      								 <input type="text" class="form-control" name="p_weight" id = "p_weight" placeholder="체중을 적어주세요.">
-       							</div>
+       		<div class="form-group" style="width:250px;">
+     			<label for="mis_loc" style="float:left;" >실종 위치</label>
+      			<input type="text" class="form-control" name="mis_loc" id = "mis_loc" placeholder="위치를 적어주세요.">
+       		</div>
        							
-       							<label for = "p_image">사진 첨부</label>
-								<input type="file" name="p_image" id="p_image"><br>
-								
-								<div class="form-group" style="width:250px;">
-     								 <label for="mis_date" style="float:left;" >실종 날짜</label>
-      								 <input type="text" class="form-control" name="mis_date" id = "mis_date" placeholder="실종 날짜 선택.">
-       							</div>
-       							
-       							<div class="form-group" style="width:250px;">
-     								 <label for="mis_loc" style="float:left;" >실종 위치</label>
-      								 <input type="text" class="form-control" name="mis_loc" id = "mis_loc" placeholder="위치를 적어주세요.">
-       							</div>
-       							
-       							<div class="form-group" style="width:250px;">
-     								 <label for="mis_content" style="float:left;" >내 용</label>
-									<textarea rows="5" cols="20" name="mis_content" class="form-control"></textarea>
-       							</div>
-								
-								<br> <input type="submit" value="작성완료" id="button1" class = "btn btn-primary">
-								<input type="reset" value="다시작성" class = "btn btn-default"> 
-								<input type="button"
-									value="목록으로" id="button2" class = "btn btn-default">
-							</form>
+       		<div class="form-group" style="width:250px;">
+     			<label for="mis_content" style="float:left;" >내 용</label>
+				<textarea rows="5" cols="20" name="mis_content" class="form-control"></textarea>
+       		</div>
+       		<br>
+			<input type="submit" value="작성완료" id="button1" class = "btn btn-primary">
+			<input type="reset" value="다시작성" class = "btn btn-default"> 
+			<input type="button"
+				value="목록으로" id="button2" class = "btn btn-default">
+						
+		</div>
+		<div class = "col-sm-2"></div>								
+	</form>
 						
 	
 <%

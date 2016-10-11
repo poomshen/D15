@@ -77,7 +77,7 @@ public class Login_Controller extends HttpServlet {
 			System.out.println("로그인화면 보여주기");
 			forward=new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/D15/Login/login.jsp");
+			forward.setPath("login.jsp");
 			try{
 				forward= action.execute(request, response);
 				System.out.println(request.getAttribute("result"));

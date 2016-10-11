@@ -63,10 +63,10 @@
 }  
 </style> 
 
-		<% 
+		<%-- <% 
 			pageContext.include("../../include/header.jsp");
-		%>
-
+		%> --%>
+<body>
    <c:set var="cpage" value = "${requestScope.cpage}" />
    <c:set var="pagesize" value = "${requestScope.pagesize}" />
    <c:set var="pagecount" value = "${requestScope.pagecount}" />
@@ -77,84 +77,76 @@
       String uploadpath = request.getRealPath("upload");
    %>
 
-<section id="fh5co-home" data-section="work">
-	<div class="container">
-		<div class="text-wrap">
-			<div class="text-inner">
-				
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="to-animate">실종신고</h1>					
-						<h2 class="to-animate">잃어버린 견공들을 찾습니다.</h2>
-					</div>
-				</div>
+
+		
+	<c:forEach var="list" items="${list}">
+		<div class = "col-sm-4">
+		<span>게시물 번호 : ${list.mis_no}</span><br>
+		<a href="../../upload/${list.p_image}" class="image-popup"> 
+			<img src="../../upload/${list.p_image}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 			
-		<div class="row row-bottom-padded-sm">
-			<c:forEach var="list" items="${list}">
-
-				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<div class="fh5co-project-item to-animate">
-
-						<a href="../../upload/${list.p_image}" class="image-popup"> <img
-							src="../../upload/${list.p_image}" alt="Image"
-							class="img-responsive">
-						</a>
-						<div class="fh5co-text">
-							<span>게시물 번호 : ${list.mis_no} <input type="button"
-								id="detail<%=i++%>" value="상세보기" class="btn btn-info"
-								style="position: absolute; right: 10px"
-								onclick="detail(${list.mis_no})"></span>
-							<h2>회원 ID : ${list.m_id}</h2>
-							<span>실종 날짜 : ${list.mis_date} <br> 실종 위치 :
-								${list.mis_loc}
-							</span><br> <span>내용 : ${list.mis_content}</span>&nbsp;&nbsp;
-							<c:choose>
-								<c:when test="${list.mis_pro == 'N'}">
-									<font color="red" style="position: absolute; right: 10px">실종</font>
-								</c:when>
-								<c:otherwise>
-									<font color="green" style="position: absolute; right: 10px">찾음</font>
-								</c:otherwise>
-							</c:choose>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-			<div class="clearfix visible-sm-block"></div>
-
+		</a>
+		
+		
+		<h2>회원 ID : ${list.m_id}</h2>
+		<span>
+		실종 날짜 : ${list.mis_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" id="detail<%=i++%>" value="상세보기" class="btn btn-info"
+					onclick="detail(${list.mis_no})">
+		<br> 
+		실종 위치 :	${list.mis_loc}
+		</span>
+		<br> 
+		<span>
+		내용 : ${list.mis_content}
+		</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<c:choose>
+				<c:when test="${list.mis_pro == 'N'}">
+					<font color="red">실종</font>
+				</c:when>
+				<c:otherwise>
+					<font color="green">찾음</font>
+				</c:otherwise>
+			</c:choose>
 		</div>
-		<div>
-			<table align="center">
-				<tr>
-					<td colspan="3" align="center">
-						<!--이전 링크 --> <c:if test="${cpage>1}">
-							<a href="BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a>
-							<!--페이지 리스트 구현  -->
-						</c:if> <c:forEach var="i" begin="1" end="${pagecount}" step="1">
-							<c:choose>
-								<c:when test="${cpage==i}">
-									<font color='red'>[${i}]</font>
-								</c:when>
-								<c:otherwise>
-									<a href="BoardList.missing?cp=${i}&ps=${pagesize}">[${i}]</a>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach> <!--다음 링크 --> <c:if test="${cpage<pagecount}">
-							<a href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a>
-						</c:if>
-					</td>
-					<td colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;총 게시물 수
-						: ${totalcount}</td>
-					<td><input type="button" value="실종신고" id="button"
+	</c:forEach>
+
+	<div>
+		<table align="center">
+			<tr>
+				<td colspan="3" align="center">
+				<!--이전 링크 --> 
+				<c:if test="${cpage>1}">
+					<a href="BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a>
+					<!--페이지 리스트 구현  -->
+				</c:if> 
+				<c:forEach var="i" begin="1" end="${pagecount}" step="1">
+					<c:choose>
+						<c:when test="${cpage==i}">
+							<font color='red'>[${i}]</font>
+						</c:when>
+						<c:otherwise>
+							<a href="BoardList.missing?cp=${i}&ps=${pagesize}">[${i}]</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach> 
+				<!--다음 링크 --> 
+				<c:if test="${cpage<pagecount}">
+					<a href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a>
+				</c:if>
+				</td>
+				<td colspan="2" align="center">
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					총 게시물 수 : ${totalcount}
+				</td>
+				<td>
+					<input type="button" value="실종신고" id="button"
 						style="position: absolute; right: 100px" class="btn btn-danger">
-					</td>
-				</tr>
-			</table>
-</div>
-		</div>
-		</div>
+				</td>
+			</tr>
+		</table>
 	</div>
-</section>
+
 
 <%
       pageContext.include("../../include/footer.jsp");

@@ -6,90 +6,105 @@
  --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class="no-js">
-	<head>
-	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>살아나개 사랑할개</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <style>
-   .navbar-custom{
-       background: #ffffff;
-   }
-   
-   .navbar-custom .navbar-nav li a, header {
-    color: #3f95ea;
-   
-   </style>   
- 
-	
-	
-	<style>
-		form > input, option, select {
-			color: black;
-		}
-	</style>
-	</head>
-	
-	<%
-		pageContext.include("../../include/header.jsp");
-	%>
-					
-					<div id="person">
-						<form action="RegisterPerOk.login" method="post">
-							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
-							<div class="form-group" style="width:250px;">
-     							 <label for="m_id" style="float:left;" >아이디</label>
+<head>
 
-      							 	<input type="text" class="form-control" name="m_id" id = "m_id" placeholder="아이디 입력">
-      							 	<input type="button" id="idcheck"  class = "btn btn-default" value="ID중복확인">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>살아나개 사랑할개</title>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+.navbar-custom {
+	background: #ffffff;
+}
 
-      							 <span id="checkid"></span>
-      							 
-    						</div>
-    								</td>
-							<div class="form-group" style="width:250px;">
-     							 <label for="m_pwd" style="float:left;" >비밀번호</label>
-      							 <input type="password" class="form-control" name="m_pwd" id = "m_pwd" placeholder="비밀번호 입력">
-    						</div>
-							<div class="form-group" style="width:250px;">
-     							 <label for="re_pwd" style="float:left;" >비밀번호 다시 입력</label>
-      							 <input type="password" class="form-control" name="re_pwd" id = "re_pwd" placeholder="비밀번호 다시 입력">
-    						</div>
-							<!-- js로 유효성 검사 해야됨 -->
-							<!-- 최종방문일 <input type="text" name="m_lastdate"><br> 자동입력 -->	
-							<!-- 권한코드 <input type="text" name="c_code"><br> 자동입력 -->
-							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
-							<div class="form-group" style="width:250px;">
-     							 <label for="m_name" style="float:left;" >이름</label>
-      							 <input type="text" class="form-control" name="m_name" id = "m_name" placeholder="이름 입력">
-    						</div>
-							<div class="form-group" style="width:250px;">
-     							 <label for="m_phone" style="float:left;" >연락처</label>
-      							 <input type="text" class="form-control" name="m_phone" id = "m_phone" placeholder="- 없이 입력하세요.">
-    						</div>
-							<div class="form-group" style="width:250px;">
-     							 <label for="m_birth" style="float:left;" >생년월일</label>
-      							 <input type="text" class="form-control" name="m_birth" id = "m_birth" placeholder="ex)890213">
-    						</div>
-							<div class="form-group" style="width:250px;">
-     							 <label for="m_email" style="float:left;" >email</label>
-      							 <input type="text" class="form-control" name="m_email" id = "m_email" placeholder="이메일 입력">
-    						</div>
-							<div class="form-group" style="width:250px;">
-     							 <label for="m_addr" style="float:left;" >우편주소</label>
-      							 <input type="text" class="form-control" name="m_addr" id = "m_addr" placeholder="주소 입력">
-      						</div>	
-      						
-      						 
-<!-- 다음 우편번호 -->   							 
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class = "btn btn-default"><br>
-<span id="guide" style="color:#999"></span>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script>
+.navbar-custom .navbar-nav li a, header {
+	color: #3f95ea;
+}
+</style>
+
+
+
+<style>
+form>input, option, select {
+	color: black;
+}
+</style>
+</head>
+<body>
+
+<header>
+		<jsp:include page="../../include/header.jsp"/>  	
+</header>
+
+
+<div>
+	<center><h1>회 원 가 입</h1></center>
+	<br><br><br>
+	<form action="RegisterPerOk.login" method="post">
+	<div class = "col-sm-3"></div>
+	<div class = "col-sm-3">
+		<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
+		<div class="form-group" style="width: 250px;">
+			<label for="m_id" style="float: left;">아이디</label> <input
+				type="text" class="form-control" name="m_id" id="m_id"
+				placeholder="아이디 입력"> <input type="button" id="idcheck"
+				class="btn btn-default" value="ID중복확인"> <span id="checkid"></span>
+
+		</div>
+		</td>
+		<div class="form-group" style="width: 250px;">
+			<label for="m_pwd" style="float: left;">비밀번호</label> <input
+				type="password" class="form-control" name="m_pwd" id="m_pwd"
+				placeholder="비밀번호 입력">
+		</div>
+		<div class="form-group" style="width: 250px;">
+			<label for="re_pwd" style="float: left;">비밀번호 다시 입력</label> <input
+				type="password" class="form-control" name="re_pwd" id="re_pwd"
+				placeholder="비밀번호 다시 입력">
+		</div>
+		<!-- js로 유효성 검사 해야됨 -->
+		<!-- 최종방문일 <input type="text" name="m_lastdate"><br> 자동입력 -->
+		<!-- 권한코드 <input type="text" name="c_code"><br> 자동입력 -->
+		<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
+		<div class="form-group" style="width: 250px;">
+			<label for="m_name" style="float: left;">이름</label> <input
+				type="text" class="form-control" name="m_name" id="m_name"
+				placeholder="이름 입력">
+		</div>
+		<div class="form-group" style="width: 250px;">
+			<label for="m_phone" style="float: left;">연락처</label> <input
+				type="text" class="form-control" name="m_phone" id="m_phone"
+				placeholder="- 없이 입력하세요.">
+		</div>
+		<div class="form-group" style="width: 250px;">
+			<label for="m_birth" style="float: left;">생년월일</label> <input
+				type="text" class="form-control" name="m_birth" id="m_birth"
+				placeholder="ex)890213">
+		</div>
+		</div>
+		<div class = "col-sm-3">
+		<div class="form-group" style="width: 250px;">
+			<label for="m_email" style="float: left;">email</label> <input
+				type="text" class="form-control" name="m_email" id="m_email"
+				placeholder="이메일 입력">
+		</div>
+		<div class="form-group" style="width: 250px;">
+			<label for="m_addr" style="float: left;">우편주소</label> <input
+				type="text" class="form-control" name="m_addr" id="m_addr"
+				placeholder="주소 입력">
+		</div>
+
+
+		<!-- 다음 우편번호 -->
+		<input type="button" onclick="sample4_execDaumPostcode()"
+			value="우편번호 찾기" class="btn btn-default"><br> <span
+			id="guide" style="color: #999"></span>
+		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+		<script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
         new daum.Postcode({
@@ -143,53 +158,43 @@
         }).open();
     }
 </script>
-<!-- 다음 우편번호 -->					 
-    						<div class="form-group" style="width:250px;">
-     							 <label for="m_daddr" style="float:left;" >상세주소</label>
-      							 <input type="text" class="form-control" name="m_daddr" id = "m_daddr" placeholder="주소 입력">
-      						</div>	
-      						
-    						<div class="form-group" style="width:250px;">
-    						<label for="m_petok" style="float:left;" >입양 경험 여부</label>
-    						<select name="m_petok">
-								<option value="N">없음</option>
-								<option value="Y">있음</option>
-							</select>
-     						</div>
+		<!-- 다음 우편번호 -->
+		<div class="form-group" style="width: 250px;">
+			<label for="m_daddr" style="float: left;">상세주소</label> <input
+				type="text" class="form-control" name="m_daddr" id="m_daddr"
+				placeholder="주소 입력">
+		</div>
 
-							<!-- 파일 업로드 <input type="text" name="m_birth"><br> 개인은 필요없음-->
-							<!-- 정보수정일 update 실행시에 자동 입력 -->
-							<!-- 회원가입일 insert 실행시에 자동 입력 -->
-							<input id="submit" type ="submit" value="가입하기" class = "btn btn-primary">
-							<input type ="reset" value = "다시입력" class = "btn btn-default">
-						</form>
-					</div>
-	
-					
-	
-	
-	 <%
+		<div class="form-group" style="width: 250px;">
+			<label for="m_petok" style="float: left;">입양 경험 여부</label> <select
+				name="m_petok">
+				<option value="N">없음</option>
+				<option value="Y">있음</option>
+			</select>
+		</div>
+
+		<!-- 파일 업로드 <input type="text" name="m_birth"><br> 개인은 필요없음-->
+		<!-- 정보수정일 update 실행시에 자동 입력 -->
+		<!-- 회원가입일 insert 실행시에 자동 입력 -->
+		<input id="submit" type="submit" value="가입하기" class="btn btn-primary">
+		<input type="reset" value="다시입력" class="btn btn-default">
+		</div>
+		<div class = "col-sm-3"></div>
+	</form>
+</div>
+
+
+
+
+<%
 		pageContext.include("../../include/footer.jsp");
 	%>
-	
-	
-	
-	
-	<script>
+
+
+
+
+<script>
 		$(function(){
-			//fadeinout();
-			$('#colour-variations ul').styleSwitcher({
-				defaultThemeId: 'theme-switch',
-				hasPreview: false,
-				cookie: {
-		          	expires: 30,
-		          	isManagingLoad: true
-		      	}
-			});	
-			$('.option-toggle').click(function() {
-				$('#colour-variations').toggleClass('sleep');
-			});
-			
 			//아이디 중복검사
 			$('#idcheck').click(function(){
 				$('#checkid').empty();	
@@ -260,5 +265,5 @@
 		}
 	</script>
 
-	</body>
+</body>
 </html>

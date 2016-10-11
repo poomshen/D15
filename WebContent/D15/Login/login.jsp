@@ -73,17 +73,16 @@ header .container {
 </script>
 </head>
 
+<body>
+<header>
+		<jsp:include page="../../include/header.jsp"/>  	
+</header>
 
-<%
-	pageContext.include("../../include/header.jsp");
-%>
 
-
-
+	
+					
+<div style = "text-align:center">				
 	<h1>로그인</h1>
-	<h2>들어가십쇼...</h2>
-					
-					
 	<form action="LoginOk.login" method="post" class="lgform">
 		<div class="form-group">
 			<label for="m_id">ID 
@@ -100,14 +99,11 @@ header .container {
 			<input type = "button" value ="회원가입" class = "btn btn-default" id = "button">
 		</div>
 	</form>
-	
+</div>
 
-<%
-	pageContext.include("../../include/footer.jsp");
-%>
-
-
-
+<footer>
+		<jsp:include page="../../include/footer.jsp"/>  	
+</footer>
 
 </body>
 </html>
