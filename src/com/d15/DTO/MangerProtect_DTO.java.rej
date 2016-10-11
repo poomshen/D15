@@ -1,0 +1,10 @@
+diff a/src/com/d15/DTO/MangerProtect_DTO.java b/src/com/d15/DTO/MangerProtect_DTO.java	(rejected hunks)
+@@ -8,7 +8,7 @@
+ 	private String Phone;
+ 	private String email;
+ 	private String addr;
+-	private String petOk;
++	private int petOk;
+ 	private Date reqdate;//승인 신청일
+ 	private Date begdate;
+ 	private Date enddate;
