@@ -31,9 +31,21 @@
 	href="http://kosta129.esy.es/elate/css/bootstrap.css">
 
 
-<!-- Modernizr JS -->
-
-<!-- 10월 5일 지율 추가 시작  -->
+<!-- Animate.css -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/animate.css">
+<!-- Icomoon Icon Fonts -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/icomoon.css">
+<!-- Simple Line Icons -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/simple-line-icons.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/magnific-popup.css">
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/bootstrap.css">
 
 <!-- Theme CSS -->
 <link href="boot2/css/freelancer.css" rel="stylesheet">
