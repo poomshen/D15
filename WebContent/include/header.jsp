@@ -5,7 +5,7 @@
 
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
-  		<div class="row">
+  		<div class="row" style="background:white">
 	  		<div class="col-sm-4">
 	  	 		<div class="navbar-header">
 	      			<a class="navbar-brand" style="height:110px" href="/TeamProject3_D15/index.jsp"><img src="/TeamProject3_D15/images/logo.gif"></a>
