@@ -91,9 +91,7 @@ a {
 
 
 <body>
-	<header>
-		<jsp:include page="../../include/header.jsp" />
-	</header>
+	
 
 
 	<div id="d15_body">
@@ -149,6 +147,11 @@ a {
 			</div>
 		</div>
 	</div>
+	
+	<header>
+		<jsp:include page="../../include/header.jsp" />
+	</header>
+	
 	<div class="d15_bodyEvt1">
 		<section id="fh5co-work" data-section="work">
 			<div class="container">
