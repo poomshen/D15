@@ -10,6 +10,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+function isfalse(ck){
+	location.href="MangerParcelCheck_Service?is=false&ck="+ck
+}
+
+function istrue(ck){
+	location.href="MangerParcelCheck_Service?is=true&ck="+ck
+}
+</script>
 </head>
 <body>
  <c:set var="list" value="${requestScope.protectlist}" />
@@ -29,7 +38,7 @@
   <tr>
     <td><img alt="" src="${list.img }" style="width: 200px; height: 100px;"></td><td>${list.id}</td><td>${list.name }</td><td>${list.phone }</td><td>${list.email }</td>
     <td>${list.addr }</td><td>${list.petOk }</td><td>${list.reqdate }</td><td>${list.begdate }</td><td>${list.enddate }</td>
-    <td>${list.code }</td><td>${list.gender }</td><td>${list.count }</td><td>${list.date }</td><td><input type="button" value="거절"><input type="button" value="승낙"></td>
+    <td>${list.code }</td><td>${list.gender }</td><td>${list.count }</td><td>${list.date }</td><td><input type="button" value="거절"  onclick="isfalse(${list.pc_no})"><input type="button" value="승낙"  onclick="istrue(${list.pc_no})"></td>
   </tr>
  </c:forEach>
 </table>

@@ -220,7 +220,6 @@ public class Organic_DAO {
 	public boolean updateSituation(int name,String Situation) throws SQLException{
 		boolean ck = false;
 		try {
-			System.out.println("왜 분양 햇는데 시발 상태를 못 바꾸냐 시발");
 			conn = ds.getConnection();
 			String sql = "update D15_organic set org_situation = ? where org_no = ?";
 			pstmt = conn.prepareStatement(sql);

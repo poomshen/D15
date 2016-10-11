@@ -118,12 +118,9 @@
     	        weight[i]=$(this).find('weight').text();
     	        
     	        
-    	       	$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+">");
-    	       	$("#search").append("<a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'>"
-    	       			+"<img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-thumbnail' alt='Cinque Terre' width='304' height='236'>"
-    	       			+"<div class='fh5co-text'><h4> 발견: "+noticeSdt[i]+" / end :"+noticeEdt[i]+"</h4>"
-    	       			+"<span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>")
-	       		$("#search").append("</div></a></div>");
+
+					$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+"><a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'><img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive' class='img-thumbnail' alt='Cinque Terre' width='304' height='236'><div class='fh5co-text'><h4> 발견날:"+noticeSdt[i]+"/end :"+noticeEdt[i]+"</h4><span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>");
+    	       		$("#search").append("</div></a></div>");
     	       i++;        
            });
 
@@ -134,6 +131,7 @@
 				$("#detailView").show();
 				$("#protectView").hide();
 				$("#parcelView").hide();
+				window.location.reload();
 			})
 		//상세 보기
 		$("#detailSelect").click(function() {
@@ -193,8 +191,15 @@
 	   $("#d15_body2").addClass("d15_bodyEvt3");
 	   $("#protectform").attr("action", "insertProtect.ProtectOut?no="+no);
 	   $("#parceform").attr("action", "insertParceform.ProtectOut?no="+no);
-	   $("#detailView").html("<div><img alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></div>");
-	   $("#detailView").append("<div>"+count+"<br>"+careNm[index]+"<br>"+careAddr[index]+"<br>"+processState+"</div>")
+	   $("#detailView").html("<div><table>"
+				+"<tr><td rowspan='7'><img alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></td><td colspan='2' style='text-align: right;'>조회수: "+count+"</td></tr>"
+				+"<tr><td colspan='2'>상태: "+processState+"</td></tr>"
+				+"<tr><td>성별:"+sexCd[index]+"</td><td style='text-align: right;'>무게:<h7>"+weight[index]+"</h7></td></tr>"
+				+"<tr><td colspan='2'>특징:"+specialMark[index]+"</td></tr>"
+				+"<tr><td colspan='2'>주소:"+careAddr[index]+"</td></tr>"
+				+"<tr><td colspan='2'>발견:"+noticeSdt[index]+"</td></tr>"
+				+"<tr><td colspan='2'>end:"+noticeEdt[index]+"</td></tr>"
+			+"</table></div>");
 	   })
 	   
 	}

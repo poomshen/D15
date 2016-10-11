@@ -31,9 +31,21 @@
 	href="http://kosta129.esy.es/elate/css/bootstrap.css">
 
 
-<!-- Modernizr JS -->
-
-<!-- 10월 5일 지율 추가 시작  -->
+<!-- Animate.css -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/animate.css">
+<!-- Icomoon Icon Fonts -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/icomoon.css">
+<!-- Simple Line Icons -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/simple-line-icons.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/magnific-popup.css">
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/bootstrap.css">
 
 <!-- Theme CSS -->
 <link href="boot2/css/freelancer.css" rel="stylesheet">
@@ -43,6 +55,13 @@
 
 <%@include file="WePet_searchTest.jsp"%>
 <style type="text/css">
+tr:nth-child(even) {background-color: #f2f2f2}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+table {
+    border: 1px solid black;
+}
 #search img {
 	width: 100%;
 	height: 200px;
@@ -86,14 +105,40 @@ a {
 }
 </style>
 </head>
-
+<style>
+   /* 로딩 이미지*/
+   #loading {
+      height: 100%;
+      left: 0px;
+      position: fixed;
+      _position:absolute; 
+      top: 0px;
+      width: 100%;
+      filter:alpha(opacity=50);
+      -moz-opacity:0.5;
+      opacity : 0.5;
+   }
+   
+   .loading {
+      background-color: white;
+      z-index: 199;
+   }
+   
+   #loading_img{
+      position:absolute; 
+      top:50%;
+      left:45%;
+      height:90px;
+      margin-top:-75px;   //   이미지크기
+      margin-left:-75px;   //   이미지크기
+      z-index: 200;
+   }
+</style>
 
 
 
 <body>
-	<header>
-		<jsp:include page="../../include/header.jsp" />
-	</header>
+	
 
 
 	<div id="d15_body">
@@ -149,6 +194,11 @@ a {
 			</div>
 		</div>
 	</div>
+	
+	<header>
+		<jsp:include page="../../include/header.jsp" />
+	</header>
+	
 	<div class="d15_bodyEvt1">
 		<section id="fh5co-work" data-section="work">
 			<div class="container">
