@@ -1,0 +1,10 @@
+diff a/src/com/d15/DTO/MangerParcel_DTO.java b/src/com/d15/DTO/MangerParcel_DTO.java	(rejected hunks)
+@@ -23,7 +23,7 @@
+ 	}
+ 	
+ 	public MangerParcel_DTO(String id, String name, String phone, String email,
+-			String addr, String petOk, Date reqdate, Date begdate, String img,
++			String addr, int petOk, Date reqdate, Date begdate, String img,
+ 			String gender, String code, int count, int date) {
+ 		super();
+ 		this.id = id;

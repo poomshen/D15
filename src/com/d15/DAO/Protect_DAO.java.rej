@@ -1,0 +1,28 @@
+diff a/src/com/d15/DAO/Protect_DAO.java b/src/com/d15/DAO/Protect_DAO.java	(rejected hunks)
+@@ -96,16 +96,17 @@
+ 				mangerDTO.setName(rs.getString(2));
+ 				mangerDTO.setPhone(rs.getString(3));
+ 				mangerDTO.setEmail(rs.getString(4));
+-				mangerDTO.setPetOk(rs.getString(5));
+-				mangerDTO.setReqdate(rs.getDate("pr_reqdate"));
+-				mangerDTO.setBegdate(rs.getDate("pr_begdate"));
+-				mangerDTO.setEnddate(rs.getDate("pr_enddate"));
+-				mangerDTO.setImg(rs.getString(9));
+-				mangerDTO.setGender(rs.getString(10));
++				mangerDTO.setAddr(rs.getString(5));
++				mangerDTO.setPetOk(rs.getInt(6));
++				mangerDTO.setReqdate(rs.getDate(7));
++				mangerDTO.setBegdate(rs.getDate(8));
++				mangerDTO.setEnddate(rs.getDate(9));
++				mangerDTO.setImg(rs.getString(10));
+ 				mangerDTO.setCode(rs.getString(11));
+-				mangerDTO.setCount(rs.getInt(12));
+-				mangerDTO.setDate(rs.getInt(13));
+-				mangerDTO.setPr_no(rs.getInt(14));
++				mangerDTO.setGender(rs.getString(12));
++				mangerDTO.setCount(rs.getInt(13));
++				mangerDTO.setDate(rs.getInt(14));
++				mangerDTO.setPr_no(rs.getInt(15));
+ 				list.add(mangerDTO);
+ 			}
+ 			return list;

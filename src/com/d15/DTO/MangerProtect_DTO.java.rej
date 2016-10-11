@@ -1,0 +1,10 @@
+diff a/src/com/d15/DTO/MangerProtect_DTO.java b/src/com/d15/DTO/MangerProtect_DTO.java	(rejected hunks)
+@@ -26,7 +26,7 @@
+ 	
+ 	
+ 	public MangerProtect_DTO(String id, String name, String phone, String email,
+-			String addr, String petOk, Date reqdate, Date begdate,
++			String addr, int petOk, Date reqdate, Date begdate,
+ 			Date enddate, String img, String gender, String code, int count,
+ 			int date) {
+ 		this.id = id;
