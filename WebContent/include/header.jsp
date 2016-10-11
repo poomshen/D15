@@ -1,79 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@page import="com.d15.DTO.Member_DTO"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>   
-	<script>
-		$(function(){
-			$("#reg").click(function(){
-				location.href = "/TeamProject3_D15/D15/Login/register_per.jsp";
-			});
-		});
-	</script>
-	
-<body id = "page-top">
-<header>
- <!-- Navigation -->
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="/TeamProject3_D15/index.jsp"><img style="margin-top:-20px" src="/TeamProject3_D15/images/logo.gif"></a>  
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top">Home</a>
-                    </li>
-                    <li class="">
-                        <a href="#">소개</a>
-                    </li>
-                    <li class="">
-                        <a href="#">공지사항</a>
-                    </li>
-                    <li class="">
-                        <a href="#">현황</a>
-                    </li>
-                    <li class="">
-                        <a href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양/임시보호</a>
-                    </li>
-                    <li class="">
-                        <a href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종</a>
-                    </li>
-                    <li class="">
-                        <a href="#">게시판</a>
-                    </li>
-                    <li class="">
-                       <a>
-                       <%
-                  String str="";
-                  Member_DTO memberdto = (Member_DTO)session.getAttribute("memberdto");
-                  if (memberdto!=null){
-                     str+=memberdto.getM_id()+"님 로그인 ";
-                     out.print("<form action='/TeamProject3_D15/D15/Login/Logout.login' method='post'>");
-                     out.print(str+"<input type='submit' value='로그아웃'>&nbsp&nbsp<a href='/TeamProject3_D15/D15/Login/Mypage.login'>[마이페이지]</a>");
-                     
-                     out.print("</form>");
-                  } else {
-                     out.print("<form action='/TeamProject3_D15/D15/Login/Login.login' method='post'>");
-                     out.print("<input type='submit' value='로그인'>");
-                     out.print("<input type='button' value='회원가입' id = 'reg'>");
-                     out.print("</form>");
-                  }
-                  %>
-                       </a>                        
-                    </li>                      
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>   
-</header> 
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+  		<div class="row">
+	  		<div class="col-sm-4">
+	  	 		<div class="navbar-header">
+	      			<a class="navbar-brand" style="height:110px" href="/TeamProject3_D15/index.jsp"><img src="/TeamProject3_D15/images/logo.gif"></a>
+	    		</div>
+	    	</div>
+    	</div>
+    
+    	<div class="row" id="rowdiv">
+ 			<div class="col-sm-4">
+    			<ul class="nav navbar-nav">
+      				<li><a href="/TeamProject3_D15/introduce.jsp">소개</a></li>
+      				<li><a href="/TeamProject3_D15/status.jsp">현황</a></li>
+      				<li><a href="#">분양 및 임시보호</a></li>
+      				<li><a href="#">실종신고</a></li>
+      				<li><a href="#">게시판</a></li>
+    			</ul>
+    		</div>
+    		<div class="col-sm-3"></div>
+   			<div class="col-sm-5">
+   					<c:choose>
+                      			<c:when test="${requestScope.memberdto == null}">
+                      				<div class="row">
+                      				
+                      					<div class="col-sm-1"></div>
+                      					<div class="col-sm-4">
+                      						<span class="glyphicon glyphicon-user logo">${memberdto.id}stpark89@naver.com</span>
+                      					</div>
+                      					<div class="col-sm-3">
+                      						<span class="glyphicon glyphicon-off logo">로그아웃</span>
+                      					</div>
+                      					<div class="col-sm-3">
+                      						<span class="glyphicon glyphicon-lock logo">내정보보기</span>
+                      					</div>	
+                      					<div class="col-sm-1">
+                      					</div>	
+                      				</div>	
+                      			</c:when>
+                      			<c:otherwise>
+                      				<input type="button" class="btn btn-default" value="로그인">
+                      				<input type="button" class="btn btn-default" value="회원가입">
+                      			</c:otherwise>
+                      </c:choose>
+   			</div>
+   		 
+   
+    	</div>
+    	
+  	</div>
+</nav>
