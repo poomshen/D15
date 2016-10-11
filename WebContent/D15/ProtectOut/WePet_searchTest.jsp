@@ -123,7 +123,11 @@
 				});   */ 
     	         	/* <img alt='"+desertionNo[i]+"' src='"+popfile[i]+"' >"+age[i]+"<br>"+careNm[i]+"<br>"+careAddr[i]+"<br>"+processState[i]+"</div>"); */
     	       		//$("#search").append("<div class='clearfix visible-sm-block'></div>");
-    	       		$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+"><a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'><img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive'><div class='fh5co-text'><h2>"+processState[i]+"</h2><span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>");
+    	       		$.getJSON("SituationCheck.ProtectOut", {"desertionNo":$(this).find('desertionNo').text()}, function(data, textStatus, req) {
+    	       			
+    	       		})
+    	         	
+    	         	$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+"><a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'><img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive'><div class='fh5co-text'><h2>"+processState[i]+"</h2><span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>");
     	       		$("#search").append("</div></a></div>");
     	         
     	       i++;

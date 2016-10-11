@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.math.Fraction;
+
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.Service.InsertParcel_Service;
 import com.d15.Service.InsertProtect_Service;
 import com.d15.Service.PublicDB_Service;
 import com.d15.Service.PublicSeqSelect_Service;
+import com.d15.Service.SituationCheck_Service;
 import com.d15.Service.pageManager_Service;
 import com.d15.keyURL.D15_SidoURL_Service;
 
@@ -94,6 +97,13 @@ public class ProtectOut_Controller extends HttpServlet {
 			}
 		}else if(search.equals("/D15/ProtectOut/page.ProtectOut")){
 			action = new pageManager_Service();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}else if(search.equals("/D15/ProtectOut/SituationCheck.ProtectOut")){
+			action  = new SituationCheck_Service();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
