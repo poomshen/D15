@@ -88,7 +88,7 @@ public class Member_DAO {
 			row = pstmt.executeUpdate();
 
 		}catch(Exception e){
-			System.out.println("insertPet error : " + e.getMessage());
+			System.out.println("insert member error : " + e.getMessage());
 		}
 		
 		return 0;
