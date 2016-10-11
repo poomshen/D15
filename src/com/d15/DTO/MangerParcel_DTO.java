@@ -8,7 +8,7 @@ public class MangerParcel_DTO {
 	private String Phone;
 	private String email;
 	private String addr;
-	private String petOk;
+	private int petOk;
 	private Date reqdate;//승인 신청일
 	private Date begdate;// 분양 일
 	private String img;
@@ -23,7 +23,7 @@ public class MangerParcel_DTO {
 	}
 	
 	public MangerParcel_DTO(String id, String name, String phone, String email,
-			String addr, String petOk, Date reqdate, Date begdate, String img,
+			String addr, int petOk, Date reqdate, Date begdate, String img,
 			String gender, String code, int count, int date) {
 		super();
 		this.id = id;
@@ -73,10 +73,10 @@ public class MangerParcel_DTO {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public String getPetOk() {
+	public int getPetOk() {
 		return petOk;
 	}
-	public void setPetOk(String petOk) {
+	public void setPetOk(int petOk) {
 		this.petOk = petOk;
 	}
 	public Date getReqdate() {

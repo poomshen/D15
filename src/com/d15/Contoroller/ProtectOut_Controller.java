@@ -108,8 +108,7 @@ public class ProtectOut_Controller extends HttpServlet {
 			if(forward.isRedirect()){
 				response.sendRedirect(forward.getPath());
 			}else{
-				RequestDispatcher dispatcher = request
-						.getRequestDispatcher(forward.getPath());
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
 		}

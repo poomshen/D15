@@ -92,13 +92,11 @@ public class Parcel_DAO {
 	public ArrayList<MangerParcel_DTO> mangerlist(){
 		ArrayList<MangerParcel_DTO> list = new ArrayList<MangerParcel_DTO>();
 		try {
+			System.out.println("????a");
 			conn = ds.getConnection();
-			String sql = "select  m_id , m_name ,	m_phone, m_email,	m_addr,"
-					+ " m_petok,pr_reqdate,pr_begdate,pr_enddate,org_img,org_code,"
-					+ "org_gender,org_count,org_date ,pc_no from "
-					+ " (select * from (select * from D15_parcel pr join D15_DETAIL mb on pr.M_NO = mb.M_NO) c join D15_MEMBER e "
-					+ " on m_no = e.m_no where PR_ARGDATE is null) c join D15_ORGANIC e on e.ORG_NO = c.Org_no;";
+			String sql = "Select  M_Id , M_Name ,M_Phone, M_Email,	M_Addr,M_Petok,Pc_Reqdate,Pc_Begdate,Org_Img,Org_Code,Org_Gender,Org_Count,Org_Date ,Pc_No from (select * from (Select * From (select * from D15_Parcel where Pc_ARGDATE is null) pr join D15_MEMBER mb on pr.m_no = mb.m_no) s join D15_Detail e on m_no = e.m_no ) sw join D15_ORGANIC org on sw.ORG_NO = org.Org_no";
 			pstmt = conn.prepareStatement(sql);
+			System.out.println("요요요요요");
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				MangerParcel_DTO mangerDTO = new MangerParcel_DTO();
@@ -106,12 +104,13 @@ public class Parcel_DAO {
 				mangerDTO.setName(rs.getString(2));
 				mangerDTO.setPhone(rs.getString(3));
 				mangerDTO.setEmail(rs.getString(4));
-				mangerDTO.setPetOk(rs.getString(5));
-				mangerDTO.setReqdate(rs.getDate("pr_reqdate"));
-				mangerDTO.setBegdate(rs.getDate("pr_begdate"));
+				mangerDTO.setAddr(rs.getString(5));
+				mangerDTO.setPetOk(rs.getInt(6));
+				mangerDTO.setReqdate(rs.getDate(7));
+				mangerDTO.setBegdate(rs.getDate(8));
 				mangerDTO.setImg(rs.getString(9));
-				mangerDTO.setGender(rs.getString(10));
-				mangerDTO.setCode(rs.getString(11));
+				mangerDTO.setCode(rs.getString(10));
+				mangerDTO.setGender(rs.getString(11));
 				mangerDTO.setCount(rs.getInt(12));
 				mangerDTO.setDate(rs.getInt(13));
 				mangerDTO.setPc_no(rs.getInt(14));
