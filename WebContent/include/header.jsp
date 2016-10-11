@@ -57,7 +57,7 @@
                       					</div>
                       					<div class="col-sm-3">
                       						<a href = "/TeamProject3_D15/D15/Login/Mypage.login">
-                      						<span class="glyphicon glyphicon-lock logo">내정보보기</span>
+                      						<span class="glyphicon glyphicon-lock logo">마이페이지</span>
  											</a>
                       					</div>	
                       					<div class="col-sm-1">

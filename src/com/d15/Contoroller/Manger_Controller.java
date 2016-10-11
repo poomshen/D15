@@ -1,3 +1,11 @@
+/*
+ * @Class : Manager_Controller
+ * @Date : 2016.10.11
+ * @Author : 길한종
+ * @Desc : 관리자의 권한에 대한 Controller
+ */
+
+
 package com.d15.Contoroller;
 
 import java.io.IOException;

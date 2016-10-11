@@ -1,3 +1,10 @@
+/*
+ * @Class : Encoding_Filter
+ * @Date : 2016.10.5
+ * @Author : 박문수
+ * @Desc : 모든 페이지 한글처리를 위한 Filter
+ */
+
 package com.d15.Filter;
 
 import java.io.IOException;

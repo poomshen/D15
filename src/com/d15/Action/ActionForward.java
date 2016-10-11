@@ -1,8 +1,13 @@
+/*
+ * @Class : ActionForward
+ * @Date : 2016.10.5
+ * @Author : 이성준
+ * @Desc : 실제 요청 담당하는 dto 클래스
+ */
+
+
 package com.d15.Action;
 
-//실제 요청에 처리를 담당하는 클래스
-//처리 담당
-//forward, sendRedirect
 public class ActionForward {
 	private boolean isRedirect = false;
 	private String path =null;

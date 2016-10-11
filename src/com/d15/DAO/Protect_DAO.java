@@ -1,3 +1,11 @@
+/*
+ * @Class : Protect_DAO
+ * @Date : 2016.10.5
+ * @Author : 이성준
+ * @Desc : 임시보호 테이블에 대한 DAO(db연결,CRUD 작업)
+ * 
+ * */
+
 package com.d15.DAO;
 
 import java.sql.Connection;

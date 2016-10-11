@@ -1,3 +1,10 @@
+/*
+ * @Class : Parcel_DTO
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 분양 테이블 DTO
+ */
+
 package com.d15.DTO;
 
 
