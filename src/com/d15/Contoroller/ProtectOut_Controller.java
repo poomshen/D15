@@ -47,7 +47,6 @@ public class ProtectOut_Controller extends HttpServlet {
 			    request.setCharacterEncoding("UTF-8");
 				
 				
-				System.out.println("이동 하네");
 				System.out.println(search);
 				
 				 ActionForward  forward = null;

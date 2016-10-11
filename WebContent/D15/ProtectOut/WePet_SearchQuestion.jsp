@@ -16,22 +16,7 @@
 	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 <meta name="author" content="FREEHTML5.CO" />
 
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="shortcut icon" href="favicon.ico">
 
-<link
-	href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700'
-	rel='stylesheet' type='text/css'>
-
-<!-- Animate.css -->
-<link rel="stylesheet"
-	href="http://kosta129.esy.es/elate/css/animate.css">
-<!-- Icomoon Icon Fonts -->
-<link rel="stylesheet"
-	href="http://kosta129.esy.es/elate/css/icomoon.css">
-<!-- Simple Line Icons -->
-<link rel="stylesheet"
-	href="http://kosta129.esy.es/elate/css/simple-line-icons.css">
 <!-- Magnific Popup -->
 <link rel="stylesheet"
 	href="http://kosta129.esy.es/elate/css/magnific-popup.css">
@@ -39,30 +24,14 @@
 <link rel="stylesheet"
 	href="http://kosta129.esy.es/elate/css/bootstrap.css">
 
-<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/style.css">
-<link rel="stylesheet" id="theme-switch"
-	href="http://kosta129.esy.es/elate/css/style.css">
-<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/demo.css">
 
 <!-- Modernizr JS -->
-<script src="http://kosta129.esy.es/elate/js/modernizr-2.6.2.min.js"></script>
 
 <!-- 10월 5일 지율 추가 시작  -->
-<!-- Bootstrap Core CSS -->
-<link href="boot2/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
 
 <!-- Theme CSS -->
 <link href="boot2/css/freelancer.css" rel="stylesheet">
 
-<!-- Custom Fonts -->
-<link href="boot2/vendor/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
 
 <title>임시보호/분양</title>
 
@@ -109,7 +78,7 @@
 </head>
 
 
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <%@ include file="../../include/header.jsp" %>
 <div id="d15_body">
@@ -118,7 +87,9 @@
 <div id="container"></div>
 <!-- 클릭시 화면 보여주는 div -->
 <div id="d15_body2">
+<div style="z-index:11; margin-bottom: 10px;">
 <button title="Close (Esc)" type="button" class="mfp-close" style="z-index:11;" id="close">×</button>
+</div>
 <div style="z-index:11; margin-bottom: -2px;">
 &nbsp;
 <span style="background-color: white; border-radius:5px 5px 0px 0px; cursor : pointer ;" id="detailSelect">&nbsp; 상세보기&nbsp; </span>
@@ -130,20 +101,20 @@
 <!-- 임시보호  -->
 <div id="protectView" style="background-color: white; z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius:5px; ">
 	<br><br>
-	<div style="margin-left: 25%; margin-top: 0px;" >임시보호 받을 날을 입력해주세요</div>
+	<div style="width: 100% ;text-align: center;"  >임시보호 받을 날을 입력해주세요</div>
 	<form id="protectform" method="post" >
-	<input name="protectDSt" id="protectDSt" class="protectDSt" type="text" style="margin-left: 10%; margin-top: 5%; width:420px; cursor : pointer ;" value="보호시작 날짜" >
-	<input name="protectDEd" id="protectDEd" class="protectDEd" type="text" style="margin-left: 10%; margin-top: 2%; width:420px; cursor : pointer ;" value="보호종료 날짜" >
-	<input type="submit" value="임시보호신청" style="margin-left: 35%; margin-top: 5%;">
+	<input name="protectDSt" id="protectDSt" class="protectDSt" type="text" style="margin-left: 5%; margin-top: 5%; width:90%; cursor : pointer ;" value="보호시작 날짜" >
+	<input name="protectDEd" id="protectDEd" class="protectDEd" type="text" style="margin-left: 5%; margin-top: 2%; width:90%; cursor : pointer ;" value="보호종료 날짜" >
+	<input type="submit" value="임시보호신청" style="margin-left:10%; margin-right:10%; margin-top:5%; width:80%;">
 	</form>
 </div>
 <!-- 분양 -->
 <div id="parcelView" style="background-color: white; z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius:5px; ">
 	<br><br>
-	<div style="margin-left: 25%; margin-top: 0px;" >분양 받을 날을 입력해주세요</div>
+	<div style="width: 100%;text-align: center;" >분양 받을 날을 입력해주세요</div>
 	<form id="parceform" method="post" >
-	<input name="parcelD" id="parcelD" class="parcelD" type="text" style="margin-left: 10%; margin-top: 10%; width:420px; cursor : pointer ;" value="날짜입력">
-	<input type="submit" value="임시보호신청" style="margin-left: 35%; margin-top: 5%;">
+	<input name="parcelD" id="parcelD" class="parcelD" type="text" style="margin-left: 10%; margin-top: 10%; width: 80%; cursor : pointer ;" value="날짜입력">
+	<input type="submit" value="임시보호신청" style="margin-left:10%; margin-right:10%; margin-top:5%; width:80%;">
 	</form>
 </div>
 </div>
@@ -236,7 +207,6 @@
 <!-- <script src="../../js/main.js"></script> -->
 <br>
 <br><br>
-<%@ include file="../../include/footer.jsp" %>
 <%@include file="../../include/script.jsp" %>
 </body>
 </html>
