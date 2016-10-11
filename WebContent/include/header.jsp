@@ -26,12 +26,12 @@
     		<div class="col-sm-3"></div>
    			<div class="col-sm-5">
    					<c:choose>
-                      			<c:when test="${requestScope.memberdto == null}">
+                      			<c:when test="${requestScope.memberdto != null}">
                       				<div class="row">
                       				
                       					<div class="col-sm-1"></div>
                       					<div class="col-sm-4">
-                      						<span class="glyphicon glyphicon-user logo">${memberdto.id}stpark89@naver.com</span>
+                      						<span class="glyphicon glyphicon-user logo">${memberdto.id}</span>
                       					</div>
                       					<div class="col-sm-3">
                       						<span class="glyphicon glyphicon-off logo">로그아웃</span>
@@ -44,8 +44,17 @@
                       				</div>	
                       			</c:when>
                       			<c:otherwise>
-                      				<input type="button" class="btn btn-default" value="로그인">
-                      				<input type="button" class="btn btn-default" value="회원가입">
+                      				<div class="row">
+                      					<div class="col-sm-4"></div>
+                      					<div class="col-sm-3">
+                      						<span class="glyphicon glyphicon-off logo">로그인</span>
+                      					</div>
+                      					<div class="col-sm-3">
+                      						<span class="glyphicon glyphicon-plus logo">회원가입</span>
+                      					</div>	
+                      					<div class="col-sm-2">
+                      					</div>	
+                      				</div>
                       			</c:otherwise>
                       </c:choose>
    			</div>
