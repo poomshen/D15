@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="/TeamProject3_D15/images/mew.png" alt="사랑하는김뮤">
+                    <img class="img-responsive" src="images/mew.png" alt="사랑하는김뮤">
                     <div class="intro-text">
                         <span class="name">입양하세요. 사랑하세요.</span>
                         <hr class="star-light">

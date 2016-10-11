@@ -7,7 +7,6 @@ public class Protect_DTO {
 	int pr_no;
 	int m_no;
 	int org_no;
-	int pr_history;
 	Date pr_reqdate;
 	Date pr_argdate;
 	Date pr_begdate;
@@ -53,13 +52,6 @@ public class Protect_DTO {
 		this.org_no = org_no;
 	}
 
-	public int getPr_history() {
-		return pr_history;
-	}
-
-	public void setPr_history(int pr_history) {
-		this.pr_history = pr_history;
-	}
 
 	public Date getPr_reqdate() {
 		return pr_reqdate;

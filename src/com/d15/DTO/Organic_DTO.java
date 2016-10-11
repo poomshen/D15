@@ -5,7 +5,7 @@ public class Organic_DTO {
 	int st_no;
 	String org_animal;
 	String org_img;
-	int k_code;
+	String org_code;
 	String org_gender;
 	String org_situation;
 	int org_count;
@@ -17,23 +17,24 @@ public class Organic_DTO {
 	}
 	
 	
-	public Organic_DTO(String org_animal, String org_img, String org_gender, String org_situation, int org_date) {
+	public Organic_DTO(String org_animal, String org_img, String org_gender, String org_situation, int org_date ,String org_code) {
 		super();
 		this.org_animal = org_animal;
 		this.org_img = org_img;
 		this.org_gender = org_gender;
 		this.org_situation = org_situation;
 		this.org_date = org_date;
+		this.org_code = org_code;
 	}
 
 
-	public Organic_DTO(int st_no, String org_animal, String org_img, int k_code, String org_gender, String org_situation,
+	public Organic_DTO(int st_no, String org_animal, String org_img, String org_code, String org_gender, String org_situation,
 			int org_count, int org_date, String org_desc) {
 		super();
 		this.st_no = st_no;
 		this.org_animal = org_animal;
 		this.org_img = org_img;
-		this.k_code = k_code;
+		this.org_code = org_code;
 		this.org_gender = org_gender;
 		this.org_situation = org_situation;
 		this.org_count = org_count;
@@ -68,11 +69,11 @@ public class Organic_DTO {
 	public void setOrg_img(String org_img) {
 		this.org_img = org_img;
 	}
-	public int getK_code() {
-		return k_code;
+	public String getOrg_code() {
+		return org_code;
 	}
-	public void setK_code(int k_code) {
-		this.k_code = k_code;
+	public void setOrg_code(String org_code) {
+		this.org_code = org_code;
 	}
 	public String getOrg_gender() {
 		return org_gender;

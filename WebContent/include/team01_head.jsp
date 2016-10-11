@@ -8,20 +8,16 @@
     <meta name="author" content="">
 
     <title>♥살아갈개 사랑할개♥</title>
-
-    <!-- Bootstrap Core CSS 원본-->
-    <!-- <link href="boot2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
- 	<!-- Bootstrap Core CSS 수정본 [지율주석] 실제사용할것-->
-    <link href="css/team01_bootstrap_core.css" rel="stylesheet">
     
-    <!-- Theme CSS 원본 -->
-    <!-- <link href="boot2/css/freelancer.min.css" rel="stylesheet"> -->    
+ 	<!-- Bootstrap Core CSS 수정본 [지율주석] 실제사용할것-->
+    <link href="css/team01_bootstrap_core.css" rel="stylesheet">    
+ 
     <!-- Theme CSS 수정본 [지율주석] 실제사용할것 -->
     <link href="css/team01_theme.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <!-- <link href="boot2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 

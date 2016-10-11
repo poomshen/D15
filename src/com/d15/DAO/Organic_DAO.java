@@ -43,15 +43,16 @@ public class Organic_DAO {
 		try {
 			conn = ds.getConnection();
 			
-			String sql = "insert into D15_Organic(org_no, org_animal, org_img, k_code, org_gender, org_situation, org_count, org_date) "
+			String sql = "insert into D15_Organic(org_no, org_animal, org_img, org_code, org_gender, org_situation, org_count, org_date) "
 					+ "values(org_no_seq.nextval,?,?,?,?,?,1,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, org.getOrg_animal());
 			pstmt.setString(2, org.getOrg_img());
-			pstmt.setInt(3, 10);
+			pstmt.setString(3, org.getOrg_code());
 			pstmt.setString(4, org.getOrg_gender());
+			System.out.println(org.getOrg_situation());
 			pstmt.setString(5, org.getOrg_situation());
 			pstmt.setInt(6, org.getOrg_date());
 			
@@ -105,7 +106,7 @@ public class Organic_DAO {
 		Organic_DTO organic = new Organic_DTO();
 		try {
 			conn = ds.getConnection();
-			String sql = "select org_img,k_code,org_gender,org_situation ,org_count,org_date from D15_organic where org_animal = ? and st_no = ?"; 
+			String sql = "select org_img,org_code,org_gender,org_situation ,org_count,org_date from D15_organic where org_animal = ? and st_no = ?"; 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, no);
 			pstmt.setInt(2, i);
@@ -113,7 +114,7 @@ public class Organic_DAO {
 			
 			while(rs.next()){
 				organic.setOrg_img(rs.getString("org_img"));
-				organic.setK_code(rs.getInt("k_code"));
+				organic.setOrg_code(rs.getString("org_code"));
 				organic.setOrg_gender(rs.getString("org_gender"));
 				organic.setOrg_situation(rs.getString("org_situation"));
 				organic.setOrg_count(rs.getInt("org_count"));
@@ -136,7 +137,7 @@ public class Organic_DAO {
 	public  List<Organic_DTO> selectOrganic(int i,String no) throws SQLException{
 		try {
 			conn = ds.getConnection();
-			String sql = "select org_img,k_code,org_gender,org_situation ,org_count,org_date from D15_organic where  org_animal = ? and st_no = ?";
+			String sql = "select org_img,org_code,org_gender,org_situation ,org_count,org_date from D15_organic where  org_animal = ? and st_no = ?";
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -155,14 +156,14 @@ public class Organic_DAO {
 		Organic_DTO organic = new Organic_DTO();
 		try {
 			conn = ds.getConnection();
-			String sql = "select org_img,k_code,org_gender,org_situation ,org_count,org_date,st_no from D15_organic where org_no = ?";
+			String sql = "select org_img,org_code,org_gender,org_situation ,org_count,org_date,st_no from D15_organic where org_no = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, i);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
 				organic.setOrg_img(rs.getString("org_img"));
-				organic.setK_code(rs.getInt("k_code"));
+				organic.setOrg_code(rs.getString("org_code"));
 				organic.setOrg_gender(rs.getString("org_gender"));
 				organic.setOrg_situation(rs.getString("org_situation"));
 				organic.setOrg_count(rs.getInt("org_count"));
@@ -190,8 +191,8 @@ public class Organic_DAO {
 			//UPDATE table_name SET column1 = value1,column2 = value2, ... WHERE some_column = some_value;
 			String sql = "update D15_organic set org_situation = ? where org_animal = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, Situation);
+			pstmt.setString(1, Situation);
+			pstmt.setString(2, name);
 			
 			int re = pstmt.executeUpdate();
 			if(re > 0){
@@ -212,11 +213,12 @@ public class Organic_DAO {
 	public boolean updateSituation(int name,String Situation) throws SQLException{
 		boolean ck = false;
 		try {
+			System.out.println("왜 분양 햇는데 시발 상태를 못 바꾸냐 시발");
 			conn = ds.getConnection();
 			String sql = "update D15_organic set org_situation = ? where org_no = ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, name);
-			pstmt.setString(2, Situation);
+			pstmt.setString(1, Situation);
+			pstmt.setInt(2, name);
 			
 			int re = pstmt.executeUpdate();
 			if(re > 0){
@@ -230,13 +232,14 @@ public class Organic_DAO {
 	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
-		return false;
+		return ck;
 	}
 	
 	//조회수 늘리기
 	public boolean insertCount(String name) throws SQLException{
 		boolean ck = false;
 		try {
+			
 			conn = ds.getConnection();
 			String sql ="update D15_organic set org_count=org_count+1 where org_animal=?";
 			pstmt = conn.prepareStatement(sql);

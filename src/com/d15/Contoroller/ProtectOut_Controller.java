@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
+import com.d15.Service.InsertParcel_Service;
+import com.d15.Service.InsertProtect_Service;
 import com.d15.Service.PublicDB_Service;
 import com.d15.Service.PublicSeqSelect_Service;
 import com.d15.Service.pageManager_Service;
@@ -38,7 +40,11 @@ public class ProtectOut_Controller extends HttpServlet {
 				String RequsetURI = request.getRequestURI();
 				String ContextPath = request.getContextPath();
 				String search = RequsetURI.substring(ContextPath.length());
+				response.setContentType("text/html;charset=UTF-8");
+			    request.setCharacterEncoding("UTF-8");
 				
+				
+				System.out.println("이동 하네");
 				System.out.println(search);
 				
 				 ActionForward  forward = null;
@@ -70,11 +76,22 @@ public class ProtectOut_Controller extends HttpServlet {
 				// TODO: handle exception
 			}
 		}else if(search.equals("/D15/ProtectOut/insertParceform.ProtectOut")){
+			action = new InsertParcel_Service();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			
 		}else if(search.equals("/D15/ProtectOut/insertProtect.ProtectOut")){
-			System.out.println(request.getParameter("protectDSt"));
-			System.out.println(request.getParameter("no"));
-			
+			/*System.out.println(request.getParameter("protectDSt"));
+			System.out.println(request.getParameter("no"));*/
+			action = new InsertProtect_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
 		}else if(search.equals("/D15/ProtectOut/page.ProtectOut")){
 			action = new pageManager_Service();
 			try {

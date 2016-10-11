@@ -1,10 +1,9 @@
 <%--
  * @Class : login.jsp
  * @Date : 2016.10.7
- * @Author : 길한종
+ * @Author : 길한종, 김지율 css 수정중
  * @Desc : 로그인 폼
  --%>
-
 <%@page import="com.d15.DTO.Member_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -18,20 +17,15 @@
     <meta name="author" content="">
 
     <title>로그인</title>
-
-    <!-- Bootstrap Core CSS 원본-->
-    <!-- <link href="boot2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
- 	<!-- Bootstrap Core CSS 수정본 [지율주석] 실제사용할것-->
-    <link href="../../css/team01_bootstrap_core.css" rel="stylesheet">
     
-    <!-- Theme CSS 원본 -->
-    <!-- <link href="boot2/css/freelancer.min.css" rel="stylesheet"> -->    
-    <!-- Theme CSS 수정본 [지율주석] 실제사용할것 -->
+ 	<!-- Bootstrap Core CSS [지율주석] 실제사용할것-->
+    <link href="../../css/team01_bootstrap_core.css" rel="stylesheet">
+           
+    <!-- Theme CSS [지율주석] 실제사용할것 -->
     <link href="../../css/team01_theme.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <!-- <link href="boot2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 

@@ -3,7 +3,6 @@
 	@Date : 2016-10-11
 	@Author : 박문수, 김지율
 	@Desc : 실종 신고 게시판의 글쓰기를 위한 jsp 페이지, css 수정
-			input type file 문제 해결 필요함 ㅠㅜ
 --%>
 <%@page import="com.d15.DTO.Member_DTO"%>
 <%@page import="com.d15.DTO.Kind_DTO"%>

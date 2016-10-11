@@ -42,7 +42,7 @@
                         <a href="#">현황</a>
                     </li>
                     <li class="">
-                        <a href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.keyurl">분양/임시보호</a>
+                        <a href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양/임시보호</a>
                     </li>
                     <li class="">
                         <a href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종</a>

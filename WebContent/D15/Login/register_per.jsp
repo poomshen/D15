@@ -102,7 +102,7 @@
 		pageContext.include("../../include/header.jsp");
 	%>
 	
-	<section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
+	<!-- <section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
 		<div class="gradient"></div>
 		<div class="container">
 			<div class="text-wrap">
@@ -112,7 +112,7 @@
 							<h1 class="to-animate">회원 가입</h1>
 							<h2 class="to-animate">좀 도와주십쇼</h2>
 						</div>
-					</div>
+					</div> -->
 					
 					
 					
@@ -159,9 +159,11 @@
       							 <input type="text" class="form-control" name="m_email" id = "m_email" placeholder="이메일 입력">
     						</div>
 							<div class="form-group" style="width:250px;">
-     							 <label for="m_addr" style="float:left;" >거주정보</label>
+     							 <label for="m_addr" style="float:left;" >우편주소</label>
       							 <input type="text" class="form-control" name="m_addr" id = "m_addr" placeholder="주소 입력">
-      							 
+      						</div>	
+      						
+      						 
 <!-- 다음 우편번호 -->   							 
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 <span id="guide" style="color:#999"></span>
@@ -221,7 +223,11 @@
     }
 </script>
 <!-- 다음 우편번호 -->					 
-    						</div>
+    						<div class="form-group" style="width:250px;">
+     							 <label for="m_daddr" style="float:left;" >상세주소</label>
+      							 <input type="text" class="form-control" name="m_daddr" id = "m_daddr" placeholder="주소 입력">
+      						</div>	
+      						
     						<div class="form-group" style="width:250px;">
     						<label for="m_petok" style="float:left;" >입양 경험 여부</label>
     						<select name="m_petok">
@@ -273,9 +279,9 @@
 				$('#colour-variations').toggleClass('sleep');
 			});
 			
+			//아이디 중복검사
 			$('#idcheck').click(function(){
 				$('#checkid').empty();	
-			
 				$.ajax({
 					type:"post",
 					dataType:"html",
@@ -295,36 +301,30 @@
 
 			//유효성 검사
 			$("#submit").click(function(){
-				
 				if($.trim($("#m_id").val()) == ''){
 					alert("아이디를 입력하세요.");
 			        $("#m_id").focus();
 			        return false;
-			        
 				}else if($.trim($("#m_name").val()) == '' ){
 			        alert("이름을 입력하세요.");
 			        $("#m_name").focus();
 			        return false;
-			        
 				}else if( $.trim($("#m_pwd").val()) == '' ){
 				    alert("비밀번호를 입력하세요.");
 				    $("#m_pwd").focus();
-				    return false;
-				        
+				    return false;  
 				}else if( $.trim($("#m_pwd").val()) != $.trim($("#re_pwd").val()) ){
 				    alert("비밀번호가 일치하지 않습니다.");
 				    $("#re_pwd").focus();
-				    return false;
-				        
-				}else if( $.trim($("#m_phone").val()) == '' ){
-			        alert("연락처를 알려주세요.");
-			        $("#mis_date").focus();
-			        return false;
-			        
-				 }else if( $.trim($("#m_email").val()) == '' ){
-					alert("이메일을 알려주세요.");
-				    $("#mis_loc").focus();
-				    return false;
+				    return false;   
+				}else if(!chk(/^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/, $('#m_phone'))){
+					alert("전화번호가 잘못 되었습니다.");
+					$("#m_mail").focus();
+					return false;
+				}else if(!chk(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/, $('#m_email'))){
+					alert("이메일이 잘못 되었습니다.");
+					$("#m_mail").focus();
+					return false;
 				}else if( $.trim($("#m_addr").val()) == '' ){
 					alert("주소를 알려주세요.");
 					$("#m_addr").focus();
@@ -333,12 +333,20 @@
 					$("#m_id").focus();
 					return false;			 
 				}else{
-					alert("실종 신고가 완료 되었습니다.");
+					alert("회원 가입이 완료 되었습니다.");
 					return true;
 				}
-			});
-			
+			});			
 		});
+		
+		//정규식 체크함수
+		function chk(re, e) {
+			if (re.test(e.val())) {
+		    	return true;
+		    } else {
+		    	return false;
+		    }
+		}
 	</script>
 
 	</body>
