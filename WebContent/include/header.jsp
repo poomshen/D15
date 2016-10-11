@@ -46,13 +46,8 @@
                       			<c:when test="${sessionScope.memberdto != null}">
                       				<div class="row">
                       				
-<<<<<<< HEAD
                       					<div class="col-sm-1"></div>
                       					<div class="col-sm-4">
-=======
-                      					<div class="col-sm-2"></div>
-                      					<div class="col-sm-3">
->>>>>>> 15afb69d5dd6076a91cb8758b972a47be0fef739
                       						<span class="glyphicon glyphicon-user logo">${memberdto.m_id}</span>
                       					</div>
                       					<div class="col-sm-3">
