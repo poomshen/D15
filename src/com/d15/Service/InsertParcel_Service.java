@@ -32,6 +32,11 @@ public class InsertParcel_Service implements Action{
 		String dates = request.getParameter("parcelD");
 		String no = request.getParameter("no");
 		HttpSession session = request.getSession();
+		 if(session.getAttribute("memberdto")==null){
+			 forward.setPath("ProtectFail.jsp");
+			 forward.setRedirect(false);
+			 return forward;
+		 }
 		Member_DTO member =(Member_DTO)session.getAttribute("memberdto");
 		//Date 객체로 만들기
 		Date sqldate=null;

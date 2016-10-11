@@ -86,8 +86,6 @@ public class ProtectOut_Controller extends HttpServlet {
 			}
 			
 		}else if(search.equals("/D15/ProtectOut/insertProtect.ProtectOut")){
-			/*System.out.println(request.getParameter("protectDSt"));
-			System.out.println(request.getParameter("no"));*/
 			action = new InsertProtect_Service();
 			try{
 				forward = action.execute(request, response);
