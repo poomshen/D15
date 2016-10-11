@@ -98,7 +98,35 @@ a {
 }
 </style>
 </head>
-
+<style>
+   /* 로딩 이미지*/
+   #loading {
+      height: 100%;
+      left: 0px;
+      position: fixed;
+      _position:absolute; 
+      top: 0px;
+      width: 100%;
+      filter:alpha(opacity=50);
+      -moz-opacity:0.5;
+      opacity : 0.5;
+   }
+   
+   .loading {
+      background-color: white;
+      z-index: 199;
+   }
+   
+   #loading_img{
+      position:absolute; 
+      top:50%;
+      left:45%;
+      height:90px;
+      margin-top:-75px;   //   이미지크기
+      margin-left:-75px;   //   이미지크기
+      z-index: 200;
+   }
+</style>
 
 
 
