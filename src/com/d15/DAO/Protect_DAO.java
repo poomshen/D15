@@ -87,11 +87,7 @@ public class Protect_DAO {
 		ArrayList<MangerProtect_DTO> list = new  ArrayList<MangerProtect_DTO>();
 		try {
 			conn = ds.getConnection();
-			String sql ="select  m_id , m_name ,	m_phone, m_email,	m_addr,"
-					+ " m_petok,pr_reqdate,pr_begdate,pr_enddate,org_img,org_code,"
-					+ "org_gender,org_count,org_date, pr_no from "
-					+ " (select * from (select * from D15_PROTECT pr join D15_DETAIL mb on pr.M_NO = mb.M_NO) c join D15_MEMBER e "
-					+ " on m_no = e.m_no where PR_ARGDATE is null) c join D15_ORGANIC e on e.ORG_NO = c.Org_no;";
+			String sql ="Select  M_Id , M_Name ,M_Phone, M_Email,	M_Addr,M_Petok,Pr_Reqdate,Pr_Begdate,pr_enddate,Org_Img,Org_Code,Org_Gender,Org_Count,Org_Date ,Pr_No from (select * from (Select * From (select * from D15_PROTECT where Pr_ARGDATE is null) pr join D15_MEMBER mb on pr.m_no = mb.m_no) s join D15_Detail e on m_no = e.m_no ) sw join D15_ORGANIC org on sw.ORG_NO = org.Org_no";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()){
@@ -100,16 +96,17 @@ public class Protect_DAO {
 				mangerDTO.setName(rs.getString(2));
 				mangerDTO.setPhone(rs.getString(3));
 				mangerDTO.setEmail(rs.getString(4));
-				mangerDTO.setPetOk(rs.getString(5));
-				mangerDTO.setReqdate(rs.getDate("pr_reqdate"));
-				mangerDTO.setBegdate(rs.getDate("pr_begdate"));
-				mangerDTO.setEnddate(rs.getDate("pr_enddate"));
-				mangerDTO.setImg(rs.getString(9));
-				mangerDTO.setGender(rs.getString(10));
+				mangerDTO.setAddr(rs.getString(5));
+				mangerDTO.setPetOk(rs.getString(6));
+				mangerDTO.setReqdate(rs.getDate(7));
+				mangerDTO.setBegdate(rs.getDate(8));
+				mangerDTO.setEnddate(rs.getDate(9));
+				mangerDTO.setImg(rs.getString(10));
 				mangerDTO.setCode(rs.getString(11));
-				mangerDTO.setCount(rs.getInt(12));
-				mangerDTO.setDate(rs.getInt(13));
-				mangerDTO.setPr_no(rs.getInt(14));
+				mangerDTO.setGender(rs.getString(12));
+				mangerDTO.setCount(rs.getInt(13));
+				mangerDTO.setDate(rs.getInt(14));
+				mangerDTO.setPr_no(rs.getInt(15));
 				list.add(mangerDTO);
 			}
 			return list;

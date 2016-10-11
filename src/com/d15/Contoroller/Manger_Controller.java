@@ -36,6 +36,7 @@ public class Manger_Controller extends HttpServlet {
 		String ContextPath = request.getContextPath();
 		String search = RequsetURI.substring(ContextPath.length());
 		
+		System.out.println(search);
 		 ActionForward  forward = null;
 		 Action action = null;
 		
