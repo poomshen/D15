@@ -14,71 +14,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>살아나개 사랑할개</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
-
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
-
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/icomoon.css">
-	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/simple-line-icons.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/magnific-popup.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/bootstrap.css">
-
-	<!-- 
-	Default Theme Style 
-	You can change the style.css (default color purple) to one of these styles
-	
-	1. pink.css
-	2. blue.css
-	3. turquoise.css
-	4. orange.css
-	5. lightblue.css
-	6. brown.css
-	7. green.css
-
-	-->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/style.css">
-	<link rel="stylesheet" id="theme-switch" href="http://kosta129.esy.es/elate/css/style.css">
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/demo.css"><!-- 없는듯 -->
-
-	<!-- Modernizr JS -->
-	<script src="http://kosta129.esy.es/elate/js/modernizr-2.6.2.min.js"></script><!-- 없는듯 -->
-	
-	 <!-- 10월 5일 지율 추가 시작  -->
-   <!-- Bootstrap Core CSS -->
-    <link href="boot2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Theme CSS -->
-    <link href="boot2/css/freelancer.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="boot2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-   
-   
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <style>
    .navbar-custom{
        background: #ffffff;
@@ -88,7 +24,7 @@
     color: #3f95ea;
    
    </style>   
-   <!-- 10.05 지율 추가  끝 -->
+ 
 	
 	
 	<style>
@@ -101,22 +37,7 @@
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
-	
-	<!-- <section id="fh5co-home" data-section="home" style="background-image: url(images/full_image_2.jpg);" data-stellar-background-ratio="0.5">
-		<div class="gradient"></div>
-		<div class="container">
-			<div class="text-wrap">
-				<div class="text-inner">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
-							<h1 class="to-animate">회원 가입</h1>
-							<h2 class="to-animate">좀 도와주십쇼</h2>
-						</div>
-					</div> -->
 					
-					
-					
-										
 					<div id="person">
 						<form action="RegisterPerOk.login" method="post">
 							<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
@@ -165,7 +86,7 @@
       						
       						 
 <!-- 다음 우편번호 -->   							 
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class = "btn btn-default"><br>
 <span id="guide" style="color:#999"></span>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
@@ -245,24 +166,14 @@
 					</div>
 	
 					
-		<!-- 			
-				</div>
-			</div>
-		</div>
-		<div class="slant"></div>
-	</section>
-	 -->
 	
 	
-	
-	<%-- <%
+	 <%
 		pageContext.include("../../include/footer.jsp");
 	%>
-	 --%>
 	
-	<%
-		pageContext.include("../../include/script.jsp");
-	%>
+	
+	
 	
 	<script>
 		$(function(){
