@@ -154,7 +154,8 @@ function openCity(evt, cityName) {
 
 
 	</section>
-<footer>    
+	<br><br><br>
+	<footer>    
 		<jsp:include page="include/footer.jsp"/>
 	</footer>
 	<!-- jQuery, ui -->
