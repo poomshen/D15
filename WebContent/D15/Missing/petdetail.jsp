@@ -47,10 +47,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<!-- 
+
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
--->
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#nomiss").click(function(){
@@ -144,26 +143,24 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center">
 				<div class="form-group">
-					<label>게시물 번호 :</label>${requestScope.dto.mis_no}<br> 
-					<img src="../../upload/${requestScope.dto.p_image}">
-					<label>회원 ID : ${requestScope.dto.m_id}</label><br>
-					<label>견 종 :	${requestScope.dto.k_kind}</label><br> 
-					<label>성 별 :
-					<c:choose>
-						<c:when test="${requestScope.dto.p_gender == 'f'}">암컷</c:when>
-						<c:otherwise>수컷	</c:otherwise>
-					</c:choose></label><br>
-					<label>특 징 : ${requestScope.dto.p_feature}</label><br>
-					<label>나 이 : ${requestScope.dto.p_age}살</label><br>
-					<label>체 중 : ${requestScope.dto.p_weight}kg</label><br>
-					<label>실종 날짜 : ${requestScope.dto.mis_date}</label><br>
-					<label>실종 위치 : ${requestScope.dto.mis_loc}</label><br>
-					<label>내 용 : ${requestScope.dto.mis_content}</label><br>
-					<input type="button" id="list" value="목록으로" class="btn btn-lg btn-outline">				
+					<label>게시물 번호 :</label>${requestScope.dto.mis_no}<br> <img
+						src="../../upload/${requestScope.dto.p_image}"> <label>회원
+						ID : ${requestScope.dto.m_id}</label><br> <label>견 종 :
+						${requestScope.dto.k_kind}</label><br> <label>성 별 : <c:choose>
+							<c:when test="${requestScope.dto.p_gender == 'f'}">암컷</c:when>
+							<c:otherwise>수컷	</c:otherwise>
+						</c:choose></label><br> <label>특 징 : ${requestScope.dto.p_feature}</label><br>
+					<label>나 이 : ${requestScope.dto.p_age}살</label><br> <label>체
+						중 : ${requestScope.dto.p_weight}kg</label><br> <label>실종 날짜 :
+						${requestScope.dto.mis_date}</label><br> <label>실종 위치 :
+						${requestScope.dto.mis_loc}</label><br> <label>내 용 :
+						${requestScope.dto.mis_content}</label><br> <input type="button"
+						id="list" value="목록으로" class="btn btn-lg btn-outline">
 					<c:choose>
 						<c:when test="${mdto.m_id == dto.m_id }">
 							<span>실종 된 애완견을 찾으셨나요?</span>
-							<input type="button" id="nomiss" value="찾음" class="btn btn-lg btn-outline">	
+							<input type="button" id="nomiss" value="찾음"
+								class="btn btn-lg btn-outline">
 							<!-- <input type="button" value="찾음" id="nomiss"
 								style="position: absolute; right: 100px" class="btn btn-success"> -->
 						</c:when>
@@ -174,41 +171,42 @@
 		</div>
 	</div>
 	</team01content>
-<!-- Footer -->
-<footer class="text-center">        
-    <div class="footer-below">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    2016 &copy; KOSTA 129th. All Rights Reserved.
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+	<!-- Footer -->
+	<footer class="text-center">
+		<div class="footer-below">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">2016 &copy; KOSTA 129th. All Rights
+						Reserved.</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>
-    
-<!-- jQuery -->
-<script src="../../jquery/team01_jquery.js"></script>
+	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+	<div
+		class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+		<a class="btn btn-primary" href="#page-top"> <i
+			class="fa fa-chevron-up"></i>
+		</a>
+	</div>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="../../js/team01_bootstrap.js"></script>
+	<!-- jQuery -->
+	<script src="../../jquery/team01_jquery.js"></script>
 
-<!-- Plugin JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../../js/team01_bootstrap.js"></script>
 
-<!-- Contact Form JavaScript -->
-<script src="../../js/team01_jqBootstrapValidation.js"></script>
-<script src="../../js/team01_contact_me.js"></script>
+	<!-- Plugin JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-<!-- Theme JavaScript -->
-<script src="../../js/team01_freelancer.min.js"></script>
+	<!-- Contact Form JavaScript -->
+	<script src="../../js/team01_jqBootstrapValidation.js"></script>
+	<script src="../../js/team01_contact_me.js"></script>
+
+	<!-- Theme JavaScript -->
+	<script src="../../js/team01_freelancer.js"></script>
 </body>
 
 </html>

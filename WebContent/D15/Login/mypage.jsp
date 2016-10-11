@@ -1,149 +1,169 @@
 <%--
  * @Class : mypage.jsp
  * @Date : 2016.10.8
- * @Author : 길한종
+ * @Author : 길한종, 김지율 수정중 (미완)
  * @Desc : 회원정보 보기 폼
  --%>
-
-
-<%@page import="com.d15.DTO.MemberJoin_DTO"%>
+<%@page import="com.d15.DTO.Member_DTO"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html class="no-js">
-	<head>
-	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>살아나개 사랑할개</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+<title>회원정보 보기</title>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+<!-- Bootstrap Core CSS 원본-->
+<!-- <link href="boot2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- Bootstrap Core CSS 수정본 [지율주석] 실제사용할것-->
+<link href="../../css/team01_bootstrap_core.css" rel="stylesheet">
 
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/icomoon.css">
-	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/simple-line-icons.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/magnific-popup.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/bootstrap.css">
+<!-- Theme CSS 원본 -->
+<!-- <link href="boot2/css/freelancer.min.css" rel="stylesheet"> -->
+<!-- Theme CSS 수정본 [지율주석] 실제사용할것 -->
+<link href="../../css/team01_theme.css" rel="stylesheet">
 
-	<!-- 
-	Default Theme Style 
-	You can change the style.css (default color purple) to one of these styles
-	
-	1. pink.css
-	2. blue.css
-	3. turquoise.css
-	4. orange.css
-	5. lightblue.css
-	6. brown.css
-	7. green.css
+<!-- Custom Fonts -->
+<!-- <link href="boot2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+<link href="../../vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
 
-	-->
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/style.css">
-	<link rel="stylesheet" id="theme-switch" href="http://kosta129.esy.es/elate/css/style.css">
-	<link rel="stylesheet" href="http://kosta129.esy.es/elate/css/demo.css"><!-- 없는듯 -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
 
-	<!-- Modernizr JS -->
-	<script src="http://kosta129.esy.es/elate/js/modernizr-2.6.2.min.js"></script><!-- 없는듯 -->
-	
-	 <!-- 10월 5일 지율 추가 시작  -->
-   <!-- Bootstrap Core CSS -->
-    <link href="boot2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script>
+	$(function() {
+		//fadeinout();
+		$('#colour-variations ul').styleSwitcher({
+			defaultThemeId : 'theme-switch',
+			hasPreview : false,
+			cookie : {
+				expires : 30,
+				isManagingLoad : true
+			}
+		});
+		$('.option-toggle').click(function() {
+			$('#colour-variations').toggleClass('sleep');
+		});
+	});
+</script>
 
-    <!-- Theme CSS -->
-    <link href="boot2/css/freelancer.min.css" rel="stylesheet">
+<body id="page-top" class="index">
 
-    <!-- Custom Fonts -->
-    <link href="boot2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-   
-   
-   <style>
-   .navbar-custom{
-       background: #ffffff;
-   }
-   
-   .navbar-custom .navbar-nav li a, header {
-    color: #3f95ea;
-   
-   </style>   
-   <!-- 10.05 지율 추가  끝 -->
-	
-	<style>
-		form > input {
-			color: black;
-		}
-	</style>
-	</head>
-	
-	<%
-		pageContext.include("../../include/header.jsp");
-	%>
-	<c:set var = "memberdto" value = "${sessionScope.memberdto}"/>
-	
-	<c:choose>
-	<c:when test="${memberdto.m_id == 'admin' }">
-			<section id="fh5co-home" data-section="home"
-			style="background-image: url(images/full_image_2.jpg);"
-			data-stellar-background-ratio="0.5">
-			<div class="gradient"></div>
-			<div class="container">
-				<div class="text-wrap">
-					<div class="text-inner">
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2">
-								<h1 class="to-animate">관리자 페이지</h1>
-								<h2 class="to-animate">내가 관리자다</h2>
-							</div>
-						</div>
-						<div>
-							
+	<!-- Navigation -->
+	<nav id="mainNav"
+		class="navbar navbar-default navbar-fixed-top navbar-custom">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i
+						class="fa fa-bars"></i>
+				</button>
+				<!-- <a class="navbar-brand" href="#page-top">Start Bootstrap</a> -->
+				<a class="navbar-brand" href="/TeamProject3_D15/index.jsp"><img
+					style="margin-top: -20px" src="/TeamProject3_D15/images/logo.gif"></a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden"><a href="#page-top">Home</a></li>
+					<li class="page-scroll"><a href="#about">소개</a></li>
+					<!-- [지율주석] 공지사항~게시판 추가 시작 -->
+					<li class="page-scroll"><a href="#notice">공지사항</a></li>
+					<li class="page-scroll"><a href="#cur_situ">현황</a></li>
+					<li class="page-scroll"><a
+						href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.keyurl">분양/임시보호</a>
+						<!-- <a href="#parcelout">분양/임시보호</a> --></li>
+					<li class="page-scroll"><a
+						href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종</a> <!-- <a href="#cur_situ">실종</a> -->
+					</li>
+					<li class="page-scroll"><a href="#board">게시판</a></li>
+					<!-- [지율주석] 공지사항~게시판 추가 끝 -->
+					<!-- [지율주석] 버튼 스타일 먹이기 도전 시작 -->
+					<!-- <li class="page-scroll">
+                    <a><input type="button" value="로그인"></a>
+                </li>
+                <li class="page-scroll">
+                    <a><input type="button" value="회원가입" id="reg"></a>
+                </li>
+                [지율주석] 버튼 스타일 먹이기 도전 끝  -->
+					<li class=""><a> <%
+ 	String str = "";
+ 	Member_DTO memberdto = (Member_DTO) session.getAttribute("memberdto");
+ 	if (memberdto != null) {
+ 		str += memberdto.getM_id() + "님 로그인 ";
+ 		out.print("<form action='/TeamProject3_D15/D15/Login/Logout.login' method='post'>");
+ 		out.print(str
+ 				+ "<input type='submit' value='로그아웃'>&nbsp&nbsp<a href='/TeamProject3_D15/D15/Login/Mypage.login'>[마이페이지]</a>");
+
+ 		out.print("</form>");
+ 	} else {
+ 		out.print("<form action='/TeamProject3_D15/D15/Login/Login.login' method='post'>");
+ 		out.print("<input type='submit' value='로그인'>");
+ 		out.print("<input type='button' value='회원가입' id = 'reg'>");
+ 		out.print("</form>");
+ 	}
+ %>
+					</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+
+	<team01content> <c:set var="memberdto"
+		value="${sessionScope.memberdto}" /> <c:choose>
+		<c:when test="${memberdto.m_id == 'admin' }">
+			<section id="mypage">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<h1>관리자 페이지</h1>
+							<hr class="star-light">
+							<h2>내가 관리자다</h2>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="slant"></div>
-		</section>
+			</section>
 		</c:when>
-	<c:otherwise>
-		<section id="fh5co-home" data-section="home"
-			style="background-image: url(images/full_image_2.jpg);"
-			data-stellar-background-ratio="0.5">
-			<div class="gradient"></div>
-			<div class="container">
-				<div class="text-wrap">
-					<div class="text-inner">
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2">
-								<h1 class="to-animate">회원 정보</h1>
-								<h2 class="to-animate">내가 바로...!</h2>
-							</div>
+		<c:otherwise>
+			<section id="mypage">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<h1>회원 정보</h1>
+							<hr class="star-light">
+							<h2>내가 바로...!</h2>
 						</div>
-						<div>
+					</div>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
 							<c:set var="dto" value="${requestScope.memberjoindto}" />
 							ID: ${dto.m_id}<br> 최종방문일: ${dto.m_lastdate}<br> 이름:
 							${dto.m_name}<br> 연락처: ${dto.m_phone}<br> 생년월일:
@@ -153,42 +173,46 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="slant"></div>
-		</section>
-	</c:otherwise>
-</c:choose>
-	
-	
-	
-	
-	
-	<%
-		pageContext.include("../../include/footer.jsp");
-	%>
-	
-	
-	<%
-		pageContext.include("../../include/script.jsp");
-	%>
-	
-	<script>
-		$(function(){
-			//fadeinout();
-			$('#colour-variations ul').styleSwitcher({
-				defaultThemeId: 'theme-switch',
-				hasPreview: false,
-				cookie: {
-		          	expires: 30,
-		          	isManagingLoad: true
-		      	}
-			});	
-			$('.option-toggle').click(function() {
-				$('#colour-variations').toggleClass('sleep');
-			});
-		});
-	</script>
-	<!-- End demo purposes only -->
+			</section>
+		</c:otherwise>
+	</c:choose> </team01content>
 
-	</body>
+	<!-- Footer -->
+	<footer class="text-center">
+		<div class="footer-below">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">2016 &copy; KOSTA 129th. All Rights
+						Reserved.</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+	<div
+		class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+		<a class="btn btn-primary" href="#page-top"> <i
+			class="fa fa-chevron-up"></i>
+		</a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="../../jquery/team01_jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="../../js/team01_bootstrap.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+	<!-- Contact Form JavaScript -->
+	<script src="../../js/team01_jqBootstrapValidation.js"></script>
+	<script src="../../js/team01_contact_me.js"></script>
+
+	<!-- Theme JavaScript -->
+	<script src="../../js/team01_freelancer.js"></script>
+</body>
+
 </html>

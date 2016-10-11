@@ -46,6 +46,8 @@
     <![endif]-->
 </head>
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script> 
 <script type="text/javascript">
 	$(function(){
 		$.ajax({
@@ -286,7 +288,7 @@
 <script src="../../js/team01_contact_me.js"></script>
 
 <!-- Theme JavaScript -->
-<script src="../../js/team01_freelancer.min.js"></script>
+<script src="../../js/team01_freelancer.js"></script>
 </body>
 
 </html>
