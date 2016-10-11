@@ -236,7 +236,7 @@
 <!-- <script src="../../js/main.js"></script> -->
 <br>
 <br><br>
-<%@ include file="../../include/footer.jsp" %>
-<%@include file="../../include/script.jsp" %>
+<%@ include file="../../include/team01_footer.jsp" %>
+<%@include file="../../include/team01_script.jsp" %>
 </body>
 </html>
