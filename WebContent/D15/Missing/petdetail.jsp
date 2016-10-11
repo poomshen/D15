@@ -24,12 +24,15 @@
 	<script type="text/javascript">
 		$(function(){
 			$("#nomiss").click(function(){
+				var input = "정말 찾으셨습니까?";
+				confirm(input);
 				location.href = "update.missing?cp=${param.cp}&ps=${param.ps}&mis_no=${param.mis_no}";
 			});
 			
 			$("#list").click(function(){
 				location.href = "BoardList.missing?cp=${param.cp}&ps=${param.ps}"
 			});
+			
 		});
 	</script>
    <style>
@@ -48,33 +51,91 @@
 </head>
 
 <body>
-	게시물 번호  : ${requestScope.dto.mis_no}<br>
-	<img src = "../../upload/${requestScope.dto.p_image}"><br>
-	회원 ID : ${requestScope.dto.m_id}<br>
-	견 종 : ${requestScope.dto.k_kind}<br>
-	성 별 :<c:choose>
-		<c:when test = "${requestScope.dto.p_gender == 'f'}">
-			암컷
-		</c:when>
-		<c:otherwise>
-			수컷
-		</c:otherwise>
-	</c:choose><br>
-	특 징 : ${requestScope.dto.p_feature}<br>
-	나 이 : ${requestScope.dto.p_age}살<br>
-	체 중 : ${requestScope.dto.p_weight}kg<br>
-	실종 날짜 : ${requestScope.dto.mis_date}<br>
-	실종 위치 : ${requestScope.dto.mis_loc}<br>
-	내 용 : ${requestScope.dto.mis_content}<br>
-	
-	<input type = "button" id = "list" value = "목록으로" class = "btn btn-primary"
-	style = "position: absolute; right: 500px">
+
+	<header>
+		<jsp:include page="../../include/header.jsp"/>  
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+
+				<h2>실종 견 상세 정보</h2>
+				 <img src="../../upload/${requestScope.dto.p_image}"class="img-thumbnail" alt="Cinque Terre">
+				
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>게시물 번호</th>
+							<th>${requestScope.dto.mis_no}번</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>회원 ID</td>
+							<td>${requestScope.dto.m_id}</td>
+
+						</tr>
+						<tr>
+							<td>견 종</td>
+							<td>${requestScope.dto.k_kind}</td>
+
+						</tr>
+						<tr>
+							<td>성 별</td>
+							<td><c:choose>
+									<c:when test="${requestScope.dto.p_gender == 'f'}">
+								암컷
+							</c:when>
+									<c:otherwise>
+								수컷
+						</c:otherwise>
+								</c:choose></td>
+						</tr>
+						<tr>
+							<td>특 징</td>
+							<td>${requestScope.dto.p_feature}</td>
+						</tr>
+						<tr>
+							<td>나 이</td>
+							<td>${requestScope.dto.p_age}살</td>
+						</tr>
+						<tr>
+							<td>체 중</td>
+							<td>${requestScope.dto.p_weight}kg</td>
+						</tr>
+						<tr>
+							<td>실종 날짜</td>
+							<td>${requestScope.dto.mis_date}</td>
+						</tr>
+						<tr>
+							<td>실종 위치</td>
+							<td>${requestScope.dto.mis_loc}</td>
+						</tr>
+						<tr>
+							<td>내 용</td>
+							<td>${requestScope.dto.mis_content}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+	</div>
+	<input type = "button" id = "list" value = "목록으로" class = "btn btn-primary center-block">
 	<c:choose>
 		<c:when test = "${mdto.m_id == dto.m_id }">
-		<span style = "position: absolute; right: 200px">실종 된 애완견을 찾으셨나요 ?</span>
+		<br>
+		<div style ="text-align : center">
+		<span >실종 된 애완견을 찾으셨나요 ?</span>
 			<input type = "button" value = "찾음" id = "nomiss"
-			style = "position: absolute; right: 100px" class = "btn btn-success">
+			class = "btn btn-success">
+		</div>
 		</c:when>
 	</c:choose>
+	<br><br><br>
+	<footer>    
+		<jsp:include page="../../include/footer.jsp"/>
+	</footer>
 </body>
 </html>

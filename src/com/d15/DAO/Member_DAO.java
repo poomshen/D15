@@ -177,4 +177,50 @@ public class Member_DAO {
 
 		return memberjoindto;
 	}	
+	
+	
+	public int MypageUpdate(MemberJoin_DTO dto){
+		try{
+			conn = ds.getConnection();
+			String sql = "update d15_member set m_pwd = ? where m_id = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getM_pwd());
+			pstmt.setString(2, dto.getM_id());
+			
+			int row = pstmt.executeUpdate();
+			
+			if(row > 0){
+				String sql2 = "update d15_detail set m_name = ? , m_phone = ? , m_email = ? , m_addr = ? , m_daddr = ? , m_petok = ? , m_update = ? where m_no = ?";
+				pstmt = conn.prepareStatement(sql2);
+				
+				pstmt.setString(1,dto.getM_name());
+				pstmt.setString(2,dto.getM_phone());
+				pstmt.setString(3,dto.getM_email());
+				pstmt.setString(4,dto.getM_addr());
+				pstmt.setString(5,dto.getM_daddr());
+				pstmt.setString(6,dto.getM_petok());
+				pstmt.setDate(7,dto.getM_update());
+				pstmt.setInt(8, dto.getM_no());
+				
+				int row2 = pstmt.executeUpdate();
+				
+				if(row2 > 0){
+					System.out.println("회원 업데이트 성공");
+					return row2;
+				}else{
+					System.out.println("ㅄ");
+				}
+			}else{
+				System.out.println("ㄱㅄ");
+			}
+		}catch(Exception e){
+			System.out.println("MypageUpdate error");
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
 }

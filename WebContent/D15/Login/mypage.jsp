@@ -5,19 +5,29 @@
  * @Desc : 회원정보 보기 폼
  --%>
 
-
 <%@page import="com.d15.DTO.MemberJoin_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html class="no-js">
+<html>
 	<head>
 	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>살아나개 사랑할개</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" ></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript">
+		$(function(){
+			$("#button1").click(function(){
+				location.href = "MypageUpdate.login";
+			});	
+		});
+	</script>
+   
    <style>
    .navbar-custom{
        background: #ffffff;
@@ -35,7 +45,10 @@
 		}
 	</style>
 	</head>
-	
+	<%
+		MemberJoin_DTO dto = (MemberJoin_DTO)session.getAttribute("memberjoindto");
+		String petok = dto.getM_petok().trim();
+	%>
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
@@ -50,31 +63,53 @@
 					
 		</c:when>
 	<c:otherwise>
-	
-		<h1 class="to-animate">회원 정보</h1>
-		<h2 class="to-animate">내가 바로...!</h2>
-						
-		<div>
-			<c:set var="dto" value="${requestScope.memberjoindto}" />
-			ID: ${dto.m_id}<br>
-		         최종방문일: ${dto.m_lastdate}<br> 
-			이름: ${dto.m_name}<br>
-			연락처: ${dto.m_phone}<br>
-			생년월일: ${dto.m_birth}<br> 
-			Email: ${dto.m_email}<br> 
-			우편주소: ${dto.m_addr}<br>
-			상세주소: ${dto.m_daddr}<br>
-			입양경험: ${dto.m_petok}<br>
-			정보수정일: ${dto.m_update}<br>
-			회원가입일: ${dto.m_regdate}<br>
-		</div>
+		<div class = "col-sm-3"></div>				
+		<div class = "col-sm-6">
+			<c:set var="dto" value="${sessionScope.memberjoindto}" />
+			<h1 style = "text-align:center">${dto.m_id}님의 정보</h1>
+			<table class="table table-hover">
+				<tr><td>ID </td><td>${dto.m_id}</td></tr>
+		        <tr><td>최종방문일  </td><td>${dto.m_lastdate}</td></tr>
+				<tr><td>이름 </td><td>${dto.m_name}</td></tr>
+				<tr><td>연락처 </td><td>${dto.m_phone}</td></tr>
+				<tr><td>생년월일 </td><td>${dto.m_birth}</td></tr>
+				<tr><td>Email </td><td>${dto.m_email}</td></tr> 
+				<tr><td>우편주소 </td><td>${dto.m_addr}</td></tr>
+				<tr><td>상세주소 </td><td>${dto.m_daddr}</td></tr>
+				<tr><td>입양경험 </td><td>
 				
+				<%-- <c:choose>
+					<c:when test = "${dto.m_petok == 'N'}">
+						없음
+					</c:when>
+					<c:otherwise>
+						있음
+					</c:otherwise>
+				</c:choose>
+				</td></tr> --%>
+				<%
+					if(petok.equals("N")){
+				%>
+				없음
+				<%}else{ %>
+				있음
+				<%} %>
+				</td></tr>
+				
+				<tr><td>정보수정일 </td><td>${dto.m_update}</td></tr>
+				<tr><td>회원가입일 </td><td>${dto.m_regdate}</td></tr>
+			</table>
+			<div style = "text-align : center">
+			<input type = "button" id = "button1" value = "수정하기" class = "btn btn-default">
+			</div>
+		</div>
+		<div class = "col-sm-3"></div>	
 			
 	</c:otherwise>
 </c:choose>
 
-	<%
-		pageContext.include("../../include/footer.jsp");
-	%>
+	<footer>
+		<jsp:include page="../../include/footer.jsp"></jsp:include>
+	</footer>
 	</body>
 </html>

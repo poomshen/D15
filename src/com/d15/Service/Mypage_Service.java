@@ -30,7 +30,8 @@ public class Mypage_Service implements Action {
 		MemberJoin_DTO memberjoindto=memberdao.selectMember(memberdto.getM_no());
 		System.out.println("dto? " + memberjoindto);
 		
-		request.setAttribute("memberjoindto", memberjoindto);
+		
+		session.setAttribute("memberjoindto", memberjoindto);
 		
 		forward.setRedirect(false);
 		forward.setPath("mypage.jsp");

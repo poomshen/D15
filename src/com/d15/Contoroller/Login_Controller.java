@@ -24,6 +24,7 @@ import com.d15.DAO.Pet_DAO;
 import com.d15.Service.Login_Service;
 import com.d15.Service.MemberInsert_Service;
 import com.d15.Service.MissingList_Service;
+import com.d15.Service.MypageEditOk_Service;
 import com.d15.Service.Mypage_Service;
 import com.d15.Service.PetInsert_Service;
 
@@ -110,8 +111,21 @@ public class Login_Controller extends HttpServlet {
 		
 		}
 
-		else{
-
+		else if(url_command.equals("/D15/Login/MypageUpdate.login")){
+			System.out.println("내 정보 업데이트");
+			forward = new ActionForward();
+			forward.setPath("mypageedit.jsp");
+			forward.setRedirect(false);
+		}else if(url_command.equals("/D15/Login/MyPageEditOk.login")){
+			System.out.println("정보수정완료");
+			action = new MypageEditOk_Service();
+			try{
+				forward = action.execute(request, response);
+				
+			}catch(Exception e){
+				System.out.println("myeditok error");
+				e.printStackTrace();
+			}
 		}
 
 		//3.결과저장

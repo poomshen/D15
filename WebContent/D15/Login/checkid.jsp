@@ -7,7 +7,7 @@
 <%
 	String id=request.getParameter("id");
 	Class.forName("oracle.jdbc.OracleDriver");
-	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "kosta2", "1004");
+	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "kosta", "1004");
 	String sql = "select m_id from D15_Member where m_id=?";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setString(1, id);

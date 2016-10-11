@@ -84,6 +84,7 @@
 
 	<h1 style = "text-align:center">실종신고 게시판</h1>
 	<c:forEach var="list" items="${list}">
+		
 		<div class = "col-sm-4">
 		<span>게시물 번호 : ${list.mis_no}</span><br>
 		<a href="../../upload/${list.p_image}" class="image-popup"> 
@@ -116,7 +117,7 @@
 		</div>
 	</c:forEach>
 
-	<div>
+	<div style = "clear:both">
 		<table align="center">
 			<tr>
 				<td colspan="3" align="center">
@@ -139,17 +140,19 @@
 				<c:if test="${cpage<pagecount}">
 					<a href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a>
 				</c:if>
+					&nbsp;&nbsp; <input type="button" value="실종신고" id="button"
+						 class="btn btn-danger">
 				</td>
-				<td colspan="2" align="center">
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					총 게시물 수 : ${totalcount}
-				</td>
-				<td>
-					<input type="button" value="실종신고" id="button"
-						style="position: absolute; right: 100px" class="btn btn-danger">
-				</td>
+				
 			</tr>
 		</table>
+			<div>
+			<%-- 총 게시물 수 : ${totalcount} <input type="button" value="실종신고" id="button"
+						 class="btn btn-danger center-block"> --%>
+			</div>	
+					
+					
+				
 	</div>
 
 <footer>
