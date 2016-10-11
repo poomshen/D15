@@ -90,9 +90,9 @@
          	   			}
          	   		}
             }
-            	$("#pages").append("<a href='#' onclick=page("+(${pageNo}+1)+")>[다음]<a>");
-    	    var i =0;
+            $("#pages").append("<a href='#' onclick=page("+(${pageNo}+1)+")>[다음]<a>");
     	    $("#search").html(" ");//페이지가 넘어 갈때마다 초기화
+    	    var i =0;
     	   $(xmlContent).find('item').each(function(){
     	        age[i] =$(this).find('age').text();
     	        careAddr[i]=$(this).find('careAddr').text();
@@ -116,20 +116,18 @@
     	        sexCd[i]=$(this).find('sexCd').text();
     	        specialMark[i]=$(this).find('specialMark').text();
     	        weight[i]=$(this).find('weight').text();
-    	       
-    	       /* $.getJSON("selectcount.keyurl", {"desertionNo":$(this).find('desertionNo').text()}, function(data, textStatus, req) {
-    	    	   	console.log(data);	
-    	    	   	processState[i] = data.Org_situation;
-				});   */ 
-    	         	/* <img alt='"+desertionNo[i]+"' src='"+popfile[i]+"' >"+age[i]+"<br>"+careNm[i]+"<br>"+careAddr[i]+"<br>"+processState[i]+"</div>"); */
-    	       		//$("#search").append("<div class='clearfix visible-sm-block'></div>");
-    	       		$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+"><a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'><img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive'><div class='fh5co-text'><h2>"+processState[i]+"</h2><span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>");
-    	       		$("#search").append("</div></a></div>");
-    	         
-    	       i++;
+    	        
+    	        
+    	       	$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+">");
+    	       	$("#search").append("<a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'>"
+    	       			+"<img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-thumbnail' alt='Cinque Terre' width='304' height='236'>"
+    	       			+"<div class='fh5co-text'><h4> 발견: "+noticeSdt[i]+" / end :"+noticeEdt[i]+"</h4>"
+    	       			+"<span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>")
+	       		$("#search").append("</div></a></div>");
+    	       i++;        
            });
-         });  
-   		
+
+        });  
    		
  		$("#close").click(function() {
 				$("#d15_body").hide();
@@ -169,16 +167,19 @@
 	}
 	
 	function ajaxLoading(){
-
+	  
 	    var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="http://blog.teamtreehouse.com/wp-content/uploads/2015/05/InternetSlowdown_Day.gif" />').appendTo(document.body).hide();
 
 	    $(window)   
 	    .ajaxStart(function(){
 	       loading.show();
+	 
 	    })
 	    .ajaxStop(function(){
+	     
 	       loading.hide();
 	    });
+	  
 	}
    //게시판 이미지 클릭 시 이벤트
    function searchclick(index){
@@ -198,14 +199,15 @@
 		   //조회수 가지고 오기
 		   //console.log(data.Org_situation);
 		   count  = data.Org_count;
-		   no = data.Org_no
+		   no = data.Org_no;
+		   processState = data.Org_situation;
 	   $("#d15_body").show();
 	   $("#d15_body1").addClass("d15_bodyEvt2");
 	   $("#d15_body2").addClass("d15_bodyEvt3");
 	   $("#protectform").attr("action", "insertProtect.ProtectOut?no="+no);
 	   $("#parceform").attr("action", "insertParceform.ProtectOut?no="+no);
 	   $("#detailView").html("<div><img alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></div>");
-	   $("#detailView").append("<div>"+count+"<br>"+careNm[index]+"<br>"+careAddr[index]+"<br>"+processState[index]+"</div>")
+	   $("#detailView").append("<div>"+count+"<br>"+careNm[index]+"<br>"+careAddr[index]+"<br>"+processState+"</div>")
 	   })
 	   
 	}

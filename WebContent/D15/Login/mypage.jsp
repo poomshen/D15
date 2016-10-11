@@ -46,6 +46,9 @@
 			
 		<h1 class="to-animate">관리자 페이지</h1>
 		<h2 class="to-animate">내가 관리자다</h2>
+		<script type="text/javascript">
+			location.href = "/TeamProject3_D15/D15/Manger/StartManger.Manger";
+		</script>
 					
 		</c:when>
 	<c:otherwise>

@@ -13,6 +13,28 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>살아나개 사랑할개</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+<meta name="keywords"
+	content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+<meta name="author" content="FREEHTML5.CO" />
+
+
+<!-- Magnific Popup -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/magnific-popup.css">
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	href="http://kosta129.esy.es/elate/css/bootstrap.css">
+
+
+<!-- Modernizr JS -->
+
+<!-- 10월 5일 지율 추가 시작  -->
+
+<!-- Theme CSS -->
+<link href="boot2/css/freelancer.css" rel="stylesheet">
+
 
 <title>임시보호/분양</title>
 
@@ -60,10 +82,12 @@
 
 
 
+
 <body>
 <header>
 	<jsp:include page = "../../include/header.jsp" />
 </header>
+
 
 <div id="d15_body">
 <!-- 화면이벤트   -->
@@ -71,7 +95,9 @@
 <div id="container"></div>
 <!-- 클릭시 화면 보여주는 div -->
 <div id="d15_body2">
+<div style="z-index:11; margin-bottom: 10px;">
 <button title="Close (Esc)" type="button" class="mfp-close" style="z-index:11;" id="close">×</button>
+</div>
 <div style="z-index:11; margin-bottom: -2px;">
 &nbsp;
 <span style="background-color: white; border-radius:5px 5px 0px 0px; cursor : pointer ;" id="detailSelect">&nbsp; 상세보기&nbsp; </span>
@@ -83,20 +109,20 @@
 <!-- 임시보호  -->
 <div id="protectView" style="background-color: white; z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius:5px; ">
 	<br><br>
-	<div style="margin-left: 25%; margin-top: 0px;" >임시보호 받을 날을 입력해주세요</div>
+	<div style="width: 100% ;text-align: center;"  >임시보호 받을 날을 입력해주세요</div>
 	<form id="protectform" method="post" >
-	<input name="protectDSt" id="protectDSt" class="protectDSt" type="text" style="margin-left: 10%; margin-top: 5%; width:420px; cursor : pointer ;" value="보호시작 날짜" >
-	<input name="protectDEd" id="protectDEd" class="protectDEd" type="text" style="margin-left: 10%; margin-top: 2%; width:420px; cursor : pointer ;" value="보호종료 날짜" >
-	<input type="submit" value="임시보호신청" style="margin-left: 35%; margin-top: 5%;">
+	<input name="protectDSt" id="protectDSt" class="protectDSt" type="text" style="margin-left: 5%; margin-top: 5%; width:90%; cursor : pointer ;" value="보호시작 날짜" >
+	<input name="protectDEd" id="protectDEd" class="protectDEd" type="text" style="margin-left: 5%; margin-top: 2%; width:90%; cursor : pointer ;" value="보호종료 날짜" >
+	<input type="submit" value="임시보호신청" style="margin-left:10%; margin-right:10%; margin-top:5%; width:80%;">
 	</form>
 </div>
 <!-- 분양 -->
 <div id="parcelView" style="background-color: white; z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius:5px; ">
 	<br><br>
-	<div style="margin-left: 25%; margin-top: 0px;" >분양 받을 날을 입력해주세요</div>
+	<div style="width: 100%;text-align: center;" >분양 받을 날을 입력해주세요</div>
 	<form id="parceform" method="post" >
-	<input name="parcelD" id="parcelD" class="parcelD" type="text" style="margin-left: 10%; margin-top: 10%; width:420px; cursor : pointer ;" value="날짜입력">
-	<input type="submit" value="임시보호신청" style="margin-left: 35%; margin-top: 5%;">
+	<input name="parcelD" id="parcelD" class="parcelD" type="text" style="margin-left: 10%; margin-top: 10%; width: 80%; cursor : pointer ;" value="날짜입력">
+	<input type="submit" value="임시보호신청" style="margin-left:10%; margin-right:10%; margin-top:5%; width:80%;">
 	</form>
 </div>
 </div>
@@ -186,12 +212,13 @@
 	        var picker = $input.pickadate('picker');
 		</script>
 
-
+<!-- <script src="../../js/main.js"></script> -->
 <br>
 <br><br>
 
 <footer>
 	<jsp:include page = "../../include/footer.jsp" />
 </footer>
+
 </body>
 </html>
