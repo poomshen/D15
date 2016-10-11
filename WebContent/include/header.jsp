@@ -46,9 +46,9 @@
                       			<c:when test="${sessionScope.memberdto != null}">
                       				<div class="row">
                       				
-                      					<div class="col-sm-1"></div>
-                      					<div class="col-sm-4">
-                      						<span class="glyphicon glyphicon-user logo">${memberdto.id}</span>
+                      					<div class="col-sm-2"></div>
+                      					<div class="col-sm-3">
+                      						<span class="glyphicon glyphicon-user logo">${memberdto.m_id}</span>
                       					</div>
                       					<div class="col-sm-3">
                       						<a href = "/TeamProject3_D15/D15/Login/Logout.login">
@@ -57,7 +57,7 @@
                       					</div>
                       					<div class="col-sm-3">
                       						<a href = "/TeamProject3_D15/D15/Login/Mypage.login">
-                      						<span class="glyphicon glyphicon-lock logo">내정보보기</span>
+                      						<span class="glyphicon glyphicon-lock logo">마이페이지</span>
  											</a>
                       					</div>	
                       					<div class="col-sm-1">

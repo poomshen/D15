@@ -35,11 +35,11 @@ form>input, option, select {
 </style>
 </head>
 <body>
+
 <header>
-<%
-		pageContext.include("../../include/header.jsp");
-%>
+		<jsp:include page="../../include/header.jsp"/>  	
 </header>
+
 
 <div>
 	<center><h1>회 원 가 입</h1></center>
@@ -195,19 +195,6 @@ form>input, option, select {
 
 <script>
 		$(function(){
-			//fadeinout();
-			$('#colour-variations ul').styleSwitcher({
-				defaultThemeId: 'theme-switch',
-				hasPreview: false,
-				cookie: {
-		          	expires: 30,
-		          	isManagingLoad: true
-		      	}
-			});	
-			$('.option-toggle').click(function() {
-				$('#colour-variations').toggleClass('sleep');
-			});
-			
 			//아이디 중복검사
 			$('#idcheck').click(function(){
 				$('#checkid').empty();	

@@ -101,12 +101,9 @@ header .container {
 	</form>
 </div>
 
-<%
-	pageContext.include("../../include/footer.jsp");
-%>
-
-
-
+<footer>
+		<jsp:include page="../../include/footer.jsp"/>  	
+</footer>
 
 </body>
 </html>
