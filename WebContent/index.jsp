@@ -71,7 +71,7 @@
 					
 		    </div> <!-- /container -->
 	</section>
-	<br/><br/>    
+	<br><br><br>    
 	<footer>    
 		<jsp:include page="include/footer.jsp"/>
 	</footer>
