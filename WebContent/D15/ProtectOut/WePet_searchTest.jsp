@@ -213,12 +213,13 @@
    //페이지 처리
    function page(index){
 	   location.href="/TeamProject3_D15/D15/ProtectOut/page.ProtectOut?pageNo="+index+"&numOfRows=${numOfRows}&key="+key
-	  /*  $.get("dskjfk.LoginManager", {"pageNo":index}, function(data, textStatus, req) {
+	  /*  $.get("dskjfk.LoginManager", {"pageNo":index}, function}(data, textStatus, req) {
 	   	console.log(${pageNo});
 	   }) */
+	   }
 	   
-   }
-   <%@ include file="../../js/main.js" %>
+   
+   <%@ include file="../../js/team01_main.js" %>
   </script>
 
 
