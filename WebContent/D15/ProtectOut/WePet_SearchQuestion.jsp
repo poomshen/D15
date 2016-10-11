@@ -55,6 +55,13 @@
 
 <%@include file="WePet_searchTest.jsp"%>
 <style type="text/css">
+tr:nth-child(even) {background-color: #f2f2f2}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+table {
+    border: 1px solid black;
+}
 #search img {
 	width: 100%;
 	height: 200px;
