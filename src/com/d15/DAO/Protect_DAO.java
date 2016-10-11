@@ -67,7 +67,7 @@ public class Protect_DAO {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return ck;
 	}
 	
 	//임시보호 삭제 - 회원 임시보호 취소 -> ( 트리거 사용 구문???)

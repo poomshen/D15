@@ -166,25 +166,11 @@
 		
 	}
 	
-	function ajaxLoading(){
-	  
-	    var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="http://blog.teamtreehouse.com/wp-content/uploads/2015/05/InternetSlowdown_Day.gif" />').appendTo(document.body).hide();
-
-	    $(window)   
-	    .ajaxStart(function(){
-	       loading.show();
-	 
-	    })
-	    .ajaxStop(function(){
-	     
-	       loading.hide();
-	    });
-	  
-	}
    //게시판 이미지 클릭 시 이벤트
    function searchclick(index){
 	   //$("#list"+index).append(kindCd[index])
 	   var count;
+	
 	   //컨트롤러를 통해 DB저장
 	   $.getJSON("/TeamProject3_D15/D15/ProtectOut/insertPublic.ProtectOut", {
 	   "desertionNo":desertionNo[index],
@@ -196,6 +182,7 @@
 	   "noticeSdt":noticeSdt[index],
 	   "kindCd":encodeURIComponent(kindCd[index])
 	   }, function(data, textStatus, req) {
+		   console.log(data);
 		   //조회수 가지고 오기
 		   //console.log(data.Org_situation);
 		   count  = data.Org_count;
@@ -220,7 +207,6 @@
 	   }) */
 	   
    }
-   <%@ include file="../../js/main.js" %>
   </script>
 
 

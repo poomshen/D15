@@ -22,22 +22,27 @@ public class InsertProtect_Service implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		 response.setContentType("text/html;charset=UTF-8");
-	       try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		ActionForward forward = new ActionForward();
+		    try {
+				request.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		    
+		 ActionForward forward = new ActionForward();
 		 String st = request.getParameter("protectDSt");
 		 String ed = request.getParameter("protectDEd");
 		 String no = request.getParameter("no");
 		 //String m_no = request.getSession();
 		 HttpSession session = request.getSession();
+		 if(session.getAttribute("memberdto")==null){
+			 forward.setPath("ProtectFail.jsp");
+			 forward.setRedirect(false);
+			 return forward;
+		 }
 		 Member_DTO member =(Member_DTO)session.getAttribute("memberdto");
 		 
-		 Protect_DTO proDto = new Protect_DTO();
-		 Protect_DAO proDao = new Protect_DAO();
+		 
 		
 		 //시간 데이트 타입 으로 넘기기
 		 Date sqldate=null;
@@ -51,6 +56,8 @@ public class InsertProtect_Service implements Action{
 		    } catch (Exception e) {
 		    	System.out.println(e.getMessage());
 		    }
+		 Protect_DTO proDto = new Protect_DTO();
+		 Protect_DAO proDao = new Protect_DAO();
 		 proDto.setM_no(member.getM_no());
 		 proDto.setOrg_no(Integer.parseInt(no));
 		 proDto.setPr_begdate(sqldate);
@@ -58,17 +65,14 @@ public class InsertProtect_Service implements Action{
 		 
 		 if(proDao.insertProtect(proDto)){
 			 //제대로 임시보호 성공적으로 됬다면
-			 Organic_DTO orgDto = new Organic_DTO();
-			 Organic_DAO orgDao = new Organic_DAO();
-			  
+			  System.out.println("가입은 성공");
 			 try {
+				 Organic_DAO orgDao = new Organic_DAO();
 				 //상태 변경 
 				 if(orgDao.updateSituation(Integer.parseInt(no), "[등록중]임시")){
-					 System.out.println("임시 보호 등록 성공");
 					 forward.setPath("ProtectSuccess.jsp");
 					 forward.setRedirect(false);
 				 }else{
-					 System.out.println("임시 보호 등록 실패");
 					 forward.setPath("ProtectFail.jsp");
 					 forward.setRedirect(false);
 				 }
@@ -78,6 +82,7 @@ public class InsertProtect_Service implements Action{
 			}
 				 
 		 }else{
+			
 		 }
 		 return forward;
 		
