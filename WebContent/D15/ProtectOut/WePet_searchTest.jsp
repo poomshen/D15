@@ -131,6 +131,7 @@
 				$("#detailView").show();
 				$("#protectView").hide();
 				$("#parcelView").hide();
+				window.location.reload();
 			})
 		//상세 보기
 		$("#detailSelect").click(function() {
