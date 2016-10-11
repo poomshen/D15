@@ -1,3 +1,10 @@
+/*
+ * @Class : ManagerParcel_DTO
+ * @Date : 2016.10.10
+ * @Author : 이성준
+ * @Desc : 회원과 분양 조인테이블 DTO
+ */
+
 package com.d15.DTO;
 
 import java.sql.Date;
