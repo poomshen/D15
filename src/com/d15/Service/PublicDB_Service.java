@@ -63,8 +63,7 @@ public class PublicDB_Service implements Action{
 			if(orgck.getOrg_no() == 0 ){
 				//데이터베이스 저장
 				orgDao.insertOrganic(org);
-				System.out.println(org_situation.subSequence(0,2));
-				if(org_situation.subSequence(1,3).equals("종료")){
+				if(org_situation.subSequence(0,2).equals("종료")){
 					//종료 일떄 분양에 넣어서 임시와 분양을 받지 못 하게 하기
 					Parcel_DAO parcel_DAO = new Parcel_DAO();
 					Parcel_DTO parcel_DTO = new Parcel_DTO();

@@ -15,13 +15,8 @@
 	          maxIdle="20" 
 	          maxActive="50"
 	          password="1004"
-<<<<<<< Updated upstream
-		      username="kosta2" 
-		      url="jdbc:oracle:thin:@192.168.0.121:1521:XE"
-=======
 		      username="MY_SCHEMA" 
 		      url="jdbc:oracle:thin:@localhost:1521:XE"
->>>>>>> Stashed changes
 			  driverClassName="oracle.jdbc.OracleDriver" 
 			  type="javax.sql.DataSource"
 		      auth="Container" 
