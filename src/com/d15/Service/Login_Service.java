@@ -27,27 +27,31 @@ public class Login_Service implements Action {
 		String m_pwd=request.getParameter("m_pwd");
 		ActionForward forward = new ActionForward();
 		
-		
+		System.out.println(m_id + "/" + m_pwd);
 		//select 함수를 돌리는 Member_DAO
 		Member_DAO memberdao=new Member_DAO();
 		
 		//세션 생성
 		Member_DTO memberdto=memberdao.checkMember(m_id, m_pwd);
-		
+		//System.out.println("memberdto : " + memberdto.toString());
+		if(memberdto == null){
+			System.out.println("널");
+		}
 		if (memberdto!=null){
 			HttpSession session=request.getSession();
 			session.setAttribute("memberdto", memberdto);
 			forward.setRedirect(false);
 			forward.setPath("loginsuccess.jsp");
-			
-		} else {		
-			HttpSession session=request.getSession();
-			session.invalidate();
+			System.out.println("true");
+		} else {	
+			System.out.println("fail");
+			//HttpSession session=request.getSession();
+			//session.invalidate();
 			forward.setRedirect(false);
 			forward.setPath("loginfail.jsp");
-			
+			System.out.println("false");
 		}
-		
+		System.out.println("login");
 		
 		
 		return forward;

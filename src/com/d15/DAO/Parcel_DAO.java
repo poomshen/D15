@@ -63,8 +63,8 @@ public class Parcel_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -91,8 +91,8 @@ public class Parcel_DAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -134,8 +134,8 @@ public class Parcel_DAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return list;
@@ -159,8 +159,8 @@ public class Parcel_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		

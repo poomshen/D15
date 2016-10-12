@@ -100,8 +100,8 @@ public class Organic_DAO {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -132,8 +132,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -150,8 +150,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -182,8 +182,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -209,8 +209,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -234,8 +234,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -258,8 +258,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -275,8 +275,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return false;

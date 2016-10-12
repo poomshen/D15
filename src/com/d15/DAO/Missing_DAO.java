@@ -96,8 +96,8 @@ public class Missing_DAO {
 				e.printStackTrace();
 			}finally{
 				if(rs != null)try{rs.close();}catch(Exception e){}
-				if(pstmt != null)try{rs.close();}catch(Exception e){}
-				if(conn != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+				if(conn != null)try{conn.close();}catch(Exception e){}
 				
 			}
 			
@@ -154,8 +154,8 @@ public class Missing_DAO {
 			
 			}finally{
 				if(rs != null)try{rs.close();}catch(Exception e){}
-				if(pstmt != null)try{rs.close();}catch(Exception e){}
-				if(conn != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+				if(conn != null)try{conn.close();}catch(Exception e){}
 				
 			}
 			return list;
@@ -184,8 +184,8 @@ public class Missing_DAO {
 				e.printStackTrace();
 			}finally{
 				if(rs != null)try{rs.close();}catch(Exception e){}
-				if(pstmt != null)try{rs.close();}catch(Exception e){}
-				if(conn != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+				if(conn != null)try{conn.close();}catch(Exception e){}
 				
 			}
 			return 0;
@@ -231,8 +231,8 @@ public class Missing_DAO {
 				e.printStackTrace();
 			}finally{
 				if(rs != null)try{rs.close();}catch(Exception e){}
-				if(pstmt != null)try{rs.close();}catch(Exception e){}
-				if(conn != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+				if(conn != null)try{conn.close();}catch(Exception e){}
 				
 			}
 			
@@ -259,8 +259,8 @@ public class Missing_DAO {
 				System.out.println("updateMissdata error");
 				e.printStackTrace();
 			}finally{
-				if(pstmt != null)try{rs.close();}catch(Exception e){}
-				if(conn != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+				if(conn != null)try{conn.close();}catch(Exception e){}
 				
 			}
 			return 0;
