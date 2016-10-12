@@ -19,6 +19,7 @@ import javax.sql.DataSource;
 import com.d15.DTO.Detail_DTO;
 import com.d15.DTO.MemberJoin_DTO;
 import com.d15.DTO.Member_DTO;
+import com.d15.DTO.Parcel_DTO;
 import com.d15.DTO.Pet_DTO;
 
 public class Member_DAO {
@@ -240,5 +241,39 @@ public class Member_DAO {
 		
 		
 		return 0;
+	}
+	
+	//마이페이지-분양상태 조회
+	public Parcel_DTO MypageStatus(Member_DTO memberdto){
+		Parcel_DTO parceldto=new Parcel_DTO();
+		try{
+			conn = ds.getConnection();
+			String sql = "select pc_no, m_no, org_no, pc_reqdate, pc_begdate, pc_argdate "
+					+"from D15_parcel where m_no = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberdto.getM_no());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				parceldto.setPc_no(rs.getInt(1));
+				parceldto.setM_no(memberdto.getM_no());
+				parceldto.setOrg_no(rs.getInt(3));
+				parceldto.setFc_reqdate(rs.getDate(4));
+				parceldto.setFc_begdate(rs.getDate(5));
+				parceldto.setPc_argdate(rs.getDate(6));	
+			}
+			
+		}catch(Exception e){
+			System.out.println("MypageUpdate error");
+			e.printStackTrace();
+		}finally{
+			if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+			if(conn != null)try{conn.close();}catch(Exception e){}
+			
+		}
+		
+		return parceldto;
 	}
 }

@@ -25,6 +25,7 @@ import com.d15.Service.Login_Service;
 import com.d15.Service.MemberInsert_Service;
 import com.d15.Service.MissingList_Service;
 import com.d15.Service.MypageEditOk_Service;
+import com.d15.Service.MypageStatus_Service;
 import com.d15.Service.Mypage_Service;
 import com.d15.Service.PetInsert_Service;
 
@@ -133,8 +134,7 @@ public class Login_Controller extends HttpServlet {
 			try{
 				forward = action.execute(request, response);
 			}catch(Exception e){
-				System.out.println("myeditok error");
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 

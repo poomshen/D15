@@ -48,7 +48,7 @@
 		}
 	</style>
 	</head>
-
+	<body>
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
