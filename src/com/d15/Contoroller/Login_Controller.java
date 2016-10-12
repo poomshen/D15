@@ -127,6 +127,16 @@ public class Login_Controller extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(url_command.equals("/D15/Login/MypageStatus.login")){
+			System.out.println("신청정보보기");
+			action = new MypageStatus_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				System.out.println("myeditok error");
+				e.printStackTrace();
+			}
+		}
 
 		//3.결과저장
 		//4.뷰 정의

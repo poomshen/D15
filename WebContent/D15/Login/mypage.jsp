@@ -24,6 +24,9 @@
 		$(function(){
 			$("#button1").click(function(){
 				location.href = "MypageUpdate.login";
+			});
+			$("#button2").click(function(){
+				location.href = "MypageStatus.login";
 			});	
 		});
 	</script>
@@ -102,6 +105,7 @@
 			</table>
 			<div style = "text-align : center">
 			<input type = "button" id = "button1" value = "수정하기" class = "btn btn-default">
+			<input type = "button" id = "button2" value = "신청정보확인" class = "btn btn-default">
 			</div>
 		</div>
 		<div class = "col-sm-3"></div>	
