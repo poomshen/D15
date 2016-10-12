@@ -43,7 +43,7 @@
 						href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양
 							및 임시보호</a></li>
 					<li><a href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종신고</a></li>
-					<li><a href="#">게시판</a></li>
+					<li><a href="/TeamProject3_D15/D15/BoardList.Board?name=qna">게시판</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-3"></div>
