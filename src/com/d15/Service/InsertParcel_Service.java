@@ -60,7 +60,7 @@ public class InsertParcel_Service implements Action{
 				   Organic_DAO organic_DAO = new Organic_DAO();
 				   try {
 					if(organic_DAO.updateSituation(Integer.parseInt(no), "등록중(분양)")){
-							forward.setPath("ProtectSuccess.jsp");
+							forward.setPath("ParcelSuccess.jsp");
 							forward.setRedirect(false);
 					   }else{
 							forward.setPath("ProtectFail.jsp");
