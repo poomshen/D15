@@ -55,7 +55,7 @@
 		<c:when test="${memberdto.m_id == 'admin' }">
 	
 		<script type="text/javascript">
-			 location.href = "/TeamProject3_D15/D15/Manger/StartManger.Manger"; 
+			 location.href = "/TeamProject3_D15/D15/Manger/MemberSearch.Manger"; 
 		</script>
 					
 		</c:when>

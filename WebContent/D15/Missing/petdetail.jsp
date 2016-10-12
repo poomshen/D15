@@ -61,7 +61,7 @@
 			<div class="col-sm-6">
 
 				<h2>실종 견 상세 정보</h2>
-				 <img src="../../upload/${requestScope.dto.p_image}"class="img-thumbnail" alt="Cinque Terre">
+				 <img src="../../upload/${requestScope.dto.p_image}" class="img-thumbnail" alt="Cinque Terre">
 				
 				<table class="table table-hover">
 					<thead>

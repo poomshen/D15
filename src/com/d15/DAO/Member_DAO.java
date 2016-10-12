@@ -10,6 +10,8 @@ package com.d15.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -18,6 +20,7 @@ import javax.sql.DataSource;
 
 import com.d15.DTO.Detail_DTO;
 import com.d15.DTO.MemberJoin_DTO;
+import com.d15.DTO.MemberSearch_DTO;
 import com.d15.DTO.Member_DTO;
 import com.d15.DTO.Pet_DTO;
 
@@ -240,5 +243,54 @@ public class Member_DAO {
 		
 		
 		return 0;
+	}
+	
+	public List<MemberSearch_DTO> MemberSearch(String search){
+		List<MemberSearch_DTO> list = null;
+		try{
+			list = new ArrayList<MemberSearch_DTO>();
+			
+			conn = ds.getConnection();
+			String sql = "select m.m_no , m.m_id , m.m_lastdate , m_name , m_phone , m_birth , m_email , m_addr , m_daddr , m_petok , m_update , m_regdate "
+					 + "from D15_member m join D15_detail d on m.m_no = d.m_no where m_id like ?";
+
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, "%"+search+"%");
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				MemberSearch_DTO dto = new MemberSearch_DTO();
+				
+				dto.setM_no(rs.getInt(1));
+				dto.setM_id(rs.getString(2));
+				dto.setM_lastdate(rs.getString(3));
+				dto.setM_name(rs.getString(4));
+				dto.setM_phone(rs.getString(5));
+				dto.setM_birth(rs.getInt(6));
+				dto.setM_email(rs.getString(7));
+				dto.setM_addr(rs.getString(8));
+				dto.setM_daddr(rs.getString(9));
+				dto.setM_petok(rs.getString(10));
+				dto.setM_update(rs.getString(11));
+				dto.setM_regdate(rs.getString(12));
+				
+				list.add(dto);
+				
+			}
+			System.out.println("Dao 제이슨 사이즈 : "+list.size());
+			return list;
+		}catch(Exception e){
+			System.out.println("MemberSeach error");
+			e.printStackTrace();
+		}finally{
+			if(rs != null) try{rs.close();}catch(Exception e){}
+			if(pstmt != null) try{pstmt.close();}catch(Exception e){}
+			if(conn != null) try{conn.close();}catch(Exception e){}
+				
+		}
+		
+		return null;
 	}
 }
