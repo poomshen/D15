@@ -94,6 +94,11 @@ public class Missing_DAO {
 				
 				System.out.println("Missing_DAO error" + e.getMessage());
 				e.printStackTrace();
+			}finally{
+				if(rs != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{rs.close();}catch(Exception e){}
+				if(conn != null)try{rs.close();}catch(Exception e){}
+				
 			}
 			
 			return 0;
@@ -147,6 +152,11 @@ public class Missing_DAO {
 				System.out.println("selectMissingPet error");
 				e.printStackTrace();
 			
+			}finally{
+				if(rs != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{rs.close();}catch(Exception e){}
+				if(conn != null)try{rs.close();}catch(Exception e){}
+				
 			}
 			return list;
 		}
@@ -172,6 +182,11 @@ public class Missing_DAO {
 				
 				System.out.println("totallistCount error");
 				e.printStackTrace();
+			}finally{
+				if(rs != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{rs.close();}catch(Exception e){}
+				if(conn != null)try{rs.close();}catch(Exception e){}
+				
 			}
 			return 0;
 		}
@@ -214,6 +229,11 @@ public class Missing_DAO {
 			}catch(Exception e){
 				System.out.println("detailMissingPet error");
 				e.printStackTrace();
+			}finally{
+				if(rs != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{rs.close();}catch(Exception e){}
+				if(conn != null)try{rs.close();}catch(Exception e){}
+				
 			}
 			
 			return mdto;
@@ -238,6 +258,10 @@ public class Missing_DAO {
 			}catch(Exception e){
 				System.out.println("updateMissdata error");
 				e.printStackTrace();
+			}finally{
+				if(pstmt != null)try{rs.close();}catch(Exception e){}
+				if(conn != null)try{rs.close();}catch(Exception e){}
+				
 			}
 			return 0;
 		}
