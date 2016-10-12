@@ -89,6 +89,10 @@ public class Member_DAO {
 
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
+		}finally{
+			if(pstmt != null)try{rs.close();}catch(Exception e){}
+			if(conn != null)try{rs.close();}catch(Exception e){}
+			
 		}
 		
 		return 0;
@@ -127,6 +131,11 @@ public class Member_DAO {
 		
 		}catch(Exception e){
 			System.out.println(e.getMessage());
+		}finally{
+			if(rs != null)try{rs.close();}catch(Exception e){}
+			if(pstmt != null)try{rs.close();}catch(Exception e){}
+			if(conn != null)try{rs.close();}catch(Exception e){}
+			
 		}
 		return null;		
 	}
@@ -173,6 +182,11 @@ public class Member_DAO {
 
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
+		}finally{
+			if(rs != null)try{rs.close();}catch(Exception e){}
+			if(pstmt != null)try{rs.close();}catch(Exception e){}
+			if(conn != null)try{rs.close();}catch(Exception e){}
+			
 		}
 
 		return memberjoindto;
@@ -218,6 +232,10 @@ public class Member_DAO {
 		}catch(Exception e){
 			System.out.println("MypageUpdate error");
 			e.printStackTrace();
+		}finally{
+			if(pstmt != null)try{rs.close();}catch(Exception e){}
+			if(conn != null)try{rs.close();}catch(Exception e){}
+			
 		}
 		
 		
