@@ -137,6 +137,21 @@ public class Parcel_DAO {
 	
 	//삭제
 	public boolean deleteParcle(int no){
-		return false;
+		boolean ck = false;
+		try {
+			conn = ds.getConnection();
+			String  sql = "DELETE FROM D15_Parcel where pc_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			int re =  pstmt.executeUpdate();
+			if(re > 0){
+				ck = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return ck;
 	}
 }
