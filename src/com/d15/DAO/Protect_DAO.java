@@ -47,7 +47,7 @@ public class Protect_DAO {
 	
 	
 	///임시보호 등록
-	public boolean insertProtect(Protect_DTO insert){
+	public boolean insertProtect(Protect_DTO insert) throws SQLException{
 		boolean ck = false;
 		try {
 			conn = ds.getConnection();
@@ -65,13 +65,17 @@ public class Protect_DAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}finally{
+	    	if(pstmt !=null)pstmt.close();
+	    	if(rs !=null) rs.close();
+	    	if(conn !=null)conn.close();
+	    }
 		
 		return ck;
 	}
 	
 	//임시보호 삭제 - 회원 임시보호 취소 -> ( 트리거 사용 구문???)
-	public boolean deleteProtect(int no){
+	public boolean deleteProtect(int no) throws SQLException{
 		boolean ck = false;
 		try {
 			conn = ds.getConnection();
@@ -85,13 +89,17 @@ public class Protect_DAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}finally{
+	    	if(pstmt !=null)pstmt.close();
+	    	if(rs !=null) rs.close();
+	    	if(conn !=null)conn.close();
+	    }
 		
 		return ck;
 	}
 	
 	//관리자 영역 승인안된list (관리자가 승인여부하기위해 찾기 위한 list 구문)
-	public  ArrayList<MangerProtect_DTO> mangerlist(){
+	public  ArrayList<MangerProtect_DTO> mangerlist() throws SQLException{
 		ArrayList<MangerProtect_DTO> list = new  ArrayList<MangerProtect_DTO>();
 		try {
 			conn = ds.getConnection();
@@ -127,7 +135,11 @@ public class Protect_DAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}finally{
+	    	if(pstmt !=null)pstmt.close();
+	    	if(rs !=null) rs.close();
+	    	if(conn !=null)conn.close();
+	    }
 		
 			
 		return list;
@@ -136,7 +148,7 @@ public class Protect_DAO {
 	
 	
 	//관리자가 승인한 날짜 업데이트 구문 (승인 허락)
-	public boolean updateProtect(boolean cks, int no){
+	public boolean updateProtect(boolean cks, int no) throws SQLException{
 		boolean ck = false;
 		try {
 			if(cks){
@@ -154,7 +166,11 @@ public class Protect_DAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}finally{
+	    	if(pstmt !=null)pstmt.close();
+	    	if(rs !=null) rs.close();
+	    	if(conn !=null)conn.close();
+	    }
 		
 		return ck;
 	}
