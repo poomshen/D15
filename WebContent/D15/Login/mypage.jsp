@@ -45,10 +45,7 @@
 		}
 	</style>
 	</head>
-	<%
-		MemberJoin_DTO dto = (MemberJoin_DTO)session.getAttribute("memberjoindto");
-		String petok = dto.getM_petok().trim();
-	%>
+	
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
@@ -87,6 +84,10 @@
 					</c:otherwise>
 				</c:choose>
 				</td></tr> --%>
+	<%
+		MemberJoin_DTO dto = (MemberJoin_DTO)session.getAttribute("memberjoindto");
+		String petok = dto.getM_petok().trim();
+	%>
 				<%
 					if(petok.equals("N")){
 				%>
