@@ -16,8 +16,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang.math.Fraction;
-
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.Service.InsertParcel_Service;
@@ -58,11 +56,12 @@ public class ProtectOut_Controller extends HttpServlet {
 				
 				 ActionForward  forward = null;
 				 Action action = null;
+				 forward=new ActionForward();
 	
 		if(search.equals("/D15/ProtectOut/ProtectOut.ProtectOut")){
-			forward = new ActionForward();
+			System.out.println("누군가 있다");
 			forward.setPath("D15_basicsProtectOut.jsp");
-			forward.setRedirect(false);
+			forward.setRedirect(false)		;		
 		}else if(search.equals("/D15/ProtectOut/sido.ProtectOut")){
 			action = new D15_SidoURL_Service();
 			try{
@@ -116,7 +115,7 @@ public class ProtectOut_Controller extends HttpServlet {
 		}else{
 			
 		}
-		
+	
 		
 		if(forward != null){
 			if(forward.isRedirect()){
@@ -127,6 +126,7 @@ public class ProtectOut_Controller extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		}
+
 	}
 
 }
