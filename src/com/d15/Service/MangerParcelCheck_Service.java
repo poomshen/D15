@@ -32,10 +32,14 @@ public class MangerParcelCheck_Service  implements Action{
 			try {
 				//성공적으로 업데이트가 되었다면
 				if(parcel_DAO.updateStart(ck, no)){
-					organic_DAO.updateSituation(no, "[종료]분양");
+					int org_no = parcel_DAO.selectOrgno(no);
+					organic_DAO.updateSituation(org_no, "종료(분양)");
 					Protect_DAO protect_DAO = new Protect_DAO();
-					protect_DAO.deleteProtect(no);
+					
+					//승인이 없는 임시분양 신청이 있다면 을 승인일 날짜를 넣어줌
+					protect_DAO.updateProtect(org_no);
 					forward.setPath("MangerSuccess.jsp");
+					
 					forward.setRedirect(false);
 					return forward;
 				}else{
@@ -51,6 +55,8 @@ public class MangerParcelCheck_Service  implements Action{
 			try {
 					ck = false;
 					if(parcel_DAO.updateStart(ck, no)){
+					int org_no = parcel_DAO.selectOrgno(no);
+					organic_DAO.updateSituation(org_no, "보호중");
 					forward.setPath("MangerSuccess.jsp");
 					forward.setRedirect(false);
 					return forward;
