@@ -53,7 +53,7 @@
 	
 	<div class = "col-sm-2"></div>
 	<div class = "col-sm-8">
-		<h1 style = "text-align:center">임시보호 신청 내역</h1>
+		<!-- <h1 style = "text-align:center">임시보호 신청 내역</h1> -->
 		<table class="table table-hover">
 			<tr>
 				<th>임시보호번호</th>

@@ -70,7 +70,7 @@
 		<div class = "col-sm-3"></div>				
 		<div class = "col-sm-6">
 			<c:set var="dto" value="${sessionScope.memberjoindto}" />
-			<h1 style = "text-align:center">${dto.m_id}님의 정보</h1>
+			<%-- <h1 style = "text-align:center">${dto.m_id}님의 정보</h1> --%>
 			<table class="table table-hover">
 				<tr><td>ID </td><td>${dto.m_id}</td></tr>
 		        <tr><td>최종방문일  </td><td>${dto.m_lastdate}</td></tr>
