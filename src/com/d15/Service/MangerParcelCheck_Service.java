@@ -43,11 +43,11 @@ public class MangerParcelCheck_Service  implements Action{
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}else {
-			ck = false;
+		}else{
 			// 삭제
 			try {
-				if(parcel_DAO.updateStart(ck, no)){
+					ck = false;
+					if(parcel_DAO.updateStart(ck, no)){
 					forward.setPath("MangerSuccess.jsp");
 					forward.setRedirect(false);
 					return forward;
