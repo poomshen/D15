@@ -4,6 +4,6 @@
 <script type="text/javascript">
 	$(function(){
 		alert("@@@@@@실행에 성공 하셨습니다@@@@@@")
-		location.href="../../index.jsp"
+		location.href="/TeamProject3_D15/D15/Login/MypageStatus.login"
 	})
 </script>

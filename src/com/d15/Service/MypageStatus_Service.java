@@ -6,6 +6,8 @@
  */
 package com.d15.Service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,9 +27,9 @@ public class MypageStatus_Service implements Action {
 		Member_DTO memberdto=(Member_DTO)session.getAttribute("memberdto");
 		Member_DAO memberdao=new Member_DAO();
 		
-		Parcel_DTO parceldto=memberdao.MypageStatus(memberdto);
+		List<Parcel_DTO> dtolist=memberdao.MypageStatus(memberdto);
 		
-		request.setAttribute("parceldto", parceldto);
+		request.setAttribute("dtolist", dtolist);
 		
 		forward.setRedirect(false);
 		forward.setPath("MypageStatus.jsp"); //뷰단

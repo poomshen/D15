@@ -43,10 +43,10 @@
 	<header>
 		<jsp:include page="../../include/header.jsp" />
 	</header>
-	<c:set var="parceldto" value="${requestScope.parceldto}" />
+	<c:set var="dtolist" value="${requestScope.dtolist}" />
 	
 	<div class = "col-sm-2"></div>
-	<div class = "col-sm-6">
+	<div class = "col-sm-8">
 		<h1 style = "text-align:center">임시보호/분양 신청 내역</h1>
 		<table class="table table-hover">
 			<tr>
@@ -57,21 +57,23 @@
 				<th>분양시작일</th>
 				<th>승인상태</th>
 			</tr>
-			<tr>
-				<td>${parceldto.pc_no}</td>
-				<td>${parceldto.m_no}</td>
-				<td>${parceldto.org_no}</td>
-				<td>${parceldto.fc_reqdate}</td>
-				<td>${parceldto.fc_begdate}</td>
-				<c:choose>
-					<c:when test = "${parceldto.pc_argdate == null}">
-						<td><button type="button" class="btn btn-danger">미승인</button></td>
-					</c:when>
-					<c:otherwise>
-						<td><button type="button" class="btn btn-success">승인</button> ${parceldto.pc_argdate}</td>
-					</c:otherwise>
-				</c:choose>
-			</tr>	
+			<c:forEach var="i" items="${dtolist}">
+				<tr>
+					<td>${i.pc_no}</td>
+					<td>${i.m_no}</td>
+					<td>${i.org_no}</td>
+					<td>${i.fc_reqdate}</td>
+					<td>${i.fc_begdate}</td>
+					<c:choose>
+						<c:when test = "${i.pc_argdate == null}">
+							<td><button type="button" class="btn btn-danger">미승인</button></td>
+						</c:when>
+						<c:otherwise>
+							<td><button type="button" class="btn btn-success">승인</button> ${i.pc_argdate}</td>
+						</c:otherwise>
+					</c:choose>
+				</tr>
+			</c:forEach>		
 		</table>
 	</div>
 	<div class = "col-sm-2"></div>

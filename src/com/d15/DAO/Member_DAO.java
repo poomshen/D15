@@ -10,6 +10,8 @@ package com.d15.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -244,8 +246,8 @@ public class Member_DAO {
 	}
 	
 	//마이페이지-분양상태 조회
-	public Parcel_DTO MypageStatus(Member_DTO memberdto){
-		Parcel_DTO parceldto=new Parcel_DTO();
+	public List<Parcel_DTO> MypageStatus(Member_DTO memberdto){
+		List<Parcel_DTO> list=new ArrayList<Parcel_DTO>();
 		try{
 			conn = ds.getConnection();
 			String sql = "select pc_no, m_no, org_no, pc_reqdate, pc_begdate, pc_argdate "
@@ -256,13 +258,15 @@ public class Member_DAO {
 			
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()){
+			while(rs.next()){
+				Parcel_DTO parceldto=new Parcel_DTO();
 				parceldto.setPc_no(rs.getInt(1));
 				parceldto.setM_no(memberdto.getM_no());
 				parceldto.setOrg_no(rs.getInt(3));
 				parceldto.setFc_reqdate(rs.getDate(4));
 				parceldto.setFc_begdate(rs.getDate(5));
 				parceldto.setPc_argdate(rs.getDate(6));	
+				list.add(parceldto);
 			}
 			
 		}catch(Exception e){
@@ -274,6 +278,6 @@ public class Member_DAO {
 			
 		}
 		
-		return parceldto;
+		return list;
 	}
 }
