@@ -15,9 +15,9 @@
 	<jsp:include page = "../../include/header.jsp" />
 </header>
 <div class="container">
-  <h3>Tabs With Dropdown Menu</h3>
+  <h3>회원 관리</h3>
   <ul class="nav nav-tabs">
-    <li class="active"><a href="StartManger.Manger">Home</a></li>
+    <li class="active"><a href="MemberSearch.Manger">회원 조회</a></li>
     <li><a href="ProtectManger.Manger">임시보호 대기 리스트</a></li>
     <li><a href="ParcelManger.Manger">분양 대기 리스트</a></li>
   </ul>

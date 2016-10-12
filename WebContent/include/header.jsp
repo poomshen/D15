@@ -36,7 +36,7 @@
 	}
 </script>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-static-top">
 	<div class="container-fluid">
 		<div class="row" style="background: white">
 			<div class="col-sm-4">

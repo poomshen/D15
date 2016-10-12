@@ -62,7 +62,7 @@
 		<c:when test="${memberdto.m_id == 'admin' }">
 	
 		<script type="text/javascript">
-			 location.href = "/TeamProject3_D15/D15/Manger/StartManger.Manger"; 
+			 location.href = "/TeamProject3_D15/D15/Manger/MemberSearch.Manger"; 
 		</script>
 					
 		</c:when>
@@ -70,7 +70,7 @@
 		<div class = "col-sm-3"></div>				
 		<div class = "col-sm-6">
 			<c:set var="dto" value="${sessionScope.memberjoindto}" />
-			<h1 style = "text-align:center">${dto.m_id}님의 정보</h1>
+			<%-- <h1 style = "text-align:center">${dto.m_id}님의 정보</h1> --%>
 			<table class="table table-hover">
 				<tr><td>ID </td><td>${dto.m_id}</td></tr>
 		        <tr><td>최종방문일  </td><td>${dto.m_lastdate}</td></tr>

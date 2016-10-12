@@ -146,10 +146,15 @@ header .container {
 		pageContext.include("../../include/header.jsp");
 	%> --%>
 	
-<body>						
+<body>
+	<header>
+		<jsp:include page = "../../include/header.jsp"/>
+	</header>	
+				
 	<form action="BoardWriteOk1.missing" name="form" id="form"
 								method="post" enctype="multipart/form-data">
-												
+		<h1 style="text-align:center">실종견 신고</h1>
+		<br><br>									
 		<div class = "col-sm-3"></div>
 		<div class = "col-sm-3">					
 			<label for ="k_kind">견 종</label>
