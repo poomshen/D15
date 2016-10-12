@@ -66,11 +66,10 @@ public class InsertProtect_Service implements Action{
 		 try {
 			if(proDao.insertProtect(proDto)){
 				 //제대로 임시보호 성공적으로 됬다면
-				  System.out.println("가입은 성공");
 				 try {
 					 Organic_DAO orgDao = new Organic_DAO();
 					 //상태 변경 
-					 if(orgDao.updateSituation(Integer.parseInt(no), "[등록중]임시")){
+					 if(orgDao.updateSituation(Integer.parseInt(no), "등록중(임시)")){
 						 forward.setPath("ProtectSuccess.jsp");
 						 forward.setRedirect(false);
 					 }else{

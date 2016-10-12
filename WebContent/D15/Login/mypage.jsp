@@ -24,7 +24,7 @@
 		$(function(){
 			$("#button1").click(function(){
 				location.href = "MypageUpdate.login";
-			});	
+			});
 		});
 	</script>
    
@@ -45,10 +45,17 @@
 		}
 	</style>
 	</head>
-
+	<body>
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
+	
+	<ul class="nav nav-tabs">
+  		<li role="presentation" class="active"><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
+  		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
+  		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus2.login">임시보호</a></li>
+	</ul>
+	
 	<c:set var = "memberdto" value = "${sessionScope.memberdto}"/>
 	
 	<c:choose>
@@ -75,15 +82,6 @@
 				<tr><td>상세주소 </td><td>${dto.m_daddr}</td></tr>
 				<tr><td>입양경험 </td><td>
 				
-				<%-- <c:choose>
-					<c:when test = "${dto.m_petok == 'N'}">
-						없음
-					</c:when>
-					<c:otherwise>
-						있음
-					</c:otherwise>
-				</c:choose>
-				</td></tr> --%>
 	<%
 	 	MemberJoin_DTO dto = (MemberJoin_DTO)session.getAttribute("memberjoindto");
 		String petok = dto.getM_petok().trim();

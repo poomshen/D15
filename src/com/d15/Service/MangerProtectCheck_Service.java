@@ -33,7 +33,8 @@ public class MangerProtectCheck_Service  implements Action{
 			try {
 				//성공적으로 업데이트가 되었다면
 				if(protect_DAO.updateProtect(ck, no)){
-					organic_DAO.updateSituation(no, "[대기]임시");
+					int org_no = protect_DAO.selectOrgno(no);
+					organic_DAO.updateSituation(org_no, "대기(임시)");
 					forward.setPath("MangerSuccess.jsp");
 					forward.setRedirect(false);
 					return forward;
@@ -50,6 +51,8 @@ public class MangerProtectCheck_Service  implements Action{
 			// 삭제
 			try {
 				if(protect_DAO.updateProtect(ck, no)){
+					int org_no = protect_DAO.selectOrgno(no);
+					organic_DAO.updateSituation(org_no, "보호중");
 					forward.setPath("MangerSuccess.jsp");
 					forward.setRedirect(false);
 					return forward;

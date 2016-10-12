@@ -25,6 +25,8 @@ import com.d15.Service.Login_Service;
 import com.d15.Service.MemberInsert_Service;
 import com.d15.Service.MissingList_Service;
 import com.d15.Service.MypageEditOk_Service;
+import com.d15.Service.MypageStatus2_Service;
+import com.d15.Service.MypageStatus_Service;
 import com.d15.Service.Mypage_Service;
 import com.d15.Service.PetInsert_Service;
 
@@ -125,6 +127,24 @@ public class Login_Controller extends HttpServlet {
 			}catch(Exception e){
 				System.out.println("myeditok error");
 				e.printStackTrace();
+			}
+		}
+		else if(url_command.equals("/D15/Login/MypageStatus.login")){
+			System.out.println("분양신청정보보기");
+			action = new MypageStatus_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}
+		else if(url_command.equals("/D15/Login/MypageStatus2.login")){
+			System.out.println("임시보호신청정보보기");
+			action = new MypageStatus2_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
 			}
 		}
 
