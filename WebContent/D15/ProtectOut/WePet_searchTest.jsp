@@ -138,15 +138,16 @@
 				$("#protectView").hide();
 				$("#parcelView").hide();
 				$("#detailView").show();
+				$("#d15_body2").css("background-color", "yellow");
 				
 		})
-		//임시보호
+		//분양 클릭시
 		$("#parcelSelect").click(function() {
 			$("#detailView").hide();
 			$("#protectView").hide();
 			$("#parcelView").show();
 		})
-		//
+		//임시보호 클릭시
 		$("#protectSelect").click(function() {
 			$("#detailView").hide();
 	 		$("#parcelView").hide();
