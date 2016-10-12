@@ -10,6 +10,7 @@ package com.d15.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -316,5 +317,23 @@ public class Member_DAO {
 			}
 			
 			return list;
+		}
+		
+		//아이디로 회원 넘버 가지고 오기
+		public int selectid(String id){
+			int ids = 0;
+			try {
+				conn = ds.getConnection();
+				String sql = "select m_no from D15_Member where m_id = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				if(rs.next()){
+					ids = rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return ids;
 		}
 }
