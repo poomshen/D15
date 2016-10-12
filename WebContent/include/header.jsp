@@ -21,6 +21,20 @@
 }
 </style>
 <c:set var="dto" value="${sessionScope.memberdto }" />
+<script>
+	//header라 일부러 js 사용
+	window.onload=function(){
+		console.log("${dto}");
+		if("${dto}"==""){
+			document.getElementById("protect").setAttribute("href", "#");
+			document.getElementById("protect").onclick=function(){
+				alert('회원 가입 후 이용해 주세요');
+			}
+		} else {
+			document.getElementById("protect").setAttribute("href", "/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut");
+		}
+	}
+</script>
 
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
@@ -39,7 +53,8 @@
 				<ul class="nav navbar-nav">
 					<li><a href="/TeamProject3_D15/introduce.jsp">소개</a></li>
 					<li><a href="/TeamProject3_D15/status.jsp">현황</a></li>
-					<li><a
+					<!-- 비회원접근불가메뉴 -->				
+					<li><a id="protect"
 						href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양
 							및 임시보호</a></li>
 					<li><a href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종신고</a></li>
