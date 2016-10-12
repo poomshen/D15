@@ -4,6 +4,8 @@
    @Author : 박문수
    @Desc : 실종 신고 게시판의 이미지 목록을 보여주는 jsp 페이지
 --%>
+<%@page import="com.d15.DTO.Member_DTO"%>
+<%@page import="com.d15.DTO.MemberJoin_DTO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -96,8 +98,15 @@
 		<h2>회원 ID : ${list.m_id}</h2>
 		<span>
 		실종 날짜 : ${list.mis_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" id="detail<%=i++%>" value="상세보기" class="btn btn-info"
+		
+		<!-- 회원/비회원 처리 -->
+		<c:set var="dto" value="${sessionScope.memberdto}" />
+		<c:if test="${dto.m_id!=null}">
+			<input type="button" id="detail<%=i++%>" value="상세보기" class="btn btn-info"
 					onclick="detail(${list.mis_no})">
+		</c:if>
+		<!-- 회원/비회원 처리 -->
+		
 		<br> 
 		실종 위치 :	${list.mis_loc}
 		</span>
