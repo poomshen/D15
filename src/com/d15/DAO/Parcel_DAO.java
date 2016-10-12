@@ -44,7 +44,7 @@ public class Parcel_DAO {
 	}
 	
 	//분양 등록
-	public boolean insertParcel(Parcel_DTO parcel){
+	public boolean insertParcel(Parcel_DTO parcel) throws SQLException{
 		boolean ck = false;
 		System.out.println("분양 하자 ");
 		try {
@@ -62,7 +62,11 @@ public class Parcel_DAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}finally{
+	    	if(pstmt !=null)pstmt.close();
+	    	if(rs !=null) rs.close();
+	    	if(conn !=null)conn.close();
+	    }
 		
 		return ck;
 	}
@@ -97,7 +101,7 @@ public class Parcel_DAO {
 	
 	
 	//찾기 구문 관리자가 승인을 할 목록들을 가져 오는 구문
-	public ArrayList<MangerParcel_DTO> mangerlist(){
+	public ArrayList<MangerParcel_DTO> mangerlist() throws SQLException{
 		ArrayList<MangerParcel_DTO> list = new ArrayList<MangerParcel_DTO>();
 		try {
 			conn = ds.getConnection();
@@ -129,14 +133,18 @@ public class Parcel_DAO {
 			return list;
 		} catch (Exception e) {
 			// TODO: handle exception
-		}
+		}finally{
+	    	if(pstmt !=null)pstmt.close();
+	    	if(rs !=null) rs.close();
+	    	if(conn !=null)conn.close();
+	    }
 		return list;
 	}
 	
 	//마이페이지에서 회원 번호로 분양 정보 가져오기
 	
 	//삭제
-	public boolean deleteParcle(int no){
+	public boolean deleteParcle(int no) throws SQLException{
 		boolean ck = false;
 		try {
 			conn = ds.getConnection();
@@ -150,7 +158,11 @@ public class Parcel_DAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}finally{
+	    	if(pstmt !=null)pstmt.close();
+	    	if(rs !=null) rs.close();
+	    	if(conn !=null)conn.close();
+	    }
 		
 		return ck;
 	}

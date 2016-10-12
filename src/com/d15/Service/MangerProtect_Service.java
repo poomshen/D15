@@ -20,10 +20,12 @@ public class MangerProtect_Service  implements Action{
 		ActionForward forward = new ActionForward();
 		
 		Protect_DAO  protect_DAO = new Protect_DAO();
-		ArrayList<MangerProtect_DTO> list  =  protect_DAO.mangerlist();
-		
-		request.setAttribute("protectlist", list);
-		
+		try {
+			ArrayList<MangerProtect_DTO> list = protect_DAO.mangerlist();
+			request.setAttribute("protectlist", list);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		forward.setRedirect(false);
 		forward.setPath("MangerProtect.jsp");
 			

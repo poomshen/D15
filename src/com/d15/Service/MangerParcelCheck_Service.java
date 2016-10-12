@@ -9,6 +9,7 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Organic_DAO;
 import com.d15.DAO.Parcel_DAO;
+import com.d15.DAO.Protect_DAO;
 
 public class MangerParcelCheck_Service  implements Action{
 
@@ -32,6 +33,8 @@ public class MangerParcelCheck_Service  implements Action{
 				//성공적으로 업데이트가 되었다면
 				if(parcel_DAO.updateStart(ck, no)){
 					organic_DAO.updateSituation(no, "[종료]분양");
+					Protect_DAO protect_DAO = new Protect_DAO();
+					protect_DAO.deleteProtect(no);
 					forward.setPath("MangerSuccess.jsp");
 					forward.setRedirect(false);
 					return forward;
