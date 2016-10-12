@@ -87,7 +87,7 @@
 	<h1 style = "text-align:center">실종신고 게시판</h1>
 	<c:forEach var="list" items="${list}">
 		
-		<div class = "col-sm-4">
+		<div class = "col-sm-4" style = "margin-top:20px">
 		<span>게시물 번호 : ${list.mis_no}</span><br>
 		<a href="../../upload/${list.p_image}" class="image-popup"> 
 			<img src="../../upload/${list.p_image}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
@@ -113,17 +113,20 @@
 		<br> 
 		<span>
 		내용 : ${list.mis_content}
-		</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</span>
+		<div>
 			<c:choose>
 				<c:when test="${list.mis_pro == 'N'}">
-					<font color="red">실종</font>
+					<font color="red" size = "5">실종</font>
 				</c:when>
 				<c:otherwise>
-					<font color="green">찾음</font>
+					<font color="green" size ="5">찾음</font>
 				</c:otherwise>
 			</c:choose>
+		</div>
 			<br>
 		</div>
+		
 	</c:forEach>
 
 	<div style = "clear:both">
