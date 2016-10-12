@@ -138,19 +138,22 @@
 				$("#protectView").hide();
 				$("#parcelView").hide();
 				$("#detailView").show();
+				$("#detailView").addClass("detail");
 				
 		})
-		//임시보호
+		//분양 클릭시
 		$("#parcelSelect").click(function() {
 			$("#detailView").hide();
 			$("#protectView").hide();
 			$("#parcelView").show();
+			$("#parcelView").addClass("parcel");
 		})
-		//
+		//임시보호 클릭시
 		$("#protectSelect").click(function() {
 			$("#detailView").hide();
 	 		$("#parcelView").hide();
 			$("#protectView").show();
+			$("#protectView").addClass("protect");
 		})
      });
 	
@@ -187,19 +190,22 @@
 		   no = data.Org_no;
 		   processState = data.Org_situation;
 	   $("#d15_body").show();
+	   $("#detailView").addClass("detail");
 	   $("#d15_body1").addClass("d15_bodyEvt2");
 	   $("#d15_body2").addClass("d15_bodyEvt3");
 	   $("#protectform").attr("action", "insertProtect.ProtectOut?no="+no);
 	   $("#parceform").attr("action", "insertParceform.ProtectOut?no="+no);
-	   $("#detailView").html("<div><table>"
-				+"<tr><td rowspan='7'><img alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></td><td colspan='2' style='text-align: right;'>조회수: "+count+"</td></tr>"
+	   $("#detailView").html("<span><table style='width:99%; height:100%; margin: 0% 10% 10% 1%; border-radius: 10px;'>"
+				+"<tr><td colspan ='2'></td></tr>"
+				+"<tr><td>발견:"+noticeSdt[index]+"  end:"+noticeEdt[index]+" </td><td colspan='2' style='text-align: right;'>조회수: "+count+"</td></tr>"
+				+"<tr><td rowspan='10'><img class='img-thumbnail' alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></td></tr>"
+				+"<tr><td colspan ='2'></td></tr>"
+				+"<tr><td colspan ='2'></td></tr>"
 				+"<tr><td colspan='2'>상태: "+processState+"</td></tr>"
 				+"<tr><td>성별:"+sexCd[index]+"</td><td style='text-align: right;'>무게:<h7>"+weight[index]+"</h7></td></tr>"
 				+"<tr><td colspan='2'>특징:"+specialMark[index]+"</td></tr>"
 				+"<tr><td colspan='2'>주소:"+careAddr[index]+"</td></tr>"
-				+"<tr><td colspan='2'>발견:"+noticeSdt[index]+"</td></tr>"
-				+"<tr><td colspan='2'>end:"+noticeEdt[index]+"</td></tr>"
-			+"</table></div>");
+			+"</table></span>");
 	   })
 	   
 	}

@@ -55,12 +55,15 @@
 
 <%@include file="WePet_searchTest.jsp"%>
 <style type="text/css">
-tr:nth-child(even) {background-color: #f2f2f2}
-th, td {
-    border-bottom: 1px solid #ddd;
+
+.detail{
+	background-color: #ccffff;
 }
-table {
-    border: 1px solid black;
+.parcel{
+	background-color: #6699cc;
+}
+.protect{
+	background-color: #9999cc;
 }
 #search img {
 	width: 100%;
@@ -151,21 +154,21 @@ a {
 				<button title="Close (Esc)" type="button" class="mfp-close"
 					style="z-index: 11;" id="close">×</button>
 			</div>
-			<div style="z-index: 11; margin-bottom: -2px;">
-				&nbsp; <span
-					style="background-color: white; border-radius: 5px 5px 0px 0px; cursor: pointer;"
-					id="detailSelect">&nbsp; 상세보기&nbsp; </span> <span
-					style="background-color: red; border-radius: 5px 5px 0px 0px; cursor: pointer;"
-					id="protectSelect">&nbsp; 임시보호&nbsp; </span> <span
-					style="background-color: blue; border-radius: 5px 5px 0px 0px; cursor: pointer;"
+			<div style="z-index: 11; margin-bottom: -5px;">
+				&nbsp;<span	style="font-size:large; background-color: #ccffff; border-radius: 5px 5px 0px 0px; cursor: pointer;"
+					id="detailSelect">&nbsp;상세보기&nbsp;</span><span
+					style="font-size:large; background-color: #9999cc; border-radius: 5px 5px 0px 0px; cursor: pointer;"
+					id="protectSelect">&nbsp;임시보호&nbsp;</span><span
+					style="font-size:large; background-color: #6699cc; border-radius: 5px 5px 0px 0px; cursor: pointer;"
 					id="parcelSelect">&nbsp;&nbsp;분양받기&nbsp;&nbsp;</span>
 			</div>
 			<div id="detailView"
-				style="background-color: white; z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
+				style=" z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
+				
 			</div>
 			<!-- 임시보호  -->
 			<div id="protectView"
-				style="background-color: white; z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
+				style=" z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
 				<br> <br>
 				<div style="width: 100%; text-align: center;">임시보호 받을 날을
 					입력해주세요</div>
@@ -182,7 +185,7 @@ a {
 			</div>
 			<!-- 분양 -->
 			<div id="parcelView"
-				style="background-color: white; z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
+				style=" z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
 				<br> <br>
 				<div style="width: 100%; text-align: center;">분양 받을 날을 입력해주세요</div>
 				<form id="parceform" method="post">
