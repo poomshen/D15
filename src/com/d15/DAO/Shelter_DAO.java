@@ -70,6 +70,11 @@ public class Shelter_DAO {
 			
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
+		}finally{
+			
+			if(pstmt != null)try{rs.close();}catch(Exception e){}
+			if(conn != null)try{rs.close();}catch(Exception e){}
+			
 		}
 			
 		return 0;

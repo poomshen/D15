@@ -16,7 +16,7 @@
 	          maxActive="10" 
 	          password="1004"
 		      username="kosta2" 
-		      url="jdbc:oracle:thin:@localhost:1521:XE"
+		      url="jdbc:oracle:thin:@192.168.0.121:1521:XE"
 			  driverClassName="oracle.jdbc.OracleDriver" 
 			  type="javax.sql.DataSource"
 		      auth="Container" 
