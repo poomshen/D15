@@ -66,13 +66,35 @@ public class Protect_DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
 		return ck;
 	}
+	
+	//유기견 번호를 가져온다.
+		public int selectOrgno(int no){
+			int org_no =0;
+			try {
+				conn = ds.getConnection();
+				String sql = "select org_no from D15_PROTECT where pr_no = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, no);
+				rs =  pstmt.executeQuery();
+				if(rs.next()){
+					org_no = rs.getInt(1);
+				}else{
+					org_no = 0;
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return org_no;
+		}
 	
 	//임시보호 삭제 - 회원 임시보호 취소 -> ( 트리거 사용 구문???)
 	public boolean deleteProtect(int no) throws SQLException{
@@ -90,13 +112,16 @@ public class Protect_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
 		return ck;
 	}
+	
+	
+	
 	
 	//관리자 영역 승인안된list (관리자가 승인여부하기위해 찾기 위한 list 구문)
 	public  ArrayList<MangerProtect_DTO> mangerlist() throws SQLException{
@@ -136,8 +161,8 @@ public class Protect_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -167,14 +192,37 @@ public class Protect_DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
 		return ck;
 	}
 	
+	
+	//관리자가 승인한 날짜 업데이트 구문 (분양 승인 허락시 변경 )
+		public boolean updateProtect(int no) throws SQLException{
+			boolean ck = false;
+			try {
+					conn = ds.getConnection();
+					String sql = "Update (select org_no,PR_ARGDATE from D15_PROTECT where PR_ARGDATE is null) pr set pr_argdate = '92/09/21' where org_no = ?"; 
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, no);
+					int re =  pstmt.executeUpdate();
+					if(re>0){
+						ck = true;
+					}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally{
+		    	if(pstmt !=null)pstmt.close();
+		    	if(rs !=null) rs.close();
+		    	if(conn !=null)conn.close();
+		    }
+			
+			return ck;
+		}
 	
 	
 	//보호 시작일,종료일 업데이트(보호 시작 요청 할때 사용)

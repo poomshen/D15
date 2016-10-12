@@ -192,25 +192,26 @@ public class Board_DAO {
 	}
 
 	// 글 등록
-	public int boardInsert(Board_DTO board) throws Exception {
+	public int boardInsert(Board_DTO board , int m_no) throws Exception {
 		try {
 			
 			conn = ds.getConnection();
 			String sql = "insert into D15_board (B_NO, M_no, B_NAME, B_CONTENT,"
 					+ "B_COUNT, B_FILE, B_DATE, B_REF, B_DEPTH, B_STEP)"
-					+ "values(B_NO_SEQ.nextval,2,?,?,0,?,sysdate,?,0,0)";
+					+ "values(B_NO_SEQ.nextval,?,?,?,0,?,sysdate,?,0,0)";
 
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, board.getB_name());
-			pstmt.setString(2, board.getB_content());
-			pstmt.setString(3, board.getB_file());
+			pstmt.setInt(1, m_no );
+			pstmt.setString(2, board.getB_name());
+			pstmt.setString(3, board.getB_content());
+			pstmt.setString(4, board.getB_file());
 
 			int refer_max = getMaxRefer(conn);
 			int refer = refer_max + 1;
 			System.out.println("refer" + refer);
 			
-			pstmt.setInt(4, refer);
+			pstmt.setInt(5, refer);
 			
 			int row = pstmt.executeUpdate();
 			return row;
@@ -456,6 +457,11 @@ public class Board_DAO {
 			}catch(Exception e){
 				System.out.println("Max no error");
 				e.printStackTrace();
+			}finally{
+				if(rs != null)try{rs.close();}catch(Exception e){}
+				if(pstmt != null)try{rs.close();}catch(Exception e){}
+				if(conn != null)try{rs.close();}catch(Exception e){}
+				
 			}
 		
 			return 0;			

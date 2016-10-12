@@ -46,7 +46,6 @@ public class Parcel_DAO {
 	//분양 등록
 	public boolean insertParcel(Parcel_DTO parcel) throws SQLException{
 		boolean ck = false;
-		System.out.println("분양 하자 ");
 		try {
 			conn = ds.getConnection();
 			String sql = "insert into D15_parcel(pc_no, m_no, org_no, pc_reqdate, pc_begdate) values(PC_NO_SEQ.nextval,? ,? ,sysdate,?)";
@@ -63,36 +62,61 @@ public class Parcel_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
 		return ck;
 	}
 
+	//유기견 번호를 가져온다.
+	public int selectOrgno(int no){
+		int org_no =0;
+		try {
+			conn = ds.getConnection();
+			String sql = "select org_no from D15_parcel where pc_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs =  pstmt.executeQuery();
+			if(rs.next()){
+				org_no = rs.getInt(1);
+			}else{
+				org_no = 0;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return org_no;
+	}
 	
 	//승인일 업데이트 - 분양 번호 받음
-	public boolean updateStart(boolean cks,int no) throws SQLException {
+	public boolean updateStart(boolean cks,int num) throws SQLException {
 		boolean ck = false;
 		try {
 			if (cks) {
 				conn = ds.getConnection();
 				String sql = "update D15_parcel set pc_argdate = sysdate where pc_no =?";
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, no);
+				pstmt.setInt(1, num);
 				int re = pstmt.executeUpdate();
 				if (re > 0) {
+					int  org_no = selectOrgno(num);
+					Protect_DAO protect_DAO = new Protect_DAO();
+					protect_DAO.updateProtect(org_no);
 					ck = true;
+					return ck;
 				}
 			} else {
-				ck = deleteParcle(no);
+				ck = deleteParcle(num);
 			} 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -134,8 +158,8 @@ public class Parcel_DAO {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return list;
@@ -159,8 +183,8 @@ public class Parcel_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		

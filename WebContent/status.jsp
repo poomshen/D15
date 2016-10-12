@@ -96,7 +96,7 @@
 	    	});
 	    }
 		
-		var request="http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=pkOhzZ%2BOoa4ITGGyF6z47sKIHLuKlaBLDuxHRIjs1mSORv6G6zFi3gh5tnhHPmmfKq3KALQDPSt7Tw0iEi65XA%3D%3D&upkind=417000&pageNo=1&startPage=1&numOfRows=10&pageSize=10";
+		var request="http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic?ServiceKey=pkOhzZ%2BOoa4ITGGyF6z47sKIHLuKlaBLDuxHRIjs1mSORv6G6zFi3gh5tnhHPmmfKq3KALQDPSt7Tw0iEi65XA%3D%3D&upkind=417000&pageNo=1&startPage=1&numOfRows=1&pageSize=1";
 		var date={
 		    y2012:[
 		           {start:"20120101", end:"20120131"},
