@@ -14,12 +14,15 @@ import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Board_DAO;
 import com.d15.DAO.Review_DAO;
 import com.d15.DTO.Board_DTO;
+import com.d15.DTO.MemberJoin_DTO;
+import com.d15.DTO.Member_DTO;
 import com.d15.DTO.Review_DTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -86,11 +89,13 @@ public class BoardAddService implements Action {
 		//boarddto.setB_file(upload.getFilesystemName((String) upload.getFileNames().nextElement()));		
 		//boarddto.setB_file(multi.getFilesystemName((String) multi
 		//		.getFileNames().nextElement()));
-		
+		HttpSession session = request.getSession();
+		Member_DTO mdto = (Member_DTO)session.getAttribute("memberdto");
+		int m_no = mdto.getM_no();
 		
 		try {
 			
-			int result = boarddao.boardInsert(boarddto);	
+			int result = boarddao.boardInsert(boarddto,m_no);	
 			
 			if (result > 0) {
 				System.out.println("글 입력 성공");

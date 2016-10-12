@@ -91,7 +91,7 @@ public class Login_Controller extends HttpServlet {
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.out.println("login ok error" + e.getMessage());
 			}
 		}else if(url_command.equals("/D15/Login/Logout.login")){
 			System.out.println("로그아웃 처리");		

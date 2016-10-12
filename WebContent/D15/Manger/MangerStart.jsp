@@ -11,6 +11,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<header>
+	<jsp:include page = "../../include/header.jsp" />
+</header>
 <div class="container">
   <h3>Tabs With Dropdown Menu</h3>
   <ul class="nav nav-tabs">
@@ -21,6 +24,8 @@
 </div>
 
 
-
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 </body>
 </html>

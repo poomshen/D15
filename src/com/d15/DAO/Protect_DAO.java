@@ -66,8 +66,8 @@ public class Protect_DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -112,8 +112,8 @@ public class Protect_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -161,8 +161,8 @@ public class Protect_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -192,8 +192,8 @@ public class Protect_DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
