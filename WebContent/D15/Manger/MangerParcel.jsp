@@ -14,11 +14,11 @@
 <body>
 <script type="text/javascript">
 	function isfalse(ck){
-		location.href="MangerParcelCheck_Service?is=false&ck="+ck
+		location.href="ParcelMangerCK.Manger?is=false&ck="+ck
 	}
 	
 	function istrue(ck){
-		location.href="MangerParcelCheck_Service?is=true&ck="+ck
+		location.href="ParcelMangerCK.Manger?is=true&ck="+ck
 	}
 </script>
  <c:set var="list" value="${requestScope.parcellist}" />

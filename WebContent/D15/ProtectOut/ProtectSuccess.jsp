@@ -4,6 +4,6 @@
 <script type="text/javascript">
 	$(function(){
 		alert("@@@@@@실행에 성공 하셨습니다@@@@@@")
-		location.href="StartManger.Manger"
+		location.href="../../index.jsp"
 	})
 </script>
