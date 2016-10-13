@@ -60,11 +60,11 @@ public class Message_DAO {
 		}
 		return ck;
 	}
-	//쪽지 리스트
+	//전체 쪽지 리스트
 	public ArrayList<Message_DTO> selectTakeList(int mb_no){
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
 		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check "
-				+ " from D15_message where m_no = ? and mes_check = 'N' or mes_check = 'Y'";
+				+ " from D15_message where m_no = ? and mes_check != 'R'";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -72,7 +72,7 @@ public class Message_DAO {
 		 	rs = pstmt.executeQuery();
 		 	while(rs.next()){
 		 		Message_DTO massage_DTO = new Message_DTO();
-		 		massage_DTO.setM_no(rs.getInt(1));
+		 		massage_DTO.setMes_no(rs.getInt(1));
 		 		massage_DTO.setMes_send(rs.getInt(2));
 		 		massage_DTO.setMes_content(rs.getString(3));
 		 		massage_DTO.setMes_date(rs.getDate(4));
@@ -98,7 +98,7 @@ public class Message_DAO {
 	public ArrayList<Message_DTO> selectNoList(int mb_no){
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
 		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check "
-				+ " from D15_message where m_no = ? and mes_check = 'N' ";
+				+ " from D15_message where m_no = ? and mes_check = 'N' or mes_check ='W' ";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -106,7 +106,7 @@ public class Message_DAO {
 		 	rs = pstmt.executeQuery();
 			while(rs.next()){
 		 		Message_DTO massage_DTO = new Message_DTO();
-		 		massage_DTO.setM_no(rs.getInt(1));
+		 		massage_DTO.setMes_no(rs.getInt(1));
 		 		massage_DTO.setMes_send(rs.getInt(2));
 		 		massage_DTO.setMes_content(rs.getString(3));
 		 		massage_DTO.setMes_date(rs.getDate(4));
@@ -129,7 +129,7 @@ public class Message_DAO {
 	}
 	//안읽은 쪽지 카운트
 	public int selectNos(int mb_no){
-		String sql = "Select Count(*) from D15_message where m_no = ? and mes_check = 'N'";
+		String sql = "Select Count(*) from D15_message where m_no = ? and mes_check = 'N' or mes_check = 'W'";
 		int count = 0;
 		try {
 			conn = ds.getConnection();
@@ -155,7 +155,7 @@ public class Message_DAO {
 	public ArrayList<Message_DTO> selectSendlist(int mb_no){
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
 		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check "
-				+ " from D15_message where mes_send = ? and mes_check = 'N' or mes_check = 'Y' ";
+				+ " from D15_message where mes_send = ? and mes_check != 'W' or mes_check != 'M' ";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -163,7 +163,7 @@ public class Message_DAO {
 		 	rs = pstmt.executeQuery();
 			while(rs.next()){
 		 		Message_DTO massage_DTO = new Message_DTO();
-		 		massage_DTO.setM_no(rs.getInt(1));
+		 		massage_DTO.setMes_no(rs.getInt(1));
 		 		massage_DTO.setMes_send(rs.getInt(2));
 		 		massage_DTO.setMes_content(rs.getString(3));
 		 		massage_DTO.setMes_date(rs.getDate(4));
@@ -206,11 +206,17 @@ public class Message_DAO {
 		}
 		return false;
 	}
-	//글읽음 클릭시 마다/
+	//글읽음 클릭 시 마다/
 	public boolean readMessge(int mes_no){
 		boolean ck = false;
-		String sql ="Update D15_message set mes_check = 'Y' where Mes_no = ?";
 		try {
+			String sql ="";
+			String check = whereCheck(mes_no);
+			if(check.equals('W')||check.equals("M")){
+				sql ="Update D15_message set mes_check = 'M' where Mes_no = ?";
+			}else{
+				sql ="Update D15_message set mes_check = 'Y' where Mes_no = ?";
+			}
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1,mes_no);
@@ -228,12 +234,52 @@ public class Message_DAO {
 		}
 		return false;
 	}
-	//글 삭제 클릭시 업데이트 한쪽 삭제 되면 다른 쪽이 보는것이 안되기 때문에
-	public boolean ONremoveMessage(int mes_no){
+	//글 삭제 클릭시 업데이트 한쪽 삭제 되면 다른 쪽이 보는것이 안되기 때문에 
+	public boolean TremoveMessage(int mes_no){
 		boolean ck = false;
-		String sql ="Update D15_message set mes_check = 'D' where Mes_no = ?";
 		try {
 			conn = ds.getConnection();
+			String check = whereCheck(mes_no);
+			if(check.equals("W")||check.equals("M")){
+				//양쪽에서 삭제를 눌렀을 경우
+				ck = removeMessage(mes_no);
+			}else{
+				String sql ="Update D15_message set mes_check = 'R' where Mes_no = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1,mes_no);
+				int re = pstmt.executeUpdate();
+				if(re > 0){
+					ck= true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			if(rs != null)try{rs.close();}catch(Exception e){}
+			if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+			if(conn != null)try{conn.close();}catch(Exception e){}
+			
+		}
+		return false;
+	}
+	//글 삭제 클릭시 업데이트 한쪽 삭제 되면 다른 쪽이 보는것이 안되기 때문에 보낸 사람 삭제
+	public boolean MremoveMessage(int mes_no){
+		boolean ck = false;
+		try {
+			String sql ="";
+			conn = ds.getConnection();
+			String check = whereCheck(mes_no);
+			if(check.equals("R")){
+				//양쪽에서 삭제를 눌렀을 경우
+				ck = removeMessage(mes_no);
+				return ck;
+			}else if(check.equals("N")){
+				//읽지 않았을때
+				sql ="Update D15_message set mes_check = 'W' where mes_send = ?";
+			}else if(check.equals("Y")){
+				//읽었을 때
+				sql ="Update D15_message set mes_check = 'M' where mes_send = ?";
+			}
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1,mes_no);
 			int re = pstmt.executeUpdate();
@@ -249,5 +295,25 @@ public class Message_DAO {
 			
 		}
 		return false;
+	}
+	
+	//상태 알아보는 구문
+	public String whereCheck(int mes_no){
+		String ck = "N";
+		try {
+			conn = ds.getConnection();
+			String sql = "select mes_chek from D15_message where mes_no = ? ";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mes_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				ck = rs.getString(1);
+			}
+			return ck;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return ck;
 	}
 }
