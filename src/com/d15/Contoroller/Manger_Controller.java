@@ -22,10 +22,7 @@ import com.d15.Service.MangerParcelCheck_Service;
 import com.d15.Service.MangerParcel_Service;
 import com.d15.Service.MangerProtectCheck_Service;
 import com.d15.Service.MangerProtect_Service;
-<<<<<<< HEAD
-//import com.d15.Service.MemberSearch_Service;
-=======
->>>>>>> 57900739dad260b669fde9e9495fa0ee35dba51b
+
 
 @WebServlet("*.Manger")
 public class Manger_Controller extends HttpServlet {
