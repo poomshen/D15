@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="no-js" style = "padding-bottom: 100px">
+<html style = "padding-bottom: 100px; margin-top: 100px">
 <head>
 
 <meta charset="utf-8">
