@@ -93,16 +93,16 @@
 							<div class="col-sm-1"></div>
 							<div class="col-sm-4">
 								<span class="glyphicon glyphicon-user logo">${memberdto.m_id}</span>
-								<span class="glyphicon glyphicon-envelope logo" id="massage_new"></span>
+								<span  style="background-image: url('');" id="message_new"></span>
 								<script type="text/javascript">
 								$(function(){
 									myTimer()
 								var myVar = setInterval(function(){ myTimer() }, 1000);
 								
 								function myTimer(){
-									$.get("myMassgeNew.New", {"m_no":${memberdto.m_no}}, function(data, textStatus, req) {
+									$.get("myMessgeNew.New", {"m_no":${memberdto.m_no}}, function(data, textStatus, req) {
 										if(data != 0){
-											document.getElementById("massage_new").innerHTML = "new"+data;
+											document.getElementById("message_new").innerHTML = data;
 										}
 									})
 								}
