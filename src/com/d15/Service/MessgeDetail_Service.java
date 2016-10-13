@@ -9,17 +9,17 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Message_DAO;
 
-public class MessageRemoveM_Service implements Action {
+public class MessgeDetail_Service implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		int mes_no = Integer.parseInt(request.getParameter("mes_no")); 
-		Message_DAO message_DAO = new Message_DAO();
+	public ActionForward execute(HttpServletRequest request,
+			HttpServletResponse response) {
+		int mes_no = Integer.parseInt(request.getParameter("mes_no"));
+		Message_DAO  message_DAO = new Message_DAO();
 		System.out.println(mes_no);
-		if(message_DAO.MremoveMessage(mes_no)){
+		if(message_DAO.readMessge(mes_no)){
 			try {
-				//성공
-				System.out.println("성공");
+				//상태 바뀜
 				response.getWriter().print("Y");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -27,14 +27,13 @@ public class MessageRemoveM_Service implements Action {
 			}
 		}else{
 			try {
-				//실패
-				System.out.println("실패");
 				response.getWriter().print("N");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		
 		
 		return null;
 	}

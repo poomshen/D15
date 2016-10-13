@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.deploy.MessageDestination;
+
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.Service.InsertMessage_Service;
 import com.d15.Service.MakeMessageList_Service;
 import com.d15.Service.MessageRemoveM_Service;
 import com.d15.Service.MessageRemoveT_Service;
+import com.d15.Service.MessgeDetail_Service;
 import com.d15.Service.TakeMessageList_Service;
 import com.d15.Service.TakeNoMessageList_Service;
 
@@ -78,26 +81,30 @@ public class Message_Contoroller extends HttpServlet {
 			}catch (Exception e) {
 			}
 			
-		}else if(Command.equals("/D15/Login/myMakeNoMessagelist.Messages")){
+		}else if(Command.equals("/D15/Login/myMakeNoMessagelist.Message")){
 			//읽지 않은 것 만 뿌리기 나중 구현
-		}else if(Command.equals("/D15/Login/MessageRemoveT.Messages")){
+		}else if(Command.equals("/D15/Login/MessageRemoveT.Message")){
 			//받은 메시지자가 선택 메세지 지우기 -> 업데이트 받은 메시지 ->(R) 상태 바꿔줌 -> 만약 W 이 있다면 완전 지움
 			action = new MessageRemoveT_Service(); 
 			try{
 				forward = action.execute(request, response);
 			}catch (Exception e) {
 			}
-		}else if(Command.equals("/D15/Login/MessageRemoveM.Messages")){
+		}else if(Command.equals("/D15/Login/MessageRemoveM.Message")){
 			//보낸 메시지자가 선택 메시지 지우기 -> 업데이트 보낸 메시지 ->(W)는 안읽음 (M) 읽은 상태 바꿔줌 -> 만약 R 이 있다면 완전 지움 
 			action = new MessageRemoveM_Service(); 
 			try{
 				forward = action.execute(request, response);
 			}catch (Exception e) {
 			}
-		}else if(Command.equals("")){
+		}else if(Command.equals("/D15/Login/MessagedDetail.Message")){
 			//선택 메시지 클릭시 (읽음 표시)
-		}else if(Command.equals("")){
-			//선택 메시지 클릭 (읽음 표시 안함)-> 보낸 메시지에서 메시지를 클릭시
+			action = new MessgeDetail_Service();
+			try{
+				forward  = action.execute(request, response);
+			}catch(Exception e){
+				
+			}
 			
 		}else{
 			
