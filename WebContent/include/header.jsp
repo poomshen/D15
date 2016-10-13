@@ -79,7 +79,7 @@
                   </ul></li>
                   
                <li><a
-                  href="/TeamProject3_D15/D15/NoticeList.Notice?name=notice">공지사항</a></li>
+                  href="/TeamProject3_D15/D15/Notice/NoticeList.notice">공지사항</a></li>
                   
             </ul>
             <ul class="nav navbar-nav navbar-right">
