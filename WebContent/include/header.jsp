@@ -19,6 +19,17 @@
 .logo {
 	font-size: 18px;
 }
+
+#rowdiv ul ul {
+	display:none;
+	position:absolute;
+}
+
+#rowdiv ul li:hover ul {
+ display: block;
+}
+
+
 </style>
 <c:set var="dto" value="${sessionScope.memberdto }" />
 <script>
@@ -50,6 +61,7 @@
 			</div>
 		</div>
 
+
 		<div class="row" id="rowdiv">
 			<div class="col-sm-4">
 				<ul class="nav navbar-nav">
@@ -60,7 +72,15 @@
 						href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양
 							및 임시보호</a></li>
 					<li><a href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종신고</a></li>
-					<li><a href="/TeamProject3_D15/D15/BoardList.Board?name=qna">게시판</a></li>
+					<li class="dropdown">
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href="/TeamProject3_D15/D15/BoardList.Board">게시판
+					<!-- dropdown menu -->
+					<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/TeamProject3_D15/D15/BoardList.Board?name=qna">Q&A</a></li>
+							<li><a href="/TeamProject3_D15/D15/BoardList.Board?name=review">Review</a></li>
+						</ul>
+					</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-3"></div>

@@ -100,7 +100,6 @@ public class Board_DAO {
 				board.setB_name(rs.getString("B_NAME"));
 				board.setB_content(rs.getString("B_CONTENT"));
 				board.setB_count(rs.getInt("B_COUNT"));
-				//지금
 				board.setB_file(rs.getString("B_FILE"));
 				board.setB_date(rs.getDate("B_DATE"));
 				board.setB_ref(rs.getInt("B_REF"));		//참조	
