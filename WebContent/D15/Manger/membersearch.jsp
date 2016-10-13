@@ -70,7 +70,7 @@
 		
 		<div class = "col-sm-12">
 		<div class="form-group">
-			<input type="text" id="search" name = "search">
+			<input type="text" id="search" name = "search" class="form-control">
 			<button type="button" class="btn btn-default btn-sm" id = "searchbtn">
 				<span class="glyphicon glyphicon-search"></span> Search
 			</button>
