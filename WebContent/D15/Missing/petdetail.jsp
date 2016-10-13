@@ -79,7 +79,30 @@
     							<div class="dropdown-toggle" type="button" data-toggle="dropdown">${requestScope.dto.m_id}</div>
     							
     							<ul class="dropdown-menu">
-     								<li><a href="#">쪽지 보내기</a></li>
+     								<li><a href="#" data-toggle="modal" data-target="#myModal">쪽지 보내기</a></li>
+     								<div class="modal fade" id="myModal" role="dialog">
+    								<div class="modal-dialog modal-sm">
+     								 <div class="modal-content">
+        								<div class="modal-header">
+          								<button type="button" class="close" data-dismiss="modal">&times;</button>
+          								<h4 class="modal-title">Modal Header</h4>
+        							</div>
+        							<form action="insertMassage.Message" method="post">
+        								<div class="modal-body">
+ 										<input type="text" value="보낼사람" name="m_id" id="m_id" readonly="readonly" >
+ 										<input type="text" value="나" readonly="readonly" name="m_send" id="m_send">
+ 										<br>
+ 										<textarea rows="10" cols="30" name="mes_content" id="mes_content"></textarea>
+ 										<br>
+       									</div>
+        								<div class="modal-footer">
+ 										<input type="submit"  class="btn btn-default"  value="보내기">
+          								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        								</div>
+									</form>
+      									</div>
+   	 									</div>
+  										</div>	
     							</ul>
   							</div>
 							</td>

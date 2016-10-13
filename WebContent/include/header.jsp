@@ -92,12 +92,13 @@
 
 							<div class="col-sm-1"></div>
 							<div class="col-sm-4">
-								<span class="glyphicon glyphicon-user logo">${memberdto.m_id}</span>
-								<span  style="background-image: url('');" id="message_new"></span>
+								<div  style="float: left;" class="glyphicon glyphicon-user logo">${memberdto.m_id}</div>
+								<div  class="glyphicon glyphicon-envelope logo" style="text-align:right; float:left; color: green; "id="message_new">
+								</div>
 								<script type="text/javascript">
 								$(function(){
 									myTimer()
-								var myVar = setInterval(function(){ myTimer() }, 1000);
+								var myVar = setInterval(function(){ myTimer() }, 10000);
 								
 								function myTimer(){
 									$.get("myMessgeNew.New", {"m_no":${memberdto.m_no}}, function(data, textStatus, req) {
