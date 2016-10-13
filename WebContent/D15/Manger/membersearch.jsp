@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html style = "margin-bottom : 40px">
 <head>
 <meta charset="UTF-8">
 <title>회원 조회</title>
@@ -69,8 +69,8 @@
 		<br><br><br><br>
 		
 		<div class = "col-sm-12">
-		<div class="form-group">
-			<input type="text" id="search" name = "search" class="form-control">
+		<div class="form-group" style = "width:50%">
+			<input type="text" id="search" name = "search">
 			<button type="button" class="btn btn-default btn-sm" id = "searchbtn">
 				<span class="glyphicon glyphicon-search"></span> Search
 			</button>

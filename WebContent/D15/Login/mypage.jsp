@@ -50,6 +50,8 @@
 		pageContext.include("../../include/header.jsp");
 	%>
 	
+	<div class="container">
+	<h3>마이페이지</h3>
 	<ul class="nav nav-tabs">
   		<li role="presentation" class="active"><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
@@ -57,6 +59,7 @@
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myTakeMessagelist.Message">받은 쪽지함</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myMakeMessagelist.Message">보낸 쪽지함</a></li>
 	</ul>
+	</div>
 	
 	<c:set var = "memberdto" value = "${sessionScope.memberdto}"/>
 	
@@ -73,6 +76,7 @@
 		<div class = "col-sm-6">
 			<c:set var="dto" value="${sessionScope.memberjoindto}" />
 			<%-- <h1 style = "text-align:center">${dto.m_id}님의 정보</h1> --%>
+			
 			<table class="table table-hover">
 				<tr><td>ID </td><td>${dto.m_id}</td></tr>
 		        <tr><td>최종방문일  </td><td>${dto.m_lastdate}</td></tr>

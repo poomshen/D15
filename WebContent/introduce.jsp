@@ -101,7 +101,7 @@ function openCity(evt, cityName) {
 }
 </script>
 </head>
-
+										
 <body style="margin-bottom:40px;">
 
 	<header>
@@ -112,30 +112,31 @@ function openCity(evt, cityName) {
 		<div class="container">
 			
 			<div class="jumbotron">
-				<h3>살아나개 사랑하개!!</h3><br>
+				<h3>살아갈개 사랑할개!!</h3><br>
 				<p>KOSTA 129기 1조가 만든 유기견 보호 사이트 입니다.</p>
 			</div>
-			<ul class="tab">
-	            <li><a href="#" class="tablinks"
+			
+			<ul class="tab" id="title">
+	            <li><a href="#title" class="tablinks"
 	               onclick="openCity(event, 'Livedog')">사랑할개?</a></li>
-	            <li><a href="#" class="tablinks"
+	            <li><a href="#Sequence" class="tablinks"
 	               onclick="openCity(event, 'Sequence')">분양 절차</a></li>
-	            <li><a href="#" class="tablinks"
+	            <li><a href="#Object" class="tablinks"
 	               onclick="openCity(event, 'Object')">사이트 개설 목적</a></li>
-	            <li><a href="#" class="tablinks"
+	            <li><a href="#Location" class="tablinks"
 	               onclick="openCity(event, 'Location')">찾아오시는 길</a></li>
          	</ul>
-
+         	
 			<div id="Livedog" class="tabcontent">
 				<div class = "text-right" >
             		<a id = "file" href = "/TeamProject3_D15/D15/introduce/dog.hwp" class = "atch_view m-tcol-c" title="애완견 분양계획서">
             			★ 첨부파일(1)
             		</a>
             	</div>
-               	<div class = "title">
+               	<div>
                		<h3>사랑할개 홈페이지에 오신 여러분을 진심으로 환영합니다.</h3>
-                     <button id="button">
-               			♥Click Me!! (English, Japanese)♥
+                     <button id="button" class = "btn btn-default">
+               			Click Me (English, Japanese)
                		</button>
                		<br/>
                		<div id="love" style="display:none;font-size:25px;color:skyblue;">
@@ -174,8 +175,10 @@ function openCity(evt, cityName) {
 				<h1>찾아오시는 길</h1>
 				<p>주소 :경기도 성남시 분당구 삼평동 대왕판교로 670길 유스페이스2 B동 13층</p>
             	<p>대표자 : 이성준 / 이메일 : poomshen@gmail.com</p>
-            	<p>사업자 등록번호 : 123-80-88357</p>
-            	<div id="map" style="width:100%;height:350px;"></div>
+            	<p>사업자 등록번호 : 123-80-88357&nbsp;<input type = "button" id="button1" value = "지도보기" class = "btn btn-default">
+    			</p>
+    			<div id = "display"></div>
+    					
 			</div>
 
 		</div>
@@ -187,53 +190,32 @@ function openCity(evt, cityName) {
 	</footer>
 	
 	<!-- jQuery, ui -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- bootstrap js -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	
+	<!-- 지도표시 스크립트 -->
+	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=907df564dd90f479c37c43bccdbaa153"></script>
 	<!-- 버튼클릭 이벤트 -->
 	<script type="text/javascript">
+
         $(function(){
         	$('#button').click(function(){
         		$('#love').show();
         	});
+        	
+        	$("#button1").click(function(){ //지도표시
+        		$.ajax({
+        			type:"post",
+        			url:"map.jsp",
+        			dataType:"html",
+        			success:function(data){
+        				$("#display").empty();
+        				$("#display").append(data);
+        			}
+        		});
+        	});
         });
     </script>
-
-	<!-- 지도표시 스크립트 -->
-	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=907df564dd90f479c37c43bccdbaa153"></script>
-	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-			mapOption = {
-				center : new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-				level : 5 // 지도의 확대 레벨
-			};
-	
-		var map = new daum.maps.Map(mapContainer, mapOption);
-	
-		// 마커가 표시될 위치입니다 
-		var markerPosition = new daum.maps.LatLng(33.450701, 126.570667);
-	
-		// 마커를 생성합니다
-		var marker = new daum.maps.Marker({
-			position : markerPosition
-		});
-	
-		// 마커가 지도 위에 표시되도록 설정합니다
-		marker.setMap(map);
-	
-		var iwContent = '<div style="padding:5px;">KOSTA 129기 1조</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-			iwPosition = new daum.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
-	
-		// 인포윈도우를 생성합니다
-		var infowindow = new daum.maps.InfoWindow({
-			position : iwPosition,
-			content : iwContent
-		});
-	
-		// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-		infowindow.open(map, marker);
-	</script>
-
 </body>
 </html>

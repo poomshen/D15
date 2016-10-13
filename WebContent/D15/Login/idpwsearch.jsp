@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript">
+	function login(){
+		location.href = "Login.login";
+	}
+	function join(){
+		location.href = "RegisterPer.login";
+	}
 	$(function(){
 		$("#button1").click(function(){
 			
@@ -22,23 +28,17 @@
 					if(data.trim() != 'null'){
 						$("#idarea").empty();
 						$("#idarea").append("<br><br><br><font size = '3'>회원님의 ID는 " 
-							+ data + " 입니다.</font><br><br><br><br>"
-							+ "<input type = 'button' id = 'login' value = '로그인하기' class = 'btn btn-default'>");
+							+ data + " 입니다.</font><br><br><br><br><br>"
+							+ "<input type = 'button' onclick = 'login()' value = '로그인하기' class = 'btn btn-default'>");
 					}else{
 						$("#idarea").empty();
-						$("#idarea").append("<br><br><br><font size = '3'>가입된 ID가 없습니다. " 
-							+ "</font><br><br><br><br>"
-							+ "<input type = 'button' id = 'join' value = '회원가입' class = 'btn btn-default'>");
+						$("#idarea").append("<br><br><br><font size = '3'>입력된 정보로 가입된 ID가 없습니다. " 
+							+ "</font><br><br><br><br><br>"
+							+ "<input type = 'button' onclick = 'join()' value = '회원가입' class = 'btn btn-default'>");
 					}
 				}
 				
 			});
-			$("#login").click(function(){
-				location.href = "Login.login";
-			});
-			$("#join").click(function(){
-				location.href = "RegisterPer.login";
-			})
 		});
 		
 		$("#button2").click(function(){
@@ -48,14 +48,20 @@
 				dataType:"html",
 				data:{"id":$("#id").val().trim() , "phone":$("#phone2").val().trim()},
 				success:function(data){
-					$("#idarea").empty();
-					$("#idarea").append("<br><br><br><font size = '3'>회원님의 임시 비밀번호는 " 
-						+ data + " 입니다.</font><br><br><br><br>"
-						+ "<input type = 'button' id = 'login' value = '로그인하기' class = 'btn btn-default'>");
+					if(data.trim() != 'null'){
+						$("#pwarea").empty();
+						$("#pwarea").append("<br><br><br><font size = '3'>회원님의 임시 비밀번호는 " 
+							+ data + " 입니다.</font><br><br><br><br><br>"
+							+ "<input type = 'button' onclick = 'login()' value = '로그인하기' class = 'btn btn-default'>");
+					}else{
+						$("#pwarea").empty();
+						$("#pwarea").append("<br><br><br><font size = '3'>입력된 정보로 가입된 ID가 없습니다. " 
+							+ "</font><br><br><br><br><br>"
+							+ "<input type = 'button' onclick = 'join()' value = '회원가입' class = 'btn btn-default'>");
+					}
 				}
-				
+					
 			});
-			
 			
 		});
 		
@@ -84,7 +90,7 @@
 		</div>
 		<input type = "button" id =  "button1" class = "btn btn-default" value = "ID 찾기">
 	</div>
-	<div class = "col-sm-3">
+	<div class = "col-sm-3" id = "pwarea">
 	<br><br>
 		<h3>비밀번호를 잊어버리셨나요?</h3><br><br>
 		<div class ="form-group">
