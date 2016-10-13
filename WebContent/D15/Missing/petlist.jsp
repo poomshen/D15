@@ -62,7 +62,8 @@
     background-color: #fff;
     color: #fff;
     overflow: hidden;
-}  
+} 
+
 </style> 
 
 		<%-- <% 
@@ -83,14 +84,15 @@
       String uploadpath = request.getRealPath("upload");
    %>
 
-
+	
 	<h1 style = "text-align:center">실종신고 게시판</h1>
+	
 	<c:forEach var="list" items="${list}">
 		
 		<div class = "col-sm-4" style = "margin-top:20px">
 		<span>게시물 번호 : ${list.mis_no}</span><br>
 		<a href="../../upload/${list.p_image}" class="image-popup"> 
-			<img src="../../upload/${list.p_image}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
+			<img src="../../upload/${list.p_image}"  alt="Cinque Terre" width="304" height="236">
 			
 		</a>
 		
@@ -132,7 +134,33 @@
 	<div style = "clear:both">
 		<table align="center">
 			<tr>
-				<td colspan="3" align="center">
+				<td colspan="3" align="center">				
+					<ul class="pagination">	
+						<c:if test="${cpage>1}">
+    	 					<li class="previous"><a href="BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a></li> 
+						</c:if>
+		  				<li>
+		  				<c:forEach var="i" begin="1" end="${pagecount}" step="1">
+		  					<li><a href="BoardList.missing?cp=${i}&ps=${pagesize}">${i}</a></li>  
+		  				</c:forEach>	
+		  				</li>
+		 				<c:if test="${cpage<pagecount}">
+		  					<li class="next"><a href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a></li>		  
+						</c:if>
+						<li>&nbsp;&nbsp; <input type="button" value="실종신고" id="button" class="btn btn-danger"></li>
+					</ul>
+					
+				</td>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<%-- 
 				<!--이전 링크 --> 
 				<c:if test="${cpage>1}">
 					<a href="BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a>
@@ -154,7 +182,7 @@
 				</c:if>
 					&nbsp;&nbsp; <input type="button" value="실종신고" id="button"
 						 class="btn btn-danger">
-				</td>
+				</td> --%>
 				
 			</tr>
 		</table>
