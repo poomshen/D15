@@ -445,7 +445,7 @@ public class Member_DAO {
 		}
 		return ids;
 	}
-	
+	//id 찾기
 	public String idSearch(int m_birth , String m_phone){
 		try{
 			conn = ds.getConnection();
@@ -476,5 +476,46 @@ public class Member_DAO {
 		
 		return null;
 	}
-
+	
+	//임시비밀번호 만들기
+	public String pwRandom(String m_id , String m_phone){
+		try{
+			
+			conn = ds.getConnection();
+			String sql = "update d15_member set m_pwd = ? where m_id = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, (char)(Math.random()*127 + 1) +"e" +(char)(Math.random()*127 + 1) +"f" +(char)(Math.random()*127 + 1)+ "c" + (char)(Math.random()*127 + 1)+"t" );
+			pstmt.setString(2, m_id);
+			
+			
+			int row = pstmt.executeUpdate();
+			
+			if(row > 0){
+				String sql2 = "select m_pwd from d15_member where m_id = ?";
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setString(1, m_id);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()){
+					String pwd = rs.getString(1);
+					return pwd;
+				}
+			}else{
+				System.out.println("비밀번호 update 실패");
+			}
+			
+		}catch(Exception e){
+			System.out.println("pwRandom error");
+			e.printStackTrace();
+		}finally{
+			if(rs != null)try{rs.close();}catch(Exception e){}
+			if(pstmt !=null)try{pstmt.close();}catch(Exception e){}
+			if(conn != null)try{conn.close();}catch(Exception e){}
+		}
+		
+		return null;
+	}
 }
