@@ -2,24 +2,17 @@
    pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- <style>
-.navbar {
-   background-color: white;
-   border: 0px;
-}
+	 <style>
+	 .MainNav{
+	 background-color: white;
+	 }
+	 
+  	.navbar{
+  		background-color:white;
+  		border: 0px;
+  	}
 
-#rowdiv {
-   background-color: white;
-}
-
-#rowdiv a {
-   
-}
-
-.logo {
-   font-size: 18px;
-}
-</style> -->
+  	</style>
 <c:set var="dto" value="${sessionScope.memberdto }" />
 <script>
    //header라 일부러 js 사용
@@ -45,9 +38,9 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/TeamProject3_D15/index.jsp">
+                <a class="navbar-brand" href="/TeamProject3_D15/index.jsp" >
                 <img
-                     src="/TeamProject3_D15/images/logo.gif" style="max-height: 40px; margin-left: 30px;"></a>
+                     src="/TeamProject3_D15/images/logo.gif" width="100px"></a>
             </div>   
       
          
@@ -85,11 +78,11 @@
             <ul class="nav navbar-nav navbar-right">
             	<c:choose>
             		<c:when test="${dto.m_id=='admin'}">
-            			<li><a href=""><span
+            			<li><a href="#"><span
                      		class="glyphicon glyphicon-user"></span>${dto.m_id}</a></li>
                      	
-                     	<li><span  class="glyphicon glyphicon-envelope logo" id="message_new">
-                        </span></li>
+                     	<li><a href="#"><span  class="glyphicon glyphicon-envelope logo" id="message_new">
+                        </span></a></li>
                         
             			<li><a href="/TeamProject3_D15/D15/Login/Logout.login"><span
                            class="glyphicon glyphicon-log-out logo">로그아웃</span></a></li>
@@ -99,10 +92,10 @@
                                       
             		</c:when>
             		<c:when test="${dto.m_id!=null}">
-            			<li><span
-                     		class="glyphicon glyphicon-user"></span>${dto.m_id}</li>
+            			<li><a href="#"><span
+                     		class="glyphicon glyphicon-user"></span>${dto.m_id}</a></li>
                      		
-                     	<li><span  class="glyphicon glyphicon-envelope logo" id="message_new"></span></li>
+                     	<li><a href="#"><span class="glyphicon glyphicon-envelope logo" id="message_new"></span></a></li>
                      	
                      	<script type="text/javascript">
 	                        $(function(){
