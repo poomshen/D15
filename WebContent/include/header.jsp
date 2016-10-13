@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<script src="http://code.jquery.com/jquery-3.1.1.min.js" ></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 .navbar {
@@ -33,8 +33,10 @@
 		} else {
 			document.getElementById("protect").setAttribute("href", "/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut");
 		}
+		
 	}
 </script>
+
 
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container-fluid">
@@ -91,6 +93,21 @@
 							<div class="col-sm-1"></div>
 							<div class="col-sm-4">
 								<span class="glyphicon glyphicon-user logo">${memberdto.m_id}</span>
+								<span class="glyphicon glyphicon-envelope logo" id="massage_new"></span>
+								<script type="text/javascript">
+								$(function(){
+									myTimer()
+								var myVar = setInterval(function(){ myTimer() }, 1000);
+								
+								function myTimer(){
+									$.get("myMassgeNew.New", {"m_no":${memberdto.m_no}}, function(data, textStatus, req) {
+										if(data != 0){
+											document.getElementById("massage_new").innerHTML = "new"+data;
+										}
+									})
+								}
+								})
+								</script>
 							</div>
 							<div class="col-sm-3">
 								<a href="/TeamProject3_D15/D15/Login/Logout.login"> <span

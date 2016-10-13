@@ -129,7 +129,7 @@ public class Massage_DAO {
 	}
 	//안읽은 쪽지 카운트
 	public int selectNos(int mb_no){
-		String sql = "Select Count(*) from D15_message where m_no = ? and mes_check = 'n'";
+		String sql = "Select Count(*) from D15_message where m_no = ? and mes_check = 'N'";
 		int count = 0;
 		try {
 			conn = ds.getConnection();
