@@ -42,13 +42,15 @@ public class Message_Contoroller extends HttpServlet {
 		
 		ActionForward forward = null;
 		Action action = null;
-		if(Command.equals("insertMassage.Message")){
+		if(Command.equals("/D15/Login/insertMassage.Message")){
 			action = new InsertMassage_Service();
 			try {
 				forward  = action.execute(request, response);
 			} catch (Exception e) {
 			}
 		}else if(Command.equals("myTakeMassgelist.Message")){
+			
+		}else {
 			
 		}
 		
