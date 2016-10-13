@@ -115,8 +115,17 @@ public class Member_DAO {
 	public Member_DTO checkMember(String m_id, String m_pwd) {
 
 		try {
-
 			conn = ds.getConnection();
+			
+			String sql2 = "update D15_member set m_lastdate = sysdate where m_id = ? and m_pwd = ?";
+			pstmt = conn.prepareStatement(sql2);
+			
+			pstmt.setString(1, m_id);
+			pstmt.setString(2, m_pwd);
+			pstmt.executeUpdate();
+			
+			
+			
 
 			String sql = "select m_no, m_id, m_pwd, m_lastdate, c_code from D15_Member " + "where m_id=? and m_pwd=?";
 
@@ -126,10 +135,11 @@ public class Member_DAO {
 			pstmt.setString(2, m_pwd);
 
 			rs = pstmt.executeQuery();
-
+			
+			
 			if (rs.next()) {
 				System.out.println("로그인 성공");
-
+				
 				Member_DTO memberdto = new Member_DTO();
 				memberdto.setM_no(rs.getInt(1));
 				memberdto.setM_id(rs.getString(2));

@@ -111,7 +111,7 @@ function openCity(evt, cityName) {
 
 		<div class="container">
 			
-			<div class="jumbotron">
+			<div class="jumbotron" style = "background-image: url('images/dog.PNG');">
 				<h3>살아갈개 사랑할개!!</h3><br>
 				<p>KOSTA 129기 1조가 만든 유기견 보호 사이트 입니다.</p>
 			</div>

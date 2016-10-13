@@ -11,72 +11,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html style = "margin-bottom:40px">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  
 <title>살아나개 사랑할개</title>
-	
-<style>
-.navbar-custom {
-	background: #ffffff;
-}
 
-.navbar-custom .navbar-nav li a, header {
-	color: #000000;
-}
-
-header .container {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-#fh5co-home .text-inner h1, #fh5co-home .text-inner h2, #fh5co-home .text-inner h3,
-	#fh5co-home .text-inner h2 a {
-	/* font-size: 50px; */
-	color: #000000;
-	margin: 0 0 20px 0;
-}
+<script>
 
 
-#fh5co-home .text-inner #lgform {
-	/* font-size: 50px; */
-	color: #3f95ea;
-	margin: 0 0 20px 0;
-}
-
-#fh5co-home {
-	background-color: transparent;
-	background-size: cover;
-	background-attachment: fixed;
-	position: relative;
-	width: 100%;
-	background-color: #fff;
-	color: #000000;
-	overflow: hidden;
-}
-
-.form-group {
-    margin: 30px 0;
-}
-
-.form-control {   
-    width: 250px;
-    align:center;
-    }
-
-</style>  
-  <!--  10.05 지율 추가  끝
- -->
-
-<script type="text/javascript">
 	$(function(){
+	
+		 $( "#mis_date" ).datepicker({
+		      showOn: "button",
+		      buttonImage: "../../images/calendar.gif",
+		      buttonImageOnly: true,
+		      buttonText: "Select date",
+		      dateFormat: "yy-mm-dd"
+		    });
+	});	
+		 
 		$.ajax({
 			type:"get",
 			url:"json.jsp",
@@ -89,16 +51,9 @@ header .container {
 					$("#k_kind").append("<option value =" + k_code + ">" + k_kind + "</option>");
 				});
 			}
-		});
+		}); 
 		
-		$("#mis_date").datepicker({
-			  showOn: "button",
-		      buttonImage: "../../images/calendar.gif",
-		      buttonImageOnly: true,
-		      buttonText: "Select date",
-		      dateFormat: "yy-mm-dd"
-		});
-		
+	 
 		$("#button1").click(function(){
 			if( $.trim($("#k_kind").val()) == '선택' ){
 		        alert("견종을 알려주세요.");
@@ -131,21 +86,18 @@ header .container {
 			 }
 			
 		});
+		
 		$("#button2").click(function(){
 			 
 			 location.href = "BoardList.missing";
 		});
 		
-	});
+	
 
 
 </script>
 </head>
 
-	<%-- <%
-		pageContext.include("../../include/header.jsp");
-	%> --%>
-	
 <body>
 	<header>
 		<jsp:include page = "../../include/header.jsp"/>
@@ -191,8 +143,9 @@ header .container {
 			<input type="file" name="p_image" id="p_image"><br>
 								
 			<div class="form-group" style="width:250px;">
-     			 <label for="mis_date" style="float:left;" >실종 날짜</label>
-      			 <input type="text" class="form-control" name="mis_date" id = "mis_date" placeholder="실종 날짜 선택.">
+     			  <label for="mis_date" style="float:left;" >실종 날짜</label> -->
+      			 <input type="text" class="form-control" name="mis_date" id = "mis_date" placeholder="실종 날짜 선택."> 
+      			 
        		</div>
        							
        		<div class="form-group" style="width:250px;">
@@ -214,10 +167,8 @@ header .container {
 		<div class = "col-sm-2"></div>								
 	</form>
 						
-	
-<%
-	pageContext.include("../../include/footer.jsp");
-%>
-
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 </body>
 </html>
