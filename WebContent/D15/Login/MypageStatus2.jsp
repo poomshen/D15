@@ -51,6 +51,8 @@
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
   		<li role="presentation" class="active"><a href="/TeamProject3_D15/D15/Login/MypageStatus2.login">임시보호</a></li>
+  		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myTakeMessagelist.Message">받은 쪽지함</a></li>
+  		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myMakeMessagelist.Message">보낸 쪽지함</a></li>
 	</ul>
 	</div>
 	

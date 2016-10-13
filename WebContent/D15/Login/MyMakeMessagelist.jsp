@@ -26,6 +26,21 @@
 			color: black;
 		}
 	</style>
+	<script type="text/javascript">
+	$(function(){
+		
+		});
+		function Mremove(mes_no){
+			$.post("MessageRemoveM.Messages", {"mes_no":mes_no}, function(data, textStatus, req) {
+					if(data == 'Y'){
+						alert("삭제 성공");
+					}else{
+						alert("삭제 실패");
+					}
+				}
+			});
+		}
+	</script>
 <body>
 	<%
 		pageContext.include("../../include/header.jsp");
@@ -39,9 +54,11 @@
 	</ul>
 	
 <table>
-<tr><th>내가 보낸사람</th><th>글내용</th><th>보낸날짜</th><th>읽음여부</th></tr>
+<tr><th>내가 보낸사람</th><th>글내용</th><th>보낸날짜</th><th>읽음여부</th><th>삭제</th></tr>
 <c:forEach var="list" items="${messagelist}">
-<tr><td>${list.mes_send }</td><td>${list.mes_content }</td><td>${list.mes_date}</td><td>${list.mes_check}</td></tr>
+<tr><td>${list.mes_send }</td><td>${list.mes_content }</td><td>${list.mes_date}</td><td>${list.mes_check}</td>
+		<td><a href="#" onclick="Mremove(${list.mes_no})" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-remove"></span> Remove
+        </a></td></tr>
 </c:forEach>
 </table>
 
