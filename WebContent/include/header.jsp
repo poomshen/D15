@@ -22,7 +22,7 @@
 </style> -->
 <c:set var="dto" value="${sessionScope.memberdto }" />
 <script>
-/*    //header라 일부러 js 사용
+   //header라 일부러 js 사용
    window.onload=function(){
       console.log("${dto}");
       if("${dto}"==""){
@@ -34,7 +34,7 @@
       } else {
          document.getElementById("protect").setAttribute("href", "/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut");
       }
-   } */
+   }
 </script>
 
    <!-- 상단고정된 navbar 시작 -->
@@ -55,19 +55,13 @@
 
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-               <!-- <li class="active"><a href="#">Home</a></li> -->
-               <li class="dropdown"><a class="dropdown-toggle"
-                  data-toggle="dropdown" href="#">소개(x)<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                     <li><a href="/TeamProject3_D15/introduce.jsp">홈페이지소개</a></li>
-                     <li><a href="#">창단멤버(x)</a></li>
-                     <li><a href="#">찾아오시는길(x)</a></li>
-                  </ul></li>
+               <li class="active"><a href="/TeamProject3_D15/introduce.jsp">소개</a></li>
+               
                   
                <li class="dropdown"><a class="dropdown-toggle"
                   data-toggle="dropdown" href="#">현황(x)<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                     <li><a href="#">유기견 신고 수(x)</a></li>
+                     <li><a href="/TeamProject3_D15/status.jsp">유기견 신고 수(x)</a></li>
                      <li><a href="#">각 보호소 위치(x)</a></li>
                   </ul></li>
                   
@@ -91,13 +85,25 @@
             <ul class="nav navbar-nav navbar-right">
             	<c:choose>
             		<c:when test="${dto.m_id=='admin'}">
-            			어드민 메뉴
+            			<li><a href=""><span
+                     		class="glyphicon glyphicon-user"></span>${dto.m_id}</a></li>
+                     	
+                     	<li><span  class="glyphicon glyphicon-envelope logo" id="message_new">
+                        </span></li>
+                        
+            			<li><a href="/TeamProject3_D15/D15/Login/Logout.login"><span
+                           class="glyphicon glyphicon-log-out logo">로그아웃</span></a></li>
+                        
+                        <li><a href="/TeamProject3_D15/D15/Login/Mypage.login"><span
+                           class="glyphicon glyphicon-off logo">회원관리</span></a></li>
+                                      
             		</c:when>
             		<c:when test="${dto.m_id!=null}">
             			<li><span
                      		class="glyphicon glyphicon-user"></span>${dto.m_id}</li>
-                     	<li><span  class="glyphicon glyphicon-envelope logo" style="text-align:right; float:left; color: green; "id="message_new">
-                        </span></li>
+                     		
+                     	<li><span  class="glyphicon glyphicon-envelope logo" id="message_new"></span></li>
+                     	
                      	<script type="text/javascript">
 	                        $(function(){
 	                        	myTimer();
@@ -114,7 +120,7 @@
                         </script>
 
                         <li><a href="/TeamProject3_D15/D15/Login/Logout.login"><span
-                           class="glyphicon glyphicon-off logo">로그아웃</span></a></li>
+                           class="glyphicon glyphicon-log-out logo">로그아웃</span></a></li>
                     
                         <li><a href="/TeamProject3_D15/D15/Login/Mypage.login"><span
                            class="glyphicon glyphicon-lock logo">마이페이지</span></a></li>
