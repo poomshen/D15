@@ -30,6 +30,7 @@
          document.getElementById("protect").onclick=function(){
             alert('회원 가입 후 이용해 주세요');
          }
+         
       } else {
          document.getElementById("protect").setAttribute("href", "/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut");
       }
@@ -166,23 +167,17 @@
 =======
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-               <!-- <li class="active"><a href="#">Home</a></li> -->
-               <li class="dropdown"><a class="dropdown-toggle"
-                  data-toggle="dropdown" href="#">소개(x)<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                     <li><a href="/TeamProject3_D15/introduce.jsp">홈페이지소개</a></li>
-                     <li><a href="#">창단멤버(x)</a></li>
-                     <li><a href="#">찾아오시는길(x)</a></li>
-                  </ul></li>
+               <li class="active"><a href="/TeamProject3_D15/introduce.jsp">소개</a></li>
+               
                   
                <li class="dropdown"><a class="dropdown-toggle"
                   data-toggle="dropdown" href="#">현황(x)<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                     <li><a href="#">유기견 신고 수(x)</a></li>
+                     <li><a href="/TeamProject3_D15/status.jsp">유기견 신고 수(x)</a></li>
                      <li><a href="#">각 보호소 위치(x)</a></li>
                   </ul></li>
                   
-               <li><a
+               <li><a id="protect"
                   href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양
                      및 임시보호</a></li>
                      
@@ -200,12 +195,57 @@
                   
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            
-               <li><a href="/TeamProject3_D15/D15/Login/RegisterPer.login"><span
-                     class="glyphicon glyphicon-user"></span> 회원가입</a></li>
+            	<c:choose>
+            		<c:when test="${dto.m_id=='admin'}">
+            			<li><a href=""><span
+                     		class="glyphicon glyphicon-user"></span>${dto.m_id}</a></li>
+                     	
+                     	<li><span  class="glyphicon glyphicon-envelope logo" id="message_new">
+                        </span></li>
+                        
+            			<li><a href="/TeamProject3_D15/D15/Login/Logout.login"><span
+                           class="glyphicon glyphicon-log-out logo">로그아웃</span></a></li>
+                        
+                        <li><a href="/TeamProject3_D15/D15/Login/Mypage.login"><span
+                           class="glyphicon glyphicon-off logo">회원관리</span></a></li>
+                                      
+            		</c:when>
+            		<c:when test="${dto.m_id!=null}">
+            			<li><span
+                     		class="glyphicon glyphicon-user"></span>${dto.m_id}</li>
+                     		
+                     	<li><span  class="glyphicon glyphicon-envelope logo" id="message_new"></span></li>
+                     	
+                     	<script type="text/javascript">
+	                        $(function(){
+	                        	myTimer();
+	                        	var myVar = setInterval(function(){ myTimer() }, 10000);
+	                        
+		                        function myTimer(){
+		                           $.get("myMessgeNew.New", {"m_no":${memberdto.m_no}}, function(data, textStatus, req) {
+		                              if(data != 0){
+		                                 document.getElementById("message_new").innerHTML = data;
+		                              }
+		                           })
+		                        }
+	                        });
+                        </script>
+
+                        <li><a href="/TeamProject3_D15/D15/Login/Logout.login"><span
+                           class="glyphicon glyphicon-log-out logo">로그아웃</span></a></li>
+                    
+                        <li><a href="/TeamProject3_D15/D15/Login/Mypage.login"><span
+                           class="glyphicon glyphicon-lock logo">마이페이지</span></a></li>
+                        
+            		</c:when>
+            		<c:otherwise>
+            			<li><a href="/TeamProject3_D15/D15/Login/RegisterPer.login"><span
+                     		class="glyphicon glyphicon-user"></span>회원가입</a></li>
                      
-               <li><a href="/TeamProject3_D15/D15/Login/Login.login"><span
-                     class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+			            <li><a href="/TeamProject3_D15/D15/Login/Login.login"><span
+            	        	class="glyphicon glyphicon-log-in"></span>로그인</a></li>
+            		</c:otherwise>
+            	</c:choose>
             </ul>
             
          </div>
