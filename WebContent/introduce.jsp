@@ -13,10 +13,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<style>
-   img{max-width:100%; height:auto;}
-</style>  
-<style>
+
+<!-- <style>
+img{max-width:100%; height:auto;}
 .navbar {
 	background-color: white;
 	border: 0px;
@@ -72,7 +71,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 }
 
 </style>
-
+ -->
 <script>
 
 function openCity(evt, cityName) {

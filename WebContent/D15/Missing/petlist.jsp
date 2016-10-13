@@ -12,7 +12,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html style="margin-top: 100px">
+<html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,9 +31,16 @@
          location.href = "ListDetail.missing?cp=${cpage}&ps=${pagesize}&mis_no="+list;
       };
    </script>
+   <style>
+#wrap03{
+margin-top: 100px;
+}
+</style>
 
 </head>
 
+
+<!-- 
 <style>
 .navbar-custom {
 	background: #ffffff;
@@ -66,14 +73,15 @@ header .container {
 	overflow: hidden;
 }
 </style>
-
+ -->
 <%-- <% 
 			pageContext.include("../../include/header.jsp");
 		%> --%>
-<body style="padding-bottom: 50px">
+<body>
 	<header>
 		<jsp:include page="../../include/header.jsp" />
 	</header>
+	<div id="wrap03">
 
 	<c:set var="cpage" value="${requestScope.cpage}" />
 	<c:set var="pagesize" value="${requestScope.pagesize}" />
@@ -151,7 +159,7 @@ header .container {
 		<jsp:include page="../../include/footer.jsp" />
 	</footer>
 
-
+</div>
 
 </body>
 </html>
