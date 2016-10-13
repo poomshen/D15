@@ -22,7 +22,7 @@
 </style> -->
 <c:set var="dto" value="${sessionScope.memberdto }" />
 <script>
-   //header라 일부러 js 사용
+/*    //header라 일부러 js 사용
    window.onload=function(){
       console.log("${dto}");
       if("${dto}"==""){
@@ -30,10 +30,11 @@
          document.getElementById("protect").onclick=function(){
             alert('회원 가입 후 이용해 주세요');
          }
+         
       } else {
          document.getElementById("protect").setAttribute("href", "/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut");
       }
-   }
+   } */
 </script>
 
    <!-- 상단고정된 navbar 시작 -->
@@ -70,7 +71,7 @@
                      <li><a href="#">각 보호소 위치(x)</a></li>
                   </ul></li>
                   
-               <li><a
+               <li><a id="protect"
                   href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양
                      및 임시보호</a></li>
                      
@@ -88,12 +89,45 @@
                   
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            
-               <li><a href="/TeamProject3_D15/D15/Login/RegisterPer.login"><span
-                     class="glyphicon glyphicon-user"></span> 회원가입</a></li>
+            	<c:choose>
+            		<c:when test="${dto.m_id=='admin'}">
+            			어드민 메뉴
+            		</c:when>
+            		<c:when test="${dto.m_id!=null}">
+            			<li><span
+                     		class="glyphicon glyphicon-user"></span>${dto.m_id}</li>
+                     	<li><span  class="glyphicon glyphicon-envelope logo" style="text-align:right; float:left; color: green; "id="message_new">
+                        </span></li>
+                     	<script type="text/javascript">
+	                        $(function(){
+	                        	myTimer();
+	                        	var myVar = setInterval(function(){ myTimer() }, 10000);
+	                        
+		                        function myTimer(){
+		                           $.get("myMessgeNew.New", {"m_no":${memberdto.m_no}}, function(data, textStatus, req) {
+		                              if(data != 0){
+		                                 document.getElementById("message_new").innerHTML = data;
+		                              }
+		                           })
+		                        }
+	                        });
+                        </script>
+
+                        <li><a href="/TeamProject3_D15/D15/Login/Logout.login"><span
+                           class="glyphicon glyphicon-off logo">로그아웃</span></a></li>
+                    
+                        <li><a href="/TeamProject3_D15/D15/Login/Mypage.login"><span
+                           class="glyphicon glyphicon-lock logo">마이페이지</span></a></li>
+                        
+            		</c:when>
+            		<c:otherwise>
+            			<li><a href="/TeamProject3_D15/D15/Login/RegisterPer.login"><span
+                     		class="glyphicon glyphicon-user"></span>회원가입</a></li>
                      
-               <li><a href="/TeamProject3_D15/D15/Login/Login.login"><span
-                     class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+			            <li><a href="/TeamProject3_D15/D15/Login/Login.login"><span
+            	        	class="glyphicon glyphicon-log-in"></span>로그인</a></li>
+            		</c:otherwise>
+            	</c:choose>
             </ul>
             
          </div>
