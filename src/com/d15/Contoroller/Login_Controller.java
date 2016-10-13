@@ -146,6 +146,11 @@ public class Login_Controller extends HttpServlet {
 			}catch(Exception e){
 				System.out.println(e.getMessage());
 			}
+		}else if(url_command.equals("/D15/Login/IdpwSearch.login")){
+			System.out.println("Id/PW 찾기 폼으로 가기");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("idpwsearch.jsp");
 		}
 
 		//3.결과저장

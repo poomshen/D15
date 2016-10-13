@@ -10,6 +10,7 @@ package com.d15.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -426,6 +427,54 @@ public class Member_DAO {
 		}
 
 		return list;
+	}
+	//아이디로 회원 넘버 가지고 오기
+	public int selectid(String id){
+		int ids = 0;
+		try {
+			conn = ds.getConnection();
+			String sql = "select m_no from D15_Member where m_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				ids = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ids;
+	}
+	
+	public String idSearch(int m_birth , String m_phone){
+		try{
+			conn = ds.getConnection();
+			String sql = "select m.m_id from d15_member m join d15_detail d "
+					+ "on m.m_no = d.m_no where m_birth = ? and m_phone = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, m_birth);
+			pstmt.setString(2, m_phone);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				String id = rs.getString(1);
+				return id;
+			}else{
+				System.out.println("id 없음");
+			}
+		}catch(Exception e){
+			System.out.println("idSearch error");
+			e.printStackTrace();
+		}finally{
+			if(rs != null) try{rs.close();}catch(Exception e){}
+			if(pstmt !=null)try{pstmt.close();}catch(Exception e){}
+			if(conn != null)try{conn.close();}catch(Exception e){}
+		}
+		
+		return null;
 	}
 
 }
