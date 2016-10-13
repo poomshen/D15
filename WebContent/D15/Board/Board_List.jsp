@@ -55,13 +55,14 @@
 <br>
 <!-- selectbox 게시판 메뉴-->
 
+
 <div class="container">
 	<div class="form-group">
 		<div class="col-sm-4">
 			<select id="smenu" class="form-control">
-				<option value="" >선택</option>
-				<option value="/TeamProject3_D15/D15/BoardList.Board?name=qna" >Q&A게시판</option>
-				<option value="/TeamProject3_D15/D15/Board/ReviewList.Review?name=review" >후기게시판</option>
+				<option value="" >선택</option>						
+					<option value="/TeamProject3_D15/D15/BoardList.Board?name=qna" >Q&A게시판</option>
+					<option value="/TeamProject3_D15/D15/Board/ReviewList.Review?name=review" >후기게시판</option>			
 			</select>
 		</div>
 	</div>

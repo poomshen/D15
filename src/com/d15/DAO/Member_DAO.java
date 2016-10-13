@@ -364,16 +364,20 @@ public class Member_DAO {
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberdto.getM_no());
-
-			Parcel_DTO parceldto = new Parcel_DTO();
-			parceldto.setPc_no(rs.getInt(1));
-			parceldto.setM_no(memberdto.getM_no());
-			parceldto.setOrg_no(rs.getInt(3));
-			parceldto.setFc_reqdate(rs.getDate(4));
-			parceldto.setFc_begdate(rs.getDate(5));
-			parceldto.setPc_argdate(rs.getDate(6));
-			list.add(parceldto);
-
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				Parcel_DTO parceldto = new Parcel_DTO();
+				parceldto.setPc_no(rs.getInt(1));
+				parceldto.setM_no(memberdto.getM_no());
+				parceldto.setOrg_no(rs.getInt(3));
+				parceldto.setFc_reqdate(rs.getDate(4));
+				parceldto.setFc_begdate(rs.getDate(5));
+				parceldto.setPc_argdate(rs.getDate(6));
+				list.add(parceldto);
+			}
+			
 		} catch (Exception e) {
 			System.out.println("MypageUpdate error");
 			e.printStackTrace();

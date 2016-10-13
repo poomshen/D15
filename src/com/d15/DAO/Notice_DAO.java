@@ -1,11 +1,3 @@
-/*
- * @Class : Board_DAO
- * @Date : 2016.10.5
- * @Author : 조한솔
- * @Desc : 게시판 테이블에 대한 DAO
- * 
- * */
-
 package com.d15.DAO;
 
 import java.sql.Connection;
@@ -22,14 +14,14 @@ import javax.sql.DataSource;
 import com.d15.DTO.Board_DTO;
 import com.d15.DTO.Member_DTO;
 
-
-public class Board_DAO {
+public class Notice_DAO {
+	
 	DataSource ds;
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
 
-	public Board_DAO() {
+	public Notice_DAO() {
 		try {
 			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
@@ -38,13 +30,14 @@ public class Board_DAO {
 			return;
 		}
 	}
+	
 
 	// 전체 글의 개수
 	public int getListCount() {
 		int rowcount = 0;
 		try {
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select count(*) from D15_board");
+			pstmt = conn.prepareStatement("select count(*) from D15_notice");
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				rowcount = rs.getInt(1);
@@ -73,12 +66,10 @@ public class Board_DAO {
 	}
 
 	// List.jsp
-	public List getBoardList(int page, int limit) {
+	/*public List getBoardList(int page, int limit) {
 		String board_list_sql =	" SELECT * FROM "
-				+ "( SELECT ROWNUM rn , b_no , m_no , b_name, b_content, b_count , b_file , b_date, "
-				+ " b_ref , b_depth , b_step "
-				+ " FROM (	SELECT * FROM D15_BOARD ORDER  BY  b_ref DESC , b_step ASC  ) "
-				+ " ) WHERE rn BETWEEN ? AND ?";
+				+ "( SELECT ROWNUM rn , notice_no , m_no , notice_name, notice_date, notice_content, notice_count")
+				+  "WHERE rn BETWEEN ? AND ?";
 
 		List<Board_DTO> blist = new ArrayList<Board_DTO>();
 		List<Member_DTO> mlist = new ArrayList<Member_DTO>();
@@ -133,7 +124,7 @@ public class Board_DAO {
 		return blist;
 	}
 
-	
+	*/
 	// 글 상세보기.
 	public Board_DTO getDetail(int num) throws Exception{
 		
@@ -195,22 +186,14 @@ public class Board_DAO {
 		try {
 			
 			conn = ds.getConnection();
-			String sql = "insert into D15_board (B_NO, M_no, B_NAME, B_CONTENT,"
-					+ "B_COUNT, B_FILE, B_DATE, B_REF, B_DEPTH, B_STEP)"
-					+ "values(B_NO_SEQ.nextval,?,?,?,0,?,sysdate,?,0,0)";
+			String sql = "insert into D15_notice (notice_no, m_no, notice_name, notice_date, notice_content, notice_count)"
+					+ "values(notice_no_SEQ.nextval,2,?,sysdate,?,0)";
 
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, m_no );
 			pstmt.setString(2, board.getB_name());
 			pstmt.setString(3, board.getB_content());
-			pstmt.setString(4, board.getB_file());
-
-			int refer_max = getMaxRefer(conn);
-			int refer = refer_max + 1;
-			System.out.println("refer" + refer);
-			
-			pstmt.setInt(5, refer);
 			
 			int row = pstmt.executeUpdate();
 			return row;
@@ -229,115 +212,7 @@ public class Board_DAO {
 
 	}
 	
-	//참조함수
-	public int getMaxRefer(Connection conn) throws Exception{
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		int refer_max = 0;
-		try {
-			String maxRefer_sql = "select nvl(max(b_ref),0) from D15_board";
-			pstmt = conn.prepareStatement(maxRefer_sql);
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-				
-				System.out.println("rs_next :" + rs.getInt(1));
-				refer_max = rs.getInt(1);
-			}		
-		} catch (Exception e) {			
-			System.out.println(e.getMessage());					
-		} finally {
-			if (pstmt != null)
-				pstmt.close();	
-			
-			return refer_max;
-		}
-	}
 	
-	// 글 답변 (key point)
-	public int boardReply(Board_DTO board) {
-	
-		String board_max_sql ="select b_ref , b_depth , b_step from D15_board where b_no=? ";
-
-		String sql = "";
-		int num = 0;
-		int result = 0;
-
-		// 현재 내가 읽고 답변을 하려는 원본글의 정보
-		int ref = board.getB_ref();
-		int depth = board.getB_depth();
-		int step = board.getB_step();
-	    
-		try {
-			
-			conn = ds.getConnection();
-			pstmt = conn.prepareStatement(board_max_sql);
-		    pstmt.setInt(1, board.getB_no());
-			rs = pstmt.executeQuery();
-		
-			if (rs.next()) {
-				
-				num = rs.getInt(1) + 1;				
-			} else {	
-				num = 1;
-			}
-			
-			//원본글 위치파악
-			sql = " UPDATE D15_board SET b_step = b_step +1 "
-					+ " WHERE b_ref = ? AND b_step > ?";
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, ref);
-			pstmt.setInt(2, step);
-
-			result = pstmt.executeUpdate();
-		
-			step = step + 1; // 현재 읽은 글 + 1
-			depth = depth + 1; // 현재 읽은 글 + 1
-			
-			sql = "insert into D15_board (B_NO,M_NO,B_NAME, B_CONTENT,B_COUNT, B_DATE, B_REF,"
-					+ "B_DEPTH,B_STEP) "
-					+ "values(B_NO_SEQ.nextval,2,?,?,0,sysdate,?,?,?)";
-			
-			pstmt = conn.prepareStatement(sql);
-	
-			pstmt.setString(1, board.getB_name());
-			pstmt.setString(2, board.getB_content());
-			//pstmt.setString(3, board.getB_file());
-			pstmt.setInt(3, board.getB_ref());
-			System.out.println("보드겟 ref : "+board.getB_ref());
-			pstmt.setInt(4, board.getB_depth()+1);
-			System.out.println("보드 겟 : "+board.getB_depth());
-			pstmt.setInt(5, board.getB_step()+1);
-			System.out.println("보드 겟 step : "+board.getB_step());
-			
-			pstmt.executeUpdate();
-			
-			return board.getB_no();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException ex) {
-				}
-			if (pstmt != null)
-				try {
-					pstmt.close();
-				} catch (SQLException ex) {
-				}
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException ex) {
-				}
-		}
-		return result;
-	}
-
 	
 	// 글 수정
 	public boolean boardModify(Board_DTO modifyboard) throws Exception {
@@ -466,4 +341,6 @@ public class Board_DAO {
 			return 0;			
 		}
 
+	
+	
 }

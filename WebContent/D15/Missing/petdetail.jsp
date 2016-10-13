@@ -10,7 +10,7 @@
 <c:set var="mdto" value="${sessionScope.memberdto}" />
 
 <!DOCTYPE html>
-<html>
+<html style = "margin-top: 100px">
 <head>
 
 <meta charset="utf-8">
