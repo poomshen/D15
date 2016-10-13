@@ -17,10 +17,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>살아나개 사랑할개</title>
 	
-   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	<script type="text/javascript">
 		$(function(){
 			$("#nomiss").click(function(){
@@ -32,7 +33,7 @@
 			$("#list").click(function(){
 				location.href = "BoardList.missing?cp=${param.cp}&ps=${param.ps}"
 			});
-			
+		
 		});
 	</script>
    <style>
@@ -73,7 +74,15 @@
 					<tbody>
 						<tr>
 							<td>회원 ID</td>
-							<td>${requestScope.dto.m_id}</td>
+							<td>
+							<div class="dropdown">
+    							<div class="dropdown-toggle" type="button" data-toggle="dropdown">${requestScope.dto.m_id}</div>
+    							
+    							<ul class="dropdown-menu">
+     								<li><a href="#">쪽지 보내기</a></li>
+    							</ul>
+  							</div>
+							</td>
 
 						</tr>
 						<tr>

@@ -72,12 +72,11 @@
 				</tr>
 				
 			</table>
-		
+			<div>
 					<a href="ReviewReplyView.Review?name=review&num=${review.br_no}">
 					[답글]
 					</a>
-					&nbsp;&nbsp; 
-					
+					&nbsp;&nbsp; 					
 					<a href="ReviewModify.Review?name=review&num=${review.br_no}">
 					[수정]
 					</a>&nbsp;&nbsp;
@@ -89,6 +88,7 @@
 					<a href="ReviewList.Review?name=review">
 					[목록]
 					</a>&nbsp;&nbsp;	
+			</div>
 		</form>
 	</div>
 </section>
