@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
-import com.d15.Service.InsertMassage_Service;
+import com.d15.Service.InsertMessage_Service;
+import com.d15.Service.MakeMessageList_Service;
+import com.d15.Service.TakeMessageList_Service;
+import com.d15.Service.TakeNoMessageList_Service;
 
 /**
  * Servlet implementation class Message_Contoroller
@@ -43,14 +46,35 @@ public class Message_Contoroller extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		if(Command.equals("/D15/Login/insertMassage.Message")){
-			action = new InsertMassage_Service();
+			action = new InsertMessage_Service();
 			try {
 				forward  = action.execute(request, response);
 			} catch (Exception e) {
 			}
-		}else if(Command.equals("myTakeMassgelist.Message")){
+		}else if(Command.equals("/D15/Login/myTakeMessagelist.Message")){
+			action = new TakeMessageList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+		}else if(Command.equals("/D15/Login/myTakeNoMessagelist.Message")){
+			action = new TakeNoMessageList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+		}else if(Command.equals("/D15/Login/myMakeMessagelist.Message")){
+			action = new MakeMessageList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+			}
 			
-		}else {
+		}else if(Command.equals("/D15/Login/myMakeNoMessagelist.Messages")){
+			
+		}else{
 			
 		}
 		

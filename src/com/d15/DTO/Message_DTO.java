@@ -2,7 +2,7 @@ package com.d15.DTO;
 
 import java.sql.Date;
 
-public class Massage_DTO {
+public class Message_DTO {
 	private int mes_no;
 	private int m_no;
 	private String mes_content;
@@ -10,13 +10,13 @@ public class Massage_DTO {
 	private int mes_send;
 	private String mes_check;
 	
-	public Massage_DTO() {
+	public Message_DTO() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
 	
-	public Massage_DTO(int mes_no, int m_no, String mes_content, Date mes_date, int mes_send, String mes_check) {
+	public Message_DTO(int mes_no, int m_no, String mes_content, Date mes_date, int mes_send, String mes_check) {
 		super();
 		this.mes_no = mes_no;
 		this.m_no = m_no;
@@ -29,7 +29,7 @@ public class Massage_DTO {
 	
 
 
-	public Massage_DTO(int m_no, String mes_content, Date mes_date, String mes_check) {
+	public Message_DTO(int m_no, String mes_content, Date mes_date, String mes_check) {
 		super();
 		this.m_no = m_no;
 		this.mes_content = mes_content;
@@ -39,7 +39,7 @@ public class Massage_DTO {
 
 	
 
-	public Massage_DTO(String mes_content, Date mes_date, int mes_send, String mes_check) {
+	public Message_DTO(String mes_content, Date mes_date, int mes_send, String mes_check) {
 		super();
 		this.mes_content = mes_content;
 		this.mes_date = mes_date;
