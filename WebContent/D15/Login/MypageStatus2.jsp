@@ -11,7 +11,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html style = "margin-bottom : 40px; margin-top:100px">
 	<head>
 
 		<meta charset="utf-8">

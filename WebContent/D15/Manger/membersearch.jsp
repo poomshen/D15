@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html style = "margin-bottom : 40px">
+<html style = "margin-bottom : 40px; margin-top:100px">
 <head>
 <meta charset="UTF-8">
 <title>회원 조회</title>
