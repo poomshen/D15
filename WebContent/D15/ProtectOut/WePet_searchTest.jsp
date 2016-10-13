@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script type="text/javascript">
 	   var age =[];
        var careAddr=[];
@@ -74,24 +77,34 @@
       		 }else{
            		pagecount = Math.ceil(totalCont/pagesize)+ 1;
        		}
-            	$("#pages").append("<a href='#' onclick=page("+(${pageNo}-1)+")>[이전]<a>");
+       		
+       		$("#pages").append("<ul class = 'pagination'>");
+       		if(${pageNo} > 2){	
+            	$("#pages").append("<li class='previous'><a href='#' onclick=page("+(${pageNo}-1)+")>이전<a></li>");
+       		}
+       		$("#pages").append("<li>");
             for(var i=1 ; i < pagecount ; i+=5){
-         	   		for(var x=i ; x<i+5 ; x++){
+         	   	for(var x=i ; x<i+5 ; x++){
          	   			if(x+1 <=pagecount){
             					if(${pageNo}==x ){
             					$("#pages").append("["+x+"]");
          	   				}else if(${pageNo}>i-1 && ${pageNo}<i+5){
-            					$("#pages").append("<a href='#' onclick=page("+x+")>["+x+"]<a>");
+            					$("#pages").append("<li><a href='#' onclick=page("+x+")>["+x+"]<a></li>");
             					}else if(x == i+5){
             						for(var y=x; y<x+5 ; y++){
-            					$("#pages").append("<a href='#' onclick=page("+y+")>["+y+"]<a>");
+            					$("#pages").append("<li><a href='#' onclick=page("+y+")>["+y+"]<a></li>");
             						}
             					} 
          	   			}
          	   		}
             }
-            $("#pages").append("<a href='#' onclick=page("+(${pageNo}+1)+")>[다음]<a>");
-    	    $("#search").html(" ");//페이지가 넘어 갈때마다 초기화
+            $("#pages").append("</li>");
+            
+       		if(${pageNo} < pagecount ){
+            	$("#pages").append("<li class='next'><a href='#' onclick=page("+(${pageNo}+1)+")>다음<a></li>");
+       		}
+       		$("#pages").append("</ul>");
+            $("#search").html(" ");//페이지가 넘어 갈때마다 초기화
     	    var i =0;
     	   $(xmlContent).find('item').each(function(){
     	        age[i] =$(this).find('age').text();
