@@ -69,6 +69,10 @@ header .container {
 		$("#button").click(function(){ //회원가입 버튼 클릭시 이벤트
 			location.href = "RegisterPer.login";
 		});
+		
+		$("#button2").click(function(){
+			location.href = "IdpwSearch.login";
+		});
 	});
 </script>
 </head>
@@ -97,6 +101,7 @@ header .container {
 		<div class="form-group">
 			<label><input type="submit" value="로그인" class = "btn btn-default"></label>
 			<input type = "button" value ="회원가입" class = "btn btn-default" id = "button">
+			<input type = "button" value = "ID/PW 찾기" class = "btn btn-default" id = "button2">
 		</div>
 	</form>
 </div>

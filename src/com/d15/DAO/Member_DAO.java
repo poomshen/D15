@@ -445,5 +445,36 @@ public class Member_DAO {
 		}
 		return ids;
 	}
+	
+	public String idSearch(int m_birth , String m_phone){
+		try{
+			conn = ds.getConnection();
+			String sql = "select m.m_id from d15_member m join d15_detail d "
+					+ "on m.m_no = d.m_no where m_birth = ? and m_phone = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, m_birth);
+			pstmt.setString(2, m_phone);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				String id = rs.getString(1);
+				return id;
+			}else{
+				System.out.println("id 없음");
+			}
+		}catch(Exception e){
+			System.out.println("idSearch error");
+			e.printStackTrace();
+		}finally{
+			if(rs != null) try{rs.close();}catch(Exception e){}
+			if(pstmt !=null)try{pstmt.close();}catch(Exception e){}
+			if(conn != null)try{conn.close();}catch(Exception e){}
+		}
+		
+		return null;
+	}
 
 }
