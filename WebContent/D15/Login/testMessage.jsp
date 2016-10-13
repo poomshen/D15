@@ -16,7 +16,7 @@
 
 $(function(){
 	$("#dd").click(function(){
-		window.open("InputMassagefrom.jsp","","width=300 height=400");
+		window.open("InputMessagefrom.jsp","","width=300 height=400");
 	})
 });
 </script>

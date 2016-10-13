@@ -111,8 +111,8 @@ function openCity(evt, cityName) {
 
 		<div class="container">
 			
-			<div class="jumbotron">
-				<h3>살아나개 사랑하개!!</h3><br>
+			<div class="jumbotron" style = "background-image: url('images/dog.PNG');">
+				<h3>살아갈개 사랑할개!!</h3><br>
 				<p>KOSTA 129기 1조가 만든 유기견 보호 사이트 입니다.</p>
 			</div>
 			
@@ -135,8 +135,8 @@ function openCity(evt, cityName) {
             	</div>
                	<div>
                		<h3>사랑할개 홈페이지에 오신 여러분을 진심으로 환영합니다.</h3>
-                     <button id="button">
-               			♥Click Me!! (English, Japanese)♥
+                     <button id="button" class = "btn btn-default">
+               			Click Me (English, Japanese)
                		</button>
                		<br/>
                		<div id="love" style="display:none;font-size:25px;color:skyblue;">

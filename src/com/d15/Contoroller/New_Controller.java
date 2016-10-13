@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.d15.DAO.Massage_DAO;
+import com.d15.DAO.Message_DAO;
 
 /**
  * Servlet implementation class New_Controller
@@ -29,7 +29,7 @@ public class New_Controller extends HttpServlet {
 	}
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
-		Massage_DAO massage_DAO = new Massage_DAO();
+		Message_DAO massage_DAO = new Message_DAO();
 		int outcount = massage_DAO.selectNos(m_no);
 		
 		try {
