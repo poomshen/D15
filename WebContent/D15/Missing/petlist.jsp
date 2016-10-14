@@ -117,13 +117,15 @@ header .container {
 
 			<h2>회원 ID : ${list.m_id}</h2>
 			<span> 실종 날짜 : ${list.mis_date}
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <!-- 회원/비회원 처리 --> <c:set
-					var="dto" value="${sessionScope.memberdto}" /> <c:if
-					test="${dto.m_id!=null}">
+				 <!-- 회원/비회원 처리 -->
+				 <c:set	var="dto" value="${sessionScope.memberdto}" />
+				 <c:if test="${dto.m_id!=null && list.mis_pro=='N'}">
 					<input type="button" id="detail<%=i++%>" value="상세보기"
 						class="btn btn-info" onclick="detail(${list.mis_no})">
-				</c:if> <!-- 회원/비회원 처리 --> <br> 실종 위치 : ${list.mis_loc}
-			</span> <br> <span> 내용 : ${list.mis_content} </span>
+				 </c:if>
+				 <br> 실종 위치 : ${list.mis_loc}
+			</span><br>
+			<span> 내용 : ${list.mis_content} </span>
 			<div>
 				<c:choose>
 					<c:when test="${list.mis_pro == 'N'}">
@@ -160,8 +162,10 @@ header .container {
 							<li class="next"><a
 								href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a></li>
 						</c:if>
-						<li>&nbsp;&nbsp; <input type="button" value="실종신고"
-							id="button" class="btn btn-danger"></li>
+						<c:if test="${dto.m_id!=null}">
+							<li>&nbsp;&nbsp; <input type="button" value="실종신고"
+								id="button" class="btn btn-danger"></li>
+						</c:if>
 					</ul>
 				</td>
 			</tr>
