@@ -22,6 +22,7 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 #wrapper {
@@ -55,6 +56,7 @@
 	<div class = "col-sm-8">
 		<!-- <h1 style = "text-align:center">분양 신청 내역</h1> -->
 		<table class="table table-hover">
+
 				<tr>
 					<th>분양번호</th>
 					<th>회원번호</th>
