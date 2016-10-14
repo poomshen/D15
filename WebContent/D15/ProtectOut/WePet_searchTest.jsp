@@ -81,21 +81,22 @@
            		pagecount = Math.ceil(totalCont/pagesize)+ 1;
        		}
        		
+       		
        		$("#pages").append("<ul class = 'pagination'>");
        		if(${pageNo} > 2){	
-            	$("#pages").append("<li class='previous'><a href='#' onclick=page("+(${pageNo}-1)+")>이전<a></li>");
+            	$("#pages").append("<li class='previous'><a href='#' onclick=page("+(${pageNo}-1)+")>이전</a></li>");
        		}
-       		$("#pages").append("<li>");
-            for(var i=1 ; i < pagecount ; i+=5){
+       		 $("#pages").append("<li>");
+             for(var i=1 ; i < pagecount ; i+=5){
          	   	for(var x=i ; x<i+5 ; x++){
          	   			if(x+1 <=pagecount){
             					if(${pageNo}==x ){
             					$("#pages").append("["+x+"]");
          	   				}else if(${pageNo}>i-1 && ${pageNo}<i+5){
-            					$("#pages").append("<li><a href='#' onclick=page("+x+")>["+x+"]<a></li>");
+            					$("#pages").append("<li><a href='#' onclick=page("+x+")>["+x+"]</a></li>");
             					}else if(x == i+5){
             						for(var y=x; y<x+5 ; y++){
-            					$("#pages").append("<li><a href='#' onclick=page("+y+")>["+y+"]<a></li>");
+            					$("#pages").append("<li><a href='#' onclick=page("+y+")>["+y+"]</a></li>");
             						}
             					} 
          	   			}
@@ -104,7 +105,7 @@
             $("#pages").append("</li>");
             
        		if(${pageNo} < pagecount ){
-            	$("#pages").append("<li class='next'><a href='#' onclick=page("+(${pageNo}+1)+")>다음<a></li>");
+            	$("#pages").append("<li class='next'><a href='#' onclick=page("+(${pageNo}+1)+")>다음</a></li>");
        		}
        		$("#pages").append("</ul>");
             $("#search").html(" ");//페이지가 넘어 갈때마다 초기화
