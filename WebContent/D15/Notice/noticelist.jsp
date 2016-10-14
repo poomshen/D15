@@ -22,15 +22,7 @@
 		width: 750px;
 	}
 	</style>
-	 <script type="text/javascript">
-	 $(function(){
-	 	$('#writeBtn').click(function(){
-	 		location.href="/TeamProject3_D15/D15/Notice/noticewrite.jsp";
-	 	});
-	 	
-	 });
-	 </script>
-	 		 
+
 	<c:set var="noticelist" value="${requestScope.noticelist}"/>
 	<c:set var="listCount" value="${requestScope.listCount}"/>
 	<c:set var="nowPage" value="${requestScope.page}"/>
@@ -39,6 +31,24 @@
 	<c:set var="endPage" value="${requestScope.endPage}"/>
 	<c:set var="memberdto" value = "${sessionScope.memberdto}"/>
 	 
+	 <script type="text/javascript">
+	 $(function(){
+	 	$('#writeBtn').click(function(){
+	 		location.href="/TeamProject3_D15/D15/Notice/noticewrite.jsp";
+	 	});
+	 	
+	 	if(${sessionScope.memberdto == null}){
+	 		$("#detail").attr("href", "#");
+	 		$("#detail").click(function(){
+	 			alert('로그인 후 보실 수 있습니다.');
+	 		});
+	 	}else{
+	 		$("#detail").attr("/TeamProject3_D15/D15/Notice/NoticeDetail.notice?no=${nt.notice_no}&page=${nowPage}");
+	 	}
+	 	
+	 });
+	 </script>
+	 		 
 </head>
 
 <body>
@@ -86,7 +96,7 @@
 		</td>
 		
 		<td class="text-left">
-			<a href="/TeamProject3_D15/D15/Notice/NoticeDetail.notice?no=${nt.notice_no}&page=${nowPage}">
+			<a href="/TeamProject3_D15/D15/Notice/NoticeDetail.notice?no=${nt.notice_no}&page=${nowPage}" id = "detail">
 				${nt.notice_name}
 			</a>
 		</td>

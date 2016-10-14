@@ -91,7 +91,7 @@
 	<div class = "col-sm-2"></div>
 	<div class = "col-sm-1">
 	
-	<ul class="nav nav-pills nav-stacked" style="width:100%">
+	<ul class="nav nav-pills nav-stacked" style="width:98%">
   		<li role="presentation"><a href="myTakeMessagelist.Message">전체 쪽지</a></li>
   		<li role="presentation"><a href="myTakeNoMessagelist.Message">안 읽은 쪽지</a></li>
 	</ul>
