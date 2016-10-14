@@ -20,6 +20,8 @@
    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
    <script type="text/javascript">
       $(function(){
          $("#button").click(function(){
@@ -132,7 +134,7 @@
 	</c:forEach>
 
 	<div style = "clear:both">
-		<table align="center">
+		<table class="table table-hover">
 			<tr>
 				<td colspan="3" align="center">				
 					<ul class="pagination">	
