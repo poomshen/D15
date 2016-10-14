@@ -22,6 +22,7 @@
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 #wrapper {
@@ -63,16 +64,7 @@
 				<th>분양시작일</th>
 				<th>승인상태</th>
 			</tr>
-			<c:forEach var="i" items="${dtolist}">
-
-				<tr>
-					<th>분양번호</th>
-					<th>회원번호</th>
-					<th>유기견번호</th>
-					<th>승인신청일</th>
-					<th>분양시작일</th>
-					<th>승인상태</th>
-				</tr>
+			
 				<c:forEach var="i" items="${dtolist}">
 					<tr>
 						<td>${i.pc_no}</td>
