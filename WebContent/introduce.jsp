@@ -13,7 +13,11 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
+<!-- jQuery, ui -->
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- bootstrap js -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- <style>
 img{max-width:100%; height:auto;}
 .navbar {
@@ -195,11 +199,7 @@ function openCity(evt, cityName) {
 		<jsp:include page="include/footer.jsp"/>
 	</footer>
 	
-	<!-- jQuery, ui -->
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<!-- bootstrap js -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	
 	<!-- 지도표시 스크립트 -->
 	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=907df564dd90f479c37c43bccdbaa153"></script>
 	<!-- 버튼클릭 이벤트 -->
