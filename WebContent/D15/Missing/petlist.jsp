@@ -107,7 +107,14 @@ header .container {
 	<c:forEach var="list" items="${list}">
 
 		<div class="col-sm-4" style="margin-top: 20px">
-			<span>게시물 번호 : ${list.mis_no}</span><br> <a
+			<span>게시물 번호 : ${list.mis_no}</span>
+
+			<c:if test="${dto.m_id==list.m_id}">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#">[X]취소하기</a><!-- 리스트 삭제 서블릿으로 연결 -->
+			</c:if>
+
+			<br> <a
 				href="../../upload/${list.p_image}" class="image-popup"> <img
 				src="../../upload/${list.p_image}" alt="Cinque Terre" width="304"
 				height="236">
