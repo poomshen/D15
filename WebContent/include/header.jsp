@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	 <style>
-	 .MainNav{
+	 #MainNav{
 	 background-color: white;
 	 }
 	 
@@ -11,7 +11,9 @@
   		background-color:white;
   		border: 0px;
   	}
-
+	#bs-example-navbar-collapse-1{
+		background-color: white;
+	}
   	</style>
 <c:set var="dto" value="${sessionScope.memberdto }" />
 <script>
@@ -48,7 +50,7 @@
 
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-               <li class="active"><a href="/TeamProject3_D15/introduce.jsp">소개</a></li>
+               <li><a href="/TeamProject3_D15/introduce.jsp">소개</a></li>
                
                   
                <li class="dropdown"><a class="dropdown-toggle"

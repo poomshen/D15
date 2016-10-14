@@ -42,6 +42,7 @@ margin-top: 100px;
 		<jsp:include page="../../include/header.jsp"/>  	
 </header>
 
+	<div id="wrap03">
 
 	<!--로그인 폼-->
 	<div class="container text-center">
@@ -53,7 +54,7 @@ margin-top: 100px;
 			<h1>로그인</h1>
 			
 		</div>
-		
+		<br/><br/>
 		<div class="row">
 		
 			<div class="col-sm-2"></div>
@@ -64,23 +65,29 @@ margin-top: 100px;
 						
 					<div class="form-group">
 					      <label class="control-label col-sm-4" for="m_id">아이디 :</label>
-					      <div class="col-sm-8">
+					      <div class="col-sm-4">
 					        <input type="text" class="form-control" name="m_id" id="m_id" placeholder="아이디 입력">
 					      </div>
 					 </div>
 					
 					<div class="form-group">
 						<label  class="control-label col-sm-4" for="m_pwd">비밀번호</label>
-							<div class="col-sm-8">
+							<div class="col-sm-4">
 								<input type="password" class="form-control" name="m_pwd" id="m_pwd" placeholder="비밀번호 입력">
 							</div>	
 					</div>
 					
 					<div class="form-group">
-							&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="row">
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="submit" value="로그인" class = "btn btn-default">
+						
 							<input type = "button" value ="회원가입" class = "btn btn-default" id = "button">
+						
 							<input type = "button" value = "ID/PW 찾기" class = "btn btn-default" id = "button2">
+						
+							</div>
 						
 					</div>
 				
@@ -96,9 +103,11 @@ margin-top: 100px;
 		
 	</div>
 	
+	</div>
+	
+	
 <footer>
 		<jsp:include page="../../include/footer.jsp"/>  	
 </footer>
-</div>
 </body>
 </html>
