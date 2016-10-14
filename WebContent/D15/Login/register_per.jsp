@@ -63,10 +63,10 @@ form>input, option, select {
 				
 			</div>
 		<div class="col-sm-1"></div>	
-		<label for="m_email" class="control-label col-sm-1" style="float: left;">email</label> 
-			<div class="col-sm-3">
-				<input type="text" class="form-control" name="m_email" id="m_email" placeholder="이메일 입력">
-			</div>
+		<label for="m_phone" class="control-label col-sm-1" style="float: left;">연락처</label> 
+		<div class="col-sm-2">
+			<input type="text" class="form-control" name="m_phone" id="m_phone" placeholder="- 없이 입력하세요.">
+		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-2"></div>
@@ -80,45 +80,49 @@ form>input, option, select {
 			<div class="col-sm-2">
 				<input type="password" class="form-control" name="m_pwd" id="m_pwd" placeholder="비밀번호 입력">
 			</div>
+		<div class="col-sm-2"></div>
+		<label for="m_addr" class="control-label col-sm-1" style="float: left;">우편주소</label> 
+	
+		<div class="col-sm-2">	
+			<input type="text" class="form-control" name="m_addr" id="m_addr" placeholder="주소 입력">
+		</div>
+		<div class="col-sm-1">	
+			<input type="button" onclick="sample4_execDaumPostcode()"
+				value="우편번호 찾기" class="btn btn-default"><br> <span
+				id="guide" style="color: #999"></span>
+		</div>
+	</div>
+	<div class="form-group">
+	</div>
+
+	<div class="form-group">
 		<div class="col-sm-1"></div>
-		<label for="re_pwd" class="control-label col-sm-2" style="float: left;">비밀번호 다시 입력</label>	
-			 <div class="col-sm-3">
+		<label for="re_pwd" class="control-label col-sm-1" style="float: left;">비밀번호 다시 입력</label>	
+			 <div class="col-sm-2">
 				<input type="password" class="form-control" name="re_pwd" id="re_pwd" placeholder="비밀번호 다시 입력">
 			 </div> 
-	</div>
-	<div class="form-group">
-	</div>
-	<!-- js로 유효성 검사 해야됨 -->
-	<!-- 최종방문일 <input type="text" name="m_lastdate"><br> 자동입력 -->
-	<!-- 권한코드 <input type="text" name="c_code"><br> 자동입력 -->
-	<!-- 회원번호 <input type="text" name="m_no"><br> 자동 입력 -->
-	<div class="form-group">
-		<div class="col-sm-1"></div>
-		<label for="m_name" class="control-label col-sm-1" style="float: left;">이름</label>
-		<div class="col-sm-2">
-			 <input type="text" class="form-control" name="m_name" id="m_name" placeholder="이름 입력">
-		</div>
+		
+		
 		
 		<div class="col-sm-2"></div>
 		
-		<label for="m_phone" class="control-label col-sm-1" style="float: left;">연락처</label> 
-		<div class="col-sm-3">
-			<input type="text" class="form-control" name="m_phone" id="m_phone" placeholder="- 없이 입력하세요.">
+		<label for="m_daddr" class="control-label col-sm-1" style="float: left;">상세주소</label> 
+		<div class="col-sm-2">
+			<input type="text" class="form-control" name="m_daddr" id="m_daddr" placeholder="주소 입력">
 		</div>
 	</div>	
 	<div class="form-group"></div>
 			
 	<div class="form-group">
 		<div class="col-sm-1"></div>
-		<label for="m_birth" class="control-label col-sm-1" style="float: left;">생년월일</label>	
-		
+		<label for="m_name" class="control-label col-sm-1" style="float: left;">이름</label>
 		<div class="col-sm-2">
-			 <input type="text" class="form-control" name="m_birth" id="m_birth" placeholder="ex)890213">
+			 <input type="text" class="form-control" name="m_name" id="m_name" placeholder="이름 입력">
 		</div>
 		<div class="col-sm-1"></div>
 		
 		<label for="m_petok" class="control-label col-sm-2" style="float: left;">입양 경험 여부</label> 
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<select name="m_petok" class="form-control">
 					<option value="N">없음</option>
 					<option value="Y">있음</option>
@@ -130,22 +134,15 @@ form>input, option, select {
 	
 	<div class="form-group">
 		<div class="col-sm-1"></div>
-		<label for="m_addr" class="control-label col-sm-1" style="float: left;">우편주소</label> 
-	
-		<div class="col-sm-2">	
-			<input type="text" class="form-control" name="m_addr" id="m_addr" placeholder="주소 입력">
+		<label for="m_birth" class="control-label col-sm-1" style="float: left;">생년월일</label>	
+		<div class="col-sm-2">
+			 <input type="text" class="form-control" name="m_birth" id="m_birth" placeholder="ex)890213">
 		</div>
-		<div class="col-sm-1">	
-			<input type="button" onclick="sample4_execDaumPostcode()"
-				value="우편번호 찾기" class="btn btn-default"><br> <span
-				id="guide" style="color: #999"></span>
-		</div>
-		<div class="col-sm-1"></div>
-		<!-- 다음 우편번호 -->
-		<label for="m_daddr" class="control-label col-sm-1" style="float: left;">상세주소</label> 
-		<div class="col-sm-3">
-			<input type="text" class="form-control" name="m_daddr" id="m_daddr" placeholder="주소 입력">
-		</div>
+		<div class= "col-sm-2"></div>
+		<label for="m_email" class="control-label col-sm-1" style="float: left;">email</label> 
+			<div class="col-sm-2">
+				<input type="text" class="form-control" name="m_email" id="m_email" placeholder="이메일 입력">
+			</div>
 	</div>	
 	<br/><br/>
 	<div class="form-group">
@@ -155,7 +152,7 @@ form>input, option, select {
 		<!-- 회원가입일 insert 실행시에 자동 입력 -->
 		<div class="col-sm-5"></div>
 		<input id="submit" type="submit" value="가입하기" class="btn btn-primary">
-		<input type="reset" value="다시입력" class="btn btn-danger">
+		<input type="reset" value="다시입력" class="btn btn-default">
 	</div>	
 		
 	</form>
