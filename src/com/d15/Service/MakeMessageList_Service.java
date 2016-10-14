@@ -19,6 +19,7 @@ public class MakeMessageList_Service implements Action {
 		HttpSession session = request.getSession();
 		Member_DTO member =(Member_DTO)session.getAttribute("memberdto");
 		Message_DAO message_DAO = new Message_DAO();
+		System.out.println(member.getM_no());
 		ArrayList<Message_DTO> list =  message_DAO.selectSendlist(member.getM_no());
 		
 		request.setAttribute("messagelist", list);

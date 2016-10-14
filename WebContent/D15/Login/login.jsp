@@ -8,7 +8,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html style = "margin-top: 100px">
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,52 +19,11 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-.navbar-custom {
-	background: #ffffff;
-}
-
-.navbar-custom .navbar-nav li a, header {
-	color: #000000;
-}
-
-header .container {
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-#fh5co-home .text-inner h1, #fh5co-home .text-inner h2, #fh5co-home .text-inner h3,
-	#fh5co-home .text-inner h2 a {
-	/* font-size: 50px; */
-	color: #000000;
-	margin: 0 0 20px 0;
-}
-
-#fh5co-home .text-inner #lgform {
-	/* font-size: 50px; */
-	color: #3f95ea;
-	margin: 0 0 20px 0;
-}
-
-#fh5co-home {
-	background-color: transparent;
-	background-size: cover;
-	background-attachment: fixed;
-	position: relative;
-	width: 100%;
-	background-color: #fff;
-	color: #000000;
-	overflow: hidden;
-}
-
-.form-group {
-	margin: 30px 0;
-}
-
-.form-control {
-	width: 250px;
-	align: center;
+#wrap03{
+margin-top: 100px;
 }
 </style>
+
 <script type="text/javascript">
 	$(function(){
 		$("#button").click(function(){ //회원가입 버튼 클릭시 이벤트
@@ -83,6 +42,7 @@ header .container {
 		<jsp:include page="../../include/header.jsp"/>  	
 </header>
 
+
 	<!--로그인 폼-->
 	<div class="container text-center">
 		
@@ -91,10 +51,8 @@ header .container {
 			<div class="col-sm-4"></div>
 		
 			<h1>로그인</h1>
-		
-		
+			
 		</div>
-		
 		
 		<div class="row">
 		
@@ -141,6 +99,6 @@ header .container {
 <footer>
 		<jsp:include page="../../include/footer.jsp"/>  	
 </footer>
-
+</div>
 </body>
 </html>

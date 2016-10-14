@@ -11,7 +11,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html style = "margin-bottom : 40px; margin-top:100px">
 	<head>
 
 		<meta charset="utf-8">
@@ -46,11 +46,13 @@
 	<c:set var="dtolist" value="${requestScope.dtolist}" />
 	
 	<div class="container">
-	<h3>마이페이지</h3>
+	<h3>임시보호 관리</h3>
 	<ul class="nav nav-tabs">
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
   		<li role="presentation" class="active"><a href="/TeamProject3_D15/D15/Login/MypageStatus2.login">임시보호</a></li>
+  		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myTakeMessagelist.Message">받은 쪽지함</a></li>
+  		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myMakeMessagelist.Message">보낸 쪽지함</a></li>
 	</ul>
 	</div>
 	

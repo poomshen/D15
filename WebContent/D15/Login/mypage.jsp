@@ -10,7 +10,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html style = "margin-bottom : 40px">
+<html style = "margin-bottom : 40px; margin-top:100px">
 	<head>
 	
 	<meta charset="utf-8">
@@ -46,10 +46,11 @@
 	</style>
 	</head>
 	<body>
+	<header>
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
-	
+	</header>
 	<div class="container">
 	<h3>마이페이지</h3>
 	<ul class="nav nav-tabs">

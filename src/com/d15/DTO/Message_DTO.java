@@ -3,6 +3,7 @@ package com.d15.DTO;
 import java.sql.Date;
 
 public class Message_DTO {
+	private String m_id;
 	private int mes_no;
 	private int m_no;
 	private String mes_content;
@@ -47,8 +48,14 @@ public class Message_DTO {
 		this.mes_check = mes_check;
 	}
 
+	
 
-
+	public String getM_id() {
+		return m_id;
+	}
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
+	}
 	public int getMes_no() {
 		return mes_no;
 	}
