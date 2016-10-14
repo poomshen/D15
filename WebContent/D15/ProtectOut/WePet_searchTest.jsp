@@ -153,35 +153,6 @@
 
         });  
    		
- 		$("#close").click(function() {
-				$("#d15_body").hide();
-				$("#detailView").show();
-				$("#protectView").hide();
-				$("#parcelView").hide();
-				window.location.reload();
-			})
-		//상세 보기
-		$("#detailSelect").click(function() {
-				$("#protectView").hide();
-				$("#parcelView").hide();
-				$("#detailView").show();
-				$("#detailView").addClass("detail");
-				
-		})
-		//분양 클릭시
-		$("#parcelSelect").click(function() {
-			$("#detailView").hide();
-			$("#protectView").hide();
-			$("#parcelView").show();
-			$("#parcelView").addClass("parcel");
-		})
-		//임시보호 클릭시
-		$("#protectSelect").click(function() {
-			$("#detailView").hide();
-	 		$("#parcelView").hide();
-			$("#protectView").show();
-			$("#protectView").addClass("protect");
-		})
      });
 	
 	//임시보호 함수
@@ -198,7 +169,7 @@
    function searchclick(index){
 	   //$("#list"+index).append(kindCd[index])
 	   var count;
-	
+	   $("#myModal").modal({backdrop: "static"});
 	   //컨트롤러를 통해 DB저장
 	   $.getJSON("/TeamProject3_D15/D15/ProtectOut/insertPublic.ProtectOut", {
 	   "desertionNo":desertionNo[index],
@@ -216,13 +187,18 @@
 		   count  = data.Org_count;
 		   no = data.Org_no;
 		   processState = data.Org_situation;
-	   $("#d15_body").show();
-	   $("#detailView").addClass("detail");
-	   $("#d15_body1").addClass("d15_bodyEvt2");
-	   $("#d15_body2").addClass("d15_bodyEvt3");
 	   $("#protectform").attr("action", "insertProtect.ProtectOut?no="+no);
 	   $("#parceform").attr("action", "insertParceform.ProtectOut?no="+no);
-	   $("#detailView").html("<span><table style='width:99%; height:100%; margin: 0% 10% 10% 1%; border-radius: 10px;'>"
+	   $(".modal-header").css("background-image", "url('"+popfile[index]+"')", "background-repeat", "repeat-x")
+	   $("#mCount").append(count);
+	   $("#mdate").append("발견: "+noticeSdt[index]+" ~ end: "+noticeEdt[index]);
+	   $("#mSituation").append(processState);
+	   $("#mName").val(kindCd[index]);
+	   $("#usrname").val(weight[index]);
+	   $("#mSw").val(specialMark[index]);
+	   $("#mLoc").val(careAddr[index]);
+	   
+	   /* $("#detailView").html("<span><table style='width:99%; height:100%; margin: 0% 10% 10% 1%; border-radius: 10px;'>"
 				+"<tr><td colspan ='2'></td></tr>"
 				+"<tr><td>발견:"+noticeSdt[index]+"  end:"+noticeEdt[index]+" </td><td colspan='2' style='text-align: right;'>조회수: "+count+"</td></tr>"
 				+"<tr><td rowspan='10'><img class='img-thumbnail' alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></td></tr>"
@@ -232,7 +208,7 @@
 				+"<tr><td>성별:"+sexCd[index]+"</td><td style='text-align: right;'>무게:<h7>"+weight[index]+"</h7></td></tr>"
 				+"<tr><td colspan='2'>특징:"+specialMark[index]+"</td></tr>"
 				+"<tr><td colspan='2'>주소:"+careAddr[index]+"</td></tr>"
-			+"</table></span>");
+			+"</table></span>"); */
 	   })
 	   
 	}

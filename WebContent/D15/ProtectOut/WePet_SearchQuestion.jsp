@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../pickadate/lib/themes/default.css">
-<link rel="stylesheet"
-	href="../../pickadate/lib/themes/default.date.css">
+<link rel="stylesheet" 	href="../../pickadate/lib/themes/default.date.css">
 <script
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 <meta charset="utf-8">
@@ -109,6 +109,18 @@ a {
 	margin-bottom: 40px;
 }
 </style>
+  <style>
+  .modal-header, .close {
+  	  background-size: 100%;
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  </style>
 <%@include file="WePet_searchTest.jsp"%>
 </head>
 
@@ -119,60 +131,7 @@ a {
 	</header>
 
 	<div id="wrapper">
-		<div id="d15_body">
-			<!-- 화면이벤트   -->
-			<div id="d15_body1"></div>
-			<div id="container"></div>
-			<!-- 클릭시 화면 보여주는 div -->
-			<div id="d15_body2">
-				<div style="z-index: 11; margin-bottom: 10px;">
-					<button title="Close (Esc)" type="button" class="mfp-close"
-						style="z-index: 11;" id="close">×</button>
-				</div>
-				<div style="z-index: 11; margin-bottom: -5px;">
-					&nbsp;<span
-						style="font-size: large; background-color: #ccffff; border-radius: 5px 5px 0px 0px; cursor: pointer;"
-						id="detailSelect">&nbsp;상세보기&nbsp;</span><span
-						style="font-size: large; background-color: #9999cc; border-radius: 5px 5px 0px 0px; cursor: pointer;"
-						id="protectSelect">&nbsp;임시보호&nbsp;</span><span
-						style="font-size: large; background-color: #6699cc; border-radius: 5px 5px 0px 0px; cursor: pointer;"
-						id="parcelSelect">&nbsp;&nbsp;분양받기&nbsp;&nbsp;</span>
-				</div>
-				<div id="detailView"
-					style="z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
-
-				</div>
-				<!-- 임시보호  -->
-				<div id="protectView"
-					style="z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
-					<br> <br>
-					<div style="width: 100%; text-align: center;">임시보호 받을 날을
-						입력해주세요</div>
-					<form id="protectform" method="post">
-						<input name="protectDSt" id="protectDSt" class="protectDSt"
-							type="text"
-							style="margin-left: 5%; margin-top: 5%; width: 90%; cursor: pointer;"
-							value="보호시작 날짜"> <input name="protectDEd" id="protectDEd"
-							class="protectDEd" type="text"
-							style="margin-left: 5%; margin-top: 2%; width: 90%; cursor: pointer;"
-							value="보호종료 날짜"> <input type="submit" value="임시보호신청"
-							style="margin-left: 10%; margin-right: 10%; margin-top: 5%; width: 80%;">
-					</form>
-				</div>
-				<!-- 분양 -->
-				<div id="parcelView"
-					style="z-index: 11; width: 98%; height: 78%; margin-top: 0%; border-radius: 5px;">
-					<br> <br>
-					<div style="width: 100%; text-align: center;">분양 받을 날을 입력해주세요</div>
-					<form id="parceform" method="post">
-						<input name="parcelD" id="parcelD" class="parcelD" type="text"
-							style="margin-left: 10%; margin-top: 10%; width: 80%; cursor: pointer;"
-							value="날짜입력"> <input type="submit" value="임시보호신청"
-							style="margin-left: 10%; margin-right: 10%; margin-top: 5%; width: 80%;">
-					</form>
-				</div>
-			</div>
-		</div>
+		
 
 
 
@@ -200,6 +159,133 @@ a {
 		<script src="../../pickadate/lib/picker.js"></script>
 		<script src="../../pickadate/lib/picker.date.js"></script>
 		<script src="../../pickadate/lib/legacy.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$("#protectView").hide();
+		$("#parcelView").hide();
+		
+		$(".detailSelect").click(function() {
+			$("#detailSelect").show();
+			$("#parcelView").hide();
+			$("#protectView").hide();
+		})
+		$(".protectSelect").click(function() {
+			$("#detailSelect").hide();
+			$("#parcelView").hide();
+			$("#protectView").show();
+		})
+		
+		$(".parcelSelect").click(function(){
+			$("#detailSelect").hide();
+			$("#parcelView").show();
+			$("#protectView").hide();
+		})
+		
+		
+		$(".close").click(function() {
+			window.location.reload();
+		})
+		$(".btn-danger").click(function() {
+			window.location.reload();
+		})
+		
+	});
+</script>
+
+<!-- Modala 만든는 폼 -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div style="float: right;"><br><br><h5 id="mCount" style="color: #429f20;"><span class="glyphicon glyphicon-eye-open"></span>조회수:</h5></div>
+        <div class="modal-header" style="padding:300px 50px 0px ">
+          <h3 id="mdate"><span class="glyphicon glyphicon-hourglass"></span></h3>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+        	
+        	<!-- 상세보기 부분 -->
+        	<div id="detailSelect">
+        <label style="margin-left:33%; margin-right:30%;font-size: 30px;"><h5 id="mSituation" style="font-size: 30px;"><span class="glyphicon glyphicon-leaf"></span></h5></label>
+            <div style="float: left; width: 48%">
+               <label for="mName"><span class="glyphicon glyphicon-tint"></span>품종</label>
+              <input type="text" readonly="readonly" class="form-control" id="mName" placeholder="품종">
+            </div>
+            <div style="float: right; width: 48%">
+               <label for="usrname"><span class="glyphicon glyphicon-scale"></span>무게</label>
+              	<input type="text" readonly="readonly" class="form-control" id="usrname" placeholder="무게">
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="mSw"><span class="glyphicon glyphicon-star"></span>특징</label>
+              <input type="text" class="form-control" readonly="readonly" id="mSw" placeholder="특징들">
+            </div>
+            <div class="form-group">
+              <label for="mLoc"><span class="glyphicon glyphicon-map-marker"></span>주소</label>
+              <input type="text" readonly="readonly" class="form-control" id="mLoc" placeholder="주소">
+            </div>
+            <div style="float: left; width: 48%">
+              <button type="button" id="protectSelect" class="btn btn-info btn-block protectSelect"><span class="glyphicon glyphicon-refresh"></span>임시보호</button>
+            </div>
+            <div style="float: right; width: 48%">
+              <button type="button" id="parcelSelect" class="btn btn-success btn-block parcelSelect"><span class="glyphicon glyphicon-heart"></span>분양</button>
+            </div>
+        	</div>
+        	
+        	<!-- 임시 보호 부분 -->
+        	<div id="protectView">
+        		<div style="width: 100%; font-size: 30px; text-align: center;">임시보호 받을 날을
+						입력해주세요</div>
+					<form id="protectform" method="post">
+						<input  name="protectDSt" id="protectDSt" class="protectDSt"
+							type="text"
+							style="margin-left: 5%; margin-top: 5%; width: 90%; cursor: pointer;"
+							value="보호시작 날짜"> 
+						<input name="protectDEd" id="protectDEd" class="protectDEd" type="text"
+							style="margin-left: 5%; margin-top: 2%; width: 90%; cursor: pointer;"
+							value="보호종료 날짜"> 
+							<button type="submit"  class="btn btn-info btn-block btn-lg"
+							style=" margin-top: 5%; width: 100%;"><span class="glyphicon glyphicon-ok"></span>임시보호신청</button>
+					</form>
+					<br>
+					<div style="float: left; width: 48%">
+              			<button type="button" id="detailSelect" class="btn btn-primary btn-block detailSelect"><span class="glyphicon glyphicon-search"></span>상세보기</button>
+            		</div>
+            		<div style="float: right; width: 48%">
+              			<button type="button" id="parcelSelect" class="btn btn-success btn-block parcelSelect"><span class="glyphicon glyphicon-heart"></span>분양</button>
+            		</div>
+        	</div>
+        	
+        	
+        	<!-- 상세보기 -->
+        	<div id="parcelView">
+					<br><br>
+					<div style="width: 100%; font-size: 30px; text-align: center;">분양 받을 날을 입력해주세요</div>
+				<form id="parceform" method="post">
+						<input name="parcelD" id="parcelD" class="parcelD" type="text"
+							style="margin-left: 10%; margin-top: 10%; width: 80%; cursor: pointer;"
+							value="날짜입력"> 
+							<button type="submit"  class="btn btn-success btn-block btn-lg"
+							style=" margin-top: 5%; width: 100%;"><span class="glyphicon glyphicon-ok"></span>임시보호신청</button>
+				</form>
+				<br>
+					<div style="float: left; width: 48%">
+              			<button type="button" id="detailSelect" class="btn btn-primary btn-block detailSelect"><span class="glyphicon glyphicon-search"></span>상세보기</button>
+            		</div>
+            		<div style="float: right; width: 48%">
+            			<button type="button" id="protectSelect" class="btn btn-info btn-block protectSelect"><span class="glyphicon glyphicon-refresh"></span>임시보호</button>
+            		</div>
+			</div>
+        	
+        </div>
+        <div class="modal-footer">
+      	<button type="submit" style="width: 100%" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div id="container"></div>
 
 		<script type="text/javascript">
 			var $input = $('.parcelD').pickadate({
