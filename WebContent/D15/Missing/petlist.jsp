@@ -98,7 +98,9 @@ header .container {
 
 
 	<h1 style="text-align: center">실종신고 게시판</h1>
-
+	
+	<div class="container">
+		<div class="row">
 	<c:forEach var="list" items="${list}">
 
 		<div class="col-sm-4" style="margin-top: 20px">
@@ -133,10 +135,11 @@ header .container {
 		</div>
 
 	</c:forEach>
-
+		</div>
+	</div>
 
 	<div style = "clear:both">
-		<table class="table table-hover">
+		<table class="table">
 
 			<tr>
 				<td colspan="3" align="center">
