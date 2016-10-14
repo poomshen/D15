@@ -12,7 +12,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html style = "margin-bottom : 40px; margin-top:100px">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +42,7 @@
 	<c:set var="dtolist" value="${requestScope.dtolist}" />
 	
 	<div class="container">
-	<h3>마이페이지</h3>
+	<h3>분양 관리</h3>
 	<ul class="nav nav-tabs">
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
   		<li role="presentation" class="active"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
@@ -56,15 +56,15 @@
 	<div class = "col-sm-8">
 		<!-- <h1 style = "text-align:center">분양 신청 내역</h1> -->
 		<table class="table table-hover">
-			<tr>
-				<th>분양번호</th>
-				<th>회원번호</th>
-				<th>유기견번호</th>
-				<th>승인신청일</th>
-				<th>분양시작일</th>
-				<th>승인상태</th>
-			</tr>
-			
+
+				<tr>
+					<th>분양번호</th>
+					<th>회원번호</th>
+					<th>유기견번호</th>
+					<th>승인신청일</th>
+					<th>분양시작일</th>
+					<th>승인상태</th>
+				</tr>
 				<c:forEach var="i" items="${dtolist}">
 					<tr>
 						<td>${i.pc_no}</td>

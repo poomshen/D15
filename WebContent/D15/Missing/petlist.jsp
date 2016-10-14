@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -25,6 +26,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 	
 <script type="text/javascript">
+
       $(function(){
          $("#button").click(function(){
             location.href = "BoardWrite.missing";
@@ -98,7 +100,8 @@ header .container {
 
 
 	<h1 style="text-align: center">실종신고 게시판</h1>
-
+	<div class = "container">
+	<div class = "row">
 	<c:forEach var="list" items="${list}">
 
 		<div class="col-sm-4" style="margin-top: 20px">
@@ -133,9 +136,12 @@ header .container {
 		</div>
 
 	</c:forEach>
+	</div>
+	</div>
 
-	<div style="clear: both">
-		<table align="center">
+	<div style = "clear:both">
+		<table class="table table-hover">
+
 			<tr>
 				<td colspan="3" align="center">
 					<ul class="pagination">

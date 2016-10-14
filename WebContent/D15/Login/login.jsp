@@ -17,6 +17,7 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 #wrap03{
 margin-top: 100px;
@@ -42,29 +43,59 @@ margin-top: 100px;
 </header>
 
 
-<div id="wrap03">	
+	<!--로그인 폼-->
+	<div class="container text-center">
+		
+		<div class="row">
+		
+			<div class="col-sm-4"></div>
+		
+			<h1>로그인</h1>
+			
+		</div>
+		
+		<div class="row">
+		
+			<div class="col-sm-2"></div>
+			
+			<div class="col-sm-8">		
+			
+					<form class="form-horizontal" action="LoginOk.login" method="post">
+						
+					<div class="form-group">
+					      <label class="control-label col-sm-4" for="m_id">아이디 :</label>
+					      <div class="col-sm-8">
+					        <input type="text" class="form-control" name="m_id" id="m_id" placeholder="아이디 입력">
+					      </div>
+					 </div>
 					
-<div style = "text-align:center">				
-	<h1>로그인</h1>
-	<form action="LoginOk.login" method="post" class="lgform">
-		<div class="form-group">
-			<label for="m_id">ID 
-				<input type="text" class="form-control" 
-				name="m_id" id="m_id" placeholder="아이디 입력"></label>
-		</div>
-		<div class="form-group">
-			<label for="m_pwd">비밀번호 
-				<input type="password" class="form-control"
-				 name="m_pwd" id="m_pwd" placeholder="비밀번호 입력"></label>
-		</div>
-		<div class="form-group">
-			<label><input type="submit" value="로그인" class = "btn btn-default"></label>
-			<input type = "button" value ="회원가입" class = "btn btn-default" id = "button">
-			<input type = "button" value = "ID/PW 찾기" class = "btn btn-default" id = "button2">
-		</div>
-	</form>
-</div>
+					<div class="form-group">
+						<label  class="control-label col-sm-4" for="m_pwd">비밀번호</label>
+							<div class="col-sm-8">
+								<input type="password" class="form-control" name="m_pwd" id="m_pwd" placeholder="비밀번호 입력">
+							</div>	
+					</div>
+					
+					<div class="form-group">
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="submit" value="로그인" class = "btn btn-default">
+							<input type = "button" value ="회원가입" class = "btn btn-default" id = "button">
+							<input type = "button" value = "ID/PW 찾기" class = "btn btn-default" id = "button2">
+						
+					</div>
+				
+					</form>
+			
+				</div>
+			
+			<div class="col-sm-2"></div>
 
+
+		</div>
+		
+		
+	</div>
+	
 <footer>
 		<jsp:include page="../../include/footer.jsp"/>  	
 </footer>

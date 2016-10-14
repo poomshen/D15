@@ -92,10 +92,10 @@
                                       
             		</c:when>
             		<c:when test="${dto.m_id!=null}">
-            			<li><a href="#"><span
+            			<li><a href="/TeamProject3_D15/D15/Login/Mypage.login"><span
                      		class="glyphicon glyphicon-user"></span>${dto.m_id}</a></li>
                      		
-                     	<li><a href="#"><span class="glyphicon glyphicon-envelope logo" id="message_new"></span></a></li>
+                     	<li><a href="/TeamProject3_D15/D15/Login/myTakeNoMessagelist.Message"><span class="glyphicon glyphicon-envelope logo" id="message_new"></span></a></li>
                      	
                      	<script type="text/javascript">
 	                        $(function(){
