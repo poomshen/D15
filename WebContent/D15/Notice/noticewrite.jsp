@@ -40,9 +40,7 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="notice_content">내용</label>
 			    <div class="col-sm-8">
-			      <textarea rows="10" name="notice_content" id="notice_content" class="form-control">
-			      
-			      </textarea>
+			      <textarea rows="10" name="notice_content" id="notice_content" class="form-control"></textarea>
 			    </div>
 			  </div>
 			

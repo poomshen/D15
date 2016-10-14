@@ -23,6 +23,9 @@ public class NoticeUpdateGo_Service implements Action {
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		
+		System.out.println("no : " + request.getParameter("no"));
+		System.out.println("page : " + request.getParameter("page"));
+		String page = request.getParameter("page");
 		int no =Integer.parseInt(request.getParameter("no"));
 		Notice_DAO dao = new Notice_DAO();
 		Notice_DTO dto = new Notice_DTO();
@@ -43,10 +46,12 @@ public class NoticeUpdateGo_Service implements Action {
 		
 
 		request.setAttribute("noticedto", dto);
+		//request.setAttribute("page", page);
+		//request.setAttribute("no", no);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("noticeupdate.jsp");
+		forward.setPath("noticeupdate.jsp?no=" + no + "&page=" + page);
 		return forward;
 		
 		

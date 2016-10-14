@@ -299,4 +299,38 @@ public class Notice_DAO {
 		}
 		return dto;
 	}
+	
+	public boolean noticeDelete(int no) {
+
+		String board_delete_sql = "delete from D15_notice where notice_no = ?";
+
+		int result = 0;
+
+		try {
+			
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(board_delete_sql);
+			pstmt.setInt(1, no);
+			result = pstmt.executeUpdate();
+			
+			if (result == 0)
+				return false;
+
+			return true;
+		} catch (Exception e) {
+			System.out.println("noticeDelete error");
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception ex) {
+			}
+
+		}
+
+		return false;
+	}
 }

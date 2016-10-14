@@ -39,9 +39,7 @@
 			<tr>
 				<td >내용</td>
 				<td colspan="4">
-					<textarea rows="16" cols="15" class="form-control" readonly="readonly">
-						${noticedto.notice_content}
-					</textarea>
+					<textarea rows="16" cols="15" class="form-control" readonly="readonly">${noticedto.notice_content}</textarea>
 				</td>
 			</tr>
 		</table>
@@ -51,6 +49,7 @@
 		<input type = "button" class = "btn btn-default" value = "목록으로" id = "list">
 
 		</div>
+		
 </section>
 <script type="text/javascript">
  	$(function(){
@@ -58,8 +57,10 @@
  			location.href = "NoticeUpdateGo.notice?no=${noticedto.notice_no}&page=${nowPage}";
  		});
  		$("#delete").click(function(){
- 			loaction.href = "NoticeDelete.notice?no=${noticedto.notice_no}";
+ 			
+ 			location.href = "noticedelete.jsp?no=${noticedto.notice_no}";
  		});
+ 		
  		$("#list").click(function(){
  			location.href = "NoticeList.notice?page=${nowPage}";
  		});

@@ -4,6 +4,7 @@
 
 <%
 	Notice_DTO noticedto = (Notice_DTO)request.getAttribute("noticedto");
+	String Page = request.getParameter("page");
 %>
 
 <html>
@@ -17,6 +18,11 @@
 	function notice(){
 		$("#notice").submit();
 	}
+	$(function(){
+		$("#btn").click(function() {
+			history.go(-1);
+		});
+	});
 	</script>
 </head>
 <style>
@@ -31,7 +37,7 @@
 	<jsp:include page = "../../include/header.jsp"/>
 </header>
 <div id = "wrap">
-<form action="NoticeUpdate.notice" method="post" name="notice">
+<form action="NoticeUpdate.notice?page=<%=Page%>" method="post" name="notice">
 <input type="hidden" name="notice_no" value=<%=noticedto.getNotice_no() %>>
 
 			<h3 style = "text-align:center">게시글 수정</h3>
@@ -48,12 +54,12 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="notice_content">내용</label>
 			    <div>
-			      <textarea name="notice_content" class="form-control" id="notice_name" rows = "5" cols = "10"><%=noticedto.getNotice_content()%>"</textarea>
+			      <textarea name="notice_content" class="form-control" id="notice_name" rows = "5" cols = "10"><%=noticedto.getNotice_content()%></textarea>
 			    </div>
 			 </div>
 			<font size=2>
 			<input type = "submit" value = "수정" class = "btn btn-default">
-			<a href="javascript:history.go(-1)">[뒤로]</a>&nbsp;&nbsp;
+			<input type = "button" value = "뒤로" class = "btn btn-default" id = "btn">
 			</font>
 			</div>
 			<div class = "col-sm-4"></div>
