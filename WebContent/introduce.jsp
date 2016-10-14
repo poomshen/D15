@@ -32,7 +32,13 @@ img{max-width:100%; height:auto;}
 .logo {
 	font-size: 18px;
 }
-
+</style> -->
+<style>
+#wrap03 {
+	margin-top: 100px;
+}
+</style>
+<style>
 ul.tab {
     list-style-type: none;
     margin: 0;
@@ -71,7 +77,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
 }
 
 </style>
- -->
+ 
 <script>
 
 function openCity(evt, cityName) {
@@ -101,12 +107,12 @@ function openCity(evt, cityName) {
 </script>
 </head>
 										
-<body style="margin-bottom:40px;">
+<body>
 
 	<header>
 		<jsp:include page="include/header.jsp" />
 	</header>
-	<section>
+	<section id="wrap03">
 
 		<div class="container">
 			
@@ -116,13 +122,13 @@ function openCity(evt, cityName) {
 			</div>
 			
 			<ul class="tab" id="title">
-	            <li><a href="#title" class="tablinks"
+	            <li><a href="#" class="tablinks"
 	               onclick="openCity(event, 'Livedog')">사랑할개?</a></li>
-	            <li><a href="#Sequence" class="tablinks"
+	            <li><a href="#" class="tablinks"
 	               onclick="openCity(event, 'Sequence')">분양 절차</a></li>
-	            <li><a href="#Object" class="tablinks"
+	            <li><a href="#" class="tablinks"
 	               onclick="openCity(event, 'Object')">사이트 개설 목적</a></li>
-	            <li><a href="#Location" class="tablinks"
+	            <li><a href="#" class="tablinks"
 	               onclick="openCity(event, 'Location')">찾아오시는 길</a></li>
          	</ul>
          	

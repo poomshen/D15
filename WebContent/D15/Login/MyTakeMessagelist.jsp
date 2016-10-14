@@ -56,6 +56,7 @@
 	%>
 	<div class="container">
 	<h3>받은 쪽지함</h3>
+	<br><br>
 	<ul class="nav nav-tabs">
   		<li role="presentation" ><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
@@ -64,15 +65,18 @@
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myMakeMessagelist.Message">보낸 쪽지함</a></li>
 	</ul>
 	</div>
-	<div style="width: 20%">
-	<ul class="nav nav-pills nav-stacked">
-  		<li role="presentation"><a href="myTakeMessagelist.Message">전체 받은 쪽지함</a></li>
-  		<li role="presentation"><a href="myTakeNoMessagelist.Message">안 읽은 쪽지함</a></li>
-	</ul>
-	</div>
 	
-	<div class = "col-sm-3"></div>				
+	<div class = "col-sm-2"></div>
+	<div class = "col-sm-1">
+	
+	<ul class="nav nav-pills nav-stacked" style="width:100%">
+  		<li role="presentation"><a href="myTakeMessagelist.Message">전체 쪽지</a></li>
+  		<li role="presentation"><a href="myTakeNoMessagelist.Message">안 읽은 쪽지</a></li>
+	</ul>
+
+	</div>				
 		<div class = "col-sm-6">
+	
 <table  class="table table-hover"  style="width: 100%">
 <tr><th>보낸이</th><th>글내용</th><th>보낸날짜</th><th>읽음여부</th><th>삭제</th></tr>
 <c:forEach var="list" items="${messagelist}">
@@ -96,6 +100,7 @@
 </tr>
 </c:forEach>
 </table>
+
 </div>
 <div class = "col-sm-3"></div>	
 
