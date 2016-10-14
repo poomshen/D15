@@ -54,9 +54,9 @@
                
                   
                <li class="dropdown"><a class="dropdown-toggle"
-                  data-toggle="dropdown" href="#">현황(x)<span class="caret"></span></a>
+                  data-toggle="dropdown" href="#">현황<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                     <li><a href="/TeamProject3_D15/status.jsp">유기견 신고 수(x)</a></li>
+                     <li><a href="/TeamProject3_D15/status.jsp">유기견 신고 수</a></li>
                      <li><a href="#">각 보호소 위치(x)</a></li>
                   </ul></li>
                   

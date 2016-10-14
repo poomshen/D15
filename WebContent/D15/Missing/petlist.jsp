@@ -111,16 +111,15 @@ header .container {
 					<div class="col-sm-4" style="margin-top: 20px">
 						<span>게시물 번호 : ${list.mis_no}</span>
 
-						 <a href="../../upload/${list.p_image}"
-							class="image-popup"> <img src="../../upload/${list.p_image}"
-							alt="Cinque Terre" width="304" height="236"></a>
+						 <img src="../../upload/${list.p_image}"
+							alt="Cinque Terre" width="304" height="236">
 
 
 						<h2>회원 ID : ${list.m_id}</h2>
 						<span> 실종 날짜 : ${list.mis_date} <!-- 회원/비회원 처리 -->
-						<%--  <c:set
+						  <c:set
 								var="dto" value="${sessionScope.memberdto}" /> 
-								<c:if test="${dto.m_id!=null && list.mis_pro=='N'}"> --%>
+								<%--<c:if test="${dto.m_id!=null && list.mis_pro=='N'}"> --%>
 								
 								<input type="button" id="detail<%=i++%>" value="상세보기"
 									class="btn btn-info" onclick="detail(${list.mis_no})">

@@ -44,8 +44,10 @@
 			</tr>
 		</table>
 		<br/>
-		<input type = "button" class = "btn btn-default" value = "수정" id = "update">
-		<input type = "button" class = "btn btn-default" value = "삭제" id = "delete">
+		<c:if test = "${sessionScope.memberdto.m_id == 'admin' }">
+			<input type = "button" class = "btn btn-default" value = "수정" id = "update">
+			<input type = "button" class = "btn btn-default" value = "삭제" id = "delete">
+		</c:if>
 		<input type = "button" class = "btn btn-default" value = "목록으로" id = "list">
 
 		</div>
