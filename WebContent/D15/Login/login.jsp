@@ -46,6 +46,8 @@ margin-top: 100px;
 
 	<!--로그인 폼-->
 	<div class="container text-center">
+	
+	<form class="form-horizontal" action="LoginOk.login" method="post">		
 		
 		<div class="row">
 		
@@ -55,55 +57,71 @@ margin-top: 100px;
 			
 		</div>
 		<br/><br/>
+		
+	
+	
 		<div class="row">
 		
 			<div class="col-sm-2"></div>
 			
 			<div class="col-sm-8">		
 			
-					<form class="form-horizontal" action="LoginOk.login" method="post">
+			
 						
 					<div class="form-group">
 					      <label class="control-label col-sm-4" for="m_id">아이디 :</label>
-					      <div class="col-sm-4">
+					      <div class="col-sm-5">
 					        <input type="text" class="form-control" name="m_id" id="m_id" placeholder="아이디 입력">
 					      </div>
 					 </div>
-					
+			</div>
+		</div>
+		<div class="row">	
+		
+			<div class="col-sm-2"></div>
+			
+			<div class="col-sm-8">	
+				
 					<div class="form-group">
 						<label  class="control-label col-sm-4" for="m_pwd">비밀번호</label>
-							<div class="col-sm-4">
+							<div class="col-sm-5">
 								<input type="password" class="form-control" name="m_pwd" id="m_pwd" placeholder="비밀번호 입력">
 							</div>	
 					</div>
-					
+			</div>
+		</div>	
+		<div class="row">	
+		
+			<div class="col-sm-2"></div>
+			
+			<div class="col-sm-8">	
+				
 					<div class="form-group">
 							<div class="row">
 							
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="submit" value="로그인" class = "btn btn-default">
-						
-							<input type = "button" value ="회원가입" class = "btn btn-default" id = "button">
-						
-							<input type = "button" value = "ID/PW 찾기" class = "btn btn-default" id = "button2">
-						
+								<div class="col-sm-4"></div>
+								<div class="col-sm-5">
+								<input type="submit" value="로그인" class = "btn btn-default">
+							
+								<input type = "button" value ="회원가입" class = "btn btn-default" id = "button">
+							
+								<input type = "button" value = "ID/PW 찾기" class = "btn btn-default" id = "button2">
+								</div>
+								<div class="col-sm-3"></div>
 							</div>
 						
 					</div>
 				
-					</form>
+				
 			
-				</div>
+			</div>
 			
-			<div class="col-sm-2"></div>
-
-
+			</div>
 		</div>
-		
-		
-	</div>
 	
-	</div>
+	</form>
+	
+</div>
 	
 	
 <footer>

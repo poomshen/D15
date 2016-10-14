@@ -47,7 +47,7 @@ public class NoticeUpdate_Service implements Action {
 		}
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/D15/BoardDetail.Board?no="+dto.getNotice_no()+"&page=" + page);
+		forward.setPath("/D15/Notice/NoticeDetail.notice?no="+dto.getNotice_no()+"&page=" + page);
 		return forward;
 	}
 

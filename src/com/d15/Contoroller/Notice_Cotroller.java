@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
+import com.d15.Service.NoticeDelete_Service;
 import com.d15.Service.NoticeDetail_Service;
 import com.d15.Service.NoticeInsert_Service;
 import com.d15.Service.NoticeList_Service;
@@ -110,11 +111,18 @@ public class Notice_Cotroller extends HttpServlet {
 				System.out.println("NoticeUpdate error");
 				e.printStackTrace();
 			}
+		}else if(Command.equals("/D15/Notice/NoticeDelete.notice")){
+			System.out.println("공지사항 글 삭제");
+			action = new NoticeDelete_Service();
+			try{
+				
+				forward = action.execute(request, response);
+				
+			}catch(Exception e){
+				System.out.println("NoticeDelete error");
+				e.printStackTrace();
+			}
 		}
-		
-		
-		
-		
 		
 		if (forward != null) {
 			if(forward.isRedirect()){

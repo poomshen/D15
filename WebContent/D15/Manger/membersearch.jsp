@@ -66,17 +66,22 @@
 			<li><a href="ProtectManger.Manger">임시보호 대기 리스트</a></li>
 			<li><a href="ParcelManger.Manger">분양 대기 리스트</a></li>
 		</ul>
-		<br><br><br><br>
+		<br><br>
 		
-		<div class = "col-sm-12">
 		<div class="form-group" style = "width:50%">
-			<input type="text" id="search" name = "search">
+		<div class="row">
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="search" name = "search">
+			</div>
+			<div class="col-sm-6">
 			<button type="button" class="btn btn-default btn-sm" id = "searchbtn">
 				<span class="glyphicon glyphicon-search"></span> Search
 			</button>
+			</div>
+		</div>
 		</div>
 		<div id="member"></div>
-		</div>
+		
 		
 	</div>
 	<footer>
