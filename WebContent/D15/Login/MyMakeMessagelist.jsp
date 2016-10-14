@@ -51,6 +51,7 @@
 	
 	<div class="container">
 	<h3>보낸 쪽지함</h3>
+	<br/><br>
 	<ul class="nav nav-tabs">
   		<li role="presentation" ><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
