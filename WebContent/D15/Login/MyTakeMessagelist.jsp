@@ -54,6 +54,8 @@
 	<%
 		pageContext.include("../../include/header.jsp");
 	%>
+	<div class="container">
+	<h3>받은 쪽지함</h3>
 	<ul class="nav nav-tabs">
   		<li role="presentation" ><a href="/TeamProject3_D15/D15/Login/Mypage.login">회원정보</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/MypageStatus.login">분양</a></li>
@@ -61,6 +63,7 @@
   		<li role="presentation" class="active"><a href="/TeamProject3_D15/D15/Login/myTakeMessagelist.Message">받은 쪽지함</a></li>
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myMakeMessagelist.Message">보낸 쪽지함</a></li>
 	</ul>
+	</div>
 	<div style="width: 20%">
 	<ul class="nav nav-pills nav-stacked">
   		<li role="presentation"><a href="myTakeMessagelist.Message">전체 받은 쪽지함</a></li>
