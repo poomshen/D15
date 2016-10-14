@@ -43,6 +43,10 @@
 		$.post("MessagedDetail.Message", {"mes_no":mes_no }, function(data, textStatus, req) {
 			 console.log(data);
 		})
+		
+	}
+	function isclose(){
+		window.location.reload();
 	}
 
 	</script>
@@ -69,8 +73,8 @@
 <table  class="table table-hover"  style="width: 100%">
 <tr><th>보낸이</th><th>글내용</th><th>보낸날짜</th><th>읽음여부</th><th>삭제</th></tr>
 <c:forEach var="list" items="${messagelist}">
-<tr><td>${list.mes_send }</td>
-<td><a onclick="indetail(${list.mes_no })"" href="#" data-toggle="modal" 	data-target="#myModal${list.mes_send }" >${list.mes_content }</a></td>
+<tr><td>${list.m_id }</td>
+<td><a onclick="indetail(${list.mes_no })" href="#" data-toggle="modal" 	data-target="#myModal${list.mes_send }" >${list.mes_content }</a></td>
 <td>${list.mes_date}</td>
 <!-- 읽음 안읽음 표시  -->
      	<c:set var="check" value="${list.mes_check }"/>
@@ -101,7 +105,7 @@
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<button type="button" onclick="isclose()" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">메세지 보내기</h4>
 				</div>
 					<div class="modal-body">
@@ -109,14 +113,14 @@
 						<input class="form-control" type="text" value=" ${sessionScope.memberdto.m_id }" name="m_id" id="m_id" readonly="readonly"> 
 						</div>
 						<div style="width: 47%; float: right ;">
-						<input class="form-control" type="text" value="${list.mes_send }" readonly="readonly" name="m_send" id="m_send"> 
+						<input class="form-control" type="text" value="${list.m_id }" readonly="readonly" name="m_send" id="m_send"> 
 						</div>
 						<br>
 						<textarea style="margin-top: 10%;" class="form-control" rows="5" cols="30"  readonly="readonly" name="mes_content" id="mes_content">${list.mes_content }</textarea>
 					</div>
 					<div class="modal-footer">
-						<button type="button" id="message_in" class="btn btn-default"  data-dismiss="modal">답장하기</button> 
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" onclick="isclose()" id="message_in" class="btn btn-default"  data-dismiss="modal">답장하기</button> 
+						<button type="button" onclick="isclose()" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 			</div>
 		</div>

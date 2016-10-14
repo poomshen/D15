@@ -65,15 +65,6 @@
 			<!-- /container -->
 		</section>
 
-<<<<<<< HEAD
-		<br> <br> <br>
-=======
-	<footer>    
-		<jsp:include page="include/footer.jsp"/>
-	</footer>
-	<!-- bootstrap js -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
->>>>>>> de0d0ca26ba194bdbcfe2010ef61e5f85989dc50
 
 		<footer>
 			<jsp:include page="include/footer.jsp" />

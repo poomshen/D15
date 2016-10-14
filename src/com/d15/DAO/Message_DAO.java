@@ -63,8 +63,9 @@ public class Message_DAO {
 	//전체 쪽지 리스트
 	public ArrayList<Message_DTO> selectTakeList(int mb_no){
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
-		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check "
-				+ " from D15_message where m_no = ? and mes_check != 'R'";
+		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check,m_id "
+				+ " from (Select * from D15_message where m_no = ? and mes_check != 'R') j "
+				+ " join D15_Member m on  j.m_no = m.m_no ";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -77,6 +78,7 @@ public class Message_DAO {
 		 		massage_DTO.setMes_content(rs.getString(3));
 		 		massage_DTO.setMes_date(rs.getDate(4));
 		 		massage_DTO.setMes_check(rs.getString(5));
+		 		massage_DTO.setM_id(rs.getString(6));
 		 		arrayList.add(massage_DTO);
 		 	}
 		 	return arrayList;
@@ -97,8 +99,9 @@ public class Message_DAO {
 	//안읽은 쪽지 리스트
 	public ArrayList<Message_DTO> selectNoList(int mb_no){
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
-		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check "
-				+ " from D15_message where m_no = ? and (mes_check = 'N' or mes_check ='W') ";
+		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check,m_id "
+				+ " from (select * from D15_message where m_no = ? and (mes_check = 'N' or mes_check ='W')) j join D15_Member m "
+				+ " on j.m_no = m.m_no ";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -111,6 +114,7 @@ public class Message_DAO {
 		 		massage_DTO.setMes_content(rs.getString(3));
 		 		massage_DTO.setMes_date(rs.getDate(4));
 		 		massage_DTO.setMes_check(rs.getString(5));
+		 		massage_DTO.setM_id(rs.getString(6));
 		 		arrayList.add(massage_DTO);
 		 	}
 		 	return arrayList;
@@ -154,8 +158,9 @@ public class Message_DAO {
 	//보낸 쪽지 리스트
 	public ArrayList<Message_DTO> selectSendlist(int mb_no){
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
-		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check "
-				+ " from D15_message where mes_send = ? and mes_check != 'W' and mes_check != 'M' ";
+		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check,m_id "
+				+ " from (select * from D15_message where mes_send = ? and mes_check != 'W' and mes_check != 'M') j"
+				+ " join D15_Member m on j.m_no = m.m_no";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -168,6 +173,7 @@ public class Message_DAO {
 		 		massage_DTO.setMes_content(rs.getString(3));
 		 		massage_DTO.setMes_date(rs.getDate(4));
 		 		massage_DTO.setMes_check(rs.getString(5));
+		 		massage_DTO.setM_id(rs.getString(6));
 		 		arrayList.add(massage_DTO);
 		 	}
 		 	return arrayList;
@@ -215,9 +221,7 @@ public class Message_DAO {
 			conn = ds.getConnection();
 			String sql ="Update D15_message set mes_check = 'Y' where Mes_no = ?";
 			String check = whereCheck(mes_no);
-			System.out.println("aasdfkaskdhnkfj :"+check);
 			if(check.trim().equals("W")){
-				System.out.println("아 시바르ㅏ누멈");
 				sql ="Update D15_message set mes_check = 'M' where Mes_no = ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1,mes_no);
@@ -227,7 +231,6 @@ public class Message_DAO {
 				}
 				return ck;
 			}else if (check.trim().equals("M")) {
-				System.out.println("아 시바르ㅏ누멈");
 				sql ="Update D15_message set mes_check = 'M' where Mes_no = ?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1,mes_no);
