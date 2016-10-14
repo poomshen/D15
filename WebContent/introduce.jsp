@@ -36,6 +36,7 @@ img{max-width:100%; height:auto;}
 <style>
 #wrap03 {
 	margin-top: 100px;
+	margin-bottom: 70px;
 }
 </style>
 <style>
@@ -112,7 +113,7 @@ function openCity(evt, cityName) {
 	<header>
 		<jsp:include page="include/header.jsp" />
 	</header>
-	<section id="wrap03">
+	<section id="wrap03" >
 
 		<div class="container">
 			
@@ -189,7 +190,7 @@ function openCity(evt, cityName) {
 		</div>
 
 	</section>
-
+	
 	<footer>    
 		<jsp:include page="include/footer.jsp"/>
 	</footer>
