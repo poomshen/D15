@@ -9,19 +9,22 @@
 <%@page import="com.d15.DAO.Kind_DAO"%>
 <%@page import="net.sf.json.JSONArray"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html style = "margin-bottom:40px; margin-top:100px">
+<html style="margin-bottom: 40px; margin-top: 100px">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>살아나개 사랑할개</title>
 
 <script>
@@ -99,75 +102,155 @@
 
 <body>
 	<header>
-		<jsp:include page = "../../include/header.jsp"/>
-	</header>	
-				
-	<form action="BoardWriteOk1.missing" name="form" id="form"
-								method="post" enctype="multipart/form-data">
-		<h1 style="text-align:center">실종견 신고</h1>
-		<br><br>									
-		<div class = "col-sm-3"></div>
-		<div class = "col-sm-3">					
-			<label for ="k_kind">견 종</label>
-			<select name="k_kind" id="k_kind">
-				<option>선택</option>
-			</select><br><br>
-								
-			<label for = "p_gender">성 별</label>&nbsp;
-			<input type="radio" value="m" name="p_gender" checked>수컷
-			<input type="radio" value="f" name="p_gender">암컷 <br>
-								
-			<div class="form-group" style="width:250px;">
-     			 <label for="p_color" style="float:left;" >색 상</label>
-      			 <input type="text" class="form-control" name="p_color" id = "p_color" placeholder="색상을 적어주세요.">
-       		</div>
-       												
-			<div class="form-group" style="width:250px;">
-    			<label for="p_feature" style="float:left;" >특 징</label>
-	     		<textarea rows="5" cols="20" name="p_feature" class="form-control"></textarea>
-       		</div>
-								
-			<div class="form-group" style="width:250px;">
-     			<label for="p_age" style="float:left;" >나 이</label>
-      			<input type="text" class="form-control" name="p_age" id = "p_age" placeholder="나이를 적어주세요.">
-       		</div>
-       							
-       		<div class="form-group" style="width:250px;">
-     			<label for="p_weight" style="float:left;" >체 중</label>
-      			<input type="text" class="form-control" name="p_weight" id = "p_weight" placeholder="체중을 적어주세요.">
-       		</div>
-       	</div>
-       	<div class = "col-sm-4">
-       		<label for = "p_image">사진 첨부</label>
-			<input type="file" name="p_image" id="p_image"><br>
-								
-			<div class="form-group" style="width:250px;">
-     			  <label for="mis_date" style="float:left;" >실종 날짜</label> -->
-      			 <input type="text" class="form-control" name="mis_date" id = "mis_date" placeholder="실종 날짜 선택."> 
-      			 
-       		</div>
-       							
-       		<div class="form-group" style="width:250px;">
-     			<label for="mis_loc" style="float:left;" >실종 위치</label>
-      			<input type="text" class="form-control" name="mis_loc" id = "mis_loc" placeholder="위치를 적어주세요.">
-       		</div>
-       							
-       		<div class="form-group" style="width:250px;">
-     			<label for="mis_content" style="float:left;" >내 용</label>
-				<textarea rows="5" cols="20" name="mis_content" class="form-control"></textarea>
-       		</div>
-       		<br>
-			<input type="submit" value="작성완료" id="button1" class = "btn btn-primary">
-			<input type="reset" value="다시작성" class = "btn btn-default"> 
-			<input type="button"
-				value="목록으로" id="button2" class = "btn btn-default">
-						
+		<jsp:include page="../../include/header.jsp" />
+	</header>
+	<div class="container">
+		<h1>실종견 신고</h1>
+		<hr />
+		<br>
+		<br>
+		<form action="BoardWriteOk1.missing" name="form" id="form"
+			method="post" enctype="multipart/form-data">
+		<div class="form-group">
+			<div class="col-sm-1"></div>
+			<label for="k_kind" class="control-label col-sm-1"
+				style="float: left;">견 종</label>
+			<div class="col-sm-3">
+				<select name="k_kind" id="k_kind" class="form-control">
+					<option>선택</option>
+				</select>
+			</div>
+			<div class="col-sm-2"></div>
+
+			<label for="p_color" class="control-label col-sm-1"
+				style="float: left;">색 상</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" name="p_color" id="p_color"
+					placeholder="색상을 적어주세요.">
+			</div>
+
+			<div class="col-sm-3"></div>
 		</div>
-		<div class = "col-sm-2"></div>								
+		<br>
+		<br>
+		<br>
+
+		<div class="form-group">
+			<div class="col-sm-1"></div>
+			<label for="p_age" class="control-label col-sm-1"
+				style="float: left;">나 이</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" name="p_age" id="p_age"
+					placeholder="나이를 적어주세요.">
+			</div>
+
+			<div class="col-sm-2"></div>
+
+			<div class="col-sm-1"></div>
+
+			<label for="mis_date" class="control-label col-sm-1"
+				style="float: left;">실종 날짜</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" name="mis_date"
+					id="mis_date" placeholder="실종 날짜 선택.">
+			</div>
+		</div>
+		<div class="col-sm-3"></div>
+		<br>
+		<br>
+		<br>
+
+		<div class="form-group">
+			<div class="col-sm-1"></div>
+			<label for="p_gender" class="control-label col-sm-1"
+				style="float: left;">성 별</label>
+			<div class="col-sm-2">
+				<input type="radio" value="m" name="p_gender" checked>수컷 <input
+					type="radio" value="f" name="p_gender">암컷
+			</div>
+
+
+			<div class="col-sm-2"></div>
+
+			<div class="col-sm-1"></div>
+			<label for="mis_loc" class="control-label col-sm-1"
+				style="float: left;">실종 위치</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" name="mis_loc" id="mis_loc"
+					placeholder="위치를 적어주세요.">
+			</div>
+
+		</div>
+
+		<div class="col-sm-3"></div>
+		<br>
+		<br>
+		<br>
+
+		<div class="form-group">
+			<div class="col-sm-1"></div>
+
+			<label for="p_feature" class="control-label col-sm-1"
+				style="float: left;">특 징</label>
+			<div class="col-sm-2">
+				<textarea rows="5" cols="10" name="p_feature" class="form-control"></textarea>
+			</div>
+
+			<div class="col-sm-2"></div>
+
+			<div class="col-sm-1"></div>
+			<label for="mis_content" class="control-label col-sm-1"
+				style="float: left;">내 용</label>
+			<div class="col-sm-2">
+				<textarea rows="5" cols="20" name="mis_content" class="form-control"></textarea>
+			</div>
+		</div>
+		<div class="col-sm-3"></div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<div class="form-group">
+			<div class="col-sm-1"></div>
+			<label for="p_weight" class="control-label col-sm-1"
+				style="float: left;">체 중</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" name="p_weight"
+					id="p_weight" placeholder="체중을 적어주세요.">
+			</div>
+			<div class="col-sm-2"></div>
+
+			<div class="col-sm-1"></div>
+			<label for="p_image" class="control-label col-sm-1"
+				style="float: left;">사진 첨부</label>
+			<div class="col-sm-2">
+				<input type="file" name="p_image" id="p_image">
+			</div>
+
+
+		</div>
+		<div class="col-sm-3"></div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="form-group" style="text-align: center">
+			<input type="submit" value="작성완료" id="button1"
+				class="btn btn-primary"> <input type="reset" value="다시작성"
+				class="btn btn-default"> <input type="button" value="목록으로"
+				id="button2" class="btn btn-default">
+		</div>
+
 	</form>
-						
-<footer>
-	<jsp:include page = "../../include/footer.jsp"/>
-</footer>
+	</div>
+
+	<footer>
+		<jsp:include page="../../include/footer.jsp" />
+	</footer>
 </body>
 </html>
