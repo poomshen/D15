@@ -113,6 +113,29 @@ public class Message_Contoroller extends HttpServlet {
 				forward  = action.execute(request, response);
 			} catch (Exception e) {
 			}
+		}else if(Command.equals("/D15/Manger/myTakeMessagelist.Message")){
+			//받은 메시지  -> 메시지 체크중 N 과 Y와 W를 보게됨
+			action = new TakeMessageList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+		}else if(Command.equals("/D15/Manger/myTakeNoMessagelist.Message")){
+			//받은 메시지중 읽지 않은 메시지 체크중 N 만 보게됨
+			action = new TakeNoMessageList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+				// TODO: handle exception
+			}
+		}else if(Command.equals("/D15/Manger/myMakeMessagelist.Message")){
+			//보낸 메세지 -> 메시지 체크중 Y와 N 과 R를 보게 됨
+			action = new MakeMessageList_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch (Exception e) {
+			}
 		}else{
 			
 		}
