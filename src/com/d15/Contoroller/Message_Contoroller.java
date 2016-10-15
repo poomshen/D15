@@ -106,6 +106,13 @@ public class Message_Contoroller extends HttpServlet {
 				
 			}
 			
+		}else if(Command.equals("/D15/Login/insertMessage.Message")){
+			//메시지 보내기
+			action = new InsertMessage_Service();
+			try {
+				forward  = action.execute(request, response);
+			} catch (Exception e) {
+			}
 		}else{
 			
 		}
