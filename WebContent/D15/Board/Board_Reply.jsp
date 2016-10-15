@@ -88,7 +88,8 @@
 		<div class="form-group">
 	   			<label class="control-label col-sm-2" for="M_ID">글쓴이</label>
 			    <div class="col-sm-4">
-			      <input type="text" name="M_ID" class="form-control" value="테스트글쓴이" id="M_ID" readonly="readonly">
+			    <c:set var="dto" value="${sessionScope.memberdto}"></c:set>
+			      <input type="text" name="m_no" class="form-control" value="${dto.m_no}" id="m_no" readonly="readonly">
 			    </div>
 		</div>
 			
@@ -122,8 +123,8 @@
 
 <br>
 <hr>
-<h3>원본 게시글</h3>
-<c:out value="${fn:replace(Content, '\\r\\n', '<br/>')}"/>
+<%-- <h3>원본 게시글</h3>
+<c:out value="${fn:replace(Content, '\\r\\n', '<br/>')}"/> --%>
 <hr>
 
 </body>

@@ -300,18 +300,20 @@ public class Board_DAO {
 			
 			sql = "insert into D15_board (B_NO,M_NO,B_NAME, B_CONTENT,B_COUNT, B_DATE, B_REF,"
 					+ "B_DEPTH,B_STEP) "
-					+ "values(B_NO_SEQ.nextval,2,?,?,0,sysdate,?,?,?)";
+					+ "values(B_NO_SEQ.nextval,?,?,?,0,sysdate,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 	
-			pstmt.setString(1, board.getB_name());
-			pstmt.setString(2, board.getB_content());
+			pstmt.setInt(1, board.getM_no());
+			System.out.println("m_no가 문제라나ㅡㄴ"+board.getM_no());
+			pstmt.setString(2, board.getB_name());
+			pstmt.setString(3, board.getB_content());
 			//pstmt.setString(3, board.getB_file());
-			pstmt.setInt(3, board.getB_ref());
+			pstmt.setInt(4, board.getB_ref());
 			System.out.println("보드겟 ref : "+board.getB_ref());
-			pstmt.setInt(4, board.getB_depth()+1);
+			pstmt.setInt(5, board.getB_depth()+1);
 			System.out.println("보드 겟 : "+board.getB_depth());
-			pstmt.setInt(5, board.getB_step()+1);
+			pstmt.setInt(6, board.getB_step()+1);
 			System.out.println("보드 겟 step : "+board.getB_step());
 			
 			pstmt.executeUpdate();

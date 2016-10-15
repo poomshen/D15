@@ -63,7 +63,9 @@
 						str+="<tr>"
 						str+="<td>"+items.m_no+"</td>";
 						str+="<td class='text-left' colspan=2>"+items.re_content+"</td>";
-						str+="<td><input type='button' id='deleteBtn"+items.re_no+"' class='btn btn-default' onclick='deleteReply("+items.re_no+", "+b_no+")' value='삭제'></td>"
+						if (items.m_no==${sessionScope.memberdto.m_no}){
+							str+="<td><input type='button' id='deleteBtn"+items.re_no+"' class='btn btn-default' onclick='deleteReply("+items.re_no+", "+b_no+")' value='삭제'></td>";							
+						}
 						str+="<td>"+items.re_date+"</td></tr>"
 						str+="</table><br>";
 									

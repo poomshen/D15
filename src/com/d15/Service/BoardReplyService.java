@@ -29,6 +29,7 @@ public class BoardReplyService implements Action {
 		
 		int result = 0;
 		
+		boarddto.setM_no(Integer.parseInt(request.getParameter("m_no")));
 		boarddto.setB_no(Integer.parseInt(request.getParameter("B_NO")));
 		boarddto.setB_name(request.getParameter("B_NAME"));
 		boarddto.setB_content(request.getParameter("B_CONTENT"));	
