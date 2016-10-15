@@ -28,7 +28,7 @@
 	pstmt.setInt(1, re_no);
 	pstmt.executeUpdate();
 	
-	sql="select re_no, m_no, b_no, re_content, re_date from D15_reply where b_no=?";
+	sql="select re_no, m_id, b_no, re_content, re_date from D15_reply where b_no=?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, b_no);
 	rs = pstmt.executeQuery();
@@ -38,7 +38,7 @@
 	while(rs.next()){
 		BoardReply_DTO dto=new BoardReply_DTO();
 		dto.setRe_no(rs.getInt(1));
-		dto.setM_no(rs.getInt(2));
+		dto.setM_id(rs.getString(2));
 		dto.setB_no(rs.getInt(3));
 		dto.setRe_content(rs.getString(4));
 
