@@ -1,3 +1,10 @@
+<!-- 
+ * @Class : Board_Delete.jsp
+ * @Date : 2016.10.5
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에서 글 삭제기능을 위한 view
+ -->
+
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 

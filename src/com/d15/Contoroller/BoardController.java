@@ -26,6 +26,8 @@ import com.d15.Service.BoardModifyService;
 import com.d15.Service.BoardModifyView;
 import com.d15.Service.BoardReplyService;
 import com.d15.Service.BoardReplyView;
+import com.d15.Service.ReplyDelete_Service;
+import com.d15.Service.ReplyService;
 
 
 @WebServlet("*.Board")
@@ -177,7 +179,31 @@ public class BoardController extends HttpServlet {
 				
 				e.printStackTrace();
 			}
-		}
+		} else if(Command.equals("/D15/ReplyService.Board")){
+	         
+	         System.out.println("댓글 처리");
+	         action = new ReplyService();
+	         
+	         try{
+	            
+	            forward = action.execute(request, response);
+	            System.out.println("댓글 처리 완료");
+	         }catch(Exception e){
+	            
+	            e.printStackTrace();
+	         }
+	      }else if(Command.equals("/D15/ReplyDelete_Service.Board")){
+	         
+	         System.out.println("댓글삭제");
+	         action = new ReplyDelete_Service();
+	         
+	         try{
+	            
+	         }catch(Exception e){
+	            
+	            e.printStackTrace();     
+	         }
+	      }
 
 		// 전체 설정
 		if (forward != null) {

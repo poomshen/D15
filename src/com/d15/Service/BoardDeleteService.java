@@ -43,6 +43,7 @@ public class BoardDeleteService implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
+		
 		if(pageName.equals("qna")){
 			forward.setPath("BoardList.Board?name=qna");
 		}else if(pageName.equals("review")){

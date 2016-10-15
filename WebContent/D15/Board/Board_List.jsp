@@ -1,5 +1,12 @@
+<!-- 
+ * @Class : Board_Lisst.jsp
+ * @Date : 2016.10.5
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에서 글 목록보기 위한 view
+ -->
+
+
 <%@page import="com.d15.DTO.Board_DTO"%>
-<%@page import="com.d15.DTO.Member_DTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
@@ -36,7 +43,8 @@
 	 	
 	 });
 	 </script>
-	 		 
+	 
+		 
 	<c:set var="boardList" value="${requestScope.boardList}"/>
 	<c:set var="listCount" value="${requestScope.listCount}"/>
 	<c:set var="nowPage" value="${requestScope.page}"/>
@@ -52,17 +60,17 @@
 <header>
 	<jsp:include page="../../include/header.jsp"/>
 </header>
+<c:set var="dto" value="${sessionScope.memberdto}" />
 <br>
 <!-- selectbox 게시판 메뉴-->
-
 
 <div class="container">
 	<div class="form-group">
 		<div class="col-sm-4">
 			<select id="smenu" class="form-control">
-				<option value="" >선택</option>						
-					<option value="/TeamProject3_D15/D15/BoardList.Board?name=qna" >Q&A게시판</option>
-					<option value="/TeamProject3_D15/D15/Board/ReviewList.Review?name=review" >후기게시판</option>			
+				<option value="" >선택</option>
+				<option value="/TeamProject3_D15/D15/BoardList.Board?name=qna" >Q&A게시판</option>
+				<option value="/TeamProject3_D15/D15/ReviewList.Review?name=review" >후기게시판</option>
 			</select>
 		</div>
 	</div>
@@ -109,11 +117,21 @@
 			</c:when>
 			<c:otherwise></c:otherwise>
 		</c:choose>
-			<a href="/TeamProject3_D15/D15/BoardDetail.Board?name=qna&num=${bd.b_no}">
-				${bd.b_name}
-			</a>
+		<!-- 요기에 걸자 -->
+
+			<c:choose>
+				<c:when test="${dto.m_id!=null}">
+					<a href="/TeamProject3_D15/D15/BoardDetail.Board?name=qna&num=${bd.b_no}">
+						${bd.b_name}
+					</a>
+				</c:when>
+				<c:when test="${dto.m_id==null}">
+						${bd.b_name}
+				</c:when>
+			
+			</c:choose>
 		</td>
-		<td>작성자</td>
+		<td>${bd.m_no}</td>
 	 	<td>${bd.b_date}</td>
 		<td>${bd.b_count}</td>
 	</tr>
@@ -133,11 +151,14 @@
 	
 	<tr align="right">
 		<td colspan="5">
-	   		<input type="button" id="writeBtn" class="btn btn-default" value="글쓰기">
+		
+		<c:if test="${dto.m_id!=null}">
+	   		<input type="button" id="writeBtn" class="btn btn-default" value="글쓰기">		
+		</c:if>
 		</td>
 	</tr>
-</table>
-	<div class="container text-center">
+	</table>
+		<div class="container text-center">
 
 		<ul class="pagination">	
 		<c:if test="${nowPage>=2}">

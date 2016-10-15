@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.Service.BoardDeleteService;
+import com.d15.Service.ReplyReview_Service;
 import com.d15.Service.ReviewAdd_Service;
 import com.d15.Service.ReviewDelete_Service;
 import com.d15.Service.ReviewDetail_Service;
@@ -40,7 +41,7 @@ public class Review_Controller extends HttpServlet {
 		doProcess(request, response);
 	}
 
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
 		
 		String RequestURI = request.getRequestURI();
 		String ContextPath = request.getContextPath();
@@ -53,7 +54,7 @@ public class Review_Controller extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 							   
-		if (Command.equals("/D15/Board/ReviewList.Review")) {
+		if (Command.equals("/D15/ReviewList.Review")) {
 			
 			System.out.println("리스트");
 			action = new ReviewList_Service(); 
@@ -140,7 +141,7 @@ public class Review_Controller extends HttpServlet {
 			} catch (Exception e) {
 				
 				e.printStackTrace();
-			}                          
+			}                              
 		} else if (Command.equals("/D15/ReviewReplyView.Review")) {
 			
 			System.out.println("게시판 답변 화면");
@@ -154,16 +155,16 @@ public class Review_Controller extends HttpServlet {
 			} catch (Exception e) {
 				
 				e.printStackTrace();
-			}                        
-		} else if(Command.equals("/D15/ReviewReplyService.Review")){
+			}                         
+		} else if(Command.equals("/D15/ReplyReview_Service.Review")){
 			
-			System.out.println("게시판 답변 처리");
-			action = new ReviewReply_Service(); 
+			System.out.println("게시판 댓글 처리");
+			action = new ReplyReview_Service(); 
 			
 			try {
 				
 				forward = action.execute(request, response);
-				System.out.println("게시판 답변처리 완료");
+				System.out.println("게시판 댓글 처리 완료");
 			
 			} catch (Exception e) {
 				
@@ -179,13 +180,26 @@ public class Review_Controller extends HttpServlet {
 				System.out.println("forward.isRedirect : "
 						+ forward.isRedirect());
 
-				response.sendRedirect(forward.getPath());
+				try {
+					response.sendRedirect(forward.getPath());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} else {
 
 				System.out.println("forward.getPath() : " + forward.getPath());
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher(forward.getPath());
-				dispatcher.forward(request, response);
+				try {
+					dispatcher.forward(request, response);
+				} catch (ServletException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	}

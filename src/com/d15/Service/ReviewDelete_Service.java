@@ -1,3 +1,11 @@
+/*
+ * @Class : ReviewDelete_Service
+ * @Date : 2016.10.11
+ * @Author : 조한솔
+ * @Desc : 후기게시판의 글삭제를 위한  Service 클래스
+*/
+
+
 package com.d15.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,7 +42,7 @@ public class ReviewDelete_Service implements Action{
 		forward.setRedirect(false);
 		
 		if(pageName.equals("review")){
-			System.out.println("if 내부 실행");
+
 			forward.setPath("ReviewList.Review?name=review");
 		}
 		return forward;

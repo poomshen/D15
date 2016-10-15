@@ -31,7 +31,6 @@ public class BoardModifyService implements Action {
 		Board_DAO boarddao = new Board_DAO();
 		Board_DTO boarddata = new Board_DTO();
 		
-		
         //실수정 (글제목 , 글내용) => qna_board_Modify.jsp
 		boarddata.setB_no(num);
 		boarddata.setB_name(request.getParameter("B_NAME"));

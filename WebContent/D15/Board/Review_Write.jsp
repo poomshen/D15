@@ -53,25 +53,25 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="M_ID">글쓴이</label>
 			    <div class="col-sm-4">
-			      <input type="text" name="M_ID" class="form-control" value="테스트글쓴이" id="M_ID" readonly="readonly">
+			    <c:set var="dto" value="sessionScope.memberdto"></c:set>
+			    <script>console.log("사일ㅇㄹ"+${dto})</script>	뭐냐
+			      <input type="text" name="M_ID" class="form-control" value="${dto.m_id}" id="M_ID" readonly="readonly">
 			    </div>
 			  </div>
 		
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="content">내용</label>
 			    <div class="col-sm-8">
-			      <textarea rows="10" name="BR_CONTENT" id="content" class="form-control">
-			      
-			      </textarea>
+			      <textarea rows="10" name="BR_CONTENT" id="content" class="form-control"></textarea>
 			    </div>
 			  </div>
 				
-			<div class="form-group">
+			<!-- <div class="form-group">
 	   			 <label class="control-label col-sm-2" for="fselec">파일 선택</label>
 			    <div class="col-sm-4">
 			      		<input name="BR_FILE" type="file" class="form-control"/>
 			    </div>
-			 </div>
+			 </div> -->
 		
 			<div class="form-group">
 	   			<div class="col-sm-2"></div>

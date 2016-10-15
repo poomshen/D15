@@ -1,5 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<!-- 
+ * @Class : Board_Write.jsp
+ * @Date : 2016.10.5
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에 글 작성 view
+ -->
 
+
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 	<title>게시판 글쓰기</title>
@@ -50,25 +58,24 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="M_ID">글쓴이</label>
 			    <div class="col-sm-4">
-			      <input type="text" name="M_ID" class="form-control" value="테스트글쓴이" id="M_ID" readonly="readonly">
+			    <c:set var="dto" value="${sessionScope.memberdto}" />
+			    <!-- 여기 -->
+			      <input type="text" name="M_NO" class="form-control" value="${dto.m_no}" id="M_NO" readonly="readonly">
 			    </div>
 			  </div>
 		
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="email">내용</label>
 			    <div class="col-sm-8">
-			      <textarea rows="10" name="B_CONTENT" id="email" class="form-control">
-			      
-			      </textarea>
-			    </div>
+			      <textarea rows="10" name="B_CONTENT" id="email" class="form-control"></textarea></div>
 			  </div>
 				
-			<div class="form-group">
+			<!-- <div class="form-group">
 	   			 <label class="control-label col-sm-2" for="email">파일 선택</label>
 			    <div class="col-sm-4">
 			      		<input name="B_FILE" type="file" class="form-control"/>
 			    </div>
-			 </div>
+			 </div> -->
 		
 			<div class="form-group">
 	   			<div class="col-sm-2"></div>

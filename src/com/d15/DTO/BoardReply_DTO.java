@@ -1,13 +1,23 @@
+/*
+ * @Class : BoardReply_DTO
+ * @Date : 2016.10.12
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에 댓글을 일력시 사용할  DTO 정의
+ * 
+ * */
+
 package com.d15.DTO;
 
 import java.sql.Date;
 
-public class Reply_DTO {
+public class BoardReply_DTO {
+	
 	private int re_no;
 	private int m_no;
 	private int b_no;
 	private String re_content;
-	private Date re_date;
+	private String re_date;
+	
 	public int getRe_no() {
 		return re_no;
 	}
@@ -32,20 +42,16 @@ public class Reply_DTO {
 	public void setRe_content(String re_content) {
 		this.re_content = re_content;
 	}
-	public Date getRe_date() {
+	public String getRe_date() {
 		return re_date;
 	}
-	public void setRe_date(Date re_date) {
+	public void setRe_date(String re_date) {
 		this.re_date = re_date;
 	}
 	@Override
 	public String toString() {
 		return "Reply_DTO [re_no=" + re_no + ", m_no=" + m_no + ", b_no=" + b_no + ", re_content=" + re_content
-				+ ", re_date=" + re_date + ", getRe_no()=" + getRe_no() + ", getM_no()=" + getM_no() + ", getB_no()="
-				+ getB_no() + ", getRe_content()=" + getRe_content() + ", getRe_date()=" + getRe_date() + "]";
+				+ ", re_date=" + re_date + "]";
 	}
-
-	
-	
 	
 }

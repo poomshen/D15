@@ -97,9 +97,11 @@ public class Board_DAO {
 				Board_DTO board = new Board_DTO();
 				System.out.println("들어옴");
 				board.setB_no(rs.getInt("B_NO"));
+				board.setM_no(rs.getInt("M_NO"));
 				board.setB_name(rs.getString("B_NAME"));
 				board.setB_content(rs.getString("B_CONTENT"));
 				board.setB_count(rs.getInt("B_COUNT"));
+				//지금
 				board.setB_file(rs.getString("B_FILE"));
 				board.setB_date(rs.getDate("B_DATE"));
 				board.setB_ref(rs.getInt("B_REF"));		//참조	
@@ -108,7 +110,7 @@ public class Board_DAO {
 
 				blist.add(board); 
 			}
-			
+			System.out.println(blist);
 			return blist;
 			
 		} catch (Exception ex) {
@@ -143,8 +145,8 @@ public class Board_DAO {
 		try {
 			
 			conn = ds.getConnection();
-			String sql = "select B_NO,M_ID,B_NAME,B_COUNT,B_CONTENT,B_date, "
-					+"B_FILE,B_REF,B_DEPTH,B_STEP "
+			String sql = "select b.B_NO, b.M_NO, b.B_NAME, b.B_COUNT, b.B_CONTENT, b.B_date, "
+					+"B_FILE, b.B_REF, b.B_DEPTH, b.B_STEP "
 					+"from D15_board b join D15_member m on b.M_NO = m.M_NO where B_NO = ? ";
 			pstmt = conn.prepareStatement(sql);							
 
@@ -158,6 +160,7 @@ public class Board_DAO {
 
 				board = new Board_DTO();
 				board.setB_no(rs.getInt("B_NO"));
+				board.setM_no(rs.getInt("M_NO"));
 				board.setB_name(rs.getString("B_NAME"));
 				board.setB_content(rs.getString("B_CONTENT"));
 				board.setB_count(rs.getInt("B_COUNT"));
@@ -191,26 +194,25 @@ public class Board_DAO {
 	}
 
 	// 글 등록
-	public int boardInsert(Board_DTO board , int m_no) throws Exception {
+	public int boardInsert(Board_DTO board) throws Exception {
 		try {
 			
 			conn = ds.getConnection();
 			String sql = "insert into D15_board (B_NO, M_no, B_NAME, B_CONTENT,"
-					+ "B_COUNT, B_FILE, B_DATE, B_REF, B_DEPTH, B_STEP)"
-					+ "values(B_NO_SEQ.nextval,?,?,?,0,?,sysdate,?,0,0)";
+					+ "B_COUNT, B_DATE, B_REF, B_DEPTH, B_STEP)"
+					+ "values(B_NO_SEQ.nextval,?,?,?,0,sysdate,?,0,0)";
 
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, m_no );
+			pstmt.setInt(1, board.getM_no());
 			pstmt.setString(2, board.getB_name());
 			pstmt.setString(3, board.getB_content());
-			pstmt.setString(4, board.getB_file());
+			pstmt.setInt(4, board.getB_ref());
 
 			int refer_max = getMaxRefer(conn);
 			int refer = refer_max + 1;
 			System.out.println("refer" + refer);
 			
-			pstmt.setInt(5, refer);
 			
 			int row = pstmt.executeUpdate();
 			return row;
@@ -298,18 +300,20 @@ public class Board_DAO {
 			
 			sql = "insert into D15_board (B_NO,M_NO,B_NAME, B_CONTENT,B_COUNT, B_DATE, B_REF,"
 					+ "B_DEPTH,B_STEP) "
-					+ "values(B_NO_SEQ.nextval,2,?,?,0,sysdate,?,?,?)";
+					+ "values(B_NO_SEQ.nextval,?,?,?,0,sysdate,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 	
-			pstmt.setString(1, board.getB_name());
-			pstmt.setString(2, board.getB_content());
+			pstmt.setInt(1, board.getM_no());
+			System.out.println("m_no가 문제라나ㅡㄴ"+board.getM_no());
+			pstmt.setString(2, board.getB_name());
+			pstmt.setString(3, board.getB_content());
 			//pstmt.setString(3, board.getB_file());
-			pstmt.setInt(3, board.getB_ref());
+			pstmt.setInt(4, board.getB_ref());
 			System.out.println("보드겟 ref : "+board.getB_ref());
-			pstmt.setInt(4, board.getB_depth()+1);
+			pstmt.setInt(5, board.getB_depth()+1);
 			System.out.println("보드 겟 : "+board.getB_depth());
-			pstmt.setInt(5, board.getB_step()+1);
+			pstmt.setInt(6, board.getB_step()+1);
 			System.out.println("보드 겟 step : "+board.getB_step());
 			
 			pstmt.executeUpdate();
@@ -456,11 +460,6 @@ public class Board_DAO {
 			}catch(Exception e){
 				System.out.println("Max no error");
 				e.printStackTrace();
-			}finally{
-				if(rs != null)try{rs.close();}catch(Exception e){}
-				if(pstmt != null)try{rs.close();}catch(Exception e){}
-				if(conn != null)try{rs.close();}catch(Exception e){}
-				
 			}
 		
 			return 0;			
