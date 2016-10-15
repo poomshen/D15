@@ -1,6 +1,3 @@
-/*
-	댓글
-*/
 package com.d15.Service;
 
 import java.sql.Date;
@@ -9,22 +6,21 @@ import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.BoardReply_DAO;
+import com.d15.DAO.ReviewReply_DAO;
 import com.d15.DTO.BoardReply_DTO;
-import com.d15.DTO.Member_DTO;
+import com.d15.DTO.ReviewReply_DTO;
 
-
-public class ReplyService implements Action {
+public class ReplyReview_Service implements Action{
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){		
-
-		BoardReply_DAO breplydao = new BoardReply_DAO();
-		BoardReply_DTO breplydto = new BoardReply_DTO ();
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		
+		ReviewReply_DAO reviewdao = new ReviewReply_DAO();
+		ReviewReply_DTO reviewdto = new ReviewReply_DTO ();
 
 	    Calendar cal=Calendar.getInstance();
 	    Date sqldate=null;
@@ -41,19 +37,12 @@ public class ReplyService implements Action {
 		
 		
 		int result = 0;
-		
-		//breplydto.setRe_no(re_no); db 시퀀스에서
-		//HttpSession session=request.getSession();
-		//Member_DTO memberdto=(Member_DTO)session.getAttribute("memberdto");
-		breplydto.setM_no(2);
-		breplydto.setB_no(Integer.parseInt(request.getParameter("b_no")));
-		breplydto.setRe_content(request.getParameter("re_content").replace("\r\n", "<br>"));
-		//breplydto.setRe_date(re_date); 
-		
-		
-		//String pageName=(String)request.getParameter("name");
-		
-		result = breplydao.replywrite(breplydto);
+		reviewdto.setM_no(2);
+		reviewdto.setBr_no(Integer.parseInt(request.getParameter("br_no")));
+		reviewdto.setRer_content(request.getParameter("rer_content").replace("\r\n", "<br>"));
+		System.out.println("콤마가 빠졌대");
+		result = reviewdao.replywrite(reviewdto);
+		System.out.println("콤마가 빠졌대2");	
 		
 		if(result>0) {
 			System.out.println("댓글 입력 성공");

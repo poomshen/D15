@@ -67,7 +67,7 @@ public class ReviewList_Service implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("Review_List.jsp");
+		forward.setPath("Board/Review_List.jsp");
 		
 		return forward; 
 	}

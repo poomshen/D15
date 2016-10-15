@@ -1,12 +1,14 @@
 /*
- * @Class : BoardReply_Service
+ * @Class : BoardReply_Servic
  * @Date : 2016.10.6
  * @Author : 조한솔
  * @Desc : Q&A 게시판에서 답글을 쓰는 기능을 위한  Service 클래스
  */
 
+//답글
 package com.d15.Service;
 
+//답글
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -30,7 +32,6 @@ public class BoardReplyService implements Action {
 		boarddto.setB_no(Integer.parseInt(request.getParameter("B_NO")));
 		boarddto.setB_name(request.getParameter("B_NAME"));
 		boarddto.setB_content(request.getParameter("B_CONTENT"));	
-
 		boarddto.setB_ref(Integer.parseInt(request.getParameter("B_REF")));
 		boarddto.setB_depth(Integer.parseInt(request.getParameter("B_DEPTH")));
 		boarddto.setB_step(Integer.parseInt(request.getParameter("B_STEP")));

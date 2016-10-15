@@ -5,19 +5,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
-import com.d15.DAO.Board_DAO;
-import com.d15.DAO.Reply_DAO;
+import com.d15.DAO.BoardReply_DAO;
 
 public class ReplyDelete_Service implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		int b_no =  Integer.parseInt(request.getParameter("b_no")); //덧글의 원본 게시글 번호
-		int re_no =	 Integer.parseInt(request.getParameter("re_NO")); //덧글의 순번(고유값)
+		int re_no =	 Integer.parseInt(request.getParameter("re_no")); //덧글의 순번(고유값)
 
-		Reply_DAO  replydao = new Reply_DAO();
-		boolean result = replydao.replyDelete(b_no);
+		BoardReply_DAO  replydao = new BoardReply_DAO();
+		boolean result = replydao.replyDelete(re_no);
 		
 		if(result!=false) {
 			
@@ -29,10 +27,9 @@ public class ReplyDelete_Service implements Action {
 		}
 		
 		ActionForward forward = new ActionForward();
-	    request.setAttribute("b_no", b_no);
-	    
+	    request.setAttribute("re_no", re_no);	    
 	    forward.setRedirect(false);
-	    forward.setPath("BoardList.Board");
+	    forward.setPath("/Board/Board_Reply_deleteOk.jsp");
 		
 		return forward;
 	}

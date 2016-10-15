@@ -457,11 +457,6 @@ public class Review_DAO {
 		}catch(Exception e){
 			System.out.println("Max no error");
 			e.printStackTrace();
-		}finally{
-			if(rs != null)try{rs.close();}catch(Exception e){}
-			if(pstmt != null)try{pstmt.close();}catch(Exception e){}
-			if(conn != null)try{conn.close();}catch(Exception e){}
-			
 		}
 	
 		return 0;

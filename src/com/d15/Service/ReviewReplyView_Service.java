@@ -1,6 +1,6 @@
 /*
  * @Class : ReviewReplyView_Service
- * @Date : 2016.10.12
+ * @Date : 2016.10.11
  * @Author : 조한솔
  * @Desc : 후기 게시판에서 답글 작성시 답글페이지로 가기위한  Service 클래스
  */
@@ -52,7 +52,6 @@ public class ReviewReplyView_Service implements Action{
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("Board/Review_Reply.jsp");
-		
 		return forward;
 		
 	}

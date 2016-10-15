@@ -60,18 +60,16 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="content">내용</label>
 			    <div class="col-sm-8">
-			      <textarea rows="10" name="BR_CONTENT" id="content" class="form-control">
-			      
-			      </textarea>
+			      <textarea rows="10" name="BR_CONTENT" id="content" class="form-control"></textarea>
 			    </div>
 			  </div>
 				
-			<div class="form-group">
+			<!-- <div class="form-group">
 	   			 <label class="control-label col-sm-2" for="fselec">파일 선택</label>
 			    <div class="col-sm-4">
 			      		<input name="BR_FILE" type="file" class="form-control"/>
 			    </div>
-			 </div>
+			 </div> -->
 		
 			<div class="form-group">
 	   			<div class="col-sm-2"></div>

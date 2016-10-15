@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : Board_Write.jsp
+ * @Date : 2016.10.5
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에 글 작성 view
+ -->
+
+
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 
 <html>
@@ -57,18 +65,15 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="email">내용</label>
 			    <div class="col-sm-8">
-			      <textarea rows="10" name="B_CONTENT" id="email" class="form-control">
-			      
-			      </textarea>
-			    </div>
+			      <textarea rows="10" name="B_CONTENT" id="email" class="form-control"></textarea></div>
 			  </div>
 				
-			<div class="form-group">
+			<!-- <div class="form-group">
 	   			 <label class="control-label col-sm-2" for="email">파일 선택</label>
 			    <div class="col-sm-4">
 			      		<input name="B_FILE" type="file" class="form-control"/>
 			    </div>
-			 </div>
+			 </div> -->
 		
 			<div class="form-group">
 	   			<div class="col-sm-2"></div>

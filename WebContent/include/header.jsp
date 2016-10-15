@@ -67,9 +67,9 @@
                <li><a href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종신고</a></li>
                
                <li class="dropdown"><a class="dropdown-toggle"
-                  data-toggle="dropdown" href="#">게시판(x)<span class="caret"></span></a>
+                  data-toggle="dropdown" href="#">게시판<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                     <li><a href="#">재회성공담&분양후기(x)</a></li>
+                     <li><a href="/TeamProject3_D15/D15/ReviewList.Review?name=review">재회성공담&분양후기</a></li>
                      <li><a href="/TeamProject3_D15/D15/BoardList.Board?name=qna">Q&A</a></li>
                   </ul></li>
                   
