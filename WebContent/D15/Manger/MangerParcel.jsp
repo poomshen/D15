@@ -30,10 +30,12 @@
 	<c:set var="list" value="${requestScope.parcellist}" />
 	<div class="container">
 		<h3>회원 관리</h3>
-		<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs">
 			<li><a href="MemberSearch.Manger">회원 조회</a></li>
 			<li><a href="ProtectManger.Manger">임시보호 대기 리스트</a></li>
 			<li class="active"><a href="ParcelManger.Manger">분양 대기 리스트</a></li>
+			<li><a href="myTakeMessagelist.Message">쪽지 리스트</a></li>
+			<li><a href="myMakeMessagelist.Message">보낸 리스트</a></li>
 		</ul>
 		<div>
 			<table class="table table-hover">

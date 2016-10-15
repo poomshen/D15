@@ -79,7 +79,7 @@
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 				<br>
-				<a href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut" class="btn btn-default" >보러가기</a>
+				<a id="gotoProtect" href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut" class="btn btn-default" >보러가기</a>
 			</ol>
 			<br><br>
 			<!-- Wrapper for slides -->

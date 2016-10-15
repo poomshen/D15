@@ -65,6 +65,8 @@
 			<li class="active"><a href="MemberSearch.Manger">회원 조회</a></li>
 			<li><a href="ProtectManger.Manger">임시보호 대기 리스트</a></li>
 			<li><a href="ParcelManger.Manger">분양 대기 리스트</a></li>
+			<li><a href="myTakeMessagelist.Message">쪽지 리스트</a></li>
+			<li><a href="myMakeMessagelist.Message">보낸 리스트</a></li>
 		</ul>
 		<br><br>
 		

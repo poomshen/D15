@@ -25,6 +25,10 @@
          document.getElementById("protect").onclick=function(){
             alert('회원 가입 후 이용해 주세요');
          }
+         document.getElementById("gotoProtect").setAttribute("href", "#");
+         document.getElementById("gotoProtect").onclick=function(){
+            alert('회원 가입 후 이용해 주세요');
+         }
          
       } else {
          document.getElementById("protect").setAttribute("href", "/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut");
@@ -83,8 +87,22 @@
             			<li><a href="#"><span
                      		class="glyphicon glyphicon-user"></span>${dto.m_id}</a></li>
                      	
-                     	<li><a href="#"><span  class="glyphicon glyphicon-envelope logo" id="message_new">
+                     	<li><a href="/TeamProject3_D15/D15/Manger/myTakeNoMessagelist.Message"><span  class="glyphicon glyphicon-envelope logo" id="message_new">
                         </span></a></li>
+                        <script type="text/javascript">
+	                        $(function(){
+	                        	myTimer();
+	                        	var myVar = setInterval(function(){ myTimer() }, 10000);
+	                        
+		                        function myTimer(){
+		                           $.get("myMessgeNew.New", {"m_no":${memberdto.m_no}}, function(data, textStatus, req) {
+		                              if(data != 0){
+		                                 document.getElementById("message_new").innerHTML = data;
+		                              }
+		                           })
+		                        }
+	                        });
+                        </script>
                         
             			<li><a href="/TeamProject3_D15/D15/Login/Logout.login"><span
                            class="glyphicon glyphicon-log-out logo">로그아웃</span></a></li>
