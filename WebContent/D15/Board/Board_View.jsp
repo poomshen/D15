@@ -85,10 +85,10 @@
 						str+="<td>"+items.m_id+"</td>";
 						str+="<td class='text-left' colspan=2>"+items.re_content+"</td>";
 						
-						if(${items.m_id == sessionScope.memberdto.m_id}){
+						if(items.m_id == "${sessionScope.memberdto.m_id}"){
 							str+="<td><input type='button' id='deleteBtn"+items.re_no+"' class='btn btn-default' onclick='deleteReply("+items.re_no+", "+b_no+")' value='삭제'></td>";							
 						}else{
-							str+= "<td> </td>"
+							str+= "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>"
 						}
 						str+="<td>"+items.re_date+"</td></tr>"
 						str+="</table><br>";
@@ -177,12 +177,19 @@
 					$('#reply').empty();
 					var str="";
 					$.each(data, function(index, items){
-						str+="<table class='table table-bordered'>";
-						str+="<th>작성자</th><td>"+items.m_id+"</td>";
-						str+="<th>작성일</th><td>"+items.re_date+"</td></tr>";
-						str+="<th>댓글</th><td>"+items.re_content+"<span style='float:right'>"+
-						"<td><input type='button' id='deleteBtn"+items.re_no+"' class='btn btn-default' value='삭제' onclick='deleteReply("+items.re_no+", "+b_no+")'></td>"+
-						"</span></td></tr>";
+						str+="<table class='table table-hover'>";
+						str+="<tr><th class='text-left'>작성자</th><th class='text-left' colspan=2>댓글</th><th/>";
+						str+="<th>작성일</th></tr>"
+						str+="<tr>"
+						str+="<td>"+items.m_id+"</td>";
+						str+="<td class='text-left' colspan=2>"+items.re_content+"</td>";
+						
+						if(items.m_id == "${sessionScope.memberdto.m_id}"){
+							str+="<td><input type='button' id='deleteBtn"+items.re_no+"' class='btn btn-default' onclick='deleteReply("+items.re_no+", "+b_no+")' value='삭제'></td>";							
+						}else{
+							str+= "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>"
+						}
+						str+="<td>"+items.re_date+"</td></tr>"
 						str+="</table><br>";
 					});
 					$('#reply').append(str);				

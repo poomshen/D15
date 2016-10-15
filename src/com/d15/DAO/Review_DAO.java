@@ -47,7 +47,7 @@ public class Review_DAO {
 		try {
 			
 			conn = ds.getConnection();
-			pstmt = conn.prepareStatement("select count(*) from D15_Breview");
+			pstmt = conn.prepareStatement("select count(*) from D15_board2");
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
@@ -80,9 +80,9 @@ public class Review_DAO {
 	//글의 목록
 	public List getReviewList(int page, int limit) {
 		String review_list_sql =	" SELECT * FROM "
-				+ "( SELECT ROWNUM rn , br_no , m_no , br_name, br_content, br_count , br_file , br_date, "
+				+ "( SELECT ROWNUM rn , br_no , m_id , br_name, br_content, br_count , br_file , br_date, "
 				+ " br_ref , br_depth , br_step "
-				+ " FROM (	SELECT * FROM D15_Breview ORDER  BY  br_ref DESC , br_step ASC  ) "
+				+ " FROM (	SELECT * FROM D15_board2 ORDER  BY  br_ref DESC , br_step ASC  ) "
 				+ " ) WHERE rn BETWEEN ? AND ?";
 
 		List<Review_DTO> blist = new ArrayList<Review_DTO>();
@@ -100,7 +100,7 @@ public class Review_DAO {
 			while(rs.next()){
 				Review_DTO review = new Review_DTO();
 				review.setBr_no(rs.getInt("BR_NO"));
-				//member.setM_id(rs.getString("M_ID"));
+				review.setM_id(rs.getString("M_ID"));
 				review.setBr_name(rs.getString("BR_NAME"));
 				review.setBr_content(rs.getString("BR_CONTENT"));
 				review.setBr_count(rs.getInt("BR_COUNT"));
@@ -148,7 +148,7 @@ public class Review_DAO {
 			conn = ds.getConnection();
 			String sql = "select BR_NO,M_ID,BR_NAME,BR_COUNT,BR_CONTENT,BR_date, "
 					+"BR_FILE,BR_REF,BR_DEPTH,BR_STEP "
-					+"from D15_Breview br join D15_member m on br.M_NO = m.M_NO where BR_NO = ? ";
+					+"from D15_board2 where BR_NO = ? ";
 			
 			pstmt = conn.prepareStatement(sql);							
 
@@ -161,6 +161,7 @@ public class Review_DAO {
 				review = new Review_DTO();
 			
 				review.setBr_no(rs.getInt("BR_NO"));
+				review.setM_id(rs.getString("M_ID"));
 				review.setBr_name(rs.getString("BR_NAME"));
 				review.setBr_content(rs.getString("BR_CONTENT"));
 				review.setBr_count(rs.getInt("BR_COUNT"));
@@ -200,20 +201,21 @@ public class Review_DAO {
 		try {
 			
 			conn = ds.getConnection();
-			String sql = "insert into D15_Breview (BR_NO, M_no, BR_NAME, BR_CONTENT,"
+			String sql = "insert into D15_board2 (BR_NO, M_id, BR_NAME, BR_CONTENT,"
 					+ "BR_COUNT, BR_FILE, BR_DATE, BR_REF, BR_DEPTH, BR_STEP)"
-					+ "values(BR_NO_SEQ.nextval,2,?,?,0,?,sysdate,?,0,0)";
+					+ "values(BR_NO_SEQ.nextval,?,?,?,0,?,sysdate,?,0,0)";
 
 			pstmt = conn.prepareStatement(sql);
-
-			pstmt.setString(1, review.getBr_name());
-			pstmt.setString(2, review.getBr_content());
-			pstmt.setString(3, review.getBr_file());
+			
+			pstmt.setString(1, review.getM_id());
+			pstmt.setString(2, review.getBr_name());
+			pstmt.setString(3, review.getBr_content());
+			pstmt.setString(4, review.getBr_file());
 
 			int refer_max = getMaxRefer(conn);
 			int refer = refer_max + 1;
 			
-			pstmt.setInt(4, refer);
+			pstmt.setInt(5, refer);
 			
 			int row = pstmt.executeUpdate();
 			return row;
@@ -242,7 +244,7 @@ public class Review_DAO {
 		
 		try {
 			
-			String maxRefer_sql = "select nvl(max(br_ref),0) from D15_Breview";
+			String maxRefer_sql = "select nvl(max(br_ref),0) from D15_board2";
 			pstmt = conn.prepareStatement(maxRefer_sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
@@ -252,18 +254,21 @@ public class Review_DAO {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
+			if(rs != null){
+				rs.close();
+			}
 			if (pstmt != null)
 				pstmt.close();
 		
-		return refer_max;
 		}
+		return refer_max;
 	}
 	
 
 	// 글 답변 
 	public int reviewReply(Review_DTO review) {
 	
-		String review_max_sql = "select br_ref , br_depth , br_step from D15_Breview where br_no=? ";
+		String review_max_sql = "select br_ref , br_depth , br_step from D15_board2 where br_no=? ";
 
 		String sql = "";
 		int num = 0;
@@ -290,7 +295,7 @@ public class Review_DAO {
 			}
 
 			// 워본 글의 위치 
-			sql = " UPDATE D15_Breview SET br_step = br_step +1 "
+			sql = " UPDATE D15_board2 SET br_step = br_step +1 "
 					+ " WHERE br_ref = ? AND br_step > ?";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -302,18 +307,19 @@ public class Review_DAO {
 			step = step + 1; // 현재 읽은 글 + 1
 			depth = depth + 1; // 현재 읽은 글 + 1
 			
-			sql = "insert into D15_Breview (BR_NO,M_NO,BR_NAME, BR_CONTENT,BR_COUNT, BR_DATE, BR_REF,"
+			sql = "insert into D15_board2 (BR_NO,M_id,BR_NAME, BR_CONTENT,BR_COUNT, BR_DATE, BR_REF,"
 					+ "BR_DEPTH,BR_STEP) "
-					+ "values(BR_NO_SEQ.nextval,2,?,?,0,sysdate,?,?,?)";
+					+ "values(BR_NO_SEQ.nextval,?,?,?,0,sysdate,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql);
-	
-			pstmt.setString(1, review.getBr_name());
-			pstmt.setString(2, review.getBr_content());	
+			
+			pstmt.setString(1, review.getM_id());
+			pstmt.setString(2, review.getBr_name());
+			pstmt.setString(3, review.getBr_content());	
 			//pstmt.setString(3, review.getB_file());
-			pstmt.setInt(3, review.getBr_ref());
-			pstmt.setInt(4, review.getBr_depth()+1);
-			pstmt.setInt(5, review.getBr_step()+1);
+			pstmt.setInt(4, review.getBr_ref());
+			pstmt.setInt(5, review.getBr_depth()+1);
+			pstmt.setInt(6, review.getBr_step()+1);
 			
 			pstmt.executeUpdate();
 			System.out.println("review no : " + review.getBr_no());
@@ -346,7 +352,7 @@ public class Review_DAO {
 	// 글 수정
 	public boolean reviewModify(Review_DTO modifyreview) throws Exception {
 
-		String sql = "update D15_Breview set BR_NAME=?,BR_CONTENT=? where BR_NO=?";
+		String sql = "update D15_board2 set BR_NAME=?,BR_CONTENT=? where BR_NO=?";
 
 		try {
 			conn = ds.getConnection();
@@ -384,7 +390,7 @@ public class Review_DAO {
 	// 글목록 삭제
 	public boolean reviewDelete(int num) {
 
-		String review_delete_sql = "delete from D15_Breview where BR_NO=?";
+		String review_delete_sql = "delete from D15_board2 where BR_NO=?";
 
 		int result = 0;
 
@@ -416,7 +422,7 @@ public class Review_DAO {
 	// 조회수 업데이트
 	public void setReadCountUpdate(int num) throws Exception {
 
-		String sql = "update D15_Breview set BR_COUNT = "
+		String sql = "update D15_board2 set BR_COUNT = "
 				+ "BR_COUNT+1 where BR_NO = " + num;
 
 		try {
@@ -444,7 +450,7 @@ public class Review_DAO {
 	public int MaxNo(){
 		try{
 			conn = ds.getConnection();
-			String sql = "select max(br_no) from d15_breview";
+			String sql = "select max(br_no) from d15_board2";
 			pstmt = conn.prepareStatement(sql);
 			
 			rs = pstmt.executeQuery();
