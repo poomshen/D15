@@ -12,11 +12,48 @@
 <html style = "margin-bottom:100px;margin-top:100px">
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
  <title>게시판</title>
+ <script type="text/javascript">
+ 	$(function(){
+ 		$("#update").click(function(){
+ 			location.href = "NoticeUpdateGo.notice?no=${noticedto.notice_no}&page=${nowPage}";
+ 		});
+ 		$("#delete").click(function(){
+ 			$( "#dialog-confirm" ).dialog({
+ 			      resizable: false,
+ 			      height: "auto",
+ 			      width: 400,
+ 			      modal: true,
+ 			      buttons: {
+ 			        "삭제": function() {
+ 			          $( this ).dialog( "close" );
+ 			          location.href = "NoticeDelete.notice?no=${noticedto.notice_no}";
+ 			        },
+ 			        "취소": function() {
+ 			          $( this ).dialog( "close" );
+ 			          
+ 			        }
+ 			      }
+ 			    });
+ 			//location.href = "noticedelete.jsp?no=${noticedto.notice_no}";
+ 		});
+ 		
+ 		$("#list").click(function(){
+ 			location.href = "NoticeList.notice?page=${nowPage}";
+ 		});
+ 	});
+ </script>
+ 
+ 
+ 
 </head>
 
 <body>
@@ -24,6 +61,7 @@
 	<jsp:include page="../../include/header.jsp"/>
 </header>
 <br/><br/>
+
 <section>
 	<div class="container">
 		<h3>공 지 사 항</h3>
@@ -53,21 +91,11 @@
 		</div>
 		
 </section>
-<script type="text/javascript">
- 	$(function(){
- 		$("#update").click(function(){
- 			location.href = "NoticeUpdateGo.notice?no=${noticedto.notice_no}&page=${nowPage}";
- 		});
- 		$("#delete").click(function(){
- 			
- 			location.href = "noticedelete.jsp?no=${noticedto.notice_no}";
- 		});
- 		
- 		$("#list").click(function(){
- 			location.href = "NoticeList.notice?page=${nowPage}";
- 		});
- 	});
- </script>
+<div id="dialog-confirm" title="삭제" style = "display:none;">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:3px 12px 20px 0;"></span>정말 삭제 하시겠습니까?</p>
+</div>
+
+
 <footer>
 	<jsp:include page = "../../include/footer.jsp"/>
 </footer>
