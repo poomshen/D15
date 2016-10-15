@@ -80,6 +80,20 @@ public class OrganicAnimalSearchURL_Contoroller extends HttpServlet {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+		}else if(search.equals("/D15/Login/abandonmentPublic.keyurl")){
+			action = new D15_PublicURL_Service3();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}else{
+		action = new D15_PublicURL_Service2();
+		try {
+			forward = action.execute(request, response);
+		} catch (Exception e) {
+			// TODO: handle exception
+			}
 		}
 		
 		if(forward != null){

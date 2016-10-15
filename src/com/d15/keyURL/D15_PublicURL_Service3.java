@@ -9,7 +9,7 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 
 
-public class D15_PublicURL_Service2 implements Action{
+public class D15_PublicURL_Service3 implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
@@ -45,7 +45,7 @@ public class D15_PublicURL_Service2 implements Action{
 			
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Main.jsp");
+		forward.setPath("logOutSucces.jsp");
 		return forward;
 	}
 
