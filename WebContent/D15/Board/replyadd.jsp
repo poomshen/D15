@@ -21,7 +21,7 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "MY_SCHEMA","1004");
+	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "kosta2","1004");
 	String sql="select re_no, m_no, b_no, re_content, re_date from D15_reply where re_no="+
 			"(select max(re_no) from d15_reply)";
 	pstmt = conn.prepareStatement(sql);

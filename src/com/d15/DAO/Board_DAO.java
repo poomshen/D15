@@ -97,6 +97,7 @@ public class Board_DAO {
 				Board_DTO board = new Board_DTO();
 				System.out.println("들어옴");
 				board.setB_no(rs.getInt("B_NO"));
+				board.setM_no(rs.getInt("M_NO"));
 				board.setB_name(rs.getString("B_NAME"));
 				board.setB_content(rs.getString("B_CONTENT"));
 				board.setB_count(rs.getInt("B_COUNT"));
@@ -109,7 +110,7 @@ public class Board_DAO {
 
 				blist.add(board); 
 			}
-			
+			System.out.println(blist);
 			return blist;
 			
 		} catch (Exception ex) {
@@ -144,8 +145,8 @@ public class Board_DAO {
 		try {
 			
 			conn = ds.getConnection();
-			String sql = "select B_NO,M_ID,B_NAME,B_COUNT,B_CONTENT,B_date, "
-					+"B_FILE,B_REF,B_DEPTH,B_STEP "
+			String sql = "select b.B_NO, b.M_NO, b.B_NAME, b.B_COUNT, b.B_CONTENT, b.B_date, "
+					+"B_FILE, b.B_REF, b.B_DEPTH, b.B_STEP "
 					+"from D15_board b join D15_member m on b.M_NO = m.M_NO where B_NO = ? ";
 			pstmt = conn.prepareStatement(sql);							
 
@@ -159,6 +160,7 @@ public class Board_DAO {
 
 				board = new Board_DTO();
 				board.setB_no(rs.getInt("B_NO"));
+				board.setM_no(rs.getInt("M_NO"));
 				board.setB_name(rs.getString("B_NAME"));
 				board.setB_content(rs.getString("B_CONTENT"));
 				board.setB_count(rs.getInt("B_COUNT"));
@@ -197,20 +199,20 @@ public class Board_DAO {
 			
 			conn = ds.getConnection();
 			String sql = "insert into D15_board (B_NO, M_no, B_NAME, B_CONTENT,"
-					+ "B_COUNT, B_FILE, B_DATE, B_REF, B_DEPTH, B_STEP)"
-					+ "values(B_NO_SEQ.nextval,2,?,?,0,?,sysdate,?,0,0)";
+					+ "B_COUNT, B_DATE, B_REF, B_DEPTH, B_STEP)"
+					+ "values(B_NO_SEQ.nextval,?,?,?,0,sysdate,?,0,0)";
 
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, board.getB_name());
-			pstmt.setString(2, board.getB_content());
-			pstmt.setString(3, board.getB_file());
+			pstmt.setInt(1, board.getM_no());
+			pstmt.setString(2, board.getB_name());
+			pstmt.setString(3, board.getB_content());
+			pstmt.setInt(4, board.getB_ref());
 
 			int refer_max = getMaxRefer(conn);
 			int refer = refer_max + 1;
 			System.out.println("refer" + refer);
 			
-			pstmt.setInt(4, refer);
 			
 			int row = pstmt.executeUpdate();
 			return row;

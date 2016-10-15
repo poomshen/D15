@@ -25,7 +25,7 @@ public class ReplyService implements Action {
 
 		BoardReply_DAO breplydao = new BoardReply_DAO();
 		BoardReply_DTO breplydto = new BoardReply_DTO ();
-
+		System.out.println("컨트롤러를 타고 ReplyService로 왔다");
 	    Calendar cal=Calendar.getInstance();
 	    Date sqldate=null;
 	    
@@ -43,9 +43,9 @@ public class ReplyService implements Action {
 		int result = 0;
 		
 		//breplydto.setRe_no(re_no); db 시퀀스에서
-		//HttpSession session=request.getSession();
-		//Member_DTO memberdto=(Member_DTO)session.getAttribute("memberdto");
-		breplydto.setM_no(2);
+		HttpSession session=request.getSession();
+		Member_DTO memberdto=(Member_DTO)session.getAttribute("memberdto");
+		breplydto.setM_no(memberdto.getM_no());
 		breplydto.setB_no(Integer.parseInt(request.getParameter("b_no")));
 		breplydto.setRe_content(request.getParameter("re_content").replace("\r\n", "<br>"));
 		//breplydto.setRe_date(re_date); 

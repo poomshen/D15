@@ -87,8 +87,9 @@
 						"re_content":$('#re_content').val()
 						},
 					
-					success:function(){
-						console.log("성공");
+					success:function(data){
+						console.log(data);
+						console.log("데이터는 들어온게 없는데 성공이라네??");
 					},
 					
 					error:function(xhr){
@@ -191,7 +192,7 @@
 			<tr>
 				<th>제목</th>
  				<th>${board.b_name}</th>
-				<th>아이디 들어옴</th>
+				<th>${board.m_no}</th>
 				<th>${board.b_date}</th>
 			</tr>
 			<tr>
@@ -242,22 +243,28 @@
 		</div>	
 		<div class="text-right">
 			
+			<tr>
 			<td>
 				<input type="button" id="rBtn" class="btn btn-default" value="답글">
 			</td>
 
 			
 			<td>
-				<input type="button" id="mBtn" class="btn btn-default" value="수정">
+				<c:if test="${board.m_no==sessionScope.memberdto.m_no}">
+					<input type="button" id="mBtn" class="btn btn-default" value="수정">
+				</c:if>
 			</td>
 
-			<td colspan="5">
-				<input type="button" id="dBtn" class="btn btn-default" value="삭제">
+			<td>
+				<c:if test="${board.m_no==sessionScope.memberdto.m_no}">
+					<input type="button" id="dBtn" class="btn btn-default" value="삭제">	
+				</c:if>
 			</td>
 			
-			<td colspan="5">
+			<td>
 	   			<input type="button" id="listBtn" class="btn btn-default" value="목록">
 			</td>
+			</tr>
 			
 		</div>
 	</div>

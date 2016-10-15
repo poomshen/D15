@@ -7,7 +7,7 @@
 
 
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 	<title>게시판 글쓰기</title>
@@ -58,7 +58,9 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="M_ID">글쓴이</label>
 			    <div class="col-sm-4">
-			      <input type="text" name="M_ID" class="form-control" value="테스트글쓴이" id="M_ID" readonly="readonly">
+			    <c:set var="dto" value="${sessionScope.memberdto}" />
+			    <!-- 여기 -->
+			      <input type="text" name="M_NO" class="form-control" value="${dto.m_no}" id="M_NO" readonly="readonly">
 			    </div>
 			  </div>
 		

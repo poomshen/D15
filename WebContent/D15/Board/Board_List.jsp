@@ -60,6 +60,7 @@
 <header>
 	<jsp:include page="../../include/header.jsp"/>
 </header>
+<c:set var="dto" value="${sessionScope.memberdto}" />
 <br>
 <!-- selectbox 게시판 메뉴-->
 
@@ -116,11 +117,21 @@
 			</c:when>
 			<c:otherwise></c:otherwise>
 		</c:choose>
-			<a href="/TeamProject3_D15/D15/BoardDetail.Board?name=qna&num=${bd.b_no}">
-				${bd.b_name}
-			</a>
+		<!-- 요기에 걸자 -->
+
+			<c:choose>
+				<c:when test="${dto.m_id!=null}">
+					<a href="/TeamProject3_D15/D15/BoardDetail.Board?name=qna&num=${bd.b_no}">
+						${bd.b_name}
+					</a>
+				</c:when>
+				<c:when test="${dto.m_id==null}">
+						${bd.b_name}
+				</c:when>
+			
+			</c:choose>
 		</td>
-		<td>작성자</td>
+		<td>${bd.m_no}</td>
 	 	<td>${bd.b_date}</td>
 		<td>${bd.b_count}</td>
 	</tr>
@@ -140,7 +151,10 @@
 	
 	<tr align="right">
 		<td colspan="5">
-	   		<input type="button" id="writeBtn" class="btn btn-default" value="글쓰기">
+		
+		<c:if test="${dto.m_id!=null}">
+	   		<input type="button" id="writeBtn" class="btn btn-default" value="글쓰기">		
+		</c:if>
 		</td>
 	</tr>
 	</table>

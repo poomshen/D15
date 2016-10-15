@@ -73,8 +73,8 @@ public class BoardAddService implements Action {
 	    } catch (Exception e) {
 	    	System.out.println(e.getMessage());
 	    }
-		
-	    
+		System.out.println("여기"+request.getParameter("M_NO"));
+	    boarddto.setM_no(Integer.parseInt(request.getParameter("M_NO")));
 	    boarddto.setB_name(request.getParameter("B_NAME"));
 		boarddto.setB_content(request.getParameter("B_CONTENT").replace("\r\n", "<br>"));
 		String pageName=(String)request.getParameter("name");

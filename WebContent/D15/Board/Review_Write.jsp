@@ -53,7 +53,9 @@
 			<div class="form-group">
 	   			 <label class="control-label col-sm-2" for="M_ID">글쓴이</label>
 			    <div class="col-sm-4">
-			      <input type="text" name="M_ID" class="form-control" value="테스트글쓴이" id="M_ID" readonly="readonly">
+			    <c:set var="dto" value="sessionScope.memberdto"></c:set>
+			    <script>console.log("사일ㅇㄹ"+${dto})</script>	뭐냐
+			      <input type="text" name="M_ID" class="form-control" value="${dto.m_id}" id="M_ID" readonly="readonly">
 			    </div>
 			  </div>
 		

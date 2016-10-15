@@ -43,21 +43,23 @@ public class BoardReply_DAO {
 	//댓글작성
 	public int replywrite(BoardReply_DTO replydto) {
 		
-		BoardReply_DTO boardreplydto = new BoardReply_DTO();
+		//BoardReply_DTO boardreplydto = new BoardReply_DTO();
 		
 		/*String board_max_sql = "select max(b_no) from D15_reply";
 		String sql = ""; */
 		int num = 0;
 		
 		try {
+			System.out.println("dao에서 replydto를 db에 저장");
 			conn = ds.getConnection();
 			String sql = "insert into D15_reply (RE_NO,M_NO,RE_CONTENT,RE_DATE,B_NO) "
-					+ "values(RE_NO_SEQ.nextval,2,?,sysdate,?)";
+					+ "values(RE_NO_SEQ.nextval,?,?,sysdate,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, replydto.getRe_content());
-			pstmt.setInt(2, replydto.getB_no());
+			pstmt.setInt(1, replydto.getM_no());
+			pstmt.setString(2, replydto.getRe_content());
+			pstmt.setInt(3, replydto.getB_no());
 			
 			num = pstmt.executeUpdate();
 			
