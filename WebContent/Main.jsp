@@ -18,6 +18,7 @@
 <!-- bootstrap js -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <style>
 #wrap03 {
 	margin-top: 100px;
@@ -57,6 +58,18 @@
 	margin-top: 100px;
 	margin-bottom: 40px;
 }
+.row > div{
+	background-color: white;
+ 	height: 350px ;
+  	 width: 30%;
+    margin: 10px 0px 10px 3% ;
+}
+.w3-card-4 >img{
+	margin: 0px  -6% 0px ;
+	width: 113%;
+	height: 236px;
+}
+
 </style>
 
 </head>
@@ -89,29 +102,30 @@
 					<section>
 						<div class="container" >
 							<div class="row">
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img1" style="width: 100%; height: 236px;"
-										class="img-thumbnail" alt="Cinque Terre" width="304"
-										height="236">
+								<div class="col-sm-4 w3-card-4 "   >
+									<img id="img1" 	alt="Cinque Terre"  >
+									<div class="w3-container">
 									<h2 id="st1"></h2>
 									<p id="so1"></p>
+									<br>
+									</div>
 								</div>
 
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img2" class="img-thumbnail"
-										style="width: 100%; height: 236px;"  alt="Cinque Terre"
-										width="304" height="236">
+								<div class="col-sm-4 w3-card-4"   >
+									<img id="img2"   alt="Cinque Terre">
+										<div class="w3-container">
 									<h2 id="st2"></h2>
 									<p id="so2"></p>
+									</div>
 								</div>
-
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img3" class="img-thumbnail"
-										style="width: 100%; height: 236px;" alt="Cinque Terre"
-										width="304" height="236">
+								
+								<div class="col-sm-4 w3-card-4" >
+									<img id="img3"  alt="Cinque Terre"	>
+								<div class="w3-container">
 									<h2 id="st3"></h2>
 									<p id="so3"></p>
 								</div>
+								</div>
 							</div>
 						</div>
 					</section>
@@ -122,28 +136,28 @@
 					<section>
 						<div class="container">
 							<div class="row">
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img4" style="width: 100%; height: 236px;"
-										class="img-thumbnail" alt="Cinque Terre" width="304"
-										height="236">
+								<div class="col-sm-4 w3-card-4" style="background-color: white;">
+									<img id="img4"  alt="Cinque Terre" >
+								<div class="w3-container">
 									<h2 id="st4"></h2>
 									<p id="so4"></p>
+									</div>
 								</div>
 
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img5" class="img-thumbnail"
-										style="width: 100%; height: 236px;" alt="Cinque Terre"
-										width="304" height="236">
+								<div class="col-sm-4 w3-card-4" style="background-color: white;">
+									<img id="img5"  alt="Cinque Terre">
+								<div class="w3-container">
 									<h2 id="st5"></h2>
 									<p id="so5"></p>
 								</div>
+								</div>
 
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img6" class="img-thumbnail"
-										style="width: 100%; height: 236px;" alt="Cinque Terre"
-										width="304" height="236">
+								<div class="col-sm-4 w3-card-4"  style="background-color: white;">
+									<img id="img6"  alt="Cinque Terre"	>
+								<div class="w3-container">
 									<h2 id="st6"></h2>
 									<p id="so6"></p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -155,28 +169,28 @@
 					<section>
 						<div class="container">
 							<div class="row">
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img7" style="width: 100%; height: 236px;"
-										class="img-thumbnail" alt="Cinque Terre" width="304"
-										height="236">
+								<div class="col-sm-4 w3-card-4" style="background-color: white;">
+									<img id="img7"  alt="Cinque Terre" >
+								<div class="w3-container">
 									<h2 id="st7"></h2>
 									<p id="so7"></p>
+									</div>
 								</div>
 
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img8" class="img-thumbnail"
-										style="width: 100%; height: 236px;" alt="Cinque Terre"
-										width="304" height="236">
+								<div class="col-sm-4 w3-card-4" style="background-color: white;">
+									<img id="img8" 	 alt="Cinque Terre">
+								<div class="w3-container">
 									<h2 id="st8"></h2>
 									<p id="so8"></p>
+									</div>
 								</div>
 
-								<div class="col-sm-4" style="background-color: white;">
-									<img id="img9" class="img-thumbnail"
-										style="width: 100%; height: 236px;" alt="Cinque Terre"
-										width="304" height="236">
+								<div class="col-sm-4 w3-card-4" style="background-color: white;">
+									<img id="img9"  alt="Cinque Terre"	>
+								<div class="w3-container">
 									<h2 id="st9"></h2>
 									<p id="so9"></p>
+									</div>
 								</div>
 							</div>
 						</div>

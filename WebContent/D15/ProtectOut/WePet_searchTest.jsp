@@ -146,8 +146,15 @@
     	        
     	        
 
-					$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+"><a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'><img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive img-rounded' alt='Cinque Terre' width='304' height='236'><div class='fh5co-text'><h4> 발견날:"+noticeSdt[i]+"/end :"+noticeEdt[i]+"</h4><span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>");
-    	       		$("#search").append("</div></a></div>");
+					$("#search").append("<div  class='col-md-4 col-sm-6 col-xxs-12 ' id=list"+i+">"
+					+"<div class='w3-card-16' style='margin-top: 10px;'>"
+					+"<a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'>"
+					+"<img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive' alt='Cinque Terre' width='304' height='236'>"
+					+"<div class='fh5co-text w3-container'>"
+					+"<h4> 발견날:"+noticeSdt[i]+"~ "+noticeEdt[i]+"</h4>"
+					+"측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br>"
+					+"품종:"+kindCd[i]+"<br><br>"
+					+"</div></a></div></div>");
     	       i++;        
            });
 

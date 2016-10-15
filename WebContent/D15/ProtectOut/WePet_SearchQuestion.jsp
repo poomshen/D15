@@ -14,7 +14,7 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 <title>임시보호/분양</title>
