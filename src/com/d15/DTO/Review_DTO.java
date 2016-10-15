@@ -12,7 +12,7 @@ import java.sql.Date;
 
 public class Review_DTO {
 	private int br_no;		//게시물번호
-	private int m_no;		//회원번호
+	private String m_id;		//회원번호
 	private String br_name;
 	private String br_content;
 	private int br_count;
@@ -29,11 +29,11 @@ public class Review_DTO {
 	public void setBr_no(int br_no) {
 		this.br_no = br_no;
 	}
-	public int getM_no() {
-		return m_no;
+	public String getM_id() {
+		return m_id;
 	}
-	public void setM_no(int m_no) {
-		this.m_no = m_no;
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
 	public String getBr_name() {
 		return br_name;
@@ -86,10 +86,10 @@ public class Review_DTO {
 	
 	@Override
 	public String toString() {
-		return "Review_DTO [br_no=" + br_no + ", m_no=" + m_no + ", br_name=" + br_name + ", br_content=" + br_content
+		return "Review_DTO [br_no=" + br_no + ", m_id=" + m_id + ", br_name=" + br_name + ", br_content=" + br_content
 				+ ", br_count=" + br_count + ", br_file=" + br_file + ", br_date=" + br_date + ", br_ref=" + br_ref
-				+ ", br_depth=" + br_depth + ", br_step=" + br_step + ", getBr_no()=" + getBr_no() + ", getM_no()="
-				+ getM_no() + ", getBr_name()=" + getBr_name() + ", getBr_content()=" + getBr_content()
+				+ ", br_depth=" + br_depth + ", br_step=" + br_step + ", getBr_no()=" + getBr_no() + ", getM_id()="
+				+ getM_id() + ", getBr_name()=" + getBr_name() + ", getBr_content()=" + getBr_content()
 				+ ", getBr_count()=" + getBr_count() + ", getBr_file()=" + getBr_file() + ", getBr_date()="
 				+ getBr_date() + ", getBr_ref()=" + getBr_ref() + ", getBr_depth()=" + getBr_depth() + ", getBr_step()="
 				+ getBr_step() + "]";
