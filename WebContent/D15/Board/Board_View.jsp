@@ -7,7 +7,8 @@
 
 <%@page import="com.d15.DTO.Board_DTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="shortcut icon"  href="/TeamProject3_D15/images/favicon.ico"> 
 
 <%
 //String sFilePath = sDownLoadPath + "\\" + filename;

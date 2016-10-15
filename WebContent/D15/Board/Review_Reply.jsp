@@ -15,6 +15,7 @@
 
 <html>
 <head>
+<link rel="shortcut icon"  href="/TeamProject3_D15/images/favicon.ico">
 	<title>답변 게시판</title>
 	<script language="javascript">
 	function replyboard(){

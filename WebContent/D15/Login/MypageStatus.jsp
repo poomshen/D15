@@ -11,6 +11,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="shortcut icon"  href="/TeamProject3_D15/images/favicon.ico">
 <!DOCTYPE html>
 <html style = "margin-bottom : 40px; margin-top:100px">
 <head>

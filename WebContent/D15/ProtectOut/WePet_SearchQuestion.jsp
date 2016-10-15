@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../pickadate/lib/themes/default.css">
 <link rel="stylesheet" 	href="../../pickadate/lib/themes/default.date.css">
-
+<link rel="shortcut icon"  href="images/favicon.ico">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">

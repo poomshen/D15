@@ -12,7 +12,7 @@
 <html style = "margin-bottom:100px;margin-top:100px">
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+<link rel="shortcut icon"  href="/TeamProject3_D15/images/favicon.ico">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
