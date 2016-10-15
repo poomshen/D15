@@ -22,55 +22,13 @@
 
 
 <style>
-.detail {
-	background-color: #ccffff;
-}
-
-.parcel {
-	background-color: #6699cc;
-}
-
-.protect {
-	background-color: #9999cc;
-}
 
 #search img {
 	width: 100%;
 	height: 200px;
+	
 }
 
-#detailView img {
-	margin-top: 2%;
-	margin-left: 2%;
-	width: 200px;
-	height: 200px;
-	border-radius: 5px;
-}
-
-.d15_bodyEvt1 {
-	z-index: 1;
-}
-
-.d15_bodyEvt2 {
-	background-color: black;
-	z-index: 9000;
-	height: 100%;
-	width: 100%;
-	position: fixed;
-	opacity: 0.7;
-}
-
-.d15_bodyEvt3 {
-	z-index: 9000;
-	margin-left: 25%;
-	margin-right: 25%;
-	margin-top: 8%;
-	margin-bottom: 10%;
-	height: 70%;
-	width: 50%;
-	position: fixed;
-	overflow: hidden;
-}
 
 a {
 	cursor: pointer;
@@ -99,9 +57,7 @@ a {
 	top: 50%;
 	left: 45%;
 	height: 90px;
-	margin-top: -75px; //
-	이미지크기 margin-left: -75px; //
-	이미지크기 z-index: 200;
+	margin-top: -75px; 
 }
 
 #wrapper {
@@ -267,7 +223,7 @@ a {
 							style="margin-left: 10%; margin-top: 10%; width: 80%; cursor: pointer;"
 							value="날짜입력"> 
 							<button type="submit"  class="btn btn-success btn-block btn-lg"
-							style=" margin-top: 5%; width: 100%;"><span class="glyphicon glyphicon-ok"></span>임시보호신청</button>
+							style=" margin-top: 5%; width: 100%;"><span class="glyphicon glyphicon-ok"></span>분양신청</button>
 				</form>
 				<br>
 					<div style="float: left; width: 48%">
