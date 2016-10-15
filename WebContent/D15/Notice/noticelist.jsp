@@ -4,7 +4,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-
+<link rel="shortcut icon"  href="/TeamProject3_D15/images/favicon.ico">
 
 
 <html style = "margin-top:100px;margin-bottom:40px">

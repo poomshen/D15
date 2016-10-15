@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 조회</title>
+<link rel="shortcut icon"  href="/TeamProject3_D15/images/favicon.ico">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet"
