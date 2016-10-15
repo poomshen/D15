@@ -119,12 +119,12 @@ header .container {
 						<span> 실종 날짜 : ${list.mis_date} <!-- 회원/비회원 처리 -->
 						  <c:set
 								var="dto" value="${sessionScope.memberdto}" /> 
-								<%--<c:if test="${dto.m_id!=null && list.mis_pro=='N'}"> --%>
+								<c:if test="${dto.m_id!=null}">
 								
 								<input type="button" id="detail<%=i++%>" value="상세보기"
 									class="btn btn-info" onclick="detail(${list.mis_no})">
 							
-							<%-- </c:if> --%> 
+							</c:if>
 							<br> 실종 위치 : ${list.mis_loc}
 						</span><br> <span> 내용 : ${list.mis_content} </span>
 						<div>
