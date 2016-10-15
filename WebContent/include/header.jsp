@@ -25,6 +25,10 @@
          document.getElementById("protect").onclick=function(){
             alert('회원 가입 후 이용해 주세요');
          }
+         document.getElementById("gotoProtect").setAttribute("href", "#");
+         document.getElementById("gotoProtect").onclick=function(){
+            alert('회원 가입 후 이용해 주세요');
+         }
          
       } else {
          document.getElementById("protect").setAttribute("href", "/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut");
