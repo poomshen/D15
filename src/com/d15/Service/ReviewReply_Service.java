@@ -27,6 +27,7 @@ public class ReviewReply_Service implements Action{
 		int result = 0;
 		
 		reviewdto.setBr_no(Integer.parseInt(request.getParameter("BR_NO")));
+		reviewdto.setM_id(request.getParameter("M_ID"));
 		reviewdto.setBr_name(request.getParameter("BR_NAME"));
 		reviewdto.setBr_content(request.getParameter("BR_CONTENT"));	
 		reviewdto.setBr_ref(Integer.parseInt(request.getParameter("BR_REF")));

@@ -18,13 +18,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/jquery-2.2.4.min.js" 
-		  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" 
-		  crossorigin="anonymous">
-  </script>
+  <script src="http://code.jquery.com/jquery-2.2.4.min.js" ></script>
     <style type="text/css">
 	table {
 		width: 750px;
+	}
+	#wrap{
+		margin-top:100px;
+		margin-bottom:80px;
 	}
 	</style>
 	 <script type="text/javascript">
@@ -64,10 +65,11 @@
 <header>
 	<jsp:include page="../../include/header.jsp"/>
 </header>
-<br>
-<!-- selectbox 게시판 메뉴-->
 
+<!-- selectbox 게시판 메뉴-->
+<div id ="wrap">
 <div class="container">
+	<h3>후기 게시판</h3>
 	<div class="form-group">
 		<div class="col-sm-4">
 			<select id="smenu" class="form-control">
@@ -77,7 +79,7 @@
 			</select>
 		</div>
 	</div>
-<br/><br/>
+<br><br>
 	
 	<table class="table table-hover">
 	<!-- 게시판 목록 -->
@@ -86,12 +88,6 @@
 	<c:when test="${listCount>0}">
 
 	<tr class="info text-left">
-	<%-- 
-		
-		<tr align="center" valign="middle">
-			<td colspan="4">게시판 목록</td>
-			<td align=right><font size=2>글 개수 : ${listCount}</font></td>
-		</tr> --%>
 		<th>
 			<div align="center">번호</div>
 		</th>
@@ -111,8 +107,8 @@
 
 
 	 <c:forEach var="i" items="${reviewList}">
-	 <c:set var="rd" value="${i}"> </c:set><br>
-
+	 <c:set var="rd" value="${i}"> </c:set>
+	
 	
 	 <tr class="text-center">
 		<td>
@@ -129,12 +125,19 @@
 			</c:when>
 			<c:otherwise></c:otherwise>
 		</c:choose>
-			<a href="/TeamProject3_D15/D15/ReviewDetail.Review?name=review&num=${rd.br_no}">
-				${rd.br_name}
-			</a>
+		<c:choose>
+			<c:when test="${sessionScope.memberdto.m_id!=null}">
+				<a href="/TeamProject3_D15/D15/ReviewDetail.Review?name=review&num=${rd.br_no}">
+					${rd.br_name}
+				</a>
+			</c:when>
+			<c:otherwise>
+				${rd.br_name}	
+			</c:otherwise>
+		</c:choose>
 		</td>
 	
-		<td>작성자</td>
+		<td>${rd.m_id}</td>
 	 	<td>${rd.br_date}</td>
 		<td>${rd.br_count}</td>
 	</tr>
@@ -173,6 +176,10 @@
 		</c:if>
 		</ul>
 	</div>
+	</div>
 </div>
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 </body>
 </html>

@@ -13,7 +13,7 @@ import java.sql.Date;
 public class ReviewReply_DTO {
 
 	private int rer_no;
-	private int m_no;
+	private String m_id;
 	private int br_no;
 	private String rer_content;
 	private String rer_date;
@@ -25,11 +25,11 @@ public class ReviewReply_DTO {
 	public void setRer_no(int rer_no) {
 		this.rer_no = rer_no;
 	}
-	public int getM_no() {
-		return m_no;
+	public String getM_id() {
+		return m_id;
 	}
-	public void setM_no(int m_no) {
-		this.m_no = m_no;
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
 	public int getBr_no() {
 		return br_no;
@@ -52,8 +52,8 @@ public class ReviewReply_DTO {
 	
 	@Override
 	public String toString() {
-		return "ReviewReply_DTO [rer_no=" + rer_no + ", m_no=" + m_no + ", br_no=" + br_no + ", rer_content="
-				+ rer_content + ", rer_date=" + rer_date + ", getRer_no()=" + getRer_no() + ", getM_no()=" + getM_no()
+		return "ReviewReply_DTO [rer_no=" + rer_no + ", m_id=" + m_id + ", br_no=" + br_no + ", rer_content="
+				+ rer_content + ", rer_date=" + rer_date + ", getRer_no()=" + getRer_no() + ", getM_id()=" + getM_id()
 				+ ", getBr_no()=" + getBr_no() + ", getRer_content()=" + getRer_content() + ", getRer_date()="
 				+ getRer_date() + "]";
 	}

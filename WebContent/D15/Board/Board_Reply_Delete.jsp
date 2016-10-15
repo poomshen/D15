@@ -28,7 +28,7 @@
 	pstmt.setInt(1, re_no);
 	pstmt.executeUpdate();
 	
-	sql="select re_no, m_id, b_no, re_content, re_date from D15_reply where b_no=?";
+	/* sql="select re_no, m_id, b_no, re_content, re_date from D15_reply where b_no=?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, b_no);
 	rs = pstmt.executeQuery();
@@ -47,9 +47,9 @@
 		
 		list.add(dto);
 	}
-	JSONArray json = JSONArray.fromObject(list);
+	JSONArray json = JSONArray.fromObject(list); */
 	rs.close();
 	pstmt.close();
 	conn.close();
 %>
-<%=json%>
+<%-- <%=json%> --%>

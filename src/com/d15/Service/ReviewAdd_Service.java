@@ -68,6 +68,7 @@ public class ReviewAdd_Service implements Action {
 	    }
 
 		reviewdto.setBr_name(request.getParameter("BR_NAME"));
+		reviewdto.setM_id(request.getParameter("M_ID"));
 		reviewdto.setBr_content(request.getParameter("BR_CONTENT").replace("\r\n", "<br>"));
 		
 		//지금

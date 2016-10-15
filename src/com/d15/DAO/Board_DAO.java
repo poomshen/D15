@@ -455,7 +455,7 @@ public class Board_DAO {
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					
+					System.out.println("Max_bno : " + rs.getInt(1));
 					return rs.getInt(1);
 				}else{
 					
