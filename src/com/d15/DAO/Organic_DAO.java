@@ -1,3 +1,10 @@
+/*
+ * @Class : Organic_DAO
+ * @Date : 2016.10.5
+ * @Author : 이성준
+ * @Desc : 유기동물 테이블에 대한 DAO(db연결,CRUD 작업)
+ * 
+ * */
 package com.d15.DAO;
 
 import java.sql.Connection;
@@ -93,8 +100,8 @@ public class Organic_DAO {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -125,8 +132,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -143,8 +150,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -175,8 +182,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		
@@ -189,10 +196,10 @@ public class Organic_DAO {
 		try {
 			conn = ds.getConnection();
 			//UPDATE table_name SET column1 = value1,column2 = value2, ... WHERE some_column = some_value;
-			String sql = "update D15_organic set org_situation = ? where org_animal = ?";
+			String sql = "update D15_organic set org_situation = ? where org_no = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, Situation);
-			pstmt.setString(2, name);
+			pstmt.setInt(2, Integer.parseInt(name));
 			
 			int re = pstmt.executeUpdate();
 			if(re > 0){
@@ -202,8 +209,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -213,7 +220,6 @@ public class Organic_DAO {
 	public boolean updateSituation(int name,String Situation) throws SQLException{
 		boolean ck = false;
 		try {
-			System.out.println("왜 분양 햇는데 시발 상태를 못 바꾸냐 시발");
 			conn = ds.getConnection();
 			String sql = "update D15_organic set org_situation = ? where org_no = ?";
 			pstmt = conn.prepareStatement(sql);
@@ -228,8 +234,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -252,8 +258,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return ck;
@@ -269,8 +275,8 @@ public class Organic_DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
+			if(rs !=null) rs.close();
 	    	if(pstmt !=null)pstmt.close();
-	    	if(rs !=null) rs.close();
 	    	if(conn !=null)conn.close();
 	    }
 		return false;

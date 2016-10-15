@@ -32,6 +32,11 @@ public class InsertParcel_Service implements Action{
 		String dates = request.getParameter("parcelD");
 		String no = request.getParameter("no");
 		HttpSession session = request.getSession();
+		 if(session.getAttribute("memberdto")==null){
+			 forward.setPath("ProtectFail.jsp");
+			 forward.setRedirect(false);
+			 return forward;
+		 }
 		Member_DTO member =(Member_DTO)session.getAttribute("memberdto");
 		//Date 객체로 만들기
 		Date sqldate=null;
@@ -49,24 +54,29 @@ public class InsertParcel_Service implements Action{
 		   parcel_DTO.setOrg_no(Integer.parseInt(no));
 		   parcel_DTO.setFc_begdate(sqldate);
 		   
-		   if(parcel_DAO.insertParcel(parcel_DTO)){
-			   //등록이 성공 되었다면
-			   Organic_DAO organic_DAO = new Organic_DAO();
-			   try {
-				if(organic_DAO.updateSituation(Integer.parseInt(no), "[등록중]분양")){
-						forward.setPath("ProtectSuccess.jsp");
-						forward.setRedirect(false);
-				   }else{
-						forward.setPath("ProtectFail.jsp");
-						forward.setRedirect(false);
+		   try {
+			if(parcel_DAO.insertParcel(parcel_DTO)){
+				   //등록이 성공 되었다면
+				   Organic_DAO organic_DAO = new Organic_DAO();
+				   try {
+					if(organic_DAO.updateSituation(Integer.parseInt(no), "등록중(분양)")){
+							forward.setPath("ParcelSuccess.jsp");
+							forward.setRedirect(false);
+					   }else{
+							forward.setPath("ProtectFail.jsp");
+							forward.setRedirect(false);
+					   }
+				   } catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				   }
-			   } catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			   }else{
+				   //등록이 실패 했다면
 			   }
-		   }else{
-			   //등록이 실패 했다면
-		   }
+		} catch (NumberFormatException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	
 		return forward;

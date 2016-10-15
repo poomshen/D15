@@ -82,6 +82,11 @@ public class Pet_DAO {
 		
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
+		}finally{
+			
+			if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+			if(conn != null)try{conn.close();}catch(Exception e){}
+			
 		}
 		
 		return 0;

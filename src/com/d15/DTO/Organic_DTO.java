@@ -1,3 +1,10 @@
+/*
+ * @Class : Organic_DTO
+ * @Date : 2016.10.5
+ * @Author : 이성준
+ * @Desc : 유기 동물 테이블 DTO
+ */
+
 package com.d15.DTO;
 
 public class Organic_DTO {

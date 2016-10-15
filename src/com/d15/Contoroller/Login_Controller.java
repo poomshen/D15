@@ -24,6 +24,9 @@ import com.d15.DAO.Pet_DAO;
 import com.d15.Service.Login_Service;
 import com.d15.Service.MemberInsert_Service;
 import com.d15.Service.MissingList_Service;
+import com.d15.Service.MypageEditOk_Service;
+import com.d15.Service.MypageStatus2_Service;
+import com.d15.Service.MypageStatus_Service;
 import com.d15.Service.Mypage_Service;
 import com.d15.Service.PetInsert_Service;
 
@@ -77,7 +80,7 @@ public class Login_Controller extends HttpServlet {
 			System.out.println("로그인화면 보여주기");
 			forward=new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/D15/Login/login.jsp");
+			forward.setPath("login.jsp");
 			try{
 				forward= action.execute(request, response);
 				System.out.println(request.getAttribute("result"));
@@ -90,7 +93,7 @@ public class Login_Controller extends HttpServlet {
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
-				System.out.println(e.getMessage());
+				System.out.println("login ok error" + e.getMessage());
 			}
 		}else if(url_command.equals("/D15/Login/Logout.login")){
 			System.out.println("로그아웃 처리");		
@@ -110,8 +113,44 @@ public class Login_Controller extends HttpServlet {
 		
 		}
 
-		else{
-
+		else if(url_command.equals("/D15/Login/MypageUpdate.login")){
+			System.out.println("내 정보 업데이트");
+			forward = new ActionForward();
+			forward.setPath("mypageedit.jsp");
+			forward.setRedirect(false);
+		}else if(url_command.equals("/D15/Login/MyPageEditOk.login")){
+			System.out.println("정보수정완료");
+			action = new MypageEditOk_Service();
+			try{
+				forward = action.execute(request, response);
+				
+			}catch(Exception e){
+				System.out.println("myeditok error");
+				e.printStackTrace();
+			}
+		}
+		else if(url_command.equals("/D15/Login/MypageStatus.login")){
+			System.out.println("분양신청정보보기");
+			action = new MypageStatus_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}
+		else if(url_command.equals("/D15/Login/MypageStatus2.login")){
+			System.out.println("임시보호신청정보보기");
+			action = new MypageStatus2_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}else if(url_command.equals("/D15/Login/IdpwSearch.login")){
+			System.out.println("Id/PW 찾기 폼으로 가기");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("idpwsearch.jsp");
 		}
 
 		//3.결과저장

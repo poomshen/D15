@@ -16,12 +16,17 @@ public class MangerParcel_Service  implements Action{
 	public ActionForward execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		ActionForward forward = new ActionForward();
+<<<<<<< HEAD
 		System.out.println("skdk");
+=======
+>>>>>>> bccf6296fb832d51c785abfc546fa2fc07f6edfc
 		Parcel_DAO parcel_DAO = new Parcel_DAO();
-		ArrayList<MangerParcel_DTO> list  =  parcel_DAO.mangerlist();
-		
-		request.setAttribute("parcellist", list);
-		
+		try {
+			ArrayList<MangerParcel_DTO> list = parcel_DAO.mangerlist();
+			request.setAttribute("parcellist", list);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		forward.setRedirect(false);
 		forward.setPath("MangerParcel.jsp");
 			

@@ -1,3 +1,11 @@
+/*
+ * @Class : Shelter_DAO
+ * @Date : 2016.10.5
+ * @Author : 이성준
+ * @Desc : 보호소 테이블에 대한 DAO(db연결,CRUD 작업)
+ * 
+ * */
+
 package com.d15.DAO;
 
 import java.sql.Connection;
@@ -62,6 +70,11 @@ public class Shelter_DAO {
 			
 		}catch(Exception e){
 			System.out.println("insertPet error : " + e.getMessage());
+		}finally{
+			
+			if(pstmt != null)try{pstmt.close();}catch(Exception e){}
+			if(conn != null)try{conn.close();}catch(Exception e){}
+			
 		}
 			
 		return 0;

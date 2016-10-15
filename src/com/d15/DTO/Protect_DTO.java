@@ -1,3 +1,10 @@
+/*
+ * @Class : Protect_DTO
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 임시보호 테이블 DTO
+ */
+
 package com.d15.DTO;
 
 import java.sql.Date;

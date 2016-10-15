@@ -1,3 +1,10 @@
+/*
+ * @Class : ProtectOut_Controller
+ * @Date : 2016.10.7
+ * @Author : 이성준
+ * @Desc : 분양/임시보호 관리를 위한 Controller
+ */
+
 package com.d15.Contoroller;
 
 import java.io.IOException;
@@ -15,6 +22,7 @@ import com.d15.Service.InsertParcel_Service;
 import com.d15.Service.InsertProtect_Service;
 import com.d15.Service.PublicDB_Service;
 import com.d15.Service.PublicSeqSelect_Service;
+import com.d15.Service.SituationCheck_Service;
 import com.d15.Service.pageManager_Service;
 import com.d15.keyURL.D15_SidoURL_Service;
 
@@ -44,16 +52,16 @@ public class ProtectOut_Controller extends HttpServlet {
 			    request.setCharacterEncoding("UTF-8");
 				
 				
-				System.out.println("이동 하네");
 				System.out.println(search);
 				
 				 ActionForward  forward = null;
 				 Action action = null;
+				 forward=new ActionForward();
 	
 		if(search.equals("/D15/ProtectOut/ProtectOut.ProtectOut")){
-			forward = new ActionForward();
+			System.out.println("누군가 있다");
 			forward.setPath("D15_basicsProtectOut.jsp");
-			forward.setRedirect(false);
+			forward.setRedirect(false)		;		
 		}else if(search.equals("/D15/ProtectOut/sido.ProtectOut")){
 			action = new D15_SidoURL_Service();
 			try{
@@ -84,8 +92,6 @@ public class ProtectOut_Controller extends HttpServlet {
 			}
 			
 		}else if(search.equals("/D15/ProtectOut/insertProtect.ProtectOut")){
-			/*System.out.println(request.getParameter("protectDSt"));
-			System.out.println(request.getParameter("no"));*/
 			action = new InsertProtect_Service();
 			try{
 				forward = action.execute(request, response);
@@ -99,10 +105,17 @@ public class ProtectOut_Controller extends HttpServlet {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+		}else if(search.equals("/D15/ProtectOut/SituationCheck.ProtectOut")){
+			action  = new SituationCheck_Service();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}else{
 			
 		}
-		
+	
 		
 		if(forward != null){
 			if(forward.isRedirect()){
@@ -112,6 +125,7 @@ public class ProtectOut_Controller extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		}
+
 	}
 
 }

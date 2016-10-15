@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	   var age =[];
        var careAddr=[];
@@ -74,25 +80,46 @@
       		 }else{
            		pagecount = Math.ceil(totalCont/pagesize)+ 1;
        		}
-            	$("#pages").append("<a href='#' onclick=page("+(${pageNo}-1)+")>[이전]<a>");
+       		
+
+       		var test = "<ul class='pagination'>";
+       		
+       		if(${pageNo} > 1){	
+            	test +="<li class='previous'><a href='#' onclick='page("+${pageNo-1}+")'>이전</a></li>";
+       		}
+       		
             for(var i=1 ; i < pagecount ; i+=5){
-         	   		for(var x=i ; x<i+5 ; x++){
+
+         	   	for(var x=i ; x<i+5 ; x++){
          	   			if(x+1 <=pagecount){
             					if(${pageNo}==x ){
-            					$("#pages").append("["+x+"]");
+            						test += "<li><a href='#' onclick='page("+x+");'>"+x+"</a></li>";
          	   				}else if(${pageNo}>i-1 && ${pageNo}<i+5){
-            					$("#pages").append("<a href='#' onclick=page("+x+")>["+x+"]<a>");
-            					}else if(x == i+5){
+
+            					test += "<li><a href='#' onclick='page("+x+");'>"+x+"</a></li>";	
+         	   				}else if(x == i+5){
             						for(var y=x; y<x+5 ; y++){
-            					$("#pages").append("<a href='#' onclick=page("+y+")>["+y+"]<a>");
+            							test += "<li><a href='#' onclick='page("+y+");'>["+y+"]</a></li>";
+
             						}
             					} 
          	   			}
          	   		}
             }
-            	$("#pages").append("<a href='#' onclick=page("+(${pageNo}+1)+")>[다음]<a>");
+           
+       		if(${pageNo} < pagecount ){
+
+            	test += "<li class='next'><a href='#' onclick='page("+${pageNo+1}+");'>다음</a></li>";
+
+       		}
+       		
+       		test += "</ul>";
+       		$('#pages').html(test);
+       		
+       		
+            $("#search").html(" ");//페이지가 넘어 갈때마다 초기화
+            
     	    var i =0;
-    	    $("#search").html(" ");//페이지가 넘어 갈때마다 초기화
     	   $(xmlContent).find('item').each(function(){
     	        age[i] =$(this).find('age').text();
     	        careAddr[i]=$(this).find('careAddr').text();
@@ -116,46 +143,16 @@
     	        sexCd[i]=$(this).find('sexCd').text();
     	        specialMark[i]=$(this).find('specialMark').text();
     	        weight[i]=$(this).find('weight').text();
-    	       
-    	       /* $.getJSON("selectcount.keyurl", {"desertionNo":$(this).find('desertionNo').text()}, function(data, textStatus, req) {
-    	    	   	console.log(data);	
-    	    	   	processState[i] = data.Org_situation;
-				});   */ 
-    	         	/* <img alt='"+desertionNo[i]+"' src='"+popfile[i]+"' >"+age[i]+"<br>"+careNm[i]+"<br>"+careAddr[i]+"<br>"+processState[i]+"</div>"); */
-    	       		//$("#search").append("<div class='clearfix visible-sm-block'></div>");
-    	       		$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+"><a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'><img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive'><div class='fh5co-text'><h2>"+processState[i]+"</h2><span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>");
+    	        
+    	        
+
+					$("#search").append("<div class='col-md-4 col-sm-6 col-xxs-12' id=list"+i+"><a onclick='searchclick("+i+")' class='fh5co-project-item image-popup to-animate'><img src='"+popfile[i]+"' alt='"+desertionNo[i]+"' class='img-responsive img-rounded' alt='Cinque Terre' width='304' height='236'><div class='fh5co-text'><h4> 발견날:"+noticeSdt[i]+"/end :"+noticeEdt[i]+"</h4><span>측정나이: "+age[i]+"<br> 보호소:"+careNm[i]+"<br> 품종:"+kindCd[i]+"<br></span>");
     	       		$("#search").append("</div></a></div>");
-    	         
-    	       i++;
+    	       i++;        
            });
-         });  
+
+        });  
    		
-   		
- 		$("#close").click(function() {
-				$("#d15_body").hide();
-				$("#detailView").show();
-				$("#protectView").hide();
-				$("#parcelView").hide();
-			})
-		//상세 보기
-		$("#detailSelect").click(function() {
-				$("#protectView").hide();
-				$("#parcelView").hide();
-				$("#detailView").show();
-				
-		})
-		//임시보호
-		$("#parcelSelect").click(function() {
-			$("#detailView").hide();
-			$("#protectView").hide();
-			$("#parcelView").show();
-		})
-		//
-		$("#protectSelect").click(function() {
-			$("#detailView").hide();
-	 		$("#parcelView").hide();
-			$("#protectView").show();
-		})
      });
 	
 	//임시보호 함수
@@ -168,22 +165,11 @@
 		
 	}
 	
-	function ajaxLoading(){
-
-	    var loading = $('<div id="loading" class="loading"></div><img id="loading_img" alt="loading" src="http://blog.teamtreehouse.com/wp-content/uploads/2015/05/InternetSlowdown_Day.gif" />').appendTo(document.body).hide();
-
-	    $(window)   
-	    .ajaxStart(function(){
-	       loading.show();
-	    })
-	    .ajaxStop(function(){
-	       loading.hide();
-	    });
-	}
    //게시판 이미지 클릭 시 이벤트
    function searchclick(index){
 	   //$("#list"+index).append(kindCd[index])
 	   var count;
+	   $("#myModal").modal({backdrop: "static"});
 	   //컨트롤러를 통해 DB저장
 	   $.getJSON("/TeamProject3_D15/D15/ProtectOut/insertPublic.ProtectOut", {
 	   "desertionNo":desertionNo[index],
@@ -195,17 +181,34 @@
 	   "noticeSdt":noticeSdt[index],
 	   "kindCd":encodeURIComponent(kindCd[index])
 	   }, function(data, textStatus, req) {
+		   console.log(data);
 		   //조회수 가지고 오기
 		   //console.log(data.Org_situation);
 		   count  = data.Org_count;
-		   no = data.Org_no
-	   $("#d15_body").show();
-	   $("#d15_body1").addClass("d15_bodyEvt2");
-	   $("#d15_body2").addClass("d15_bodyEvt3");
+		   no = data.Org_no;
+		   processState = data.Org_situation;
 	   $("#protectform").attr("action", "insertProtect.ProtectOut?no="+no);
 	   $("#parceform").attr("action", "insertParceform.ProtectOut?no="+no);
-	   $("#detailView").html("<div><img alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></div>");
-	   $("#detailView").append("<div>"+count+"<br>"+careNm[index]+"<br>"+careAddr[index]+"<br>"+processState[index]+"</div>")
+	   $(".modal-header").css("background-image", "url('"+popfile[index]+"')", "background-repeat", "repeat-x")
+	   $("#mCount").append(count);
+	   $("#mdate").append("발견: "+noticeSdt[index]+" ~ end: "+noticeEdt[index]);
+	   $("#mSituation").append(processState);
+	   $("#mName").val(kindCd[index]);
+	   $("#usrname").val(weight[index]);
+	   $("#mSw").val(specialMark[index]);
+	   $("#mLoc").val(careAddr[index]);
+	   
+	   /* $("#detailView").html("<span><table style='width:99%; height:100%; margin: 0% 10% 10% 1%; border-radius: 10px;'>"
+				+"<tr><td colspan ='2'></td></tr>"
+				+"<tr><td>발견:"+noticeSdt[index]+"  end:"+noticeEdt[index]+" </td><td colspan='2' style='text-align: right;'>조회수: "+count+"</td></tr>"
+				+"<tr><td rowspan='10'><img class='img-thumbnail' alt='"+desertionNo[index]+"' src='"+popfile[index]+"'></td></tr>"
+				+"<tr><td colspan ='2'></td></tr>"
+				+"<tr><td colspan ='2'></td></tr>"
+				+"<tr><td colspan='2'>상태: "+processState+"</td></tr>"
+				+"<tr><td>성별:"+sexCd[index]+"</td><td style='text-align: right;'>무게:<h7>"+weight[index]+"</h7></td></tr>"
+				+"<tr><td colspan='2'>특징:"+specialMark[index]+"</td></tr>"
+				+"<tr><td colspan='2'>주소:"+careAddr[index]+"</td></tr>"
+			+"</table></span>"); */
 	   })
 	   
 	}
@@ -218,8 +221,12 @@
 	   }) */
 	   }
 	   
+<<<<<<< HEAD
    
    <%@ include file="../../js/team01_main.js" %>
+=======
+   }
+>>>>>>> bccf6296fb832d51c785abfc546fa2fc07f6edfc
   </script>
 
 

@@ -1,22 +1,38 @@
+/*
+ * @Class : ManagerParcel_DTO
+ * @Date : 2016.10.10
+ * @Author : 이성준
+ * @Desc : 회원과 분양 조인테이블 DTO
+ */
+
 package com.d15.DTO;
 
 import java.sql.Date;
 
 public class MangerParcel_DTO {
+<<<<<<< HEAD
 	private String id ;
 	private String  name;
 	private String Phone;
 	private String email;
 	private String addr;
 	private int petOk;
+=======
+	private String id ; // 회원 아이디
+	private String  name; // 회원 이름
+	private String Phone; // 회원 연락처
+	private String email; // 회원 이메일
+	private String addr; // 회원 주소 
+	private String petOk; // 회원 입양경험여부
+>>>>>>> bccf6296fb832d51c785abfc546fa2fc07f6edfc
 	private Date reqdate;//승인 신청일
 	private Date begdate;// 분양 일
-	private String img;
-	private String  gender;
-	private String code;//품종
-	private int count;
-	private int date;
-	private int pc_no;
+	private String img; // 유기견 이미지
+	private String  gender; // 유기견 성별
+	private String code;//유기견 견종
+	private int count; //조회수
+	private int date; // 남은날짜
+	private int pc_no; // 분양 번호
 	
 	public MangerParcel_DTO() {
 		// TODO Auto-generated constructor stub
