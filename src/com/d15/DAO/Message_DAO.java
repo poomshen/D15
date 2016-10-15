@@ -65,7 +65,7 @@ public class Message_DAO {
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
 		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check,m_id "
 				+ " from (Select * from D15_message where m_no = ? and mes_check != 'R') j "
-				+ " join D15_Member m on  j.m_no = m.m_no ";
+				+ " join D15_Member m on  j.mes_send = m.m_no ";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -101,7 +101,7 @@ public class Message_DAO {
 		ArrayList<Message_DTO> arrayList = new ArrayList<>();
 		String sql = "select mes_no,mes_send, mes_content,mes_date,mes_check,m_id "
 				+ " from (select * from D15_message where m_no = ? and (mes_check = 'N' or mes_check ='W')) j join D15_Member m "
-				+ " on j.m_no = m.m_no ";
+				+ " on j.mes_send = m.m_no ";
 		try {
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
