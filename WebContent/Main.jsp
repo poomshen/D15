@@ -59,9 +59,9 @@
 }
 .row > div{
 	background-color: white;
- 	height: 350px ;
+ 	height: 360px ;
   	 width: 30%;
-    margin: 10px 0px 10px 3% ;
+    margin: 10px 0px 25px 3% ;
 }
 .w3-card-4 >img{
 	margin: 0px  -6% 0px ;

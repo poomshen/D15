@@ -43,7 +43,12 @@ public class InsertProtect_Service implements Action{
 		 Member_DTO member =(Member_DTO)session.getAttribute("memberdto");
 		 
 		 
-		
+		//임시등록 시작 등록 일이  종료등록 일보다 크다면
+		 if(Integer.parseInt(st) > Integer.parseInt(ed)){
+			 forward.setPath("ProtectFail.jsp");
+			 forward.setRedirect(false);
+			 return forward;
+		 }
 		 //시간 데이트 타입 으로 넘기기
 		 Date sqldate=null;
 		 Date sqldate2=null;

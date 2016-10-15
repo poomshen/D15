@@ -59,7 +59,6 @@ public class ProtectOut_Controller extends HttpServlet {
 				 forward=new ActionForward();
 	
 		if(search.equals("/D15/ProtectOut/ProtectOut.ProtectOut")){
-			System.out.println("누군가 있다");
 			forward.setPath("D15_basicsProtectOut.jsp");
 			forward.setRedirect(false)		;		
 		}else if(search.equals("/D15/ProtectOut/sido.ProtectOut")){
