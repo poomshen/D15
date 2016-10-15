@@ -1,3 +1,11 @@
+/*
+ * @Class : MangerParcelCheck_Service.java
+ * @Date : 2016.10.10
+ * @Author : 이성준
+ * @Desc : 관리자가 분양 승인/거절을 위한  Service 클래스
+ */
+
+
 package com.d15.Service;
 
 import java.sql.SQLException;

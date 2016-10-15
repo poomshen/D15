@@ -1,3 +1,12 @@
+<!-- 
+ * @Class : D15_basicsProtectOut.jsp
+ * @Date : 2016.10.12
+ * @Author : 이성준
+ * @Desc : 초기데이터 설정해주는 view
+ -->
+
+
+
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>

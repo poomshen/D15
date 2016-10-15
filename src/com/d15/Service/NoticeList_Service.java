@@ -1,3 +1,11 @@
+/*
+ * @Class : NoticeList_Service
+ * @Date : 2016.10.14
+ * @Author : 박문수
+ * @Desc : 공지사항 글목록을  위한  Service
+ */
+
+
 package com.d15.Service;
 
 import java.util.List;

@@ -1,3 +1,10 @@
+/*
+ * @Class : MemberInsert_Service.java
+ * @Date : 2016.10.7
+ * @Author : 길한종
+ * @Desc : 회원 가입을 하는   Service 클래스
+ */
+
 package com.d15.Service;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,3 +1,12 @@
+<!-- 
+ * @Class : review_replylist.jsp
+ * @Date : 2016.10.14
+ * @Author : 조한솔
+ * @Desc : 후기 게시판에서 댓글 목록기능을 위한 view
+ -->
+
+
+
 <%@page import="com.d15.DTO.ReviewReply_DTO"%>
 <%@page import="com.d15.DTO.BoardReply_DTO"%>
 <%@page import="java.sql.Date"%>

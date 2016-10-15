@@ -1,3 +1,11 @@
+/*
+ * @Class : TakeMessageList_Service.java
+ * @Date : 2016.10.14
+ * @Author : 이성준
+ * @Desc : 받은 메세지 mypage에 뿌려주는 Service
+ */
+
+
 package com.d15.Service;
 
 import java.util.ArrayList;

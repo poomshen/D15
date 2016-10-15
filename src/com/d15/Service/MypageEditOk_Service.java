@@ -1,3 +1,10 @@
+/*
+ * @Class : MypageEditOk_Service.java
+ * @Date : 2016.10.08
+ * @Author : 박문수
+ * @Desc : 마이페이지 수정을 위한  Service 클래스
+ */
+
 package com.d15.Service;
 
 import java.text.SimpleDateFormat;

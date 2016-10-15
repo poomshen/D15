@@ -1,3 +1,11 @@
+/*
+ * @Class : Notice_DAO
+ * @Date : 2016.10.13
+ * @Author : 박문수
+ * @Desc : 공지사항 게시판  DAO
+ */
+
+
 package com.d15.DAO;
 
 import java.sql.Connection;

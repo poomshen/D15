@@ -258,8 +258,8 @@ public class Board_DAO {
 			if (pstmt != null)
 				pstmt.close();	
 			
-			return refer_max;
 		}
+		return refer_max;
 	}
 	
 	// 글 답변 (key point)
@@ -465,6 +465,20 @@ public class Board_DAO {
 			}catch(Exception e){
 				System.out.println("Max no error");
 				e.printStackTrace();
+			}finally{
+				try{
+				if(rs != null){
+					rs.close();
+				}
+				if(pstmt != null){
+					pstmt.close();
+				}
+				if(conn != null){
+					conn.close();
+				}
+				}catch(Exception e){
+					
+				}
 			}
 		
 			return 0;			

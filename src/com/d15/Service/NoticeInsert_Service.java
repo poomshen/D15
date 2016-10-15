@@ -1,3 +1,11 @@
+/*
+ * @Class : NoticeInsert_Service
+ * @Date : 2016.10.14
+ * @Author : 박문수
+ * @Desc : 공지사항 글작성을  위한  Service
+ */
+
+
 package com.d15.Service;
 
 import javax.servlet.http.HttpServletRequest;

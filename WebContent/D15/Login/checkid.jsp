@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : checkid.jsp
+ * @Date : 2016.10.08
+ * @Author : 길한종
+ * @Desc : id체크하는 view
+ -->
+
+
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>

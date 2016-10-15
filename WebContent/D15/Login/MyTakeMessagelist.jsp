@@ -1,3 +1,10 @@
+<!-- 
+ * @Class : MyTakeMessagelist.jsp
+ * @Date : 2016.10.12
+ * @Author : 이성준
+ * @Desc : 마이 페이지에서 받은 메세지 보여주는 view
+ -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

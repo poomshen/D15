@@ -1,3 +1,12 @@
+<!-- 
+ * @Class : D15_basicsProtectOut.jsp
+ * @Date : 2016.10.12
+ * @Author : 이성준
+ * @Desc : 공공데이터에서 유기견데이터를 가지고오는 view
+ -->
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">

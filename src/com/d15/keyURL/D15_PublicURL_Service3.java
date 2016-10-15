@@ -1,3 +1,11 @@
+/*
+ * @Class : D15_PublicURL_Service3
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 로그아웃 시 메인으로 이동 시키기 위한 service
+ */
+
+
 package com.d15.keyURL;
 
 import java.util.HashMap;

@@ -1,3 +1,10 @@
+<!-- 
+ * @Class : json.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : 실종신고시 강아지들 select box에 추가시키는 view
+ -->
+
 <%@page import="net.sf.json.JSONArray"%>
 <%@page import="com.d15.DTO.Kind_DTO"%>
 <%@page import="java.util.List"%>

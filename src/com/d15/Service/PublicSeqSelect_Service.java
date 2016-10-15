@@ -1,3 +1,11 @@
+/*
+ * @Class : NoticeDelete_Service
+ * @Date : 2016.10.14
+ * @Author : 박문수
+ * @Desc : DB에서 유기견 데이터를 json으로 가져오는 Service
+ */
+
+
 package com.d15.Service;
 
 

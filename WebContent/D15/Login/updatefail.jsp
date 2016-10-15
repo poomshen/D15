@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : update.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : 회원수정 실패시 찾기
+ -->
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

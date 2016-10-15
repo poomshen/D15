@@ -1,3 +1,11 @@
+/*
+ * @Class : MakeMessageList_Service.java
+ * @Date : 2016.10.14
+ * @Author : 이성준
+ * @Desc : 발신자 메세지를 리스트에 뿌려주는  Service 클래스
+ */
+
+
 package com.d15.Service;
 
 import java.util.ArrayList;

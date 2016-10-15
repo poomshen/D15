@@ -1,3 +1,11 @@
+/*
+ * @Class : Message_DTO
+ * @Date : 2016.10.13
+ * @Author : 이성준
+ * @Desc : 메세지 테이블에 대한 DTO
+ */
+
+
 package com.d15.DTO;
 
 import java.sql.Date;

@@ -1,3 +1,12 @@
+<!-- 
+ * @Class : WePet_searchTest.jsp
+ * @Date : 2016.10.12
+ * @Author : 이성준
+ * @Desc : 유기견 임시보호 및 분양 게시판 view
+ -->
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>

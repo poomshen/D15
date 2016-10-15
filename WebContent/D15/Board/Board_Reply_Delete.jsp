@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : Board_Modify.jsp
+ * @Date : 2016.10.12
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에서 댓글 삭제기능을 위한 view
+ -->
+
+
 <%@page import="com.d15.DTO.BoardReply_DTO"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -27,29 +35,8 @@
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, re_no);
 	pstmt.executeUpdate();
-	
-	/* sql="select re_no, m_id, b_no, re_content, re_date from D15_reply where b_no=?";
-	pstmt = conn.prepareStatement(sql);
-	pstmt.setInt(1, b_no);
-	rs = pstmt.executeQuery();
-	
-	List<BoardReply_DTO> list=new ArrayList<BoardReply_DTO>();
-	
-	while(rs.next()){
-		BoardReply_DTO dto=new BoardReply_DTO();
-		dto.setRe_no(rs.getInt(1));
-		dto.setM_id(rs.getString(2));
-		dto.setB_no(rs.getInt(3));
-		dto.setRe_content(rs.getString(4));
 
-		String from = rs.getString(5);
-		dto.setRe_date(from.substring(2, 10));
-		
-		list.add(dto);
-	}
-	JSONArray json = JSONArray.fromObject(list); */
 	rs.close();
 	pstmt.close();
 	conn.close();
 %>
-<%-- <%=json%> --%>

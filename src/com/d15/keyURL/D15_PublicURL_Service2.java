@@ -1,3 +1,11 @@
+/*
+ * @Class : D15_PublicURL_Service2
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 주소가 겹쳐서 메인쪽으로 돌리기 위한 서비스
+ */
+
+
 package com.d15.keyURL;
 
 import java.util.HashMap;
@@ -11,6 +19,8 @@ import com.d15.Action.ActionForward;
 
 public class D15_PublicURL_Service2 implements Action{
 
+	
+	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		D15_Property_animalKey searchkey = D15_Property_animalKey.init();

@@ -1,3 +1,10 @@
+/*
+ * @Class : MangerProtectCheck_Service.java
+ * @Date : 2016.10.11
+ * @Author : 이성준
+ * @Desc : 관리자가 임시보호 승인/거절을 위한  Service 클래스
+ */
+
 package com.d15.Service;
 
 import java.sql.SQLException;

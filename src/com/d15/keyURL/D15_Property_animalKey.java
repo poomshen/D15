@@ -1,3 +1,12 @@
+/*
+ * @Class : D15_Property_animalKey
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 키값 가지고 있는 property
+ */
+
+
+
 package com.d15.keyURL;
 
 import java.util.Properties;

@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : noticewrite.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : 공지사항 게시판 글 작성하는view
+ -->
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>

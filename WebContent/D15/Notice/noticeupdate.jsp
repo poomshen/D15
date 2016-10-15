@@ -1,3 +1,12 @@
+<!-- 
+ * @Class : noticeupdate.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : 공지사항 게시판 수정하는 view
+ -->
+
+
+
 <%@page import="com.d15.DTO.Notice_DTO"%>
 <%@page import="com.d15.DTO.Board_DTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>

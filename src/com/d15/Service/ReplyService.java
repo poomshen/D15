@@ -1,6 +1,10 @@
 /*
-	댓글
-*/
+ * @Class : ReplyDelete_Service
+ * @Date : 2016.10.14
+ * @Author : 조한솔
+ * @Desc : 댓글을 처리하는 Service
+ */
+
 package com.d15.Service;
 
 import java.sql.Date;

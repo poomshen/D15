@@ -1,3 +1,11 @@
+/*
+ * @Class : Reply_DTO
+ * @Date : 2016.10.7
+ * @Author : 조한솔
+ * @Desc : 필요없는 DTO
+ */
+
+
 package com.d15.DTO;
 
 import java.sql.Date;

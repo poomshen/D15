@@ -1,3 +1,11 @@
+/*
+ * @Class : D15_PublicURL_Service
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 동물데이터 가져오는 url 설정
+ */
+
+
 package com.d15.keyURL;
 
 import java.util.HashMap;

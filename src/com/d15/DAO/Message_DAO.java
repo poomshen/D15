@@ -1,3 +1,11 @@
+/*
+ * @Class : Message_DAO
+ * @Date : 2016.10.13
+ * @Author : 이성준
+ * @Desc : 메세지  처리할 DAO
+ */
+
+
 package com.d15.DAO;
 
 import java.sql.Connection;

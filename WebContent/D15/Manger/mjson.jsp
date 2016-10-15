@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : mjson.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : json 멤버 가져오기
+ -->
+
+
 <%@page import="com.d15.DTO.MemberSearch_DTO"%>
 <%@page import="com.d15.DTO.MemberJoin_DTO"%>
 <%@page import="com.d15.DAO.Member_DAO"%>

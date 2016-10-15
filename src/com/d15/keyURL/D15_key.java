@@ -1,3 +1,11 @@
+/*
+ * @Class : D15_Key
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 공공데이터 키값 설정
+ */
+
+
 package com.d15.keyURL;
 
 import java.util.HashMap;

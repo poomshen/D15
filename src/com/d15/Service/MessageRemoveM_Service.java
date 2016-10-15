@@ -1,3 +1,10 @@
+/*
+ * @Class : MessageRemoveM_Service.java
+ * @Date : 2016.10.12
+ * @Author : 이성준
+ * @Desc : 보낸 메세지 삭제를 위한  Service 클래스
+ */
+
 package com.d15.Service;
 
 import java.io.IOException;

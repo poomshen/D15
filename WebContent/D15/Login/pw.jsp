@@ -1,3 +1,12 @@
+
+<!-- 
+ * @Class : pw.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : pw찾기
+ -->
+
+
 <%@page import="com.d15.DAO.Member_DAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : ManagerFail.jsp
+ * @Date : 2016.10.12
+ * @Author : 이성준
+ * @Desc : 관리자가 승인 거부시 띄우지는 view
+ -->
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

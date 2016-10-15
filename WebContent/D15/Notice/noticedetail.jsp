@@ -1,3 +1,10 @@
+<!-- 
+ * @Class : noticedetail.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : 공지사항 게시판 상세보기 view
+ -->
+
 <%@page import="com.d15.DTO.Board_DTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 

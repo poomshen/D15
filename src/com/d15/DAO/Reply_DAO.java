@@ -1,6 +1,10 @@
 /*
- 10/07
-*/
+ * @Class : Reply_DAO
+ * @Date : 2016.10.7
+ * @Author : 조한솔
+ * @Desc : 게시판 댓글 처리할 DAO
+ */
+
 package com.d15.DAO;
 
 import java.sql.Connection;

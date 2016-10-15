@@ -1,3 +1,11 @@
+/*
+ * @Class : PublicSeqSelect_Service.java
+ * @Date : 2016.10.14
+ * @Author : 이성준
+ * @Desc : 유기견을 DB에 저장하는   Service
+ */
+
+
 package com.d15.Service;
 
 

@@ -86,18 +86,6 @@
 			    </div>
 			</div>
 			
-			<%-- <div class="form-group">
-				<c:if test="${board.b_file!=null}">
-	   				<label class="control-label col-sm-2" for="fselec">파일 첨부</label>
-			    	<div class="col-sm-4">
-			      	
-						<td>
-							&nbsp;&nbsp;${board.b_file}
-						</td>					
-					
-			   	 	</div>
-			    </c:if>
-			 </div> --%>
 		</form>
 
 	<div class="form-group">

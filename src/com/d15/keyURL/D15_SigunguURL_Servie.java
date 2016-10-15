@@ -1,3 +1,11 @@
+/*
+ * @Class : D15_SigunguURL_Service
+ * @Date : 2016.10.6
+ * @Author : 이성준
+ * @Desc : 노필요
+ */
+
+
 package com.d15.keyURL;
 
 import java.util.HashMap;

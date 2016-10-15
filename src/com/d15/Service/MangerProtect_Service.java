@@ -1,3 +1,10 @@
+/*
+ * @Class : MangerProtect_Service.java
+ * @Date : 2016.10.10
+ * @Author : 이성준
+ * @Desc : 임시보호 현황을 보기위한  Service 클래스
+ */
+
 package com.d15.Service;
 
 import java.util.ArrayList;

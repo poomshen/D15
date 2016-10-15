@@ -1,5 +1,5 @@
 <!-- 
- * @Class : Board_Lisst.jsp
+ * @Class : Review_Lisst.jsp
  * @Date : 2016.10.5
  * @Author : 조한솔
  * @Desc : Q&A 게시판에서 글 목록보기 위한 view

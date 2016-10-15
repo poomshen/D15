@@ -1,3 +1,10 @@
+<!-- 
+ * @Class : Review_Reply_Delete.jsp
+ * @Date : 2016.10.14
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에서 답글 삭제기능을 위한 view
+ -->
+
 <%@page import="com.d15.DTO.ReviewReply_DTO"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>

@@ -1,3 +1,10 @@
+/*
+ * @Class : Review_Controller
+ * @Date : 2016.10.12
+ * @Author : 조한솔
+ * @Desc : 후기 게시판에 대한 Controller
+ */
+
 package com.d15.Contoroller;
 
 import java.io.IOException;

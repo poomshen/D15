@@ -1,3 +1,10 @@
+/*
+ * @Class : New_Controller
+ * @Date : 2016.10.13
+ * @Author : 이성준
+ * @Desc : 새로운 메세지에 대한 Controller
+ */
+
 package com.d15.Contoroller;
 
 import java.io.IOException;

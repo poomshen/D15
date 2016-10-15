@@ -1,3 +1,11 @@
+/*
+ * @Class : pageManager_Service
+ * @Date : 2016.10.13
+ * @Author : 이성준
+ * @Desc : 임시보호 , 분양 페이지를 처리하기 위한 키값주기  Service
+ */
+
+
 package com.d15.Service;
 
 import javax.servlet.http.HttpServletRequest;

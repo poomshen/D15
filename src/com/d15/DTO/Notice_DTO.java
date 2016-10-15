@@ -1,3 +1,11 @@
+/*
+ * @Class : Notice_DTO
+ * @Date : 2016.10.13
+ * @Author : 박문수
+ * @Desc : 공지사항 게시판 테이블에 대한 DTO
+ */
+
+
 package com.d15.DTO;
 
 import java.sql.Date;

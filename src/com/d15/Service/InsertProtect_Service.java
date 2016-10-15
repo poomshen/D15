@@ -1,3 +1,11 @@
+/*
+ * @Class : InsertProtect_Service.java
+ * @Date : 2016.10.14
+ * @Author : 이성준
+ * @Desc : 임시보호 객체에 저장하는  Service 클래스
+ */
+
+
 package com.d15.Service;
 
 import java.io.UnsupportedEncodingException;

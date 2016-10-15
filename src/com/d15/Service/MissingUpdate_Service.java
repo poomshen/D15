@@ -1,3 +1,10 @@
+/*
+ * @Class : MissingUpdate_Service.java
+ * @Date : 2016.10.8
+ * @Author : 박문수
+ * @Desc : 실종 상태 확인을 위한  Service 클래스
+ */
+
 package com.d15.Service;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,3 +1,11 @@
+/*
+ * @Class : ReviewReply_DAO
+ * @Date : 2016.10.12
+ * @Author : 조한솔
+ * @Desc : 후기 게시판 댓글 처리할 DAO
+ */
+
+
 package com.d15.DAO;
 
 import java.sql.Connection;

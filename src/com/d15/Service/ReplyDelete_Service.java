@@ -1,3 +1,11 @@
+/*
+ * @Class : ReplyDelete_Service
+ * @Date : 2016.10.14
+ * @Author : 조한솔
+ * @Desc : 후기 게시판에서 댓글을 삭제하는 Service
+ */
+
+
 package com.d15.Service;
 
 import javax.servlet.http.HttpServletRequest;

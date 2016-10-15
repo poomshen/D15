@@ -1,3 +1,10 @@
+<!-- 
+ * @Class : replyadd.jsp
+ * @Date : 2016.10.14
+ * @Author : 조한솔
+ * @Desc : Q&A 게시판에서 댓글 보여주는기능을 위한 view
+ -->
+
 <%@page import="com.d15.DTO.BoardReply_DTO"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>

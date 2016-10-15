@@ -1,3 +1,11 @@
+<!-- 
+ * @Class : membersearch.jsp
+ * @Date : 2016.10.12
+ * @Author : 박문수
+ * @Desc : 회원조희하는 view
+ -->
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
