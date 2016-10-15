@@ -58,6 +58,7 @@
        	<section>
        	<div class="container">
 				<div class="row">
+				<div style='margin-top: 10px;'> </div>
 					<div class="col-sm-4">
 						<img id="img1" style="width: 100%;height: 236px;"	class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
 						<h2 id="st1"></h2>
