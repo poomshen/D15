@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <c:set var="no" value="${param.no}"/>
 
@@ -41,4 +41,4 @@
 	<jsp:include page = "../../include/footer.jsp" />
 </footer>
 </body>
-</html>
+</html> --%>

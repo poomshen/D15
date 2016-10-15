@@ -52,17 +52,17 @@ public class BoardReply_DAO {
 		try {
 			System.out.println("dao에서 replydto를 db에 저장");
 			conn = ds.getConnection();
-			String sql = "insert into D15_reply (RE_NO,M_NO,RE_CONTENT,RE_DATE,B_NO) "
-					+ "values(RE_NO_SEQ.nextval,?,?,sysdate,?)";
+			String sql = "insert into D15_reply (RE_NO,b_no,m_id,RE_CONTENT,RE_DATE) "
+					+ "values(RE_NO_SEQ.nextval,?,?,?,sysdate)";
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, replydto.getM_no());
-			pstmt.setString(2, replydto.getRe_content());
-			pstmt.setInt(3, replydto.getB_no());
+			pstmt.setString(2, replydto.getM_id());
+			pstmt.setString(3, replydto.getRe_content());
+			pstmt.setInt(1, replydto.getB_no());
 			
 			num = pstmt.executeUpdate();
-			
+			System.out.println("조한솔 ㅡㅡ");
 		} catch (SQLException e) {
 			System.out.println("Reply Error : " + e.getMessage());
 		} finally {
@@ -114,41 +114,7 @@ public class BoardReply_DAO {
 		}
 		return false;
 	}
-	
 
-/*
-//reply 덧글 리스트
-	public List<BoardReply_DTO> replylist(String idx_fk) throws SQLException{
-
-	try{
-			conn = ds.getConnection();
-			String reply_sql ="select * from reply where idx_fk=? order by re_no desc";
-			
-			pstmt = conn.prepareStatement(reply_sql);
-			pstmt.setString(1, idx_fk);
-		
-			 rs =pstmt.executeQuery();
-		    
-		    ArrayList<BoardReply_DTO> list = new ArrayList<BoardReply_DTO>();
-			while(rs.next()){
-				int re_no = Integer.parseInt(rs.getString("re_no"));
-				int m_no = rs.getInt("m_no");
-				int b_no = rs.getInt("b_no");
-				String re_content = rs.getString("re_content");
-				String content = rs.getString("content");
-				java.sql.Date re_date = rs.getDate("re_date");
-	         
-				BoardReply_DTO replyDTO = new BoardReply_DTO();
-				
-				list.add(replyDTO);
-			}
-			return list;	
-	 }finally{
-		 
-	 	if(pstmt !=null)pstmt.close();
-	 	if(rs !=null) rs.close();
-	 	if(conn !=null)conn.close();
-	 }*/
 }
 
 

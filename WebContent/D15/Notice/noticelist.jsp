@@ -6,6 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 
+
 <html style = "margin-top:100px;margin-bottom:40px">
 <head>
 <title>공지사항</title>
@@ -13,9 +14,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/jquery-2.2.4.min.js" 
-		  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" 
-		  crossorigin="anonymous">
+  <script src="http://code.jquery.com/jquery-2.2.4.min.js">
   </script>
     <style type="text/css">
 	table {
@@ -33,19 +32,18 @@
 	 
 	 <script type="text/javascript">
 	 $(function(){
+		 if(${sessionScope.memberdto == null}){
+		 		$("#detail").attr("href", "#");
+		 		$("#detail").click(function(){
+		 			alert('로그인 후 보실 수 있습니다.');
+		 		});
+		 }else{
+		 		$("#detail").attr("/TeamProject3_D15/D15/Notice/NoticeDetail.notice?no=${nt.notice_no}&page=${nowPage}");
+		 }
+		 
 	 	$('#writeBtn').click(function(){
 	 		location.href="/TeamProject3_D15/D15/Notice/noticewrite.jsp";
 	 	});
-	 	
-	 	if(${sessionScope.memberdto == null}){
-	 		$("#detail").attr("href", "#");
-	 		$("#detail").click(function(){
-	 			alert('로그인 후 보실 수 있습니다.');
-	 		});
-	 	}else{
-	 		$("#detail").attr("/TeamProject3_D15/D15/Notice/NoticeDetail.notice?no=${nt.notice_no}&page=${nowPage}");
-	 	}
-	 	
 	 });
 	 </script>
 	 		 
@@ -62,7 +60,7 @@
 
 <div class="container">
 	<h3>공 지 사 항</h3>
-	
+
 <table class="table table-hover">
 <!-- 게시판 목록 -->
 

@@ -35,7 +35,9 @@
  			      buttons: {
  			        "삭제": function() {
  			          $( this ).dialog( "close" );
+ 			          
  			          location.href = "NoticeDelete.notice?no=${noticedto.notice_no}";
+ 			          alert("삭제 완료");
  			        },
  			        "취소": function() {
  			          $( this ).dialog( "close" );

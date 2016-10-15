@@ -75,7 +75,7 @@ public class Board_DAO {
 	// List.jsp
 	public List getBoardList(int page, int limit) {
 		String board_list_sql =	" SELECT * FROM "
-				+ "( SELECT ROWNUM rn , b_no , m_no , b_name, b_content, b_count , b_file , b_date, "
+				+ "( SELECT ROWNUM rn , b_no , m_id , b_name, b_content, b_count , b_file , b_date, "
 				+ " b_ref , b_depth , b_step "
 				+ " FROM (	SELECT * FROM D15_BOARD ORDER  BY  b_ref DESC , b_step ASC  ) "
 				+ " ) WHERE rn BETWEEN ? AND ?";
@@ -97,7 +97,7 @@ public class Board_DAO {
 				Board_DTO board = new Board_DTO();
 				System.out.println("들어옴");
 				board.setB_no(rs.getInt("B_NO"));
-				board.setM_no(rs.getInt("M_NO"));
+				board.setM_id(rs.getString("M_ID"));
 				board.setB_name(rs.getString("B_NAME"));
 				board.setB_content(rs.getString("B_CONTENT"));
 				board.setB_count(rs.getInt("B_COUNT"));
@@ -145,9 +145,9 @@ public class Board_DAO {
 		try {
 			
 			conn = ds.getConnection();
-			String sql = "select b.B_NO, b.M_NO, b.B_NAME, b.B_COUNT, b.B_CONTENT, b.B_date, "
-					+"B_FILE, b.B_REF, b.B_DEPTH, b.B_STEP "
-					+"from D15_board b join D15_member m on b.M_NO = m.M_NO where B_NO = ? ";
+			String sql = "select B_NO, M_ID, B_NAME, B_COUNT, B_CONTENT, B_date, "
+					+"B_FILE, B_REF, B_DEPTH, B_STEP "
+					+"from D15_board  where B_NO = ? ";
 			pstmt = conn.prepareStatement(sql);							
 
 		
@@ -160,7 +160,7 @@ public class Board_DAO {
 
 				board = new Board_DTO();
 				board.setB_no(rs.getInt("B_NO"));
-				board.setM_no(rs.getInt("M_NO"));
+				board.setM_id(rs.getString("M_id"));
 				board.setB_name(rs.getString("B_NAME"));
 				board.setB_content(rs.getString("B_CONTENT"));
 				board.setB_count(rs.getInt("B_COUNT"));
@@ -198,13 +198,13 @@ public class Board_DAO {
 		try {
 			
 			conn = ds.getConnection();
-			String sql = "insert into D15_board (B_NO, M_no, B_NAME, B_CONTENT,"
+			String sql = "insert into D15_board (B_NO, M_ID, B_NAME, B_CONTENT,"
 					+ "B_COUNT, B_DATE, B_REF, B_DEPTH, B_STEP)"
 					+ "values(B_NO_SEQ.nextval,?,?,?,0,sysdate,?,0,0)";
 
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setInt(1, board.getM_no());
+			pstmt.setString(1, board.getM_id());
 			pstmt.setString(2, board.getB_name());
 			pstmt.setString(3, board.getB_content());
 			pstmt.setInt(4, board.getB_ref());
@@ -215,10 +215,15 @@ public class Board_DAO {
 			
 			
 			int row = pstmt.executeUpdate();
+			if(row > 0){
+				System.out.println("글 작성 됨");
+			}else{
+				System.out.println("글 작성 안됨");
+			}
 			return row;
 		}
 		 catch (Exception e) {
-		 
+			 System.out.println("board insert error");
 		 e.printStackTrace();
 		}finally {
 
@@ -298,14 +303,14 @@ public class Board_DAO {
 			step = step + 1; // 현재 읽은 글 + 1
 			depth = depth + 1; // 현재 읽은 글 + 1
 			
-			sql = "insert into D15_board (B_NO,M_NO,B_NAME, B_CONTENT,B_COUNT, B_DATE, B_REF,"
+			sql = "insert into D15_board (B_NO,M_id,B_NAME, B_CONTENT,B_COUNT, B_DATE, B_REF,"
 					+ "B_DEPTH,B_STEP) "
 					+ "values(B_NO_SEQ.nextval,?,?,?,0,sysdate,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 	
-			pstmt.setInt(1, board.getM_no());
-			System.out.println("m_no가 문제라나ㅡㄴ"+board.getM_no());
+			pstmt.setString(1, board.getM_id());
+			System.out.println("m_id가 문제라나ㅡㄴ"+board.getM_id());
 			pstmt.setString(2, board.getB_name());
 			pstmt.setString(3, board.getB_content());
 			//pstmt.setString(3, board.getB_file());

@@ -45,7 +45,7 @@ public class ReplyService implements Action {
 		//breplydto.setRe_no(re_no); db 시퀀스에서
 		HttpSession session=request.getSession();
 		Member_DTO memberdto=(Member_DTO)session.getAttribute("memberdto");
-		breplydto.setM_no(memberdto.getM_no());
+		breplydto.setM_id(memberdto.getM_id());
 		breplydto.setB_no(Integer.parseInt(request.getParameter("b_no")));
 		breplydto.setRe_content(request.getParameter("re_content").replace("\r\n", "<br>"));
 		//breplydto.setRe_date(re_date); 

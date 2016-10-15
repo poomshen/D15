@@ -22,7 +22,7 @@
 	ResultSet rs = null;
 	
 	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "kosta2","1004");
-	String sql="select re_no, m_no, b_no, re_content, re_date from D15_reply where re_no="+
+	String sql="select re_no, m_id, b_no, re_content, re_date from D15_reply where re_no="+
 			"(select max(re_no) from d15_reply)";
 	pstmt = conn.prepareStatement(sql);
 	//pstmt.setInt(1, b_no);
@@ -33,7 +33,7 @@
 		BoardReply_DTO dto=new BoardReply_DTO();
 	if(rs.next()){
 		dto.setRe_no(rs.getInt(1));
-		dto.setM_no(rs.getInt(2));
+		dto.setM_id(rs.getString(2));
 		dto.setB_no(rs.getInt(3));
 		dto.setRe_content(rs.getString(4));
 		String from = rs.getString(5);

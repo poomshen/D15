@@ -102,9 +102,9 @@
             							test += "<li><a href='#' onclick='page("+y+");'>["+y+"]</a></li>";
 
             						}
-            					} 
+            				} 
          	   			}
-         	   		}
+         	   	}
             }
            
        		if(${pageNo} < pagecount ){

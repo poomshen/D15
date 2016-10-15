@@ -23,6 +23,8 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <style>
  .deleteBtn{}
  </style>
@@ -37,7 +39,26 @@
 		 	});
 		 	
 		 	$('#dBtn').click(function(){
-		 	location.href="BoardDelete.Board?name=qna&num=${board.b_no}"
+		 		
+		 		$( "#dialog-confirm" ).dialog({
+	 			      resizable: false,
+	 			      height: "auto",
+	 			      width: 400,
+	 			      modal: true,
+	 			      buttons: {
+	 			        "삭제": function() {
+	 			          $( this ).dialog( "close" );
+	 			          
+	 			          location.href = "BoardDelete.Board?name=qna&num=${board.b_no}";
+	 			          alert("삭제 완료");
+	 			        },
+	 			        "취소": function() {
+	 			          $( this ).dialog( "close" );
+	 			          
+	 			        }
+	 			      }
+	 			    });
+		 	//location.href="BoardDelete.Board?name=qna&num=${board.b_no}"
 			});
 		 	
 		 	$('#mBtn').click(function(){
@@ -61,9 +82,9 @@
 						str+="<tr><th class='text-left'>작성자</th><th class='text-left' colspan=2>댓글</th><th/>";
 						str+="<th>작성일</th></tr>"
 						str+="<tr>"
-						str+="<td>"+items.m_no+"</td>";
+						str+="<td>"+items.m_id+"</td>";
 						str+="<td class='text-left' colspan=2>"+items.re_content+"</td>";
-						if (items.m_no==${sessionScope.memberdto.m_no}){
+						if (items.m_id==${sessionScope.memberdto.m_id}){
 							str+="<td><input type='button' id='deleteBtn"+items.re_no+"' class='btn btn-default' onclick='deleteReply("+items.re_no+", "+b_no+")' value='삭제'></td>";							
 						}
 						str+="<td>"+items.re_date+"</td></tr>"
@@ -73,12 +94,9 @@
 					});
 					$('#reply').append(str);
 				},
-				error:function(xhr){
-					alert('에러발생');
-
-				}		
+					
 			});
-			
+		
 			
 			$('#btn').click(function(){
 				$.ajax({
@@ -119,7 +137,7 @@
 						str+="<tr><th class='text-left'>작성자</th><th class='text-left' colspan=2>댓글</th><th/>";
 						str+="<th>작성일</th></tr>"
 						str+="<tr>"
-						str+="<td>"+data.m_no+"</td>";
+						str+="<td>"+data.m_id+"</td>";
 						str+="<td class='text-left' colspan=2>"+data.re_content+"</td>";
 						str+="<td><input type='button' id='deleteBtn"+value+"' class='btn btn-default' value='삭제' onclick='deleteReply("+data.re_no+", "+b_no+")'></td>"
 						str+="<td>"+data.re_date+"</td></tr>"
@@ -156,7 +174,7 @@
 					var str="";
 					$.each(data, function(index, items){
 						str+="<table class='table table-bordered'>";
-						str+="<th>작성자</th><td>"+items.m_no+"</td>";
+						str+="<th>작성자</th><td>"+items.m_id+"</td>";
 						str+="<th>작성일</th><td>"+items.re_date+"</td></tr>";
 						str+="<th>댓글</th><td>"+items.re_content+"<span style='float:right'>"+
 						"<td><input type='button' id='deleteBtn"+items.re_no+"' class='btn btn-default' value='삭제' onclick='deleteReply("+items.re_no+", "+b_no+")'></td>"+
@@ -164,9 +182,7 @@
 						str+="</table><br>";
 					});
 					$('#reply').append(str);				
-				},error:function(xhr){
-					console.log(xhr);
-				}
+				
 				
 			});
 		}
@@ -174,6 +190,11 @@
  <style type="text/css">
 	table {
 		width: 750px;
+	}
+	
+	#wrap{
+		margin-top:100px;
+		margin-bottom:80px;
 	}
 	</style>
  
@@ -185,7 +206,7 @@
 	<jsp:include page="../../include/header.jsp"/>
 </header>
 <br/><br/>
-<section>
+<section id = "wrap">
 	<div class="container">
 		<h3>게시글보기</h3>
 		<br/>
@@ -194,7 +215,7 @@
 			<tr>
 				<th>제목</th>
  				<th>${board.b_name}</th>
-				<th>${board.m_no}</th>
+				<th>${board.m_id}</th>
 				<th>${board.b_date}</th>
 			</tr>
 			<tr>
@@ -252,13 +273,13 @@
 
 			
 			<td>
-				<c:if test="${board.m_no==sessionScope.memberdto.m_no}">
+				<c:if test="${board.m_id==sessionScope.memberdto.m_id}">
 					<input type="button" id="mBtn" class="btn btn-default" value="수정">
 				</c:if>
 			</td>
 
 			<td>
-				<c:if test="${board.m_no==sessionScope.memberdto.m_no}">
+				<c:if test="${board.m_id==sessionScope.memberdto.m_id}">
 					<input type="button" id="dBtn" class="btn btn-default" value="삭제">	
 				</c:if>
 			</td>
@@ -271,5 +292,11 @@
 		</div>
 	</div>
 </section>
+<div id="dialog-confirm" title="삭제" style = "display:none;">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:3px 12px 20px 0;"></span>정말 삭제 하시겠습니까?</p>
+</div>
+<footer>
+	<jsp:include page ="../../include/footer.jsp"/>
+</footer>
 </body>
 </html>
