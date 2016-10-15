@@ -27,7 +27,8 @@ public class ReviewReplyView_Service implements Action{
 		Review_DTO reviewdto = new Review_DTO();
 		
 		int num = Integer.parseInt(request.getParameter("num"));
-		
+		//String pageName = request.getParameter("name");
+		System.out.println("num값 잘찍힘?" + num);
 		if(request.getParameter("reply")!=null){
 			
 			reply =request.getParameter("reply");
@@ -35,6 +36,7 @@ public class ReviewReplyView_Service implements Action{
 		
 		try {
 			reviewdto = reviewdao.getDetail(num);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

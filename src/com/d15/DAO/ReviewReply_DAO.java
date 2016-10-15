@@ -44,12 +44,13 @@ public class ReviewReply_DAO {
 		try {
 			conn = ds.getConnection();
 			
-			String sql = "insert into D15_reply2 (RER_NO,M_NO,RER_CONTENT,RER_DATE,BR_NO) "
-					+ "values(RER_NO_SEQ.nextval,2,?,sysdate,?)";
+			String sql = "insert into D15_reply2 (RER_NO,M_id,RER_CONTENT,RER_DATE,BR_NO) "
+					+ "values(RER_NO_SEQ.nextval,?,?,sysdate,?)";
 			pstmt = conn.prepareStatement(sql);
-	
-			pstmt.setString(1, replydto.getRer_content()); //요기
-			pstmt.setInt(2, replydto.getBr_no());
+			
+			pstmt.setString(1, replydto.getM_id());
+			pstmt.setString(2, replydto.getRer_content()); //요기
+			pstmt.setInt(3, replydto.getBr_no());
 
 			num = pstmt.executeUpdate();
 			

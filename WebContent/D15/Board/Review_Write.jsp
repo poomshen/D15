@@ -31,6 +31,12 @@
 	});
 	
    </script>
+   <style>
+   	#wrap{
+   		margin-top:100px;
+   		margin-bottom:80px;
+   	}
+   </style>
 </head>
 <body>
 
@@ -40,6 +46,7 @@
 </header>
 
 <br/><br/>
+<div id = "wrap">
 <div class="container">
 	<h3>글쓰기 게시판</h3>
 	<hr/>
@@ -84,5 +91,10 @@
 			 </div>
 		</form>		
 	</div>
+	</div>
+	
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 </body>
 </html>

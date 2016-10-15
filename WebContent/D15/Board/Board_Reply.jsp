@@ -50,6 +50,10 @@
 	table {
 		width: 750px;
 	}
+	#wrap{
+		margin-top:100px;
+		margin-bottom:80px;
+	}
 	</style>
 </head>
 <body>
@@ -58,7 +62,7 @@
 	<jsp:include page="../../include/header.jsp"/>
 </header>
 <br/><br/>
-<section>
+<section id = "wrap">
 	<div class="container">
 			<h3>게시판 답변</h3>
 			<br/>
@@ -68,17 +72,8 @@
 	<input type="hidden" name="B_REF" value="${board.b_ref}">
 	<input type="hidden" name="B_DEPTH" value="${board.b_depth}">
 	<input type="hidden" name="B_STEP" value="${board.b_step}">
-	
-	
-	<%-- 	<tr>
-			<th>제목</th>
-				<th>
-					<input name="B_NAME" type="text" size="87" maxlength="100" value="└>[Re]: ${board.b_name}"/>
-				</th>
-			<th>아이디 들어옴</th>
-			<th>${board.b_date}</th>
-		</tr> --%>
-		
+
+
 		<div class="form-group">
 	   		<label class="control-label col-sm-2" for="title">제목</label>
 			   <div class="col-sm-4">
@@ -90,7 +85,7 @@
 	   			<label class="control-label col-sm-2" for="M_ID">글쓴이</label>
 			    <div class="col-sm-4">
 			    <c:set var="dto" value="${sessionScope.memberdto}"></c:set>
-			      <input type="text" name="M_ID" class="form-control" value="${dto.m_id}" id="M_ID" readonly="readonly">
+			      <input type="text" name="M_ID" class="form-control" value="${board.m_id}" id="M_ID" readonly="readonly">
 			    </div>
 		</div>
 			
@@ -116,17 +111,17 @@
 		  <div class="col-sm-2"></div>
 			<div class="col-sm-4">
 			<font size=2>
-				<input type="button" id="reg" value="등록" />
-				<input type="button" id="back" value="뒤로" />
+				<input type="button" id="reg" value="등록" class = "btn btn-default"/>
+				<input type="button" id="back" value="뒤로" class = "btn btn-default"/>
 				</font>
 			</div>
 		</div>
+	</div>
+	</section>
 
-<br>
-<hr>
-<%-- <h3>원본 게시글</h3>
-<c:out value="${fn:replace(Content, '\\r\\n', '<br/>')}"/> --%>
-<hr>
+<footer>
+	<jsp:include page  ="../../include/footer.jsp"/>
+</footer>
 
 </body>
 </html>

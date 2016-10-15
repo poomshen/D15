@@ -21,7 +21,7 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "MY_SCHEMA","1004");
+	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "kosta2","1004");
 	String sql="delete from D15_reply2 where rer_no=?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, re_no);

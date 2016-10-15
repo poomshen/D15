@@ -23,6 +23,8 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <style>
  .deleteBtn{}
  </style>
@@ -35,7 +37,25 @@
 	 	});
 	 	
 	 	$('#dBtn').click(function(){
-	 		location.href="ReviewDelete.Review?name=review&num=${review.br_no}";
+	 		$( "#dialog-confirm" ).dialog({
+			      resizable: false,
+			      height: "auto",
+			      width: 400,
+			      modal: true,
+			      buttons: {
+			        "삭제": function() {
+			          $( this ).dialog( "close" );
+			          
+			          location.href = "ReviewDelete.Review?name=review&num=${review.br_no}";
+			          alert("삭제 완료");
+			        },
+			        "취소": function() {
+			          $( this ).dialog( "close" );
+			          
+			        }
+			      }
+			 });
+	 		//location.href="ReviewDelete.Review?name=review&num=${review.br_no}";
 	 	});
 	 	
 	 	$('#mBtn').click(function(){
@@ -60,17 +80,21 @@
 					str+="<tr><th class='text-left'>작성자</th><th class='text-left' colspan=2>댓글</th><th/>";
 					str+="<th>작성일</th></tr>"
 					str+="<tr>"
-					str+="<td>"+items.m_no+"</td>";
+					str+="<td>"+items.m_id+"</td>";
 					str+="<td class='text-left' colspan=2>"+items.rer_content+"</td>";
-					str+="<td><input type='button' id='deleteBtn"+items.rer_no+"' class='btn btn-default' onclick='deleteReply("+items.rer_no+","+br_no+")' value='삭제'></td>"
+					
+					if(items.m_id == "${sessionScope.memberdto.m_id}"){
+						str+="<td><input type='button' id='deleteBtn"+items.rer_no+"' class='btn btn-default' onclick='deleteReply("+items.rer_no+","+br_no+")' value='삭제'></td>"
+					}else{
+						str+= "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+					}
+				
 					str+="<td>"+items.rer_date+"</td></tr>"
 					str+="</table><br>";
 				});
 				$('#reply').append(str);
-			},
-			error:function(xhr){
-				alert(xhr.status);
-			}		
+			}
+				
 		});
 		
 		
@@ -85,10 +109,6 @@
 				
 				success:function(data){
 					console.log(data);
-				},
-				
-				error:function(xhr){
-					
 				}
 				
 			});	
@@ -119,16 +139,13 @@
 					str+="<tr><th class='text-left'>작성자</th><th class='text-left' colspan=2>댓글</th><th/>";
 					str+="<th>작성일</th></tr>"
 					str+="<tr>"
-					str+="<td>"+data.m_no+"</td>";
+					str+="<td>"+data.m_id+"</td>";
 					str+="<td class='text-left' colspan=2>"+data.rer_content+"</td>";
 					str+="<td><input type='button' id='deleteBtn"+value+"' class='btn btn-default' value='삭제' onclick='deleteReply("+data.rer_no+", "+br_no+")'></td>"
 					str+="<td>"+data.rer_date+"</td></tr>"
 					str+="</table><br>";
 					
 					$('#reply').append(str);
-				},
-				error:function(){
-					
 				}
 			});
 	
@@ -153,17 +170,24 @@
 				var str="";
 				console.log(data);
 				$.each(data, function(index, items){
-				/* 	str+="<table class='table'>";
-					str+="<th>작성자</th><td>"+items.m_no+"</td>";
-					str+="<th>작성일</th><td>"+items.rer_date+"</td></tr>";
-					str+="<th>댓글</th><td>"+items.rer_content+"<span style='float:right'>"+
-					"<td><input type='button' id='deleteBtn"+items.rer_no+"' class='btn btn-default' value='삭제' onclick='deleteReply("+items.rer_no+","+br_no+")'></td>"+
-					"</span></td></tr>";
-					str+="</table><br>"; */
+									
+									str+="<table class='table table-hover'>";
+									str+="<tr><th class='text-left'>작성자</th><th class='text-left' colspan=2>댓글</th><th/>";
+									str+="<th>작성일</th></tr>"
+									str+="<tr>"
+									str+="<td>"+items.m_id+"</td>";
+									str+="<td class='text-left' colspan=2>"+items.rer_content+"</td>";
+									
+									if(items.m_id == "${sessionScope.memberdto.m_id}"){
+										str+="<td><input type='button' id='deleteBtn"+items.rer_no+"' class='btn btn-default' onclick='deleteReply("+items.rer_no+","+br_no+")' value='삭제'></td>"
+									}else{
+										str+= "<td>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+									}
+								
+									str+="<td>"+items.rer_date+"</td></tr>"
+									str+="</table><br>";
 				});
-				//$('#reply').append(str);
-			},error:function(xhr){
-				console.log(xhr);
+				$('#reply').append(str);
 			}
 			
 		});
@@ -173,6 +197,10 @@
 	 <style type="text/css">
 		table {
 			width: 750px;
+		}
+		#wrap{
+			margin-top:100px;
+			margin-bottom:80px;
 		}
 		</style>
 	 
@@ -185,7 +213,7 @@
 	<jsp:include page="../../include/header.jsp"/>
 </header>
 <br/><br/>
-<section>
+<section id = "wrap">
 	<div class="container">
 		<h3>게시글보기</h3>
 		<br/>
@@ -194,7 +222,7 @@
 			<tr>
 				<th>제목</th>
  				<th>${review.br_name}</th>
-				<th>아이디 들어옴</th>
+				<th>${review.m_id}</th>
 				<th>${review.br_date}</th>
 			</tr>
 			<tr>
@@ -229,33 +257,28 @@
 					<td><input type="hidden"  name="br_no" value="${review.br_no}"/></td>
 					<td colspan="4">
 						<span style='float:right'>
-							<input type="submit" id="btn" class="btn btn-default" value="등록 "/></td>
+							<input type="submit" id="btn" class="btn btn-default" value="등록 "/>
 						</span>
+					</td>
 				</tr>
 				
 			</table>
 			<div class="text-right">
-					<td>
+					
 						<input type="button" id="rBtn" class="btn btn-default" value="답글">
-					</td>
-
-					<td>
 						<input type="button" id="mBtn" class="btn btn-default" value="수정">
-					</td>
-
-					
-					<td colspan="5">
 						<input type="button" id="dBtn" class="btn btn-default" value="삭제">
-					</td>
-					
-									
-					<td colspan="5">
 			   			<input type="button" id="listBtn" class="btn btn-default" value="목록">
-					</td>
 					
 			</div>
-		</form>
+		</div>
 	</div>
 </section>
+<div id="dialog-confirm" title="삭제" style = "display:none;">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:3px 12px 20px 0;"></span>정말 삭제 하시겠습니까?</p>
+</div>
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 </body>
 </html>

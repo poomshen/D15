@@ -141,7 +141,7 @@ public class Review_Controller extends HttpServlet {
 			} catch (Exception e) {
 				
 				e.printStackTrace();
-			}                              
+			}                    
 		} else if (Command.equals("/D15/ReviewReplyView.Review")) {
 			
 			System.out.println("게시판 답변 화면");
@@ -168,6 +168,15 @@ public class Review_Controller extends HttpServlet {
 			
 			} catch (Exception e) {
 				
+				e.printStackTrace();
+			}
+		}else if(Command.equals("/D15/ReviewReply_Service.Review")){
+			System.out.println("게시판 답변 저장");
+			action = new ReviewReply_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				System.out.println("ReviewReply_Service Error");
 				e.printStackTrace();
 			}
 		}

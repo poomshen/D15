@@ -22,6 +22,7 @@ public class ReviewDetail_Service implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 
+		System.out.println("num값 잘찎힘?? 2 : " + request.getParameter("num"));
 		int num =Integer.parseInt(request.getParameter("num"));
 		
 		Review_DAO reviewdao = new Review_DAO();

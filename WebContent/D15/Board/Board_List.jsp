@@ -109,7 +109,7 @@
 	</tr>
 	
 	<c:forEach var="i" items="${boardList}">
-	<c:set var="bd" value="${i}"> </c:set><br>
+	<c:set var="bd" value="${i}"> </c:set>
 	
 	<tr class="text-center">
 		<td>

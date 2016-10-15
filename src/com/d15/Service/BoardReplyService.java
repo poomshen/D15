@@ -39,7 +39,7 @@ public class BoardReplyService implements Action {
 		
 		result = boarddao.boardReply(boarddto);
 		int no = boarddao.MaxNo();
-		
+		System.out.println("가장 높은 번호 : " + no);
 		if(result == 0){
 			
 			System.out.println("답변 실패");

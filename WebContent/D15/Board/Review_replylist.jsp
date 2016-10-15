@@ -21,8 +21,8 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "MY_SCHEMA","1004");
-	String sql="select rer_no, m_no, br_no, rer_content, rer_date from D15_reply2 where br_no=?";
+	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "kosta2","1004");
+	String sql="select rer_no, m_id, br_no, rer_content, rer_date from D15_reply2 where br_no=?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setInt(1, br_no);
 
@@ -32,7 +32,7 @@
 	while(rs.next()){
 		ReviewReply_DTO dto=new ReviewReply_DTO();
 		dto.setRer_no(rs.getInt(1));
-		dto.setM_no(rs.getInt(2));
+		dto.setM_id(rs.getString(2));
 		dto.setBr_no(rs.getInt(3));
 		dto.setRer_content(rs.getString(4));
 		String from = rs.getString(5);
