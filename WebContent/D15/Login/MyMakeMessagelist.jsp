@@ -14,6 +14,9 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <script type="text/javascript">
+	$(function(){
+		$("#message_out").hide();
+	})
 	function Mremove(mes_no){
 		$.post("MessageRemoveM.Message", {"mes_no":mes_no}, function(data, textStatus, req) {
 			if(data == 'Y'){
@@ -26,6 +29,25 @@
 	}
 	function isclose(){
 		window.location.reload();
+	}
+	function ismessage(){
+		$("#mes_content").removeAttr("readonly");
+		$("#mes_content").html(" ");
+		$("#message_in").hide();
+		$("#message_out").show();
+	
+	}
+	function outmessage(m_id){
+		//console.log($("#mes_content").val());
+	 $.post("insertMessage.Message", {"m_id":m_id,"mes_content":$("#mes_content").val()}, function(data, textStatus, req) {
+		if(data == 1){
+			alert(m_id+"님에게 메세지 전송 성공");
+			isclose();
+		}else{
+			alert(m_id+"님에게 메시지 전송 실패");
+			isclose();
+		}
+		})
 	}
 </script>
       <style>
@@ -101,16 +123,17 @@
 				</div>
 					<div class="modal-body">
 						<div style="width: 47%; float: left;">
-						<input class="form-control" type="text" value=" ${sessionScope.memberdto.m_id }" name="m_id" id="m_id" readonly="readonly"> 
+						<input class="form-control" type="text" placeholder="발신자:${sessionScope.memberdto.m_id }" value="${list.m_id }" value=" ${sessionScope.memberdto.m_id }" name="m_id" id="m_id" readonly="readonly"> 
 						</div>
 						<div style="width: 47%; float: right ;">
-						<input class="form-control" type="text" value="${list.m_id }" readonly="readonly" name="m_send" id="m_send"> 
+						<input class="form-control" type="text"  placeholder="수신자:${list.m_id}" value=" ${sessionScope.memberdto.m_id }"  readonly="readonly" name="m_send" id="m_send"> 
 						</div>
 						<br>
 						<textarea style="margin-top: 10%;" class="form-control" rows="5" cols="30"  readonly="readonly" name="mes_content" id="mes_content">${list.mes_content }</textarea>
 					</div>
 					<div class="modal-footer">
-						<button type="button" onclick="isclose()" id="message_in" class="btn btn-default"  data-dismiss="modal">답장하기</button> 
+						<button type="button" onclick="ismessage()" id="message_in" class="btn btn-default" >답장하기</button> 
+						<button type="button" onclick="outmessage('${list.m_id}')" id="message_out" class="btn btn-default" data-dismiss="modal">보내기</button> 
 						<button type="button" onclick="isclose()" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 			</div>

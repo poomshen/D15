@@ -17,14 +17,15 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>실종신고게시판</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
-	
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 
       $(function(){
@@ -36,9 +37,10 @@
          location.href = "ListDetail.missing?cp=${cpage}&ps=${pagesize}&mis_no="+list;
       };
    </script>
-   <style>
-#wrap03{
-margin-top: 100px;
+<style>
+#wrap03 {
+	margin-top: 100px;
+	margin-bottom: 40px;
 }
 </style>
 
@@ -88,102 +90,93 @@ header .container {
 	</header>
 	<div id="wrap03">
 
-	<c:set var="cpage" value="${requestScope.cpage}" />
-	<c:set var="pagesize" value="${requestScope.pagesize}" />
-	<c:set var="pagecount" value="${requestScope.pagecount}" />
-	<c:set var="totalcount" value="${requestScope.totalcount}" />
-	<c:set var="list" value="${requestScope.list}" />
-	<%
-      int i = 1;
-      String uploadpath = request.getRealPath("upload");
-   %>
+		<c:set var="cpage" value="${requestScope.cpage}" />
+		<c:set var="pagesize" value="${requestScope.pagesize}" />
+		<c:set var="pagecount" value="${requestScope.pagecount}" />
+		<c:set var="totalcount" value="${requestScope.totalcount}" />
+		<c:set var="list" value="${requestScope.list}" />
+		<%
+			int i = 1;
+			String uploadpath = request.getRealPath("upload");
+		%>
 
 
-	<h1 style="text-align: center">실종신고 게시판</h1>
+		<h1 style="text-align: center">실종신고 게시판</h1>
 
-	<div class = "container">
-	<div class = "row">
+		<div class="container">
+			<div class="row">
 
-	<c:forEach var="list" items="${list}">
+				<c:forEach var="list" items="${list}">
 
-		<div class="col-sm-4" style="margin-top: 20px">
-			<span>게시물 번호 : ${list.mis_no}</span>
+					<div class="col-sm-4" style="margin-top: 20px">
+						<span>게시물 번호 : ${list.mis_no}</span>
 
-			<c:if test="${dto.m_id==list.m_id}">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">[X]취소하기</a><!-- 리스트 삭제 서블릿으로 연결 -->
-			</c:if>
-
-			<br> <a
-				href="../../upload/${list.p_image}" class="image-popup"> <img
-				src="../../upload/${list.p_image}" alt="Cinque Terre" width="304"
-				height="236">
-
-			</a>
+						 <img src="../../upload/${list.p_image}"
+							alt="Cinque Terre" width="304" height="236">
 
 
-			<h2>회원 ID : ${list.m_id}</h2>
-			<span> 실종 날짜 : ${list.mis_date}
-				 <!-- 회원/비회원 처리 -->
-				 <c:set	var="dto" value="${sessionScope.memberdto}" />
-				 <c:if test="${dto.m_id!=null && list.mis_pro=='N'}">
-					<input type="button" id="detail<%=i++%>" value="상세보기"
-						class="btn btn-info" onclick="detail(${list.mis_no})">
-				 </c:if>
-				 <br> 실종 위치 : ${list.mis_loc}
-			</span><br>
-			<span> 내용 : ${list.mis_content} </span>
-			<div>
-				<c:choose>
-					<c:when test="${list.mis_pro == 'N'}">
-						<font color="red" size="5">실종</font>
-					</c:when>
-					<c:otherwise>
-						<font color="green" size="5">찾음</font>
-					</c:otherwise>
-				</c:choose>
+						<h2>회원 ID : ${list.m_id}</h2>
+						<span> 실종 날짜 : ${list.mis_date} <!-- 회원/비회원 처리 -->
+						  <c:set
+								var="dto" value="${sessionScope.memberdto}" /> 
+								<%--<c:if test="${dto.m_id!=null && list.mis_pro=='N'}"> --%>
+								
+								<input type="button" id="detail<%=i++%>" value="상세보기"
+									class="btn btn-info" onclick="detail(${list.mis_no})">
+							
+							<%-- </c:if> --%> 
+							<br> 실종 위치 : ${list.mis_loc}
+						</span><br> <span> 내용 : ${list.mis_content} </span>
+						<div>
+							<c:choose>
+								<c:when test="${list.mis_pro == 'N'}">
+									<font color="red" size="5">실종</font>
+								</c:when>
+								<c:otherwise>
+									<font color="green" size="5">찾음</font>
+								</c:otherwise>
+							</c:choose>
+						</div>
+					</div>
+
+				</c:forEach>
+
 			</div>
-			<br>
-		</div>
-
-	</c:forEach>
 
 		</div>
 
+		<div style="clear: both">
+			<table class="table">
+
+				<tr>
+					<td colspan="3" align="center">
+						<ul class="pagination">
+							<c:if test="${cpage>1}">
+								<li class="previous"><a
+									href="BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a></li>
+							</c:if>
+							<li><c:forEach var="i" begin="1" end="${pagecount}" step="1">
+									<li><a href="BoardList.missing?cp=${i}&ps=${pagesize}">${i}</a></li>
+								</c:forEach></li>
+							<c:if test="${cpage<pagecount}">
+								<li class="next"><a
+									href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a></li>
+							</c:if>
+							<c:if test="${dto.m_id!=null}">
+								<li>&nbsp;&nbsp; <input type="button" value="실종신고"
+									id="button" class="btn btn-danger"></li>
+							</c:if>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<footer>
+			<jsp:include page="../../include/footer.jsp" />
+		</footer>
+
 	</div>
-
-	<div style = "clear:both">
-		<table class="table">
-
-			<tr>
-				<td colspan="3" align="center">
-					<ul class="pagination">
-						<c:if test="${cpage>1}">
-							<li class="previous"><a
-								href="BoardList.missing?cp=${cpage-1}&ps=${pagesize}">이전</a></li>
-						</c:if>
-						<li><c:forEach var="i" begin="1" end="${pagecount}" step="1">
-								<li><a href="BoardList.missing?cp=${i}&ps=${pagesize}">${i}</a></li>
-							</c:forEach></li>
-						<c:if test="${cpage<pagecount}">
-							<li class="next"><a
-								href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a></li>
-						</c:if>
-						<c:if test="${dto.m_id!=null}">
-							<li>&nbsp;&nbsp; <input type="button" value="실종신고"
-								id="button" class="btn btn-danger"></li>
-						</c:if>
-					</ul>
-				</td>
-			</tr>
-		</table>
-	</div>
-
-	<footer>
-		<jsp:include page="../../include/footer.jsp" />
-	</footer>
-
-</div>
 
 </body>
 </html>

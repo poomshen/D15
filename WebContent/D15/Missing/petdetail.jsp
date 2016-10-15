@@ -177,10 +177,10 @@
 				</div>
 					<div class="modal-body">
 						<div style="width: 47%; float: left;">
-						<input class="form-control" type="text" value="${requestScope.dto.m_id}" name="m_id" id="m_id" readonly="readonly"> 
+						<input class="form-control" type="text" placeholder="수신자:${requestScope.dto.m_id}" value="${requestScope.dto.m_id}" name="m_id" id="m_id" readonly="readonly"> 
 						</div>
 						<div style="width: 47%; float: right ;">
-						<input class="form-control" type="text" value="${sessionScope.memberdto.m_id }" readonly="readonly" name="m_send" id="m_send"> 
+						<input class="form-control" type="text" placeholder="발신자:${sessionScope.memberdto.m_id }" value="${sessionScope.memberdto.m_id }" readonly="readonly" name="m_send" id="m_send"> 
 						</div>
 						<br>
 						<textarea style="margin-top: 10%;" class="form-control" rows="5" cols="30" name="mes_content" id="mes_content"></textarea>
