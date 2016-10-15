@@ -76,7 +76,10 @@
 						<td>${i.fc_begdate}</td>
 						<c:choose>
 							<c:when test="${i.pc_argdate == null}">
-								<td><button type="button" class="btn btn-danger">미승인</button></td>
+								<td><button type="button" class="btn btn-warning">미승인</button></td>
+							</c:when>
+							<c:when test="${i.pc_argdate == '1992-09-21'}">
+							<td><button type="button" class="btn btn-danger">승인거절</button></td>
 							</c:when>
 							<c:otherwise>
 								<td><button type="button" class="btn btn-success">승인</button>

@@ -162,7 +162,7 @@ a {
         	
         	<!-- 상세보기 부분 -->
         	<div id="detailSelect">
-        <label style="margin-left:33%; margin-right:30%;font-size: 30px;"><h5 id="mSituation" style="font-size: 30px;"><span class="glyphicon glyphicon-leaf"></span></h5></label>
+        <label style="margin-left:33%; margin-right:30%;font-size: 30px;"><h5 id="mSituation" style="font-size: 25px;"><span class="glyphicon glyphicon-leaf"></span></h5></label>
             <div style="float: left; width: 48%">
                <label for="mName"><span class="glyphicon glyphicon-tint"></span>품종</label>
               <input type="text" readonly="readonly" class="form-control" id="mName" placeholder="품종">
@@ -213,7 +213,7 @@ a {
         	</div>
         	
         	
-        	<!-- 상세보기 -->
+        	<!-- 분양보기 -->
         	<div id="parcelView">
 					<br><br>
 					<div style="width: 100%; font-size: 30px; text-align: center;">분양 받을 날을 입력해주세요</div>

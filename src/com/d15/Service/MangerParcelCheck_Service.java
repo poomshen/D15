@@ -57,7 +57,7 @@ public class MangerParcelCheck_Service  implements Action{
 					if(parcel_DAO.updateStart(ck, no)){
 					int org_no = parcel_DAO.selectOrgno(no);
 					organic_DAO.updateSituation(org_no, "보호중");
-					forward.setPath("MangerSuccess.jsp");
+					forward.setPath("MangerFail.jsp");
 					forward.setRedirect(false);
 					return forward;
 				}else{

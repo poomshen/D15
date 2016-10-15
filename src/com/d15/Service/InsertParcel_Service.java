@@ -14,6 +14,7 @@ import com.d15.Action.ActionForward;
 import com.d15.DAO.Organic_DAO;
 import com.d15.DAO.Parcel_DAO;
 import com.d15.DTO.Member_DTO;
+import com.d15.DTO.Organic_DTO;
 import com.d15.DTO.Parcel_DTO;
 
 public class InsertParcel_Service implements Action{
@@ -55,11 +56,24 @@ public class InsertParcel_Service implements Action{
 		   parcel_DTO.setFc_begdate(sqldate);
 		   
 		   try {
+			   Organic_DTO organic_DTO = new Organic_DTO();
+				Organic_DAO orgDao = new Organic_DAO();
+				organic_DTO  =  orgDao.selectOrganic(Integer.parseInt(no));
+				System.out.println(organic_DTO.getOrg_situation());
+				 if(organic_DTO.getOrg_situation().equals("대기(분양)")){
+					 forward.setPath("ProtectFail.jsp");
+					 forward.setRedirect(false);
+					 return forward;
+				 }else if(organic_DTO.getOrg_situation().substring(0,2).equals("종료")){
+					 forward.setPath("ProtectFail.jsp");
+					 forward.setRedirect(false);
+					 return forward;
+				 }
 			if(parcel_DAO.insertParcel(parcel_DTO)){
 				   //등록이 성공 되었다면
 				   Organic_DAO organic_DAO = new Organic_DAO();
 				   try {
-					if(organic_DAO.updateSituation(Integer.parseInt(no), "등록중(분양)")){
+					if(organic_DAO.updateSituation(Integer.parseInt(no), "대기(분양)")){
 							forward.setPath("ParcelSuccess.jsp");
 							forward.setRedirect(false);
 					   }else{

@@ -27,7 +27,6 @@ public class MangerProtectCheck_Service  implements Action{
 		Organic_DAO organic_DAO = new Organic_DAO();
 		
 		
-		
 		//승낙 했을 때
 		if(is.equals("true")){
 			try {
@@ -53,7 +52,7 @@ public class MangerProtectCheck_Service  implements Action{
 				if(protect_DAO.updateProtect(ck, no)){
 					int org_no = protect_DAO.selectOrgno(no);
 					organic_DAO.updateSituation(org_no, "보호중");
-					forward.setPath("MangerSuccess.jsp");
+					forward.setPath("MangerFail.jsp");
 					forward.setRedirect(false);
 					return forward;
 				}else{
