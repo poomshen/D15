@@ -125,9 +125,16 @@
 			</c:when>
 			<c:otherwise></c:otherwise>
 		</c:choose>
-			<a href="/TeamProject3_D15/D15/ReviewDetail.Review?name=review&num=${rd.br_no}">
-				${rd.br_name}
-			</a>
+		<c:choose>
+			<c:when test="${sessionScope.memberdto.m_id!=null}">
+				<a href="/TeamProject3_D15/D15/ReviewDetail.Review?name=review&num=${rd.br_no}">
+					${rd.br_name}
+				</a>
+			</c:when>
+			<c:otherwise>
+				${rd.br_name}	
+			</c:otherwise>
+		</c:choose>
 		</td>
 	
 		<td>${rd.m_id}</td>

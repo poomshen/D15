@@ -155,10 +155,10 @@ function openCity(evt, cityName) {
                  	</div>
                  	<br/>
               	</div>
-         		<div>
-		            <img src = "/TeamProject3_D15/images/shop_detail2.png" alt = "소개페이지_1"></img>
+         		<div class="pic">
+		            <img style="width:100%" src = "/TeamProject3_D15/images/shop_detail2.png" alt = "소개페이지_1"></img>
 		            <br/><br/>
-		            <img src = "/TeamProject3_D15/images/view_policy.png" alt = "소개페이지_2"></img>
+		            <img style="width:100%" src = "/TeamProject3_D15/images/view_policy.png" alt = "소개페이지_2"></img>
          		</div> 	
 			</div>
 
@@ -168,7 +168,7 @@ function openCity(evt, cityName) {
 	               <br/><br/>
 	            </div>
 				<div class = "pic">
-	          		<img src = "/TeamProject3_D15/images/sellStepText.png" alt = "분양절차_1"></img>
+	          		<img style="width:100%" src = "/TeamProject3_D15/images/sellStepText.png" alt = "분양절차_1"></img>
 	       		</div>
 			</div>
 

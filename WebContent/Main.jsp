@@ -81,7 +81,7 @@
 	<%@ include file="searchMain.jsp"%>
 	<div id="wrap03">
 		<div>
-			<img alt="메인화면" src="images/main.jpg" height="400px;" width="76%" style="margin-left: 12%; margin-right: 10%;">
+			<img alt="메인화면" src="images/main.PNG" height="400px;" width="76%" style="margin-left: 12%; margin-right: 10%;">
 		</div>
 		
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
