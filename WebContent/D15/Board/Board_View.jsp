@@ -27,15 +27,15 @@
 		<h3>게시글보기</h3>
 		<br/>
 		<!-- 게시판 수정 -->
-		<table class="table table-bordered">
+		<table class="table table-bordered" style="width: 100%;">
 			<tr>
-				<th>제목</th>
- 				<th>${board.b_name}</th>
-				<th>아이디 들어옴</th>
-				<th>${board.b_date}</th>
+				<th style="width: 10%; text-align: center;">제목</th>
+ 				<th style="width : 60%; ">${board.b_name}</th>
+				<th style="width : 20%; text-align: center;">아이디 들어옴</th>
+				<th style= "text-align: center;">${board.b_date}</th>
 			</tr>
 			<tr>
-				<td >내용</td>
+				<td style= "text-align: center;">내용</td>
 				<td colspan="4">
 					<textarea rows="16" cols="15" class="form-control" readonly="readonly">
 						${board.b_content}
