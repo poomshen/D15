@@ -20,7 +20,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <%@ include file="../include/header.jsp" %>
-<body style="background-image: url('images/main.jpg'); size: 100%;">
+<body style="background-image: url('/TeamProject3_D15/images/main.jpg'); size: 100%;">
 	<div  style=" margin: 20% 10% 20% ;width: 80%; ">
 		<h1 style="text-align: center; color: white;">죄송합니다. 개발진의 오류로 구현중입니다.<br> 문의사항은 010-7559-6565 </h1>
 	</div>
