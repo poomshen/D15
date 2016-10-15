@@ -89,7 +89,7 @@
 	   			<label class="control-label col-sm-2" for="M_ID">글쓴이</label>
 			    <div class="col-sm-4">
 			    <c:set var="dto" value="${sessionScope.memberdto}"></c:set>
-			      <input type="text" name="m_no" class="form-control" value="${dto.m_no}" id="m_no" readonly="readonly">
+			      <input type="text" name="M_ID" class="form-control" value="${dto.m_id}" id="M_ID" readonly="readonly">
 			    </div>
 		</div>
 			

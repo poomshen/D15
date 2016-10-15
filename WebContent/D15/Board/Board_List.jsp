@@ -28,6 +28,11 @@
 	table {
 		width: 750px;
 	}
+	
+	#wrap{
+		margin-bottom : 40px;
+		margin-top : 100px;
+	}
 	</style>
 	 <script type="text/javascript">
 	 $(function(){
@@ -63,8 +68,10 @@
 <c:set var="dto" value="${sessionScope.memberdto}" />
 <br>
 <!-- selectbox 게시판 메뉴-->
-
+<div id = "wrap">
 <div class="container">
+	<h3>Q&A 게시판</h3>
+	
 	<div class="form-group">
 		<div class="col-sm-4">
 			<select id="smenu" class="form-control">
@@ -131,7 +138,7 @@
 			
 			</c:choose>
 		</td>
-		<td>${bd.m_no}</td>
+		<td>${bd.m_id}</td>
 	 	<td>${bd.b_date}</td>
 		<td>${bd.b_count}</td>
 	</tr>
@@ -175,5 +182,10 @@
 		</ul>
 	</div>
 </div>
+</div>
+
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 </body>
 </html>

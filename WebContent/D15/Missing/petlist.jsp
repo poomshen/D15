@@ -95,6 +95,7 @@ header .container {
 		<c:set var="pagecount" value="${requestScope.pagecount}" />
 		<c:set var="totalcount" value="${requestScope.totalcount}" />
 		<c:set var="list" value="${requestScope.list}" />
+		<c:set var="dto" value="${sessionScope.memberdto}" /> 
 		<%
 			int i = 1;
 			String uploadpath = request.getRealPath("upload");
@@ -102,7 +103,7 @@ header .container {
 
 
 		<h1 style="text-align: center">실종신고 게시판</h1>
-
+	
 		<div class="container">
 			<div class="row">
 
@@ -117,10 +118,8 @@ header .container {
 
 						<h2>회원 ID : ${list.m_id}</h2>
 						<span> 실종 날짜 : ${list.mis_date} <!-- 회원/비회원 처리 -->
-						  <c:set
-								var="dto" value="${sessionScope.memberdto}" /> 
+						 
 								<c:if test="${dto.m_id!=null}">
-								
 								<input type="button" id="detail<%=i++%>" value="상세보기"
 									class="btn btn-info" onclick="detail(${list.mis_no})">
 							
@@ -162,7 +161,8 @@ header .container {
 								<li class="next"><a
 									href="BoardList.missing?cp=${cpage+1}&ps=${pagesize}">다음</a></li>
 							</c:if>
-							<c:if test="${dto.m_id!=null}">
+						
+							<c:if test="${dto != null}">
 								<li>&nbsp;&nbsp; <input type="button" value="실종신고"
 									id="button" class="btn btn-danger"></li>
 							</c:if>
@@ -170,8 +170,8 @@ header .container {
 					</td>
 				</tr>
 			</table>
+		
 		</div>
-
 		<footer>
 			<jsp:include page="../../include/footer.jsp" />
 		</footer>

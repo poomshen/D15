@@ -34,6 +34,12 @@
 	});
 	
 	</script>
+	<style>
+		#wrap{
+			margin-top : 100px;
+			margin-bottom:40px;
+		}
+	</style>
 </head>
 <body>
 
@@ -42,6 +48,7 @@
 </header>
 
 <br/><br/>
+<div id = "wrap">
 <div class="container">
 	<h3>글쓰기 게시판</h3>
 	<hr/>
@@ -60,7 +67,7 @@
 			    <div class="col-sm-4">
 			    <c:set var="dto" value="${sessionScope.memberdto}" />
 			    <!-- 여기 -->
-			      <input type="text" name="M_NO" class="form-control" value="${dto.m_no}" id="M_NO" readonly="readonly">
+			      <input type="text" name="M_ID" class="form-control" value="${dto.m_id}" id="M_ID" readonly="readonly">
 			    </div>
 			  </div>
 		
@@ -85,8 +92,10 @@
 			    </div>
 			 </div>
 		</form>
-		
+	</div>	
 	</div>
-
+<footer>
+	<jsp:include page = "../../include/footer.jsp"/>
+</footer>
 </body>
 </html>

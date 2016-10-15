@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Reply_DTO {
 	private int re_no;
-	private int m_no;
+	private String m_id;
 	private int b_no;
 	private String re_content;
 	private Date re_date;
@@ -14,11 +14,11 @@ public class Reply_DTO {
 	public void setRe_no(int re_no) {
 		this.re_no = re_no;
 	}
-	public int getM_no() {
-		return m_no;
+	public String getM_id() {
+		return m_id;
 	}
-	public void setM_no(int m_no) {
-		this.m_no = m_no;
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
 	public int getB_no() {
 		return b_no;
@@ -40,8 +40,8 @@ public class Reply_DTO {
 	}
 	@Override
 	public String toString() {
-		return "Reply_DTO [re_no=" + re_no + ", m_no=" + m_no + ", b_no=" + b_no + ", re_content=" + re_content
-				+ ", re_date=" + re_date + ", getRe_no()=" + getRe_no() + ", getM_no()=" + getM_no() + ", getB_no()="
+		return "Reply_DTO [re_no=" + re_no + ", m_id=" + m_id + ", b_no=" + b_no + ", re_content=" + re_content
+				+ ", re_date=" + re_date + ", getRe_no()=" + getRe_no() + ", getM_id()=" + getM_id() + ", getB_no()="
 				+ getB_no() + ", getRe_content()=" + getRe_content() + ", getRe_date()=" + getRe_date() + "]";
 	}
 

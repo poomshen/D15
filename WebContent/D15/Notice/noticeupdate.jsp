@@ -22,6 +22,9 @@
 		$("#btn").click(function() {
 			history.go(-1);
 		});
+		$("#sub").click(function(){
+			alert("수정 완료");
+		});
 	});
 	</script>
 </head>
@@ -58,7 +61,7 @@
 			    </div>
 			 </div>
 			<font size=2>
-			<input type = "submit" value = "수정" class = "btn btn-default">
+			<input type = "submit" value = "수정" class = "btn btn-default" id = "sub">
 			<input type = "button" value = "뒤로" class = "btn btn-default" id = "btn">
 			</font>
 			</div>

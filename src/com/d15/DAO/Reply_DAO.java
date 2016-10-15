@@ -48,12 +48,13 @@ public class Reply_DAO {
 				num = 1;
 			}
 			
-			sql = "insert into D15_reply (RE_NO,M_NO,RE_CONTENT,RE_DATE,B_NO "
-					+ "values(RE_NO_SEQ.nextval,2,?,sysdate,?)";
+			sql = "insert into D15_reply (RE_NO,M_ID,RE_CONTENT,RE_DATE,B_NO "
+					+ "values(RE_NO_SEQ.nextval,?,?,sysdate,?)";
 			pstmt = conn.prepareStatement(sql);
-	
-			pstmt.setInt(2, replydto.getB_no());
-			pstmt.setString(1, replydto.getRe_content());
+			
+			pstmt.setString(1,replydto.getM_id());
+			pstmt.setString(2, replydto.getRe_content());
+			pstmt.setInt(3, replydto.getB_no());
 
 			int row = pstmt.executeUpdate();
 			return row;
