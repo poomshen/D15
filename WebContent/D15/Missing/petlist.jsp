@@ -112,7 +112,7 @@ header .container {
 						<span>게시물 번호 : ${list.mis_no}</span>
 
 						 <img src="../../upload/${list.p_image}"
-							alt="Cinque Terre" width="304" height="236">
+							alt="Cinque Terre" width="304" height="236" class="img-rounded">
 
 
 						<h2>회원 ID : ${list.m_id}</h2>

@@ -39,7 +39,6 @@
 		      buttonText: "Select date",
 		      dateFormat: "yy-mm-dd"
 		    });
-	});	
 		 
 		$.ajax({
 			type:"get",
@@ -90,9 +89,10 @@
 		});
 		
 		$("#button2").click(function(){
-			 
-			 location.href = "BoardList.missing";
+			 history.go(-1);
+			 //location.href = "BoardList.missing";
 		});
+	});	
 		
 	
 
