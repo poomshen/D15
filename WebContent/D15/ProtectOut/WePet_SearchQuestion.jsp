@@ -186,8 +186,12 @@ a {
               <input type="text" class="form-control" readonly="readonly" id="mSw" placeholder="특징들">
             </div>
             <div class="form-group">
-              <label for="mLoc"><span class="glyphicon glyphicon-map-marker"></span>주소</label>
+              <label for="mLoc"><span class="glyphicon glyphicon-map-marker"></span>발견장소</label>
               <input type="text" readonly="readonly" class="form-control" id="mLoc" placeholder="주소">
+            </div>
+            <div class="form-group">
+              <label for="mAddr"><span class="glyphicon glyphicon-map-marker"></span>보호장소</label>
+              <input type="text" readonly="readonly" class="form-control" id="mAddr" placeholder="주소">
             </div>
             <div style="float: left; width: 48%">
               <button type="button" id="protectSelect" class="btn btn-info btn-block protectSelect"><span class="glyphicon glyphicon-refresh"></span>임시보호</button>

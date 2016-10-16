@@ -59,11 +59,15 @@ public class PublicDB_Service implements Action{
 		String org_situation = URLDecoder.decode(request.getParameter("processState"));
 		String noticeEdt  = request.getParameter("noticeEdt");
 		Calendar sysdate = Calendar.getInstance();
+		String st_no = request.getParameter("officetel");
+		String org_daddr = URLDecoder.decode(request.getParameter("officetel"));
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyyMMdd");
 		
 		int org_date = (Integer.parseInt(noticeEdt) - Integer.parseInt(formatter.format(sysdate.getTime())));
 		
 		Organic_DTO org =new Organic_DTO(org_animal, org_img, org_gender, org_situation, org_date,kindCd);
+		org.setOrg_daddr(org_daddr);
+		org.setSt_no(st_no);
 		Organic_DTO orgck = new Organic_DTO();
 		Organic_DAO orgDao = new Organic_DAO();
 		

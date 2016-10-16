@@ -9,7 +9,7 @@ package com.d15.DTO;
 
 public class Organic_DTO {
 	int org_no;
-	int st_no;
+	String  st_no;
 	String org_animal;
 	String org_img;
 	String org_code;
@@ -18,6 +18,7 @@ public class Organic_DTO {
 	int org_count;
 	int org_date;
 	String org_desc;
+	String org_daddr;
 	
 	public Organic_DTO() {
 		// TODO Auto-generated constructor stub
@@ -35,7 +36,7 @@ public class Organic_DTO {
 	}
 
 
-	public Organic_DTO(int st_no, String org_animal, String org_img, String org_code, String org_gender, String org_situation,
+	public Organic_DTO(String st_no, String org_animal, String org_img, String org_code, String org_gender, String org_situation,
 			int org_count, int org_date, String org_desc) {
 		super();
 		this.st_no = st_no;
@@ -58,10 +59,10 @@ public class Organic_DTO {
 	public void setOrg_no(int org_no) {
 		this.org_no = org_no;
 	}
-	public int getSt_no() {
+	public String getSt_no() {
 		return st_no;
 	}
-	public void setSt_no(int st_no) {
+	public void setSt_no(String st_no) {
 		this.st_no = st_no;
 	}
 	public String getOrg_animal() {
@@ -111,6 +112,15 @@ public class Organic_DTO {
 	}
 	public void setOrg_desc(String org_desc) {
 		this.org_desc = org_desc;
+	}
+
+	public String getOrg_daddr() {
+		return org_daddr;
+	}
+
+
+	public void setOrg_daddr(String org_daddr) {
+		this.org_daddr = org_daddr;
 	}
 	
 	

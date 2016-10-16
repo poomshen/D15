@@ -191,7 +191,9 @@
 	   "happenDt":happenDt[index],
 	   "noticeEdt":noticeEdt[index],
 	   "noticeSdt":noticeSdt[index],
-	   "kindCd":encodeURIComponent(kindCd[index])
+	   "kindCd":encodeURIComponent(kindCd[index]),
+	   "careAddr":encodeURIComponent(careAddr[index]),
+	   "officetel":officetel[index]
 	   }, function(data, textStatus, req) {
 		   console.log(data);
 		   //조회수 가지고 오기
@@ -203,12 +205,13 @@
 	   $("#parceform").attr("action", "insertParceform.ProtectOut?no="+no);
 	   $(".modal-header").css("background-image", "url('"+popfile[index]+"')", "background-repeat", "repeat-x")
 	   $("#mCount").append(count);
-	   $("#mdate").append("발견: "+noticeSdt[index]+" ~ end: "+noticeEdt[index]);
+	   $("#mdate").append("발견: "+happenDt[index]+" ~ end: "+noticeEdt[index]);
 	   $("#mSituation").append(processState);
 	   $("#mName").val(kindCd[index]);
-	   $("#usrname").val(weight[index]);
+	   $("#usrname").val(weight[index]+" ("+sexCd[index]+")");
 	   $("#mSw").val(specialMark[index]);
-	   $("#mLoc").val(careAddr[index]);
+	   $("#mLoc").val(happenPlace[index]);
+	   $("#mAddr").val(careAddr[index]);
 	   
 	   /* $("#detailView").html("<span><table style='width:99%; height:100%; margin: 0% 10% 10% 1%; border-radius: 10px;'>"
 				+"<tr><td colspan ='2'></td></tr>"

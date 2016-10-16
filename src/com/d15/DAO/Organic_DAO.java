@@ -50,8 +50,8 @@ public class Organic_DAO {
 		try {
 			conn = ds.getConnection();
 			
-			String sql = "insert into D15_Organic(org_no, org_animal, org_img, org_code, org_gender, org_situation, org_count, org_date) "
-					+ "values(org_no_seq.nextval,?,?,?,?,?,1,?)";
+			String sql = "insert into D15_Organic(org_no, org_animal, org_img, org_code, org_gender, org_situation, org_count, org_date,st_no,org_addr) "
+					+ "values(org_no_seq.nextval,?,?,?,?,?,1,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -62,6 +62,8 @@ public class Organic_DAO {
 			System.out.println(org.getOrg_situation());
 			pstmt.setString(5, org.getOrg_situation());
 			pstmt.setInt(6, org.getOrg_date());
+			pstmt.setString(7, org.getSt_no());
+			pstmt.setString(8, org.getOrg_daddr());
 			
 			int inck  = pstmt.executeUpdate();
 			if(inck >0){
@@ -175,7 +177,7 @@ public class Organic_DAO {
 				organic.setOrg_situation(rs.getString("org_situation"));
 				organic.setOrg_count(rs.getInt("org_count"));
 				organic.setOrg_date(rs.getInt("org_date"));
-				organic.setSt_no(rs.getInt("st_no"));
+				organic.setSt_no(rs.getString("st_no"));
 			}
 			
 		} catch (SQLException e) {
