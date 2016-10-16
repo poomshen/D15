@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../pickadate/lib/themes/default.css">
+<link rel="stylesheet" 	href="../../pickadate/lib/themes/default.date.css">
 
-<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<!-- bootstrap js -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -89,77 +88,132 @@
 		})
 		
 		$("#submits").click(function(){
-			var hrf = "abandonmentPublic.keyurl?bgnde="+$("#bgnde").val()+"&endde="+$("#endde").val();
+			if( Number($("#bgnde").val()) <= Number($("#endde").val())){
+			 var hrf = "abandonmentPublic.keyurl?bgnde="+$("#bgnde").val()+"&endde="+$("#endde").val();
 			hrf+="&upkind="+$("#upkind").val();
 			hrf +="&kind="+$("#kind").val();
 			hrf+="&upr_cd="+$("#upr_cd").val();
 			hrf+="&org_cd="+$("#org_cd").val()+"&care_reg_no="+$("#care_reg_no").val()
 			hrf +="&state="+$("#state").val()+"&pageNo="+$("#pageNo").val()+"&numOfRows="+$("#numOfRows").val();
-			location.href= hrf
+			location.href= hrf 
+			}else{
+				alert("시작 날짜가 끝 날짜보다 높습니다.");
+			}
 					
 		})
 	})
 </script>
+<style type="text/css">
+#wrapper {
+	margin-top: 100px;
+	margin-bottom: 40px;
+}
+</style>
 </head>
 <body>
-		<table style="width: 600">
-			<tr>
-				<td>시작 날짜:</td>
-				<td><input type="text" name="bgnde"  id ="bgnde" value="20161001"><br></td>
-				<!--켈렌더 로 바꾸고  -->
-			</tr>
-			<tr>
-				<td>끝 날짜:</td>
-				<td><input type="text" name="endde"  id ="endde" value="20161010"><br>
-				</td>
-			</tr>
-			<tr>
-				<td>축종코드:</td>
-				<td><select id="upkind" name="upkind"><option value="417000">축종을 선택하세요</option>
+<header>
+		<jsp:include page="../../include/header.jsp" />
+	</header>
+			<script src="../../pickadate/lib/picker.js"></script>
+		<script src="../../pickadate/lib/picker.date.js"></script>
+		<script src="../../pickadate/lib/legacy.js"></script>
+ <div id="container"  ></div>
+ <div id="wrapper">
+ <div style="width: 60%; margin-left: 20%; margin-right: 20%; ">
+		
+				<div style="float: left; width: 48%">
+				검색 시작 날짜
+				<input type="text"  name="bgnde"   id ="bgnde"  class="bgnde form-control" ><br>
+				</div>
+				<div style="float: right; width: 48%;" >
+				검색 끝 날짜
+				<input type="text" name="endde"  id ="endde" class="endde form-control" ><br>
+				</div>
+				<br>
+				<div style="float: left; width: 100% " >
+				<label for="upkind">축종</label>
+				<select id="upkind"  class="form-control"  name="upkind"><option value="417000">축종을 선택하세요</option>
 				<option value="417000">개</option>
 				<option value="422400">고양이</option>
 				<option value="429900">기타</option>
-				</select><br></td>
+				</select><br>
+				</div>
 				<!-- select 해서 값을 받고 싶은데.. -->
-			</tr>
-			<tr>
-				<td>품종코드:</td>
-				<td><select id="kind" name="kind"><option value="">품종을 선택 하세요</option></select><br></td>
-			</tr>
-			<tr>
-				<td>시도코드:</td>
-				<td><select id="upr_cd" name="upr_cd"><option value="">시도를
-							선택하세요</option></select></td>
-			</tr>
-			<tr>
-				<td>시군구코드:</td>
-				<td><select id="org_cd" name="org_cd"><option value="">시군구를
-							선택하세요</option></select></td>
-			</tr>
-			<tr>
-				<td>보호소번호:</td>
-				<td><select id="care_reg_no" name="care_reg_no"><option value="">보호소를
-							선택 하세요</option></select><br></td>
-			</tr>
-			<tr>
-				<td>상태:</td>
-				<td>
-				<select name="state" id="state">
+				<div style="float: left; width: 100% " >
+				품종
+				<select id="kind"  class="form-control" name="kind"><option value="">품종을 선택 하세요</option></select><br>
+				</div>
+			
+				<div style="float: left; width: 100% " >
+				시도
+				<select id="upr_cd"  class="form-control"  name="upr_cd"><option value="">시도를
+							선택하세요</option></select>
+				</div>
+				<div style="float: left; width: 100% " >
+				시군구
+				<select id="org_cd"  class="form-control" name="org_cd"><option value="">시군구를
+							선택하세요</option></select>
+				</div>
+						<div style="float: left; width: 100% " >
+				보호소
+				<select id="care_reg_no"  class="form-control"  name="care_reg_no"><option value="">보호소를
+							선택 하세요</option></select><br>
+			</div>
+					<div style="float: left; width: 100% " >
+				상태
+				<select name="state"  class="form-control"  id="state">
 				<option value="">전체</option>
 				<option value="notice">공고중</option>
 				<option value="protect">보호중</option>
-				 </select><br></td>
-			</tr>
-			<tr>
-				<td>페이지 번호:</td>
-				<td><input type="hidden"  id ="pageNo" name="pageNo" value="1"><br></td>
-			</tr>
-			<tr>
-				<td>페이지당 보여줄 개수:</td>
-				<td><input type="text" id="numOfRows" name="numOfRows" value="9"><br></td>
-			</tr>
-		</table>
-		<input id="submits" type="button" value="버튼">
+				 </select><br>
+				</div>			
+				<input type="hidden"  id ="pageNo" name="pageNo" value="1">
+				<div style="float: left; width: 100% " >			
+				페이지당 보여줄 개수
+				<input type="text" id="numOfRows"  class="form-control" name="numOfRows" value="9"><br>
+				</div>
+		<br>
+		<input id="submits" type="button" class="btn btn-info btn-block" value="검색">
+		<br><br>
+ </div>
+ </div>
+		
+		<script type="text/javascript">
+		var $input = $('.bgnde').pickadate({
+			weekdaysFull : [ '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일' ],
+			weekdaysShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+			monthsFull : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
+			// min: [2015, 7, 14],
+			today : '오늘',
+			clear : '지우기',
+			close : '적용',
+			format : 'yyyymmdd',
+			formatSubmit : 'yyyymmdd',
+			container : '#container',
+			max:true,
+			hiddenName : true,
+			// editable: true,
+			closeOnSelect : false,
+		})
+		var $input = $('.endde').pickadate({
+			weekdaysFull : [ '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일' ],
+			weekdaysShort : [ '일', '월', '화', '수', '목', '금', '토' ],
+			monthsFull : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월' ],
+			// min: [2015, 7, 14],
+			today : '오늘',
+			clear : '지우기',
+			close : '적용',
+			format : 'yyyymmdd',
+			formatSubmit : 'yyyymmdd',
+			container : '#container',
+			max:true,
+			hiddenName : true,
+			// editable: true,
+			closeOnSelect : false,
+		})
+		var picker = $input.pickadate('picker');
+		</script>
+		<jsp:include page="../../include/footer.jsp" />
 		<!-- <input type="submit" value="버튼"> -->
 </body>
 </html>
