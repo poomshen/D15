@@ -60,7 +60,7 @@ public class PublicDB_Service implements Action{
 		String noticeEdt  = request.getParameter("noticeEdt");
 		Calendar sysdate = Calendar.getInstance();
 		String st_no = request.getParameter("officetel");
-		String org_daddr = URLDecoder.decode(request.getParameter("officetel"));
+		String org_daddr = URLDecoder.decode(request.getParameter("careAddr"));
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyyMMdd");
 		
 		int org_date = (Integer.parseInt(noticeEdt) - Integer.parseInt(formatter.format(sysdate.getTime())));
