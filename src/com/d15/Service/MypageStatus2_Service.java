@@ -28,7 +28,7 @@ public class MypageStatus2_Service implements Action {
 		Member_DTO memberdto=(Member_DTO)session.getAttribute("memberdto");
 		Member_DAO memberdao=new Member_DAO();
 		
-		List<Protect_DTO> dtolist=memberdao.MypageStatus2(memberdto);
+		List<MyProtect_DTO> dtolist=memberdao.MypageStatus2(memberdto);
 		
 		request.setAttribute("dtolist", dtolist);
 		

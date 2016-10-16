@@ -16,6 +16,7 @@ import com.d15.Action.Action;
 import com.d15.Action.ActionForward;
 import com.d15.DAO.Member_DAO;
 import com.d15.DTO.Member_DTO;
+import com.d15.DTO.Myparcel_DTO;
 import com.d15.DTO.Parcel_DTO;
 
 public class MypageStatus_Service implements Action {
@@ -27,7 +28,7 @@ public class MypageStatus_Service implements Action {
 		Member_DTO memberdto=(Member_DTO)session.getAttribute("memberdto");
 		Member_DAO memberdao=new Member_DAO();
 		
-		List<Parcel_DTO> dtolist=memberdao.MypageStatus(memberdto);
+		List<Myparcel_DTO> dtolist=memberdao.MypageStatus(memberdto);
 		
 		request.setAttribute("dtolist", dtolist);
 		

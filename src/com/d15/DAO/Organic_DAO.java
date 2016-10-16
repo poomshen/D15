@@ -18,6 +18,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.d15.DTO.Myparcel_DTO;
 import com.d15.DTO.Organic_DTO;
 
 
@@ -242,6 +243,32 @@ public class Organic_DAO {
 	    }
 		return ck;
 	}
+	//상태 수정 - 동물번호받고 바꿀 상태 주기 - 하면 관리자가 상태를 바꿀때 사용 될 것같음 
+	public boolean updateSituation(int name,Myparcel_DTO Situation) throws SQLException{
+		boolean ck = false;
+		try {
+			conn = ds.getConnection();
+			String sql = "update D15_organic set org_situation = ? ,st_no = ? , org_addr = ? where org_no = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, Situation.getOrg_situatton());
+			pstmt.setString(2, Situation.getSt_no());
+			pstmt.setString(3, Situation.getOrg_addr());
+			pstmt.setInt(4, name);
+			
+			int re = pstmt.executeUpdate();
+			if(re > 0){
+				ck = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			if(rs !=null) rs.close();
+			if(pstmt !=null)pstmt.close();
+			if(conn !=null)conn.close();
+		}
+		return ck;
+	}
 	
 	//조회수 늘리기
 	public boolean insertCount(String name) throws SQLException{
@@ -282,6 +309,40 @@ public class Organic_DAO {
 	    	if(conn !=null)conn.close();
 	    }
 		return false;
+	}
+	
+	//임시보호 하고 있는 사람의 정보 가지고 오기
+	public Myparcel_DTO selectUpdateOrg(int org_no){
+		Myparcel_DTO list = new Myparcel_DTO();
+		try {
+			conn = ds.getConnection();
+			String sql = "select dm.M_PHONE,dm.M_ADDR from "
+					+ "(select m.m_no from (Select m_no from D15_PROTECT where org_no = ?) pr "
+					+ "  join (select Max(pr_argdate),m_no from D15_PROTECT GROUP by M_NO) m "
+					+ "on pr.m_no= m.m_no) me join D15_DETAIL dm on me.m_no = dm.m_no";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, org_no);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				list.setSt_no(rs.getString(1));
+				list.setOrg_addr(rs.getString(2));
+				list.setOrg_situatton("대기(분양)");
+				return list;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+			}
+	    }
+		return list;
 	}
 	
 	//삭제

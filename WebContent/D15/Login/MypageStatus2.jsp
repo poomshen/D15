@@ -59,6 +59,11 @@
   		<li role="presentation"><a href="/TeamProject3_D15/D15/Login/myMakeMessagelist.Message">보낸 쪽지함</a></li>
 	</ul>
 	</div>
+		<script type="text/javascript">
+	function isck(ck){
+		$("#myModal"+ck).modal({backdrop: "static"});
+	}
+	</script>
 	
 	<div class = "col-sm-2"></div>
 	<div class = "col-sm-8">
@@ -66,8 +71,8 @@
 		<table class="table table-hover">
 			<tr>
 				<th>임시보호번호</th>
-				<th>회원번호</th>
-				<th>유기견번호</th>
+				<th>유기견 이미지</th>
+				<th>유기견상태</th>
 				<th>승인신청일</th>
 				<th>승인상태</th>
 				<th>보호시작일</th>
@@ -76,8 +81,8 @@
 			<c:forEach var="i" items="${dtolist}">
 				<tr>
 					<td>${i.pr_no}</td>
-					<td>${i.m_no}</td>
-					<td>${i.org_no}</td>
+					<td><img alt="개사진" src="${i.org_img }" style="width: 200px; height: 100px;" class="img-thumbnail"></td>
+					<td>${i.org_situatton}</td>
 					<td>${i.pr_reqdate}</td>
 					<c:choose>
 						<c:when test = "${i.pr_argdate == null}">
@@ -87,7 +92,40 @@
 							<td><button type="button" class="btn btn-danger">승인거절</button></td>
 							</c:when>
 						<c:otherwise>
-							<td><button type="button" class="btn btn-success">승인</button> ${i.pr_argdate}</td>
+							<td><button type="button"  onclick="isck(${i.pr_no})"  class="btn btn-success">승인</button> ${i.pr_argdate}</td>
+								<div class="modal fade"  id="myModal${i.pr_no}" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-header"  style="padding:300px 50px 0px ; background-image: url('${i.org_img}'); background-repeat: repeat; " >
+          <h3 id="mdate" style="text-align: center; "><span class="glyphicon glyphicon-hourglass">${i.pr_begdate}</span></h3>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+        	<!-- 상세보기 부분 -->
+        	<div id="detailSelect">
+        <label style="margin-left:33%; margin-right:30%;font-size: 30px;">
+        <h5 id="mSituation" style="font-size: 25px;"><span class="glyphicon glyphicon-leaf">${ i.org_situatton}</span></h5></label>
+            <div  width: 48%">
+               <label for="mName"><span class="glyphicon glyphicon-tint"></span>품종</label>
+              <input type="text" readonly="readonly" class="form-control" id="mName"value="${ i.org_code}" }>
+            </div>
+            <div class="form-group" >
+              <label for="mSw"><span class="glyphicon glyphicon-star"></span>전화번호</label>
+              <input type="text" class="form-control" readonly="readonly" id="mSw" value="${i.st_no }" }>
+            </div>
+            <div class="form-group">
+              <label for="mAddr"><span class="glyphicon glyphicon-map-marker"></span>보호장소</label>
+              <input type="text" readonly="readonly" class="form-control" id="mAddr" value="${ i.org_addr}">
+            </div>
+        	</div>
+        </div>
+        <div class="modal-footer">
+      	<button type="submit" style="width: 100%" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div id="container"></div>
 						</c:otherwise>
 					</c:choose>
 					<td>${i.pr_begdate}</td>
@@ -100,5 +138,6 @@
 	<footer>
 		<jsp:include page="../../include/footer.jsp" />
 	</footer>
+	<div align="center">
 </body>
 </html>

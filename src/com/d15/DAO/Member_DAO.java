@@ -23,9 +23,11 @@ import com.d15.DTO.Detail_DTO;
 import com.d15.DTO.MemberJoin_DTO;
 import com.d15.DTO.MemberSearch_DTO;
 import com.d15.DTO.Member_DTO;
+import com.d15.DTO.Myparcel_DTO;
 import com.d15.DTO.Parcel_DTO;
 import com.d15.DTO.Pet_DTO;
 import com.d15.DTO.Protect_DTO;
+import com.d15.Service.MyProtect_DTO;
 
 public class Member_DAO {
 	// db연결 초기작업
@@ -355,12 +357,14 @@ public class Member_DAO {
 	}
 
 	// 마이페이지-분양상태 조회
-	public List<Parcel_DTO> MypageStatus(Member_DTO memberdto) {
-		List<Parcel_DTO> list = new ArrayList<Parcel_DTO>();
+	public List<Myparcel_DTO> MypageStatus(Member_DTO memberdto) {
+		List<Myparcel_DTO> list = new ArrayList<Myparcel_DTO>();
 		try {
 			conn = ds.getConnection();
-			String sql = "select pc_no, m_no, org_no, pc_reqdate, pc_begdate, pc_argdate "
-					+ "from D15_parcel where m_no = ?";
+			String sql = "SELECT pc_no,pc_reqdate,pc_begdate,org_img,org_Gender, "
+					+ "org_code,org.ORG_SITUATION,st_no,org_addr,pc_argdate from"
+					+ " (select pc_no, m_no, org_no, pc_reqdate, pc_begdate, pc_argdate from D15_parcel where m_no = ?) pc "
+					+ "join D15_ORGANIC org on org.org_no = pc.org_no";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberdto.getM_no());
@@ -368,16 +372,19 @@ public class Member_DAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				Parcel_DTO parceldto = new Parcel_DTO();
+				Myparcel_DTO parceldto = new Myparcel_DTO();
 				parceldto.setPc_no(rs.getInt(1));
-				parceldto.setM_no(memberdto.getM_no());
-				parceldto.setOrg_no(rs.getInt(3));
-				parceldto.setFc_reqdate(rs.getDate(4));
-				parceldto.setFc_begdate(rs.getDate(5));
-				parceldto.setPc_argdate(rs.getDate(6));
+				parceldto.setPc_reqdate(rs.getDate(2));
+				parceldto.setPc_begdate(rs.getDate(3));
+				parceldto.setOrg_img(rs.getString(4));
+				parceldto.setOrg_gender(rs.getString(5));
+				parceldto.setOrg_code(rs.getString(6));
+				parceldto.setOrg_situatton(rs.getString(7));
+				parceldto.setSt_no(rs.getString(8));
+				parceldto.setOrg_addr(rs.getString(9));
+				parceldto.setPc_argdate(rs.getDate(10));
 				list.add(parceldto);
 			}
-			
 		} catch (Exception e) {
 			System.out.println("MypageUpdate error");
 			e.printStackTrace();
@@ -399,12 +406,15 @@ public class Member_DAO {
 	}
 
 	// 마이페이지-임시보호상태 조회
-	public List<Protect_DTO> MypageStatus2(Member_DTO memberdto) {
-		List<Protect_DTO> list = new ArrayList<Protect_DTO>();
+	public List<MyProtect_DTO> MypageStatus2(Member_DTO memberdto) {
+		List<MyProtect_DTO> list = new ArrayList<MyProtect_DTO>();
 		try {
 			conn = ds.getConnection();
-			String sql = "select pr_no, m_no, org_no, pr_reqdate, pr_argdate, pr_begdate, pr_enddate "
-					+ "from D15_Protect where m_no = ?";
+			String sql = "select pr_no,pr_reqdate, pr_argdate, pr_begdate, pr_enddate,"
+					+ "org_img,org_gender,org_code,org_situation,st_no,org_addr  "
+					+ "  from (select pr_no, m_no, org_no, pr_reqdate, pr_argdate, pr_begdate, pr_enddate"
+					+ "  from D15_Protect where m_no = ?) "
+					+ "pr join D15_ORGANIC org on pr.org_no = org.org_no";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, memberdto.getM_no());
@@ -412,14 +422,10 @@ public class Member_DAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				Protect_DTO protectdto = new Protect_DTO();
-				protectdto.setPr_no(rs.getInt(1));
-				protectdto.setM_no(memberdto.getM_no());
-				protectdto.setOrg_no(rs.getInt(3));
-				protectdto.setPr_reqdate(rs.getDate(4));
-				protectdto.setPr_argdate(rs.getDate(5));
-				protectdto.setPr_begdate(rs.getDate(6));
-				protectdto.setPr_enddate(rs.getDate(7));
+				MyProtect_DTO protectdto = new MyProtect_DTO(
+						rs.getInt(1),rs.getDate(2),rs.getDate(3),rs.getDate(4),rs.getDate(5),
+						rs.getString(6),rs.getString(7),rs.getString(8),
+						rs.getString(9),rs.getString(10),rs.getString(11));
 				list.add(protectdto);
 			}
 

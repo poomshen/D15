@@ -22,6 +22,7 @@ import com.d15.Action.ActionForward;
 import com.d15.DAO.Organic_DAO;
 import com.d15.DAO.Parcel_DAO;
 import com.d15.DTO.Member_DTO;
+import com.d15.DTO.Myparcel_DTO;
 import com.d15.DTO.Organic_DTO;
 import com.d15.DTO.Parcel_DTO;
 
@@ -76,6 +77,14 @@ public class InsertParcel_Service implements Action{
 					 forward.setPath("ProtectFail.jsp");
 					 forward.setRedirect(false);
 					 return forward;
+				 }else if(organic_DTO.getOrg_situation().equals("보호(임시)")){
+					 Myparcel_DTO myparcel_DTO = orgDao.selectUpdateOrg(Integer.parseInt(no));
+					 parcel_DAO.insertParcel(parcel_DTO);
+					 if(orgDao.updateSituation(Integer.parseInt(no), myparcel_DTO)){
+						 forward.setPath("ParcelSuccess.jsp");
+						 forward.setRedirect(false);
+						 return forward;
+					 }
 				 }
 			if(parcel_DAO.insertParcel(parcel_DTO)){
 				   //등록이 성공 되었다면
