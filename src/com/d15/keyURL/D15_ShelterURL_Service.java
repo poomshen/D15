@@ -1,5 +1,6 @@
 package com.d15.keyURL;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,20 +19,22 @@ public class D15_ShelterURL_Service implements Action {
 		D15_key key = new D15_key();
 
 		String upr_cd = request.getParameter("upr_cd");
-		String numOfRows = request.getParameter("numOfRows");
-		String pageNo = request.getParameter("pageNo");
 		String org_cd = request.getParameter("org_cd");
 		list.put("upr_cd", upr_cd);
 		list.put("org_cd", org_cd);
-		list.put("numOfRows", numOfRows);
-		list.put("pageNo", pageNo);
+		list.put("numOfRows", "999");
+		list.put("pageNo", "1");
 		String keyurl = key.urlKey(searchkey.ptAnimalKey.getProperty("shelter"), list);
 		request.setAttribute("keyurl", keyurl);
 		
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("/boardlist.jsp");
-		return forward;
+		try {
+			response.getWriter().print(keyurl);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 }

@@ -8,6 +8,7 @@
 
 package com.d15.keyURL;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,17 +27,18 @@ public class D15_SidoURL_Service implements Action{
 		HashMap<String,String> list = new HashMap<>();
 		D15_key key = new D15_key();
 		
-		String numOfRows = request.getParameter("numOfRows");
-		String pageNo = request.getParameter("pageNo");
-		list.put("numOfRows", numOfRows);
-		list.put("pageNo", pageNo);
+		list.put("numOfRows", "999");
+		list.put("pageNo", "1");
 		String keyurl = key.urlKey(searchkey.ptAnimalKey.getProperty("sido"), list);
-		request.setAttribute("keyurl", keyurl);
 		
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("/boardlist.jsp");
-		return forward;
+		try {
+			response.getWriter().print(keyurl);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 }

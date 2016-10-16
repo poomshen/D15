@@ -66,6 +66,7 @@
       //yahoo api - crossdomain 해결
       //나중에 서버키가 정상 작동되면 필요없을지도...
       key = encodeURIComponent("${keyurl}");
+      console.log(key);
        yqlURL = [
            "http://query.yahooapis.com/v1/public/yql",
            "?q=" + encodeURIComponent("select * from xml where url='" + "${keyurl}&numOfRows=${numOfRows}&pageNo=${pageNo}" + "'"),

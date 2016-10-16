@@ -53,7 +53,13 @@ public class OrganicAnimalSearchURL_Contoroller extends HttpServlet {
 		 ActionForward  forward = null;
 		 Action action = null;
 		//이 두 파라미터는 어디서든 사용이 되어 진다.
-		if(search.equals("/D15/ProtectOut/sigungu.keyurl")){
+	if(search.equals("/D15/ProtectOut/sido.keyurl")){
+		action = new D15_SidoURL_Service();
+		try {
+			forward = action.execute(request, response);
+		} catch (Exception e) {
+		}
+	}else if(search.equals("/D15/ProtectOut/sigungu.keyurl")){
 			//유기동물조회 조회조건의 '시군구'조건	동물보호관리시스템의 유기동물조회 조회조건의 '시군구'조건을 가져올 수 있다.
 			action = new D15_SigunguURL_Servie();
 			try{
@@ -72,6 +78,11 @@ public class OrganicAnimalSearchURL_Contoroller extends HttpServlet {
 		}else if(search.equals("/D15/ProtectOut/kind.keyurl")){
 			//유기동물조회 조회조건의 '품종'조건	동물보호관리시스템의 유기동물조회 조회조건의 '품종'조건을 가져올 수 있다.
 			action = new D15_kindURL_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				
+			}
 			
 		}else if(search.equals("/D15/ProtectOut/abandonmentPublic.keyurl")){
 			//유기동물 정보를 조회	동물보호관리시스템의 유기동물 정보를 조회한다.

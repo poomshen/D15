@@ -7,6 +7,7 @@
 
 package com.d15.keyURL;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,20 +24,20 @@ public class D15_kindURL_Service implements Action{
 		D15_Property_animalKey searchkey = D15_Property_animalKey.init();
 		HashMap<String,String> list = new HashMap<>();
 		D15_key key = new D15_key();
-
 		String up_kind_cd = request.getParameter("up_kind_cd");
-		String numOfRows = request.getParameter("numOfRows");
-		String pageNo = request.getParameter("pageNo");
 		list.put("up_kind_cd", up_kind_cd);
-		list.put("numOfRows", numOfRows);
-		list.put("pageNo", pageNo);
+		list.put("numOfRows", "999");
+		list.put("pageNo", "1");
 		String keyurl = key.urlKey(searchkey.ptAnimalKey.getProperty("kind"), list);
-		request.setAttribute("keyurl", keyurl);
 		
-		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("/boardlist.jsp");
-		return forward;
+		try {
+			response.getWriter().print(keyurl);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 }
