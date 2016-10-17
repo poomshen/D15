@@ -25,7 +25,7 @@
 </script>
 </head>
 <body>
-<form id="basic" action="abandonmentPublic.keyurl" method="get">
+<form id="basic" action="abandonmentPublic.keyurl" method="post">
 <% 
 Calendar sysdate = Calendar.getInstance();
 Calendar sysdate2 = Calendar.getInstance();

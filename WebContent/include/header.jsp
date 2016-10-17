@@ -67,6 +67,7 @@
                <li><a id="protect"
                   href="/TeamProject3_D15/D15/ProtectOut/ProtectOut.ProtectOut">분양
                      및 임시보호</a></li>
+               <li><a href="/TeamProject3_D15/D15/ProtectOut/WePet_Search.jsp">유기동물검색</a></li>
                      
                <li><a href="/TeamProject3_D15/D15/Missing/BoardList.missing">실종신고</a></li>
                

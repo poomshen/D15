@@ -41,7 +41,7 @@
 		      dateFormat: "yy-mm-dd"
 		    });
 		 
-		$.ajax({
+		/* $.ajax({
 			type:"get",
 			url:"json.jsp",
 			dataType:"json",
@@ -53,8 +53,22 @@
 					$("#k_kind").append("<option value =" + k_code + ">" + k_kind + "</option>");
 				});
 			}
-		}); 
+		});  */
 		
+		$.get("kind.keyurl", {"up_kind_cd":"417000"}, function(data, textStatus, req) {
+			yqlURL3 = [
+						"http://query.yahooapis.com/v1/public/yql",
+						"?q=" + encodeURIComponent("select * from xml where url='" + data + "'"),
+						"&format=xml&callback=?"
+					].join("");
+			$.getJSON(yqlURL3, {}, function(data, textStatus, req) {
+				var xmlContent = $(data.results[0]);
+				$("#kind").html("<option value=''>품종를 선택하세요</option>");
+				$(xmlContent).find('item').each(function() {
+					$("#k_kind").append("<option value='" + $(this).find('kindCd').text() + "'>" + $(this).find('KNm').text() + "</option>");
+				})
+			})
+		})
 	 
 		$("#button1").click(function(){
 			if( $.trim($("#k_kind").val()) == '선택' ){

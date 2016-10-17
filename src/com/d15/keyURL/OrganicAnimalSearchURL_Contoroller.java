@@ -106,6 +106,14 @@ public class OrganicAnimalSearchURL_Contoroller extends HttpServlet {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+		}else if(search.equals("/D15/Missing/kind.keyurl")){
+			action = new D15_kindURL_Service();
+			try{
+				forward = action.execute(request, response);
+			}catch(Exception e){
+				
+			}
+			
 		}else{
 		action = new D15_PublicURL_Service2();
 		try {
